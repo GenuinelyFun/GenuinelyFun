@@ -17,6 +17,8 @@ export interface Version {
 export interface System {
     panels: Panel[]
     zones: Zone[]
+    ntp_pool?: string[]
+    timezone?: string
 }
 
 export interface Panel {
