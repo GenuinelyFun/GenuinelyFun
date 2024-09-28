@@ -4,7 +4,7 @@ import "./Menu.css";
 
 const Menu: React.FC = () => {
     return (
-        <div>
+        <div className="menu">
             <Link to="/">Home</Link>
             <Link to="/feet">Feet</Link>
         </div>

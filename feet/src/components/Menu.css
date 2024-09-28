@@ -1,0 +1,27 @@
+/* Style the links inside the navigation bar */
+.menu a {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'IBMPlexMono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Change the color of links on hover */
+.menu a:hover {
+    background-color: #28355a;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.menu a.active {
+    border-bottom: 1px solid white;
+}
+
+.menu {
+    display: flex;
+    margin-left: auto;
+}
