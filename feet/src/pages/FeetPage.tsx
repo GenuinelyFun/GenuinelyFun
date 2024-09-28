@@ -1,8 +1,8 @@
-import React from "react";
-import "./FeetPage.css";
+import React from 'react';
+import './FeetPage.css';
 
 const FeetPage = (): JSX.Element => {
-    return <div>FEET page</div>;
+  return <div>FEET page</div>;
 };
 
 export default FeetPage;
