@@ -28,9 +28,45 @@ yarn-error.log*
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
-.idea
-.idea/
+# Ignore all files in the .idea folder
 .idea/*
+
+# Except for the following:
+!.idea/codeStyles
+!.idea/fileTemplates
+!.idea/inspectionProfiles
+!.idea/keymaps
+!.idea/libraries
+!.idea/modules.xml
+!.idea/vcs.xml
+!.idea/workspace.xml
+!.idea/tasks.xml
+
+# Ignore workspace-related files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf
+
+# Ignore OS-specific files
+.idea/**/Desktop.xml
+.idea/**/Find.xml
+.idea/**/Usage Statistics.xml
+.idea/**/Deployment.xml
+.idea/**/dataSources
+.idea/**/dataSources.local.xml
+.idea/**/databaseDrivers
+.idea/**/databaseServers.xml
+.idea/**/sqlDataSources.xml
+.idea/**/sqlDialects.xml
+.idea/**/webServers.xml
+.idea/**/jsLibraryMappings.xml
+
+# Ignore .iml files (module files) if you use Maven or Gradle
+*.iml
+modules.xml
+.idea/modules.xml
 
 # User-specific stuff
 .idea/**/workspace.xml
