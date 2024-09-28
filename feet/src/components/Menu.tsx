@@ -1,16 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Menu.css";
 
 const Menu: React.FC = () => {
-  return (
-    <div className="menu">
-      <Link to="/home">home</Link>
-      <Link to="/projects">feet</Link>
-      <Link to="/about">FEET</Link>
-      <Link to="/contact">FEET</Link>
-    </div>
-  );
-};
+    return (
+        <div>
+            <Link to="/">Home</Link>
+            <Link to="/feet">Feet</Link>
+        </div>
+    );
+}
 
 export default Menu;
