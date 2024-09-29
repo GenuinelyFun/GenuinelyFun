@@ -1,4 +1,15 @@
 .header {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.header__icon-logo {
+  column-gap: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: inline;
+  width: 100px;
+  height: 75px;
 }
