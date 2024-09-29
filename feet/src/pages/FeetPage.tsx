@@ -1,46 +1,75 @@
-import React from 'react';
+import { ChangeEvent, DragEventHandler, useState } from 'react';
 import './FeetPage.css';
+import { Root } from '../interfaces/jsonDataInterface';
 
 const FeetPage = (): JSX.Element => {
-  const handleDragEvent = (
-    event: React.DragEvent<HTMLDivElement>,
-    action: string,
-  ) => {
+  const [json, setJson] = useState<Root>();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleUploadedFile = (file: File) => {
+    const fileReader = new FileReader();
+    fileReader.readAsText(file, 'UTF-8');
+    fileReader.onload = (e) => {
+      if (e.target?.result) {
+        setJson(JSON.parse(e.target.result.toString()));
+        setLoading(false);
+      } else {
+        setError(true);
+      }
+    };
+  };
+  const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
-    if (action === 'drop') {
-      // Handle file drop
+    setError(false);
+    setLoading(true);
+    handleUploadedFile(event.dataTransfer.files[0]);
+  };
+
+  const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    setError(false);
+    if (event.target.files?.[0]) {
+      handleUploadedFile(event.target.files[0]);
+    } else {
+      setError(true);
     }
   };
 
-  const onFileSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Handle file selection
-  };
-
   return (
-    <div className="feetpage">
-      <div className="upload-window">
-        <div
-          className="drag-drop-container"
-          onDrop={(e) => handleDragEvent(e, 'drop')}
-          onDragOver={(e) => handleDragEvent(e, 'dragover')}
-          onDragLeave={(e) => handleDragEvent(e, 'dragleave')}
-        >
-          <p>You can drag and drop the JSON file to upload</p>
-          <p>or</p>
-          <input
-            type="file"
-            id="file-upload"
-            style={{ display: 'none' }}
-            onChange={onFileSelected}
-          />
-          <button
-            className="upload-btn"
-            onClick={() => document.getElementById('file-upload')?.click()}
+    <div className="upload-window">
+      {json ? (
+        <div className="drag-drop-container">Success</div>
+      ) : (
+        <>
+          <div
+            className="drag-drop-container"
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
           >
-            Browse Computer
-          </button>
-        </div>
-      </div>
+            <p>You can drag and drop the JSON file to upload</p>
+            <p>or</p>
+            <input
+              type="file"
+              id="file-upload"
+              style={{ display: 'none' }}
+              onChange={onFileSelected}
+            />
+            <button
+              className="upload-btn"
+              onClick={() => document.getElementById('file-upload')?.click()}
+            >
+              Browse Computer
+            </button>
+          </div>
+          {error && (
+            <p className="upload-error">
+              Something went wrong, please try again later.
+            </p>
+          )}
+        </>
+      )}
     </div>
   );
 };

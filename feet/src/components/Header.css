@@ -1,15 +1,13 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-small);
+    max-height: var(--height-header);
 }
 
 .header__icon-logo {
-  column-gap: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: inline;
-  width: 100px;
-  height: 75px;
+    display: inline;
+    width: auto;
+    height: 75px;
 }
