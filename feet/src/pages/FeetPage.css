@@ -1,8 +1,9 @@
 .upload-window {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: calc(100% - var(--height-header));
 }
 
 .drag-drop-container {
@@ -14,9 +15,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.drag-drop-container p {
     text-align: center;
 }
 
@@ -29,4 +27,8 @@
 
 .upload-btn:hover {
     background-color: var(--color-main-darkmode);
+}
+
+.upload-error {
+    color: red;
 }
