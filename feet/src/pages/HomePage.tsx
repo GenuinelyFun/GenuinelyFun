@@ -1,8 +1,7 @@
-import React from 'react';
-import './HomePage.css';
+import { FC } from 'react';
 
-const HomePage = (): JSX.Element => {
-  return <div>Home page</div>;
+const HomePage: FC = () => {
+  return <section>Home page</section>;
 };
 
 export default HomePage;

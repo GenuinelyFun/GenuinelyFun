@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Menu.css';
+import styles from './Menu.module.less';
 
 const Menu: React.FC = () => {
   return (
-    <div className="menu">
+    <nav className={styles.menu}>
       <Link to="/">Home</Link>
       <Link to="/feet">Feet</Link>
-    </div>
+    </nav>
   );
 };
 

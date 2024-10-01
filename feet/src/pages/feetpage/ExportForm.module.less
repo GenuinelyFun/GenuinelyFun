@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  width: 270px;
+  margin-top: var(--spacing-medium);
+  background-color: lightgrey;
+  border-radius: 8px;
+  padding: var(--spacing-small);
+}
+
+.input {
+  width: fill;
+  padding: var(--spacing-small);
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+  &:hover {
+    background-color: var(--color-main-darkmode);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-main);
+  }
+}
