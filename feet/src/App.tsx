@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import Header from './components/Header';
-import './App.css';
 
 const App = (): JSX.Element => {
   return (

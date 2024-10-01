@@ -1,5 +1,6 @@
 import { FC, ChangeEvent, DragEventHandler, useState } from 'react';
 import { Root } from '../../interfaces/jsonDataInterface';
+import styles from './ImportForm.module.less';
 
 const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   data,
@@ -41,7 +42,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   return (
     <>
       <div
-        className="drag-drop-container"
+        className={styles.container}
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
       >
@@ -58,7 +59,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
               onChange={onFileSelected}
             />
             <button
-              className="upload-btn"
+              className={styles.button}
               onClick={() => document.getElementById('file-upload')?.click()}
             >
               Browse Computer
@@ -67,7 +68,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
         )}
       </div>
       {error && (
-        <p className="upload-error">
+        <p className={styles.error}>
           Something went wrong, please try again later.
         </p>
       )}
