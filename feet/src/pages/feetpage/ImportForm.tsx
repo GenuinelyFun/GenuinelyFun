@@ -1,9 +1,10 @@
-import { ChangeEvent, DragEventHandler, useState } from 'react';
-import './FeetPage.css';
-import { Root } from '../interfaces/jsonDataInterface';
+import { FC, ChangeEvent, DragEventHandler, useState } from 'react';
+import { Root } from '../../interfaces/jsonDataInterface';
 
-const FeetPage = (): JSX.Element => {
-  const [json, setJson] = useState<Root>();
+const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
+  data,
+  setData,
+}) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -12,13 +13,14 @@ const FeetPage = (): JSX.Element => {
     fileReader.readAsText(file, 'UTF-8');
     fileReader.onload = (e) => {
       if (e.target?.result) {
-        setJson(JSON.parse(e.target.result.toString()));
+        setData(JSON.parse(e.target.result.toString()));
         setLoading(false);
       } else {
         setError(true);
       }
     };
   };
+
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
     setError(false);
@@ -36,18 +38,17 @@ const FeetPage = (): JSX.Element => {
       setError(true);
     }
   };
-
   return (
-    <div className="upload-window">
-      {json ? (
-        <div className="drag-drop-container">Success</div>
-      ) : (
-        <>
-          <div
-            className="drag-drop-container"
-            onDrop={handleDrop}
-            onDragOver={(e) => e.preventDefault()}
-          >
+    <>
+      <div
+        className="drag-drop-container"
+        onDrop={handleDrop}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        {data ? (
+          <p>Success</p>
+        ) : (
+          <>
             <p>You can drag and drop the JSON file to upload</p>
             <p>or</p>
             <input
@@ -62,16 +63,16 @@ const FeetPage = (): JSX.Element => {
             >
               Browse Computer
             </button>
-          </div>
-          {error && (
-            <p className="upload-error">
-              Something went wrong, please try again later.
-            </p>
-          )}
-        </>
+          </>
+        )}
+      </div>
+      {error && (
+        <p className="upload-error">
+          Something went wrong, please try again later.
+        </p>
       )}
-    </div>
+    </>
   );
 };
 
-export default FeetPage;
+export default ImportForm;
