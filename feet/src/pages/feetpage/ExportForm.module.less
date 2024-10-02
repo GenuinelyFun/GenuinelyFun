@@ -4,9 +4,10 @@
   gap: var(--spacing-small);
   width: 270px;
   margin-top: var(--spacing-medium);
-  background-color: lightgrey;
+  background-color: var(--color-card);
   border-radius: 8px;
   padding: var(--spacing-small);
+  border: var(--border) var(--color-card-border);
 }
 
 .input {
@@ -22,7 +23,7 @@
   cursor: pointer;
   align-self: center;
   &:hover {
-    background-color: var(--color-main-darkmode);
+    background-color: var(--color-main-contrast);
   }
   &:disabled {
     cursor: not-allowed;

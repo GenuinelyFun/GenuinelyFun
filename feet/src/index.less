@@ -1,0 +1,57 @@
+:root {
+  --max-width: 750px;
+  --border: 3px solid;
+  --font-weight-bold: 500;
+  --color-background: #f8f8ff; /* Ghost White */
+  --color-card: #eaeaff; /* Mirages monochromatic */
+  --color-card-border: #d6d6ff;
+  --color-main: #00573f; /* Jets Gotham Green */
+  --color-main-contrast: #19a342; /* Forest Green */
+  --color-font: #2f2f2f; /* Night Rider */
+  --color-font-light: #f8f8ff; /* Ghost White */
+  --transition-dark-light-mode: background-color 0.7s ease, color 0.2s ease;
+  --button-font-color: #f8f8ff; /* Ghost White */
+  --color-main-complimentary: #560018;
+  --color-main-complimentary-monochromatic: #890026;
+  --spacing-small: 16px;
+  --spacing-medium: 32px;
+  --height-header: 107px;
+}
+
+[data-theme="dark"] {
+  --color-background: #1c2833; /* Mirage */
+  --color-main: #19a342; /* Forest Green */
+  --color-card: #2e4254; /* Mirages monochromatic */
+  --color-card-border: #405c75;
+  --color-font: #f8f8ff; /* Ghost White */
+  --color-main-contrast: #00573f; /* Forest Green */
+}
+
+html,
+#root {
+  height: 100%;
+  transition: var(--transition-dark-light-mode);
+}
+
+body {
+  font-family: "Segoe UI", "Arial", "sans-serif";
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-font);
+  transition: var(--transition-dark-light-mode);
+
+  & a {
+    color: var(--color-font);
+  }
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--color-main);
+  color: var(--button-font-color);
+}
