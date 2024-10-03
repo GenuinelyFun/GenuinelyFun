@@ -1,14 +1,22 @@
 :root {
-  --max-width: 750px;
-  --border: 3px solid;
-  --font-weight-bold: 500;
+  --max-width-page: 750px;
+  --max-height-section: 300px;
+  --max-height-hero: 700px;
+  --max-height-footer: 200px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
   --color-background: #f8f8ff; /* Ghost White */
   --color-card: #eaeaff; /* Mirages monochromatic */
   --color-card-border: #d6d6ff;
   --color-main: #00573f; /* Jets Gotham Green */
-  --color-main-contrast: #19a342; /* Forest Green */
+  --color-main-contrast: #418a6f;
   --color-font: #2f2f2f; /* Night Rider */
   --color-font-light: #f8f8ff; /* Ghost White */
+  --color-font-button: #f8f8ff; /* Ghost White */
+  --color-button-background: #f8f8ff; /* Ghost White */
+  --color-button-background-hover: #d2d2d6; /* Mirage */
   --transition-dark-light-mode: background-color 0.7s ease, color 0.2s ease;
   --button-font-color: #f8f8ff; /* Ghost White */
   --color-main-complimentary: #560018;
@@ -16,11 +24,19 @@
   --spacing-small: 16px;
   --spacing-medium: 32px;
   --height-header: 107px;
+  --border: 3px solid;
+  --padding-section: 20px;
+  --padding-footer: 40px;
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 25px;
+  --font-size-h1-hero: 50px;
+  --font-size-p-hero: 20px;
 }
 
 [data-theme="dark"] {
   --color-background: #1c2833; /* Mirage */
-  --color-main: #19a342; /* Forest Green */
+  --color-main: #418a6f;
   --color-card: #2e4254; /* Mirages monochromatic */
   --color-card-border: #405c75;
   --color-font: #f8f8ff; /* Ghost White */
@@ -49,9 +65,11 @@ body {
 }
 
 button {
+  font-family: 'Segoe UI', 'Arial', 'sans-serif';
   border: none;
   padding: 0;
   cursor: pointer;
   background-color: var(--color-main);
-  color: var(--button-font-color);
+  color: var(--color-font-button);
+  font-size: var(--font-size-small);
 }

@@ -1,12 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Menu.module.less';
+import classNames from 'classnames';
 
 const Menu: React.FC = () => {
+  const location = useLocation();
   return (
     <nav className={styles.menu}>
-      <Link to="/">Home</Link>
-      <Link to="/feet">Feet</Link>
+      <Link
+        className={classNames(styles.link, {
+          [styles.active]: location.pathname === '/',
+        })}
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        className={classNames(styles.link, {
+          [styles.active]: location.pathname === '/feet',
+        })}
+        to="/feet"
+      >
+        Feet
+      </Link>
     </nav>
   );
 };

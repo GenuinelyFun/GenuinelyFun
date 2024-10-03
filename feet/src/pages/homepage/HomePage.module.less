@@ -1,0 +1,106 @@
+.heroSection {
+  width: 100%;
+  height: var(--max-height-hero);
+  background-color: var(--color-main);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10%;
+
+  & h1 {
+    color: var(--color-font-button);
+    font-size: var(--font-size-h1-hero);
+    font-weight: var(--font-weight-bold);
+    filter: drop-shadow(2px 2px 2px #000000);
+    margin: 0;
+
+    & span {
+      color: #deb887;
+    }
+  }
+
+  & p {
+    color: var(--color-font-button);
+    font-size: var(--font-size-p-hero);
+    filter: drop-shadow(2px 2px 2px #000000);
+    margin: 0;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & img {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(2px 2px 2px #000000);
+
+    &:first-child {
+      transform: rotate(25deg) translate(60px);
+    }
+
+    &:last-child {
+      transform: rotate(-25deg) translateY(-50px);
+    }
+  }
+}
+
+.mainSection {
+  margin: 70px auto 70px auto;
+}
+
+.cardContent {
+  & h2 {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    margin: 0 auto 20px auto;
+  }
+
+  & p {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    margin: 0;
+  }
+}
+
+.genericImage {
+  width: 30%;
+  height: auto;
+  padding: 5%;
+}
+
+.mainSectionInfoBox {
+  background-color: var(--color-main);
+  color: var(--color-font-light);
+  position: relative;
+  overflow: hidden;
+
+  & button {
+    margin-top: 20px;
+  }
+
+  & .icon {
+    width: 45%;
+    height: auto;
+    transform: rotate(25deg);
+    background-color: transparent;
+    position: absolute;
+    left: -60px;
+    filter: drop-shadow(1px 1px 1px #000000);
+  }
+
+  & span {
+    color: #deb887;
+  }
+}
+
+.mainContent {
+  width: 60%;
+  margin-left: auto;
+  filter: drop-shadow(1px 1px 1px #000000);
+}

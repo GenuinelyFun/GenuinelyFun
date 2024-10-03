@@ -1,0 +1,24 @@
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+
+  &:hover {
+    background-color: var(--color-main-darkmode);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-main);
+  }
+}
+
+.invert {
+  background-color: var(--color-button-background);
+  color: var(--color-main);
+
+  &:hover {
+    background-color: var(--color-button-background-hover);
+  }
+}
