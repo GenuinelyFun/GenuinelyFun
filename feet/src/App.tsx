@@ -1,14 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
+import LanguageSelect from './components/SwitchLanguageButton';
+import DarkmodeToggle from './components/DarkmodeToggle';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import HomePage from './pages/homepage/HomePage';
 import FeetPage from './pages/feetpage/FeetPage';
-import Header from './components/Header';
-import DarkmodeToggle from './components/DarkmodeToggle';
-import Footer from './components/Footer';
 
 const App = (): JSX.Element => {
   return (
     <>
       <Header />
+      <LanguageSelect />
       <DarkmodeToggle />
       <Routes>
         <Route path="/" element={<HomePage />} />
