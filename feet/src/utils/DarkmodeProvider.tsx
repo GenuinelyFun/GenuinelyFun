@@ -1,35 +1,22 @@
-import {
-  createContext,
-  FC,
-  PropsWithChildren,
-  Context,
-  useContext,
-} from 'react';
+import { createContext, FC, PropsWithChildren } from 'react';
 import useLocalStorage from 'use-local-storage';
-
-export function useContextOrThrow<T>(context: Context<T | undefined>): T {
-  const theContext = useContext(context);
-
-  if (!theContext) {
-    throw new Error(`The hook is not used within the context.`);
-  }
-
-  return theContext;
-}
+import { useContextOrThrow } from './context-utils';
 
 export enum Darkmode {
   Light = 'light',
   Dark = 'dark',
 }
 
-type DarkmodeContext = {
+type DarkmodeContextType = {
   theme: Darkmode;
   toggleTheme(): void;
 };
 
-const DarkmodeContext = createContext<DarkmodeContext | undefined>(undefined);
+const DarkmodeContext = createContext<DarkmodeContextType | undefined>(
+  undefined,
+);
 
-export const useDarkmodeContext = (): DarkmodeContext =>
+export const useDarkmodeContext = (): DarkmodeContextType =>
   useContextOrThrow(DarkmodeContext);
 
 export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {

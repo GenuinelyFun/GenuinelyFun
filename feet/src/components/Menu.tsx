@@ -1,9 +1,11 @@
 import React from 'react';
+import { useLanguageContext } from '../utils/LanguageProvider';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Menu.module.less';
 import classNames from 'classnames';
 
 const Menu: React.FC = () => {
+  const { translate } = useLanguageContext();
   const location = useLocation();
   return (
     <nav className={styles.menu}>
@@ -13,7 +15,7 @@ const Menu: React.FC = () => {
         })}
         to="/"
       >
-        Home
+        {translate('tab-homepage')}
       </Link>
       <Link
         className={classNames(styles.link, {
@@ -21,10 +23,21 @@ const Menu: React.FC = () => {
         })}
         to="/feet"
       >
-        Feet
+        {translate('tab-feet')}
       </Link>
     </nav>
   );
 };
 
 export default Menu;
+
+export const MenuText = {
+  'tab-homepage': {
+    en: 'Home',
+    no: 'Hjem',
+  },
+  'tab-feet': {
+    en: 'FEET',
+    no: 'FEET',
+  },
+};

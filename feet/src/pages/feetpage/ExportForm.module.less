@@ -10,23 +10,13 @@
   border: var(--border) var(--color-card-border);
 }
 
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
 .input {
-  width: fill;
   padding: var(--spacing-small);
   border-radius: 8px;
   margin-top: 8px;
-}
-
-.button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  align-self: center;
-  &:hover {
-    background-color: var(--color-main-contrast);
-  }
-  &:disabled {
-    cursor: not-allowed;
-    background-color: var(--color-main);
-  }
 }

@@ -2,12 +2,17 @@ import { FC, useState } from 'react';
 import { utils, write } from 'xlsx';
 import FileSaver from 'file-saver';
 
+import { useLanguageContext } from '../../utils/LanguageProvider';
+
 import { Root } from '../../interfaces/jsonDataInterface';
 import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
-  const [fileName, setFileName] = useState<string>('best-filename-ever');
+  const { translate } = useLanguageContext();
+  const [fileName, setFileName] = useState<string>(
+    translate('export-filename-placeholder'),
+  );
 
   const exportToExcel: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -22,8 +27,8 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
 
   return (
     <form className={styles.container} onSubmit={exportToExcel}>
-      <label>
-        Excel filename
+      <label className={styles.label}>
+        {translate('export-filename-label')}
         <input
           className={styles.input}
           value={fileName}
@@ -32,7 +37,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
       </label>
       <GenericButton
         disabled={data === undefined}
-        buttonText={'Download Excel sheet'}
+        buttonText={translate('export-download-button')}
         onClick={() => console.log('TODO NGHI check submitbutton')}
       />
     </form>
