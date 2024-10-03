@@ -1,16 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/icons/icon_genuinely_fun_381x353.png';
 import Menu from './Menu';
+import DarkmodeToggle from './DarkmodeToggle';
 import styles from './Header.module.less';
+import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <Link to="/">
-        <img src={logo} className={styles.logo} alt="Icon ice cube" />
+        <img
+          src={iconGenuinelyFun}
+          alt="Genuinely Fun Icon"
+          className={styles.funIcon}
+        />
       </Link>
-      <Menu />
+      <div className={styles.menuContainer}>
+        <Menu />
+        <DarkmodeToggle />
+      </div>
     </header>
   );
 };
