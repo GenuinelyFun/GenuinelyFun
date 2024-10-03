@@ -1,6 +1,7 @@
 import { FC, ChangeEvent, DragEventHandler, useState } from 'react';
 import { Root } from '../../interfaces/jsonDataInterface';
 import styles from './ImportForm.module.less';
+import GenericButton from '../../components/GenericButton';
 
 const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   data,
@@ -58,12 +59,10 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
               style={{ display: 'none' }}
               onChange={onFileSelected}
             />
-            <button
-              className={styles.button}
+            <GenericButton
               onClick={() => document.getElementById('file-upload')?.click()}
-            >
-              Browse Computer
-            </button>
+              buttonText={'Browse Computer'}
+            />
           </>
         )}
       </div>

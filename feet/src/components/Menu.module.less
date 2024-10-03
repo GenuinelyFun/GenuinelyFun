@@ -3,19 +3,23 @@
   margin-left: auto;
 
   /* Style the links inside the navigation bar */
-  & a {
-    float: left;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: var(--font-weight-bold);
-    border-bottom: var(--border) transparent;
-  }
 
-  /* Change the color of links on hover and active states */
-  & a:hover,
-  & a.active {
-    border-bottom-color: var(--color-main);
+}
+
+.link {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  border-bottom: var(--border) transparent;
+  
+  &:hover {
+    border-bottom: var(--border) var(--color-main);
   }
+}
+
+.active {
+  border-bottom: var(--border) var(--color-main);
 }

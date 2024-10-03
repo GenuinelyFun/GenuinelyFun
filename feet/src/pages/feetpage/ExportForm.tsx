@@ -4,6 +4,7 @@ import FileSaver from 'file-saver';
 
 import { Root } from '../../interfaces/jsonDataInterface';
 import styles from './ExportForm.module.less';
+import GenericButton from '../../components/GenericButton';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const [fileName, setFileName] = useState<string>('best-filename-ever');
@@ -29,9 +30,11 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
           onChange={(e) => setFileName(e.target.value)}
         />
       </label>
-      <button className={styles.button} disabled={data === undefined}>
-        Download Excel sheet
-      </button>
+      <GenericButton
+        disabled={data === undefined}
+        buttonText={'Download Excel sheet'}
+        onClick={() => console.log('TODO NGHI check submitbutton')}
+      />
     </form>
   );
 };
