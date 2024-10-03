@@ -19,6 +19,10 @@
     "en": "Something went wrong, please try again later.",
     "no": "Noe gikk galt, prøv igjen senere."
   },
+  "upload-error-json": {
+    "en": "Must be JSON filetype, try again.",
+    "no": "Må være JSON filtype, prøv igjen."
+  },
   "export-filename-label": {
     "en": "Edit filename",
     "no": "Endre filnavn"

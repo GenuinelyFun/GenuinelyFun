@@ -8,7 +8,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   data,
   setData,
 }) => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | boolean>(false);
   const [loading, setLoading] = useState(false);
   const { translate } = useLanguageContext();
 
@@ -17,10 +17,14 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
     fileReader.readAsText(file, 'UTF-8');
     fileReader.onload = (e) => {
       if (e.target?.result) {
-        setData(JSON.parse(e.target.result.toString()));
+        try {
+          setData(JSON.parse(e.target.result.toString()));
+        } catch (error) {
+          if (error instanceof SyntaxError) {
+            setError('json');
+          }
+        }
         setLoading(false);
-      } else {
-        setError(true);
       }
     };
   };
@@ -29,19 +33,29 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
     event.preventDefault();
     setError(false);
     setLoading(true);
-    handleUploadedFile(event.dataTransfer.files[0]);
+
+    if (event.dataTransfer.files[0]) {
+      handleUploadedFile(event.dataTransfer.files[0]);
+    }
   };
 
   const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     setLoading(true);
     setError(false);
+
     if (event.target.files?.[0]) {
       handleUploadedFile(event.target.files[0]);
-    } else {
-      setError(true);
     }
   };
+
+  const errorText = () => {
+    if (error === 'json') {
+      return translate('upload-error-json');
+    }
+    return translate('upload-error');
+  };
+
   return (
     <>
       <div
@@ -70,7 +84,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
           />
         </>
       </div>
-      {error && <p className={styles.error}>{translate('upload-error')}</p>}
+      {error && <p className={styles.error}>{errorText()}</p>}
     </>
   );
 };
