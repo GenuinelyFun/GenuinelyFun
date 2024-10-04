@@ -1,47 +1,55 @@
+
 :root {
   --max-width-page: 750px;
-  --max-height-section: 300px;
-  --max-height-hero: 700px;
-  --max-height-footer: 200px;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
-  --color-background: #f8f8ff; /* Ghost White */
-  --color-card: #eaeaff; /* Mirages monochromatic */
-  --color-card-border: #d6d6ff;
-  --color-main: #00573f; /* Jets Gotham Green */
-  --color-main-contrast: #418a6f;
-  --color-font: #2f2f2f; /* Night Rider */
-  --color-font-light: #f8f8ff; /* Ghost White */
-  --color-font-button: #f8f8ff; /* Ghost White */
-  --color-button-background: #418a6f;
-  --color-button-background-hover: #d2d2d6; /* Mirage */
-  --transition-dark-light-mode: background-color 0.7s ease, color 0.2s ease;
-  --button-font-color: #f8f8ff; /* Ghost White */
-  --color-main-complimentary: #560018;
-  --color-main-complimentary-monochromatic: #890026;
-  --spacing-small: 16px;
+  --spacing-xsmall: 16px;
+  --spacing-small: 24px;
   --spacing-medium: 32px;
+  --spacing-large: 40px;
   --height-header: 107px;
   --border: 3px solid;
-  --padding-section: 20px;
-  --padding-footer: 40px;
   --font-size-small: 16px;
   --font-size-medium: 18px;
-  --font-size-large: 25px;
-  --font-size-h1-hero: 50px;
-  --font-size-p-hero: 20px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 48px;
+  --transition-dark-light-mode: background-color 0.7s ease, color 0.2s ease;
+
+  --color-green: #00573f; /* Jets Gotham Green */
+  --color-green-light: #338A72;
+  --color-green-dark: #004331;
+  --color-red: #570018; /* complimentary*/
+  --color-red-light: #920028;
+  --color-red-dark: #430013;
+  --color-white: #f3f6f8;
+  --color-black: #1c2833; /* Mirage */
+  --color-gray-light: #e6ecf1;
+  --color-gray-dark: #d9e2ea;
+  --color-gray-blue: #9ab2c8;
+  --color-pink: #9ab2c8;
+  --color-yellow-soft: #c8c79a;
+  --color-red-soft: #c89a9b;
+  --color-gray-blue-dark: #385066;
+  --color-pink-dark: #663850;
+  --color-yellow-soft-dark: #666538;
+  --color-red-soft-dark: #663839;
 }
 
 [data-theme="dark"] {
-  --color-background: #1c2833; /* Mirage */
-  --color-main: #418a6f;
-  --color-card: #2e4254; /* Mirages monochromatic */
-  --color-card-border: #405c75;
-  --color-font: #f8f8ff; /* Ghost White */
-  --color-main-contrast: #00573f; /* Forest Green */
-  --color-button-background-hover: #d2d2d6; /* Mirage */
+  --color-green: #006145;
+  --color-green-light: #006d4e;
+  --color-green-dark: #00bb86;
+
+  --color-white: #1c2833;
+  --color-black: #f8f8ff;
+  --color-gray-light: #2e4254;
+  --color-gray-dark: #354c61;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -56,12 +64,12 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--color-background);
-  color: var(--color-font);
+  background-color: var(--color-white);
+  color: var(--color-black);
   transition: var(--transition-dark-light-mode);
 
   & a {
-    color: var(--color-font);
+    color: var(--color-black);
   }
 }
 
@@ -70,7 +78,6 @@ button {
   border: none;
   padding: 0;
   cursor: pointer;
-  background-color: var(--color-main);
-  color: var(--color-font-button);
   font-size: var(--font-size-small);
+
 }

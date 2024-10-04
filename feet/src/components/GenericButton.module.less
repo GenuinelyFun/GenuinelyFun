@@ -3,22 +3,28 @@
   border-radius: 5px;
   cursor: pointer;
   align-self: center;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
 
   &:hover {
-    background-color: var(--color-button-background);
+    background-color: var(--color-green-light);
   }
 
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--color-main);
+    background-color: var(--color-green);
   }
 }
 
 .invert {
-  background-color: var(--color-button-background);
-  color: var(--color-main);
+  background-color: var(--color-white);
+  color: var(--color-green);
 
   &:hover {
-    background-color: var(--color-button-background-hover);
+    background-color: var(--color-gray-light);
   }
 }
