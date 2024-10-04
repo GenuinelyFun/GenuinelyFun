@@ -8,7 +8,9 @@ import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 import { useContextOrThrow } from './context-utils';
 
+import HomePageText from '../pages/homepage/HomePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
+import FooterText from '../components/FooterText.json';
 import { MenuText } from '../components/Menu';
 
 export enum Language {
@@ -17,7 +19,9 @@ export enum Language {
 }
 
 const allText = {
+  ...HomePageText,
   ...feetPageText,
+  ...FooterText,
   ...MenuText,
 };
 
