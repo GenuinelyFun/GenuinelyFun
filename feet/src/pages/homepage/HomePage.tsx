@@ -9,8 +9,10 @@ import GenericButton from '../../components/GenericButton';
 import Card, { IconPosition } from './Card';
 import styles from './HomePage.module.less';
 import classNames from 'classnames';
+import { useLanguageContext } from '../../utils/LanguageProvider';
 
 const HomePage: FC = () => {
+  const { translate } = useLanguageContext();
   return (
     <main>
       <section className={styles.heroSection}>
@@ -21,9 +23,12 @@ const HomePage: FC = () => {
         />
         <div>
           <h1>
-            Where your <span>i</span>deas come to life
+            {translate('hero-section-title-part1')}
+            <span>{translate('hero-section-title-part2')}</span>
+            {translate('hero-section-title-part3')}
           </h1>
-          <p>We turn your ideas into reality with thoughtful coding.</p>
+
+          <p> {translate('hero-section-description')} </p>
         </div>
         <img
           src={websiteIcon}
@@ -43,13 +48,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.LEFT}
         >
           <div className={styles.cardContent}>
-            <h2>Nghi</h2>
-            <p>
-              A full stack developer. Passionate about design, she types a quick
-              90 words per minute, she can program as fast as the speed of
-              light! (ahem…not really). She’s always dressed in stylish outfits
-              that reflect her cool, modern vibe.
-            </p>
+            <h2>{translate('main-nghi-title')} </h2>
+            <p>{translate('main-nghi-description')} </p>
           </div>
         </Card>
 
@@ -64,14 +64,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>Arthur</h2>
-            <p>
-              By day, I'm a field technician, but by night (and occasionally on
-              lunch breaks), I moonlight as a full-stack developer. As a
-              freelancer, I love creating smart solutions and tools that help
-              people get better results with less effort—and more importantly,
-              less time. Oh, and I also build websites. Because, why not?
-            </p>
+            <h2>{translate('main-arthur-title')} </h2>
+            <p>{translate('main-arthur-description')} </p>
           </div>
         </Card>
 
@@ -82,17 +76,14 @@ const HomePage: FC = () => {
         >
           <div className={classNames(styles.cardContent, styles.mainContent)}>
             <h2>
-              We make your <span>i</span>dea to reality
+              {translate('main-section-infobox-title-part1')}
+              <span>{translate('main-section-infobox-title-part2')}</span>
+              {translate('main-section-infobox-title-part3')}
             </h2>
-            <p>
-              Your digital presence is key to making a great first impression.
-              Whether you need an engaging platform or effective tools to boost
-              productivity, we deliver modern solutions that stand out and work
-              seamlessly.
-            </p>
+            <p>{translate('main-section-infobox-description')}</p>
             <GenericButton
               onClick={() => console.log('I DO NOTHING YET TODO TODO TODO')}
-              buttonText={"Click here, and we'll make it happen"}
+              buttonText={translate('main-section-infobox-button')}
               invert={true}
             />
           </div>
@@ -108,16 +99,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>Our footsteps</h2>
-            <p>
-              We create stunning, high-converting websites, then build highly
-              targeted landing pages that drive focused traffic straight to you.
-              After that, we roll up our sleeves and work tirelessly to turn as
-              many visitors as possible into paying customers. The result? You
-              enjoy a profitable, high-performing website, raking in revenue and
-              becoming the talk of your friends and family. It really is that
-              simple!
-            </p>
+            <h2>{translate('main-section-footsteps-title')}</h2>
+            <p>{translate('main-section-footsteps-description')}</p>
           </div>
         </Card>
       </div>
