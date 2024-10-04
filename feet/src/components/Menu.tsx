@@ -31,7 +31,7 @@ const Menu: React.FC = () => {
 
 export default Menu;
 
-export const MenuText = {
+export const menuText = {
   'tab-homepage': {
     en: 'Home',
     no: 'Hjem',

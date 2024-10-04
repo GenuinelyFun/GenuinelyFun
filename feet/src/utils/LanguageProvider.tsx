@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 import { useContextOrThrow } from './context-utils';
 
-import HomePageText from '../pages/homepage/HomePageText.json';
+import homePageText from '../pages/homepage/homePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
-import FooterText from '../components/FooterText.json';
-import { MenuText } from '../components/Menu';
+import footerText from '../components/footerText.json';
+import { menuText } from '../components/Menu';
 
 export enum Language {
   EN = 'en',
@@ -19,10 +19,10 @@ export enum Language {
 }
 
 const allText = {
-  ...HomePageText,
+  ...homePageText,
   ...feetPageText,
-  ...FooterText,
-  ...MenuText,
+  ...footerText,
+  ...menuText,
 };
 
 export type TranslateTextKeyType = keyof typeof allText;
