@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import LanguageSelect from './components/SwitchLanguageButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/homepage/HomePage';
@@ -9,7 +8,6 @@ const App = (): JSX.Element => {
   return (
     <>
       <Header />
-      <LanguageSelect />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/feet" element={<FeetPage />} />
