@@ -4,6 +4,7 @@ import Menu from './Menu';
 import DarkmodeToggle from './DarkmodeToggle';
 import styles from './Header.module.less';
 import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
+import LanguageButton from './LanguageButton';
 
 const Header: React.FC = () => {
   return (
@@ -17,7 +18,10 @@ const Header: React.FC = () => {
       </Link>
       <div className={styles.menuContainer}>
         <Menu />
+      </div>
+      <div className={styles.buttonContainer}>
         <DarkmodeToggle />
+        <LanguageButton />
       </div>
     </header>
   );

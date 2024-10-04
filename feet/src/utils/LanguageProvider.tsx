@@ -1,9 +1,4 @@
-import React, {
-  ChangeEventHandler,
-  createContext,
-  FC,
-  PropsWithChildren,
-} from 'react';
+import React, { createContext, FC, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 import { useContextOrThrow } from './context-utils';
@@ -12,6 +7,7 @@ import homePageText from '../pages/homepage/homePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import footerText from '../components/footerText.json';
 import { menuText } from '../components/Menu';
+import { languageText } from '../components/LanguageButton';
 
 export enum Language {
   EN = 'en',
@@ -19,6 +15,7 @@ export enum Language {
 }
 
 const allText = {
+  ...languageText,
   ...homePageText,
   ...feetPageText,
   ...footerText,
@@ -33,7 +30,7 @@ type LanguageContextType = {
   t: TFunction<'translation', undefined>;
   translate: (textKey: TranslateTextKeyType) => string;
   i18n: i18n;
-  onClickLanguageChange: ChangeEventHandler<HTMLInputElement>;
+  onClickLanguageChange: (language: string) => void;
   languages: Languages;
 };
 
@@ -48,8 +45,7 @@ export const LanguageContextProvider: FC<PropsWithChildren> = ({
 
   const { t, i18n } = useTranslation();
 
-  const onClickLanguageChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const language = e.target.value;
+  const onClickLanguageChange = (language: string) => {
     i18n.changeLanguage(language);
   };
 
