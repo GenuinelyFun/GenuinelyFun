@@ -1,7 +1,7 @@
 .heroSection {
   width: 100%;
-  height: var(--max-height-hero);
-  background-color: var(--color-main);
+  height: 700px;
+  background-color: var(--color-green);
   text-align: center;
   display: flex;
   align-items: center;
@@ -10,10 +10,14 @@
   flex-direction: row;
   justify-content: center;
   gap: 10%;
+  color: var(--color-white);
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
 
   & h1 {
-    color: var(--color-font-button);
-    font-size: var(--font-size-h1-hero);
+    font-size: var(--font-size-xlarge);
     font-weight: var(--font-weight-bold);
     filter: drop-shadow(2px 2px 2px #000000);
     margin: 0;
@@ -24,8 +28,7 @@
   }
 
   & p {
-    color: var(--color-font-button);
-    font-size: var(--font-size-p-hero);
+    font-size: var(--font-size-medium);
     filter: drop-shadow(2px 2px 2px #000000);
     margin: 0;
   }
@@ -75,10 +78,14 @@
 }
 
 .mainSectionInfoBox {
-  background-color: var(--color-main);
-  color: var(--color-font-light);
+  background-color: var(--color-green);
+  color: var(--color-white);
   position: relative;
   overflow: hidden;
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
 
   & button {
     margin-top: 20px;
