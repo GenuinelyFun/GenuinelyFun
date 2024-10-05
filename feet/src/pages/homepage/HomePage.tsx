@@ -23,12 +23,12 @@ const HomePage: FC = () => {
         />
         <div>
           <h1>
-            {translate('hero-section-title-part1')}
-            <span>{translate('hero-section-title-part2')}</span>
-            {translate('hero-section-title-part3')}
+            {translate('hero-section.title-part1')}
+            <span>{translate('hero-section.title-part2')}</span>
+            {translate('hero-section.title-part3')}
           </h1>
 
-          <p> {translate('hero-section-description')} </p>
+          <p> {translate('hero-section.description')} </p>
         </div>
         <img
           src={websiteIcon}
@@ -48,8 +48,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.LEFT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main-nghi-title')} </h2>
-            <p>{translate('main-nghi-description')} </p>
+            <h2>{translate('main.nghi.title')} </h2>
+            <p>{translate('main.nghi.description')} </p>
           </div>
         </Card>
 
@@ -64,8 +64,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main-arthur-title')} </h2>
-            <p>{translate('main-arthur-description')} </p>
+            <h2>{translate('main.arthur.title')} </h2>
+            <p>{translate('main.arthur.description')} </p>
           </div>
         </Card>
 
@@ -76,14 +76,14 @@ const HomePage: FC = () => {
         >
           <div className={classNames(styles.cardContent, styles.mainContent)}>
             <h2>
-              {translate('main-section-infobox-title-part1')}
-              <span>{translate('main-section-infobox-title-part2')}</span>
-              {translate('main-section-infobox-title-part3')}
+              {translate('main-section.infobox.title-part1')}
+              <span>{translate('main-section.infobox.title-part2')}</span>
+              {translate('main-section.infobox.title-part3')}
             </h2>
-            <p>{translate('main-section-infobox-description')}</p>
+            <p>{translate('main-section.infobox-description')}</p>
             <GenericButton
               onClick={() => console.log('I DO NOTHING YET TODO TODO TODO')}
-              buttonText={translate('main-section-infobox-button')}
+              buttonText={translate('main-section.infobox-button')}
               invert={true}
             />
           </div>
@@ -99,8 +99,8 @@ const HomePage: FC = () => {
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main-section-footsteps-title')}</h2>
-            <p>{translate('main-section-footsteps-description')}</p>
+            <h2>{translate('main-section.footsteps.title')}</h2>
+            <p>{translate('main-section.footsteps.description')}</p>
           </div>
         </Card>
       </div>

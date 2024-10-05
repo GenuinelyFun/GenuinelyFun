@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
         })}
         to="/"
       >
-        {translate('tab-homepage')}
+        {translate('tab.homepage')}
       </Link>
       <Link
         className={classNames(styles.link, {
@@ -23,7 +23,7 @@ const Menu: React.FC = () => {
         })}
         to="/feet"
       >
-        {translate('tab-feet')}
+        {translate('tab.feet')}
       </Link>
     </nav>
   );
@@ -32,11 +32,11 @@ const Menu: React.FC = () => {
 export default Menu;
 
 export const menuText = {
-  'tab-homepage': {
+  'tab.homepage': {
     en: 'Home',
     no: 'Hjem',
   },
-  'tab-feet': {
+  'tab.feet': {
     en: 'FEET',
     no: 'FEET',
   },

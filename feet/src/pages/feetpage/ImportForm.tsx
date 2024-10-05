@@ -51,9 +51,9 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
 
   const errorText = () => {
     if (error === 'json') {
-      return translate('upload-error-json');
+      return translate('upload.error-json');
     }
-    return translate('upload-error');
+    return translate('upload.error');
   };
 
   return (
@@ -65,11 +65,11 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
       >
         <>
           {data ? (
-            <p>{translate('import-upload-success')}</p>
+            <p>{translate('upload.success')}</p>
           ) : (
             <>
-              <p>{translate('import-upload-description')}</p>
-              <p>{translate('import-upload-or')}</p>
+              <p>{translate('upload.description')}</p>
+              <p>{translate('upload.or')}</p>
             </>
           )}
           <input
@@ -80,7 +80,7 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
           />
           <GenericButton
             onClick={() => document.getElementById('file-upload')?.click()}
-            buttonText={translate('upload-button')}
+            buttonText={translate('upload.button')}
           />
         </>
       </div>
