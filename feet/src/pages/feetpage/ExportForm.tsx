@@ -8,6 +8,7 @@ import { Root } from '../../interfaces/jsonDataInterface';
 import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
+import { mapPanelsWithZones } from '../../mappers/zone-utils';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
@@ -15,23 +16,32 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
     translate('export.filename.placeholder'),
   );
   const [panel, setPanel] = useState<boolean>(false);
+  const [zone, setZone] = useState<boolean>(false);
 
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (data === undefined) return;
-    const worksheet = utils.json_to_sheet([data]);
 
     const workbook = utils.book_new();
+
+    const panels = data.system.panels;
+    const zones = data.system.zones;
+
     if (panel) {
       utils.book_append_sheet(
         workbook,
-        utils.json_to_sheet(
-          data.system.panels.map((panel) => mapPanelToExcel(panel)),
-        ),
+        utils.json_to_sheet(panels.map((panel) => mapPanelToExcel(panel))),
         'Panel',
       );
     }
-    utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    if (zone) {
+      utils.book_append_sheet(
+        workbook,
+        utils.json_to_sheet(mapPanelsWithZones(panels, zones)),
+        'Zone',
+      );
+    }
+
     const excelBuffer = write(workbook, { bookType: 'xlsx', type: 'array' });
     const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     FileSaver.saveAs(blob, `${fileName}.xlsx`);
@@ -53,6 +63,14 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
           type={'checkbox'}
           checked={panel}
           onChange={() => setPanel(!panel)}
+        />
+      </label>
+      <label>
+        Zone
+        <input
+          type={'checkbox'}
+          checked={zone}
+          onChange={() => setZone(!zone)}
         />
       </label>
       <GenericButton
