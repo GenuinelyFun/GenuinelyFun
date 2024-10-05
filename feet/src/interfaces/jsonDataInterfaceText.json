@@ -1,0 +1,506 @@
+{
+  "panel.primary.language.header": {
+    "en": "Primary language",
+    "no": "Primærspråk"
+  },
+  "panel.secondary.language.header": {
+    "en": "Secondary language",
+    "no": "Sekundærspråk"
+  },
+  "panel.language.cs.value": {
+    "en": "Czech",
+    "no": "Tsjekkisk"
+  },
+  "panel.language.da.value": {
+    "en": "Danish",
+    "no": "Dansk"
+  },
+  "panel.language.nl-NL.value": {
+    "en": "Dutch",
+    "no": "Nederlandsk"
+  },
+  "panel.language.en.value": {
+    "en": "English",
+    "no": "Engelsk"
+  },
+  "panel.language.et.value": {
+    "en": "Estonian",
+    "no": "Estisk"
+  },
+  "panel.language.fi.value": {
+    "en": "Finnish",
+    "no": "Finsk"
+  },
+  "panel.language.nl-BE.value": {
+    "en": "Flemish",
+    "no": "Flamsk"
+  },
+  "panel.language.fr.value": {
+    "en": "French",
+    "no": "Fransk"
+  },
+  "panel.language.de.value": {
+    "en": "German",
+    "no": "Tysk"
+  },
+  "panel.language.hu.value": {
+    "en": "Hungarian",
+    "no": "Ungarsk"
+  },
+  "panel.language.it.value": {
+    "en": "Italian",
+    "no": "Italiensk"
+  },
+  "panel.language.lv.value": {
+    "en": "Latvian",
+    "no": "Latvisk"
+  },
+  "panel.language.lt.value": {
+    "en": "Lithuanian",
+    "no": "Litauisk"
+  },
+  "panel.language.nb.value": {
+    "en": "Norwegian",
+    "no": "Norsk"
+  },
+  "panel.language.pl.value": {
+    "en": "Polish",
+    "no": "Polsk"
+  },
+  "panel.language.pt.value": {
+    "en": "Portuguese",
+    "no": "Portugisisk"
+  },
+  "panel.language.ru.value": {
+    "en": "Russian",
+    "no": "Russisk"
+  },
+  "panel.language.es.value": {
+    "en": "Spanish",
+    "no": "Spansk"
+  },
+  "panel.language.sv.value": {
+    "en": "Swedish",
+    "no": "Svensk"
+  },
+  "panel.language.tr.value": {
+    "en": "Turkish",
+    "no": "Tyrkisk"
+  },
+  "panel.input.output.units.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.power.supply.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.fire.door.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.reactivation.of.silenced.alarm.devices.by.new.fire.alarm.header": {
+    "en": "Re-activation of silenced alarm devices by a new fire alarm",
+    "no": "Omstart av avstilte alarmorganer ved ny brannalarm"
+  },
+  "panel.deactivation.of.alarm.routers.at.alarm.silence.header": {
+    "en": "De-activation of alarm routers at alarm silence",
+    "no": "De-aktivering av alarmoverføring rele ved avstilling av alarm"
+  },
+  "panel.event.groups.recording.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.single.coincidence.alarm.will.not.activate.fire.alarm.after.3.min.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.single.coincidence.alarm.autoreset.time.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.second.coincidence.alarm.activates.fire.alarm.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.prealarm.blink.rate.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.use.automatic.summertime.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.maximum.time.of.zonal.disablement.header": {
+    "en": "Max. time of zonal disablement",
+    "no": "Maksimal tid for sone utkobling"
+  },
+  "panel.maximum.time.of.alarm.device.muting.header": {
+    "en": "Max. time of alarm device muting",
+    "no": "Maksimal tid for demping av alarmorganer"
+  },
+  "panel.muted.internal.buzzer.indicate.with.customer.led.1.header": {
+    "en": "Muted internal buzzers",
+    "no": "Lydløse interne summere"
+  },
+  "panel.muted.internal.buzzer.indicate.with.customer.led.1.value": {
+    "en": "Indicate with customer LED 1",
+    "no": "Indiker med kundespesifisert LED 1"
+  },
+  "panel.maintenance.interval.in.months.header": {
+    "en": "Maintenance interval and message",
+    "no": "Vedlikeholdsintervall og melding (måneder)"
+  },
+  "panel.service_codes.header": {
+    "en": "Access level codes",
+    "no": "Adgangsnivå koder"
+  },
+  "panel.first.zone.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.number.of.zones.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.communication.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.assistant.processor.unit.in.use.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.visible.panels.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.uuid.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.last.local.control.zone.value": {
+    "en": "",
+    "no": ""
+  },
+  "panel.day.mode.level.6.of.multicriteria.detectors.indicate.as.smoke.detection.disabled.value": {
+    "en": "",
+    "no": ""
+  },
+  "loop.controller.type.value": {
+    "en": "",
+    "no": ""
+  },
+  "loop.controller.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "loop.controller.loops.value": {
+    "en": "",
+    "no": ""
+  },
+  "loop.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "loop.addresses.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.type.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.protocol.type.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.zone.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.input.function.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.description.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.zone.disables.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.output.control.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.alarm.thresholds.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.in.day.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.short.circuit.monitoring.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.alarm.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.control.group.A.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.control.group.B.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.control.group.B2.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.control.group.C.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.device.id.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.input.delay.value": {
+    "en": "",
+    "no": ""
+  },
+  "address.sounder.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.control.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.control.groups.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.output.function.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.output.function.2.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.output.external.or.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.monitored.output.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.siren.control.output.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "output.control.output.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "alarm.threshold.name.value": {
+    "en": "",
+    "no": ""
+  },
+  "alarm.threshold.value.value": {
+    "en": "",
+    "no": ""
+  },
+  "control.group.C.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "control.group.C.group.value": {
+    "en": "",
+    "no": ""
+  },
+  "control.group.C.delay.value": {
+    "en": "",
+    "no": ""
+  },
+  "sounder.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "sounder.tone.value": {
+    "en": "",
+    "no": ""
+  },
+  "sounder.volume.value": {
+    "en": "",
+    "no": ""
+  },
+  "sounder.alert.tone.value": {
+    "en": "",
+    "no": ""
+  },
+  "delayed.alarm.outputs.delay.T1.value": {
+    "en": "",
+    "no": ""
+  },
+  "delayed.alarm.outputs.delay.T2.value": {
+    "en": "",
+    "no": ""
+  },
+  "delayed.alarm.outputs.terminate.delay.at.second.value": {
+    "en": "",
+    "no": ""
+  },
+  "delayed.alarm.outputs.delayed.outputs.value": {
+    "en": "",
+    "no": ""
+  },
+  "delayed.alarm.outputs.delayed.alarm.indication.as.disablement.value": {
+    "en": "",
+    "no": ""
+  },
+  "terminate.delay.at.second.delayed.alarm.value": {
+    "en": "",
+    "no": ""
+  },
+  "terminate.delay.at.second.non.delayed.alarm.value": {
+    "en": "",
+    "no": ""
+  },
+  "input.output.unit.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "input.output.unit.type.value": {
+    "en": "",
+    "no": ""
+  },
+  "input.output.unit.clean.contact.inputs.value": {
+    "en": "",
+    "no": ""
+  },
+  "input.output.unit.clean.contact.outputs.value": {
+    "en": "",
+    "no": ""
+  },
+  "input.output.unit.monitored.outputs.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.function.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.contact.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.monitored.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.control.group.A.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.control.group.B.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.control.group.B2.value": {
+    "en": "",
+    "no": ""
+  },
+  "clean.contact.input.description.value": {
+    "en": "",
+    "no": ""
+  },
+  "monitored.and.clean.contact.output.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "monitored.and.clean.contact.output.description.value": {
+    "en": "",
+    "no": ""
+  },
+  "monitored.and.clean.contact.output.output.control.value": {
+    "en": "",
+    "no": ""
+  },
+  "power.supply.mains.off.fault.time.header": {
+    "en": "Main supply fault delay",
+    "no": "Forsinkelse av nettspenning bortfall feilalarm"
+  },
+  "power.supply.battery.package.monitoring.header": {
+    "en": "Battery package monitoring",
+    "no": "Batteripakke overvåking"
+  },
+  "fire.door.activation.value": {
+    "en": "",
+    "no": ""
+  },
+  "fire.door.sensor.input.disabled.value": {
+    "en": "",
+    "no": ""
+  },
+  "communication.serial.port1.value": {
+    "en": "",
+    "no": ""
+  },
+  "communication.system1.value": {
+    "en": "",
+    "no": ""
+  },
+  "communication.system2.value": {
+    "en": "",
+    "no": ""
+  },
+  "serial.port.usage.value": {
+    "en": "",
+    "no": ""
+  },
+  "serial.port.baudrate.value": {
+    "en": "",
+    "no": ""
+  },
+  "serial.port.mode.value": {
+    "en": "",
+    "no": ""
+  },
+  "serial.port.description.value": {
+    "en": "",
+    "no": ""
+  },
+  "system.usage.value": {
+    "en": "",
+    "no": ""
+  },
+  "system.baudrate.value": {
+    "en": "",
+    "no": ""
+  },
+  "zone.number.value": {
+    "en": "",
+    "no": ""
+  },
+  "zone.description.value": {
+    "en": "",
+    "no": ""
+  }
+}
