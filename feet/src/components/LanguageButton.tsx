@@ -10,7 +10,7 @@ const LanguageButton = () => {
       onChange={(e) => onClickLanguageChange(e.target.value)}
       value={i18n.language}
       className={styles.button}
-      aria-label={translate('language-aria-label')}
+      aria-label={translate('language.aria-label')}
     >
       {Object.keys(languages).map((key) => (
         <option key={key} value={key} className={styles.dropdown}>
@@ -24,7 +24,7 @@ const LanguageButton = () => {
 export default LanguageButton;
 
 export const languageText = {
-  'language-aria-label': {
+  'language.aria-label': {
     en: 'Select language',
     no: 'Velg språk',
   },

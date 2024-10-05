@@ -1,0 +1,47 @@
+"panel.primary.language.header" = "primary_language", (value as string)
+"panel.secondary.language.header" = "secondary_language", (value as string)
+"panel.language.en.value" = "primary_language", "secondary.language",
+"panel.language.nb.value" = "primary_language", "secondary.language",
+"panel.language.fi.value" = "primary_language", "secondary.language",
+"panel.language.et.value" = "primary_language", "secondary.language",
+"panel.language.cs.value" = "primary_language", "secondary.language",
+"panel.language.da.value" = "primary_language", "secondary.language",
+"panel.language.nl-NL.value" = "primary_language", "secondary.language",
+"panel.language.nl-BE.value" = "primary_language", "secondary.language",
+"panel.language.fr.value" = "primary_language", "secondary.language",
+"panel.language.de.value" = "primary_language", "secondary.language",
+"panel.language.hu.value" = "primary_language", "secondary.language",
+"panel.language.it.value" = "primary_language", "secondary.language",
+"panel.language.lv.value" = "primary_language", "secondary.language",
+"panel.language.lt.value" = "primary_language", "secondary.language",
+"panel.language.pl.value" = "primary_language", "secondary.language",
+"panel.language.pt.value" = "primary_language", "secondary.language",
+"panel.language.ru.value" = "primary_language", "secondary.language",
+"panel.language.es.value" = "primary_language", "secondary.language",
+"panel.language.sv.value" = "primary_language", "secondary.language",
+"panel.language.tr.value" = "primary_language", "secondary.language"
+"power.supply.mains.off.fault.time.header" = "battery_package_monitoring",
+"panel.reactivation.of.silenced.alarm.devices.by.new.fire.alarm.header" = "reactivation_of_silenced_alarm_devices_by_new_fire_alarm", (value as checkbox)
+"panel.deactivation.of.alarm.routers.at.alarm.silence.header" = "deactivation_of_alarm_routers_at_alarm_silence", (value as checkbox)
+"panel.maximum.time.of.zonal.disablement.header" = "maximum_time_of_zonal_disablement", (value i
+
+n hours)
+"panel.maximum.time.of.alarm.device.muting.header" = "maximum_time_of_alarm_device_muting", (value in minutes)
+"panel.muted.internal.buzzer.indicate.with.customer.led.1.header" = "muted_internal_buzzer_indicate_with_customer_led_1", (value as checkbox)
+"panel.muted.internal.buzzer.indicate.with.customer.led.1.value" = "muted_internal_buzzer_indicate_with_customer_led_1", (value as checkbox)
+"panel.maintenance.interval.in.months.header" = "maintenance_interval_in_months", (value in months), "maintenance_interval_message" (value as string)
+"panel.service_codes.header" = "panel.service_codes", (value as string, if blank fire expert then return default value 5910,6010)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@ import { mapPanelToExcel } from '../../mappers/panel-utils';
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
   const [fileName, setFileName] = useState<string>(
-    translate('export-filename-placeholder'),
+    translate('export.filename.placeholder'),
   );
   const [panel, setPanel] = useState<boolean>(false);
 
@@ -40,7 +40,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   return (
     <form className={styles.container} onSubmit={exportToExcel}>
       <label className={styles.label}>
-        {translate('export-filename-label')}
+        {translate('export.filename.label')}
         <input
           className={styles.input}
           value={fileName}
@@ -57,7 +57,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
       </label>
       <GenericButton
         disabled={data === undefined}
-        buttonText={translate('export-download-button')}
+        buttonText={translate('export.download.button')}
         onClick={() => console.log('TODO NGHI check submitbutton')}
       />
     </form>
