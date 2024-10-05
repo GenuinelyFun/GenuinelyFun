@@ -5,21 +5,21 @@ import FileSaver from 'file-saver';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 
 import { Root } from '../../interfaces/jsonDataInterface';
-import { useModal } from '../../utils/useModal';
 import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
 import InfoBox from '../../components/InfoBox';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
 import { mapPanelsWithZones } from '../../mappers/zone-utils';
+import { mapLoopToExcel } from '../../mappers/loop-utils';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
-  const justAToolModal = useModal();
   const [fileName, setFileName] = useState<string>(
     translate('export.filename.placeholder'),
   );
   const [panel, setPanel] = useState<boolean>(false);
   const [zone, setZone] = useState<boolean>(false);
+  const [loop, setLoop] = useState<boolean>(false);
 
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -42,6 +42,19 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
         workbook,
         utils.json_to_sheet(mapPanelsWithZones(panels, zones)),
         'Zone',
+      );
+    }
+    if (loop) {
+      utils.book_append_sheet(
+        workbook,
+        utils.json_to_sheet(
+          panels.flatMap((panel) =>
+            panel.loop_controllers.flatMap((loop_controller) =>
+              mapLoopToExcel(loop_controller, panel.number),
+            ),
+          ),
+        ),
+        'Loop',
       );
     }
 
@@ -90,10 +103,24 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
           />
         </label>
       </div>
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-loop-text')}
+          header={translate('infobox-checkbox-loop-title')}
+          altText="Help Icon"
+        />
+        <label className={styles.label}>
+          {translate('export.checkbox.loop')}
+          <input
+            type={'checkbox'}
+            checked={loop}
+            onChange={() => setLoop(!loop)}
+          />
+        </label>
+      </div>
       <GenericButton
         disabled={data === undefined}
         buttonText={translate('export.download.button')}
-        onClick={() => console.log('TODO NGHI check submitbutton')}
       />
     </form>
   );
