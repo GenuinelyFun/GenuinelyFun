@@ -53,6 +53,7 @@ export interface Panel {
   uuid: string;
   last_local_control_zone: number;
   day_mode_level_6_of_multicriteria_detectors_indicate_as_smoke_detection_disabled?: boolean;
+  service_codes?: number[];
 }
 
 export interface LoopController {
@@ -118,8 +119,8 @@ export interface Sounder {
 }
 
 export interface DelayedAlarmOutputs {
-  delay_T1: number;
-  delay_T2: number;
+  delay_T1?: number;
+  delay_T2?: number;
   terminate_delay_at_second: TerminateDelayAtSecond;
   delayed_outputs: string[];
   delayed_alarm_indication_as_disablement: boolean;
@@ -180,8 +181,8 @@ export interface SerialPort {
 }
 
 export interface System {
-  usage: string;
-  baudrate: number;
+  usage?: string;
+  baudrate?: number;
 }
 
 export interface Zone {
