@@ -27,5 +27,6 @@ export const languageText = {
   'language.aria-label': {
     en: 'Select language',
     no: 'Velg språk',
+    nn: 'Vel språk',
   },
 };

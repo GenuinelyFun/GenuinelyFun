@@ -58,7 +58,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
         />
       </label>
       <label>
-        Panel
+        {translate('export.checkbox.panel')}
         <input
           type={'checkbox'}
           checked={panel}
@@ -66,7 +66,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
         />
       </label>
       <label>
-        Zone
+        {translate('export.checkbox.zone')}
         <input
           type={'checkbox'}
           checked={zone}
