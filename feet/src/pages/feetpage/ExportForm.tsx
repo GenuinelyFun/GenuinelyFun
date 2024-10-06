@@ -3,15 +3,15 @@ import { utils, write } from 'xlsx';
 import FileSaver from 'file-saver';
 
 import { useLanguageContext } from '../../utils/LanguageProvider';
-
-import { Root } from '../../interfaces/jsonDataInterface';
-import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
+import { Root } from '../../interfaces/jsonDataInterface';
 import InfoBox from '../../components/InfoBox';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
 import { mapPanelsWithZones } from '../../mappers/zone-utils';
 import { mapLoopToExcel } from '../../mappers/loop-utils';
 import { mapBoardToExcel } from '../../mappers/board-utils';
+import { mapLoopAddressToExcel } from '../../mappers/address-utils';
+import styles from './ExportForm.module.less';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
@@ -22,6 +22,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const [zone, setZone] = useState<boolean>(false);
   const [loop, setLoop] = useState<boolean>(false);
   const [board, setBoard] = useState<boolean>(false);
+  const [address, setAddress] = useState<boolean>(false);
 
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -64,6 +65,13 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
         workbook,
         utils.json_to_sheet(mapBoardToExcel(panels)),
         'Board',
+      );
+    }
+    if (address) {
+      utils.book_append_sheet(
+        workbook,
+        utils.json_to_sheet(mapLoopAddressToExcel(panels)),
+        'Address',
       );
     }
 
@@ -139,6 +147,21 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
             type={'checkbox'}
             checked={board}
             onChange={() => setBoard(!board)}
+          />
+        </label>
+      </div>
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-address-text')}
+          header={translate('infobox-checkbox-address-title')}
+          altText="Help Icon"
+        />
+        <label className={styles.label}>
+          {translate('export.checkbox.address')}
+          <input
+            type={'checkbox'}
+            checked={address}
+            onChange={() => setAddress(!address)}
           />
         </label>
       </div>
