@@ -6,12 +6,13 @@ import { useContextOrThrow } from './context-utils';
 import homePageText from '../pages/homepage/homePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import footerText from '../components/footerText.json';
-import { menuText } from '../components/Menu';
+import menuText from '../components/menuText.json';
 import { languageText } from '../components/LanguageButton';
 
 export enum Language {
   EN = 'en',
   NO = 'no',
+  NN = 'nn',
 }
 
 const allText = {
@@ -41,7 +42,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export const LanguageContextProvider: FC<PropsWithChildren> = ({
   children,
 }) => {
-  const languages: Languages = { en: 'English', no: 'Norsk' };
+  const languages: Languages = { en: 'English', no: 'Norsk', nn: 'Nynorsk' };
 
   const { t, i18n } = useTranslation();
 

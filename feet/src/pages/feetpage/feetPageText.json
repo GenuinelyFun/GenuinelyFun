@@ -1,38 +1,82 @@
 {
   "upload.description": {
     "en": "You can drag and drop the JSON file to upload",
-    "no": "Du kan dra og slippe JSON filen for å laste opp"
+    "no": "Du kan dra og slippe JSON filen for å laste opp",
+    "nn": "Du kan dra og sleppe JSON-fila for å laste opp"
   },
   "upload.or": {
     "en": "or",
-    "no": "eller"
+    "no": "eller",
+    "nn": "eller"
   },
   "upload.success": {
     "en": "Success",
-    "no": "Suksess"
+    "no": "Suksess",
+    "nn": "Suksess"
   },
   "upload.button": {
     "en": "Browse computer",
-    "no": "Velg en fil"
+    "no": "Velg en fil",
+    "nn": "Vel ein fil"
   },
   "upload.error": {
     "en": "Something went wrong, please try again later.",
-    "no": "Noe gikk galt, prøv igjen senere."
+    "no": "Noe gikk galt, prøv igjen senere.",
+    "nn": "Noko gjekk gale, prøv igjen seinare."
   },
   "upload.error-json": {
     "en": "Must be JSON filetype, try again.",
-    "no": "Må være JSON filtype, prøv igjen."
+    "no": "Må være JSON filtype, prøv igjen.",
+    "nn": "Må vere JSON-filtype, prøv igjen."
   },
   "export.filename.label": {
     "en": "Edit filename",
-    "no": "Endre filnavn"
+    "no": "Endre filnavn",
+    "nn": "Endre filnamn"
   },
   "export.filename.placeholder": {
     "en": "best-filename-ever",
-    "no": "beste-filnavnet"
+    "no": "beste-filnavnet",
+    "nn": "beste-filnamnet"
+  },
+  "export.checkbox.panel": {
+    "en": "Fire panels",
+    "no": "Brannsentraler",
+    "nn": "Brannsentraler"
+  },
+  "export.checkbox.zone": {
+    "en": "Zones",
+    "no": "Soner",
+    "nn": "Soner"
+  },
+  "export.checkbox.loop": {
+    "en": "Fire loops",
+    "no": "Brannsløyfer",
+    "nn": "Brannsløyfer"
+  },
+  "export.checkbox.board": {
+    "en": "IO boards",
+    "no": "IO kort",
+    "nn": "IO kort"
+  },
+  "export.checkbox.input-output-list": {
+    "en": "Input/output list",
+    "no": "Styringer",
+    "nn": "Styringer"
+  },
+  "export.checkbox.control-groups": {
+    "en": "Control groups",
+    "no": "Kontrollgrupper",
+    "nn": "Kontrollgrupper"
+  },
+  "export.checkbox.config-check": {
+    "en": "Configuration check",
+    "no": "Konfigurasjonssjekk",
+    "nn": "Konfigurasjonssjekk"
   },
   "export.download.button": {
     "en": "Download Excel sheet",
-    "no": "Last ned Excel filen"
+    "no": "Last ned Excel filen",
+    "nn": "Last ned Excel-fila"
   }
 }
