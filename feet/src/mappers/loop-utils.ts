@@ -1,4 +1,9 @@
-import { LoopController } from '../interfaces/jsonDataInterface';
+import {
+  Address,
+  Loop,
+  LoopController,
+  Panel,
+} from '../interfaces/jsonDataInterface';
 
 export const mapLoopToExcel = (
   loopControllers: LoopController,
@@ -74,4 +79,19 @@ export const mapLoopToExcel = (
     }
   }
   return loopExcel;
+};
+
+export const forEachDeviceInLoopControllers = (
+  panels: Panel[],
+  onDevice: (panel: Panel, loop: Loop, device: Address) => void,
+) => {
+  panels.forEach((panel) => {
+    panel.loop_controllers.forEach((loop_controller) => {
+      loop_controller.loops.forEach((loop) => {
+        loop.addresses.forEach((device) => {
+          onDevice(panel, loop, device);
+        });
+      });
+    });
+  });
 };

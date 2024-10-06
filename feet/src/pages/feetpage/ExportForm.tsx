@@ -11,6 +11,7 @@ import { mapPanelsWithZones } from '../../mappers/zone-utils';
 import { mapLoopToExcel } from '../../mappers/loop-utils';
 import { mapBoardToExcel } from '../../mappers/board-utils';
 import { mapLoopAddressToExcel } from '../../mappers/address-utils';
+import { mapToIOReportToExcel } from '../../mappers/io-report-utils';
 import styles from './ExportForm.module.less';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
@@ -23,6 +24,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const [loop, setLoop] = useState<boolean>(false);
   const [board, setBoard] = useState<boolean>(false);
   const [address, setAddress] = useState<boolean>(false);
+  const [report, setReport] = useState<boolean>(false);
 
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -72,6 +74,13 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
         workbook,
         utils.json_to_sheet(mapLoopAddressToExcel(panels)),
         'Address',
+      );
+    }
+    if (report) {
+      utils.book_append_sheet(
+        workbook,
+        utils.json_to_sheet(mapToIOReportToExcel(panels)),
+        'IOReport',
       );
     }
 
@@ -162,6 +171,21 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
             type={'checkbox'}
             checked={address}
             onChange={() => setAddress(!address)}
+          />
+        </label>
+      </div>
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-report-text')}
+          header={translate('infobox-checkbox-report-title')}
+          altText="Help Icon"
+        />
+        <label className={styles.label}>
+          {translate('export.checkbox.report')}
+          <input
+            type={'checkbox'}
+            checked={report}
+            onChange={() => setReport(!report)}
           />
         </label>
       </div>
