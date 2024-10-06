@@ -11,6 +11,7 @@ import InfoBox from '../../components/InfoBox';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
 import { mapPanelsWithZones } from '../../mappers/zone-utils';
 import { mapLoopToExcel } from '../../mappers/loop-utils';
+import { mapBoardToExcel } from '../../mappers/board-utils';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
@@ -20,6 +21,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const [panel, setPanel] = useState<boolean>(false);
   const [zone, setZone] = useState<boolean>(false);
   const [loop, setLoop] = useState<boolean>(false);
+  const [board, setBoard] = useState<boolean>(false);
 
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -55,6 +57,13 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
           ),
         ),
         'Loop',
+      );
+    }
+    if (board) {
+      utils.book_append_sheet(
+        workbook,
+        utils.json_to_sheet(mapBoardToExcel(panels)),
+        'Board',
       );
     }
 
@@ -115,6 +124,21 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
             type={'checkbox'}
             checked={loop}
             onChange={() => setLoop(!loop)}
+          />
+        </label>
+      </div>
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-board-text')}
+          header={translate('infobox-checkbox-board-title')}
+          altText="Help Icon"
+        />
+        <label className={styles.label}>
+          {translate('export.checkbox.board')}
+          <input
+            type={'checkbox'}
+            checked={board}
+            onChange={() => setBoard(!board)}
           />
         </label>
       </div>

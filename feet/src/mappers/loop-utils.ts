@@ -37,23 +37,26 @@ export const mapLoopToExcel = (
         'C6 Delay': control_group_C?.find((el) => el.number === 6)?.delay,
         'C7 Group': control_group_C?.find((el) => el.number === 7)?.group,
         'C7 Delay': control_group_C?.find((el) => el.number === 7)?.delay,
-        'Alarm Thresholds Fire':
-          alarm_thresholds?.find((el) => el.name === 'Fire')?.value || 'N/A',
-        'Alarm Thresholds Prealarm':
-          alarm_thresholds?.find((el) => (el.name = 'Prealarm')) || 'N/A',
-        'Alarm Thresholds Fire Day Mode':
-          alarm_thresholds?.find((el) => (el.name = 'Fire, day mode')) || 'N/A',
+        'Alarm Thresholds Fire': alarm_thresholds?.find(
+          (el) => el.name === 'Fire',
+        )?.value,
+        'Alarm Thresholds Prealarm': alarm_thresholds?.find(
+          (el) => (el.name = 'Prealarm'),
+        ),
+        'Alarm Thresholds Fire Day Mode': alarm_thresholds?.find(
+          (el) => (el.name = 'Fire, day mode'),
+        ),
         'Alarm Thresholds Prealarm Day Mode':
           alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode')) ||
           'N/A',
         'Day Mode': device.in_day_mode || 'No day mode',
         'Input Function': device.input_function,
-        'Alarm Mode': device.alarm_mode?.join(', ') || 'N/A',
-        'Zone Disables': device.zone_disables?.join(', ') || 'N/A',
+        'Alarm Mode': device.alarm_mode?.join(', '),
+        'Zone Disables': device.zone_disables?.join(', '),
         'Input Delay': device.input_delay,
         'Short Circuit Monitoring': device.short_circuit_monitoring,
-        'Output Function': output_control?.output_function || 'N/A',
-        'Output Function 2': output_control?.output_function_2 || 'N/A',
+        'Output Function': output_control?.output_function,
+        'Output Function 2': output_control?.output_function_2,
         'Control Groups':
           output_control?.control === 'Control Groups'
             ? output_control.control_groups.join(', ')
@@ -61,12 +64,12 @@ export const mapLoopToExcel = (
                   output_control?.control || '',
                 )
               ? output_control?.control
-              : 'N/A',
+              : null,
         'Output External OR': output_control?.output_external_or ? 'Yes' : 'No',
-        'Sounder Mode': device.sounder?.mode || 'N/A',
-        'Sounder Tone': device.sounder?.tone || 'N/A',
-        'Sounder Volume': device.sounder?.volume || 'N/A',
-        'Sounder Alert Tone': device.sounder?.alert_tone || 'N/A',
+        'Sounder Mode': device.sounder?.mode,
+        'Sounder Tone': device.sounder?.tone,
+        'Sounder Volume': device.sounder?.volume,
+        'Sounder Alert Tone': device.sounder?.alert_tone,
       });
     }
   }

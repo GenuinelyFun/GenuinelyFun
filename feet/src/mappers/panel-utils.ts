@@ -37,30 +37,29 @@ export const mapPanelToExcel = (panel: Panel) => {
         : 'No visible panels',
     'Primary language': feetLanguages[panel.primary_language],
     'Secondary language': feetLanguages[panel.secondary_language],
-    'Assistant Processor Unit In Use':
-      panel.assistant_processor_unit_in_use || 'N/A',
+    'Assistant Processor Unit In Use': panel.assistant_processor_unit_in_use,
     'First Zone': panel.first_zone,
     'Number of Zones': panel.number_of_zones,
     'Last Local Control Group': panel.last_local_control_zone,
-    'System 1 usage': panel.communication.system1?.usage || 'N/A',
-    'System 1 baudrate': panel.communication.system1?.baudrate || 'N/A',
-    'System 2 usage': panel.communication.system2?.usage || 'N/A',
-    'System 2 baudrate': panel.communication.system2?.baudrate || 'N/A',
-    'RS485 Usage': serialPort?.usage || 'N/A',
-    'RS485 Baudrate': serialPort?.baudrate || 'N/A',
-    'RS485 Mode': serialPort?.mode || 'N/A',
-    'RS485 Description': serialPort?.description || 'N/A',
-    'Delays: Delay T1': delayedAlarmOutputs?.delay_T1 || 'N/A',
-    'Delays: Delay T2': delayedAlarmOutputs?.delay_T2 || 'N/A',
+    'System 1 usage': panel.communication.system1?.usage,
+    'System 1 baudrate': panel.communication.system1?.baudrate,
+    'System 2 usage': panel.communication.system2?.usage,
+    'System 2 baudrate': panel.communication.system2?.baudrate,
+    'RS485 Usage': serialPort?.usage,
+    'RS485 Baudrate': serialPort?.baudrate,
+    'RS485 Mode': serialPort?.mode,
+    'RS485 Description': serialPort?.description,
+    'Delays: Delay T1': delayedAlarmOutputs?.delay_T1,
+    'Delays: Delay T2': delayedAlarmOutputs?.delay_T2,
     'Delays: Fire alarm transmitter':
       delayedAlarmOutputs.delayed_outputs.includes('Fire alarm transmitter')
         ? 'Included in delayed outputs'
-        : 'N/A',
+        : null,
     'Delays: Fire alarm devices': fireAlarmDevice,
     'Delays: Fire control outputs':
       delayedAlarmOutputs.delayed_outputs.includes('Fire control outputs')
         ? 'Included in delayed outputs'
-        : 'N/A',
+        : null,
     'Delays: Terminate delay after 2nd delayed alarm':
       delayedAlarmOutputs.terminate_delay_at_second.delayed_alarm,
     'Delays: Terminate delay after non-delayed alarm':
@@ -89,7 +88,7 @@ export const mapPanelToExcel = (panel: Panel) => {
       panel.second_coincidence_alarm_activates_fire_alarm,
     'Configured pre-alarm': panel.prealarm_blink_rate
       ? 'Indicate with 0.25 Hz blink rate (2s on, 2s off)'
-      : 'N/A',
+      : null,
     'Max. time of zonal disablement': panel.maximum_time_of_zonal_disablement,
     'Max. time of alarm device muting':
       panel.maximum_time_of_alarm_device_muting,
@@ -97,9 +96,9 @@ export const mapPanelToExcel = (panel: Panel) => {
       panel.day_mode_level_6_of_multicriteria_detectors_indicate_as_smoke_detection_disabled ||
       'N/A',
     'Muted internal buzzers':
-      panel.muted_internal_buzzer_indicate_with_customer_led_1 || 'N/A',
+      panel.muted_internal_buzzer_indicate_with_customer_led_1,
     'Maintenance interval in months': panel.maintenance_interval_in_months,
-    'Maintenance interval message': panel.maintenance_interval_message || 'N/A',
+    'Maintenance interval message': panel.maintenance_interval_message,
     'Access level codes': panel.service_codes
       ? panel.service_codes.length > 0
         ? panel.service_codes.join(', ')
@@ -107,7 +106,6 @@ export const mapPanelToExcel = (panel: Panel) => {
       : '5910,6010',
     'Main supply fault delay in minutes':
       panel.power_supply.mains_off_fault_time,
-    'Battery package monitoring':
-      panel.power_supply.battery_package_monitoring || 'N/A',
+    'Battery package monitoring': panel.power_supply.battery_package_monitoring,
   };
 };
