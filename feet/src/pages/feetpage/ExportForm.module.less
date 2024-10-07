@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   gap: var(--spacing-xsmall);
-  width: 270px;
+  width: 300px;
   margin-top: var(--spacing-medium);
   background-color: var(--color-gray-light);
   border-radius: 8px;
@@ -18,6 +18,8 @@
 
 .label {
   display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .input {
@@ -26,4 +28,14 @@
   margin-top: 8px;
   background-color: var(--color-white);
   color: var(--color-black);
+  width: 100%;
+}
+
+
+.button {
+  width: 100%;
+}
+
+.spinner {
+  height: 24px;
 }
