@@ -1,0 +1,41 @@
+import React from 'react';
+import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
+import { useModal } from '../utils/useModal';
+import Modal from './Modal';
+import { useLanguageContext } from '../utils/LanguageProvider';
+import GenericButton from './GenericButton';
+
+import styles from './InfoBox.module.less';
+
+interface InfoBoxProps {
+  message: string;
+  header: string;
+  altText: string;
+}
+
+const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
+  const modal = useModal();
+  const { translate } = useLanguageContext();
+
+  return (
+    <>
+      <button
+        onClick={modal.openModal}
+        className={styles.infoButton}
+        aria-label={'more info'}
+      >
+        <QuestionMarkIcon className={styles.icon} />
+      </button>
+      <Modal isOpen={modal.isOpen} onClose={modal.closeModal}>
+        <h2>{header}</h2>
+        <p>{message}</p>
+        <GenericButton
+          onClick={modal.closeModal}
+          buttonText={translate('close')}
+        />
+      </Modal>
+    </>
+  );
+};
+
+export default InfoBox;

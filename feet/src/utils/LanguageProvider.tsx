@@ -8,6 +8,7 @@ import feetPageText from '../pages/feetpage/feetPageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
 import { languageText } from '../components/LanguageButton';
+import genericText from './genericTexts.json';
 
 export enum Language {
   EN = 'en',
@@ -16,6 +17,7 @@ export enum Language {
 }
 
 const allText = {
+  ...genericText,
   ...languageText,
   ...homePageText,
   ...feetPageText,

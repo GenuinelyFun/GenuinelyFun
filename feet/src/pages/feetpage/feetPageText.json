@@ -44,10 +44,30 @@
     "no": "Brannsentraler",
     "nn": "Brannsentraler"
   },
+  "infobox-checkbox-panel-title": {
+    "en": "Fire panels",
+    "no": "Brannsentraler",
+    "nn": "Brannsentraler"
+  },
+  "infobox-checkbox-panel-text": {
+    "en": "This option generates an Excel tab that contains the complete configuration details for all fire panels. Each row in the sheet represents a fire panel.",
+    "no": "Dette genererer gir en Excel fane som inneholder fullstendige konfigurasjonsdetaljer for alle brannsentraler. Hver rad i fanen representerer en brannsentral.",
+    "nn": "Dette valet genererer ein Excel-fane som inneheld fullstendige konfigurasjonsdetaljar for alle brannsentralar. Kvar rad i fanen representerer ein brannsentral."
+  },
   "export.checkbox.zone": {
     "en": "Zones",
     "no": "Soner",
     "nn": "Soner"
+  },
+  "infobox-checkbox-zone-title": {
+    "en": "Zones",
+    "no": "Soner",
+    "nn": "Soner"
+  },
+  "infobox-checkbox-zone-text": {
+    "en": "This option generates an Excel tab listing all zones along with their descriptions. If a zone does not have a configured description, the corresponding cell in the sheet will be left blank.",
+    "no": "Dette genererer en Excel fane som lister opp alle soner sammen med deres beskrivelser. Hvis en sone ikke har en konfigurert beskrivelse, vil den tilsvarende cellen i fanen være tom.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle soner saman med deira beskrivingar. Viss ein sone ikkje har ein konfigurert beskriving, vil den tilsvarande cella i fanen vere tom."
   },
   "export.checkbox.loop": {
     "en": "Fire loops",
