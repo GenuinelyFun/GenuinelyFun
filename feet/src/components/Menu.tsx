@@ -30,3 +30,14 @@ const Menu: React.FC = () => {
 };
 
 export default Menu;
+
+export const MenuText = {
+  'tab-homepage': {
+    en: 'Home',
+    no: 'Hjem',
+  },
+  'tab-feet': {
+    en: 'FEET',
+    no: 'FEET',
+  },
+};

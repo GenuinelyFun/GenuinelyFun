@@ -5,6 +5,7 @@ import FileSaver from 'file-saver';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 
 import { Root } from '../../interfaces/jsonDataInterface';
+import { useModal } from '../../utils/useModal';
 import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
@@ -12,6 +13,7 @@ import { mapPanelsWithZones } from '../../mappers/zone-utils';
 
 const ExportForm: FC<{ data?: Root }> = ({ data }) => {
   const { translate } = useLanguageContext();
+  const justAToolModal = useModal();
   const [fileName, setFileName] = useState<string>(
     translate('export.filename.placeholder'),
   );

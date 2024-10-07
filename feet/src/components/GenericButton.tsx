@@ -4,7 +4,7 @@ import styles from './GenericButton.module.less';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonText: string;
-  onClick: () => void;
+  onClick?: () => void;
   invert?: boolean;
 }
 
