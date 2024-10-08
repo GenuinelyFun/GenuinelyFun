@@ -8,6 +8,7 @@ import { Root } from '../../interfaces/jsonDataInterface';
 import { useModal } from '../../utils/useModal';
 import styles from './ExportForm.module.less';
 import GenericButton from '../../components/GenericButton';
+import InfoBox from '../../components/InfoBox';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
 import { mapPanelsWithZones } from '../../mappers/zone-utils';
 
@@ -51,7 +52,7 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
 
   return (
     <form className={styles.container} onSubmit={exportToExcel}>
-      <label className={styles.label}>
+      <label>
         {translate('export.filename.label')}
         <input
           className={styles.input}
@@ -59,22 +60,36 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
           onChange={(e) => setFileName(e.target.value)}
         />
       </label>
-      <label>
-        {translate('export.checkbox.panel')}
-        <input
-          type={'checkbox'}
-          checked={panel}
-          onChange={() => setPanel(!panel)}
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-panel-text')}
+          header={translate('infobox-checkbox-panel-title')}
+          altText="Help Icon"
         />
-      </label>
-      <label>
-        {translate('export.checkbox.zone')}
-        <input
-          type={'checkbox'}
-          checked={zone}
-          onChange={() => setZone(!zone)}
+        <label className={styles.label}>
+          {translate('export.checkbox.panel')}
+          <input
+            type={'checkbox'}
+            checked={panel}
+            onChange={() => setPanel(!panel)}
+          />
+        </label>
+      </div>
+      <div className={styles.checkboxContainer}>
+        <InfoBox
+          message={translate('infobox-checkbox-zone-text')}
+          header={translate('infobox-checkbox-zone-title')}
+          altText="Help Icon"
         />
-      </label>
+        <label className={styles.label}>
+          {translate('export.checkbox.zone')}
+          <input
+            type={'checkbox'}
+            checked={zone}
+            onChange={() => setZone(!zone)}
+          />
+        </label>
+      </div>
       <GenericButton
         disabled={data === undefined}
         buttonText={translate('export.download.button')}
