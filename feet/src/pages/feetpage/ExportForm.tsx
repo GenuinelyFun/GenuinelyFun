@@ -62,12 +62,12 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
       </label>
       <div className={styles.checkboxContainer}>
         <InfoBox
-          message={translate('infobox-checkbox-panel-text')}
-          header={translate('infobox-checkbox-panel-title')}
+          message={translate('export.panel.infobox.description')}
+          header={translate('export.panel.infobox.title')}
           altText="Help Icon"
         />
         <label className={styles.label}>
-          {translate('export.checkbox.panel')}
+          {translate('export.panel.checkbox.label')}
           <input
             type={'checkbox'}
             checked={panel}
@@ -77,12 +77,12 @@ const ExportForm: FC<{ data?: Root }> = ({ data }) => {
       </div>
       <div className={styles.checkboxContainer}>
         <InfoBox
-          message={translate('infobox-checkbox-zone-text')}
-          header={translate('infobox-checkbox-zone-title')}
+          message={translate('export.zone.infobox.description')}
+          header={translate('export.zone.infobox.title')}
           altText="Help Icon"
         />
         <label className={styles.label}>
-          {translate('export.checkbox.zone')}
+          {translate('export.zone.checkbox.label')}
           <input
             type={'checkbox'}
             checked={zone}

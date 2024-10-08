@@ -39,60 +39,125 @@
     "no": "beste-filnavnet",
     "nn": "beste-filnamnet"
   },
-  "export.checkbox.panel": {
+  "export.panel.checkbox.label": {
     "en": "Fire panels",
     "no": "Brannsentraler",
     "nn": "Brannsentraler"
   },
-  "infobox-checkbox-panel-title": {
+  "export.panel.infobox.title": {
     "en": "Fire panels",
     "no": "Brannsentraler",
     "nn": "Brannsentraler"
   },
-  "infobox-checkbox-panel-text": {
+  "export.panel.infobox.description": {
     "en": "This option generates an Excel tab that contains the complete configuration details for all fire panels. Each row in the sheet represents a fire panel.",
-    "no": "Dette genererer gir en Excel fane som inneholder fullstendige konfigurasjonsdetaljer for alle brannsentraler. Hver rad i fanen representerer en brannsentral.",
-    "nn": "Dette valet genererer ein Excel-fane som inneheld fullstendige konfigurasjonsdetaljar for alle brannsentralar. Kvar rad i fanen representerer ein brannsentral."
+    "no": "Dette genererer en Excel fane som inneholder fullstendige konfigurasjonsdetaljer for alle brannsentraler. Hver rad i fanen representerer en brannsentral.",
+    "nn": "Dette genererer ein Excel-fane som inneheld fullstendige konfigurasjonsdetaljar for alle brannsentralar. Kvar rad i fanen representerer ein brannsentral."
   },
-  "export.checkbox.zone": {
+  "export.zone.checkbox.label": {
     "en": "Zones",
     "no": "Soner",
     "nn": "Soner"
   },
-  "infobox-checkbox-zone-title": {
+  "export.zone.infobox.title": {
     "en": "Zones",
     "no": "Soner",
     "nn": "Soner"
   },
-  "infobox-checkbox-zone-text": {
+  "export.zone.infobox.description": {
     "en": "This option generates an Excel tab listing all zones along with their descriptions. If a zone does not have a configured description, the corresponding cell in the sheet will be left blank.",
     "no": "Dette genererer en Excel fane som lister opp alle soner sammen med deres beskrivelser. Hvis en sone ikke har en konfigurert beskrivelse, vil den tilsvarende cellen i fanen være tom.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle soner saman med deira beskrivingar. Viss ein sone ikkje har ein konfigurert beskriving, vil den tilsvarande cella i fanen vere tom."
   },
-  "export.checkbox.loop": {
+  "export.loop.checkbox.label": {
     "en": "Fire loops",
     "no": "Brannsløyfer",
     "nn": "Brannsløyfer"
   },
-  "export.checkbox.board": {
+  "export.loop.infobox.title": {
+    "en": "Fire loops",
+    "no": "Brannsløyfer",
+    "nn": "Brannsløyfer"
+  },
+  "export.loop.infobox.description": {
+    "en": "This option generates an Excel tab listing all fire loops along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle brannsløyfer sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle brannsløyfer saman med deira konfigurasjon."
+  },
+  "export.board.checkbox.label": {
     "en": "IO boards",
     "no": "IO kort",
     "nn": "IO kort"
   },
-  "export.checkbox.input-output-list": {
-    "en": "Input/output list",
+  "export.board.infobox.title": {
+    "en": "IO boards",
+    "no": "IO kort",
+    "nn": "IO kort"
+  },
+  "export.board.infobox.description": {
+    "en": "This option generates an Excel tab listing all IO boards along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle IO kort sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle IO kort saman med deira konfigurasjon."
+  },
+  "export.io.checkbox.label": {
+    "en": "Input and output",
     "no": "Styringer",
     "nn": "Styringer"
   },
-  "export.checkbox.control-groups": {
+  "export.io.infobox.title": {
+    "en": "Input and output",
+    "no": "Styringer",
+    "nn": "Styringer"
+  },
+  "export.io.infobox.description": {
+    "en": "This option generates an Excel tab listing all inputs and outputs along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle innganger og utganger sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle inngongar og utgangar saman med deira konfigurasjon."
+  },
+  "export.controlgroups.checkbox.label": {
     "en": "Control groups",
     "no": "Kontrollgrupper",
     "nn": "Kontrollgrupper"
   },
-  "export.checkbox.config-check": {
+  "export.controlgroups.infobox.title": {
+    "en": "Control groups",
+    "no": "Kontrollgrupper",
+    "nn": "Kontrollgrupper"
+  },
+  "export.controlgroups.infobox.description": {
+    "en": "This option generates an Excel tab that lists all control groups along with the associated devices that trigger them.",
+    "no": "Dette genererer en Excel fane som lister opp alle kontrollgrupper sammen med de tilknyttede enhetene som aktiverer dem.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle kontrollgrupper saman med dei tilknytte einingane som aktiverer dei."
+  },
+  "export.custom.checkbox.label": {
+    "en": "Custom list",
+    "no": "Tilpasset liste",
+    "nn": "Tilpassa liste"
+  },
+  "export.custom.infobox.title": {
+    "en": "Custom list",
+    "no": "Tilpasset liste",
+    "nn": "Tilpassa liste"
+  },
+  "export.custom.infobox.description": {
+    "en": "This option allows you to generate a customized Excel tab that lists your selected options.",
+    "no": "Dette alternativet lar deg generere en tilpasset Excel fane som lister opp dine valgte alternativer.",
+    "nn": "Dette alternativet let deg generere ein tilpassa Excel-fane som listar opp dine valde alternativ."
+  },
+  "export.configcheck.checkbox.label": {
     "en": "Configuration check",
     "no": "Konfigurasjonssjekk",
     "nn": "Konfigurasjonssjekk"
+  },
+  "export.configcheck.infobox.title": {
+    "en": "Configuration check",
+    "no": "Konfigurasjonssjekk",
+    "nn": "Konfigurasjonssjekk"
+  },
+  "export.configcheck.infobox.description": {
+    "en": "This option generates an Excel tab that lists all potential configuration issues detected in the uploaded JSON file.",
+    "no": "Dette genererer en Excel fane som lister opp alle potensielle konfigurasjonsproblemer som er oppdaget i den opplastede JSON-filen.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle potensielle konfigurasjonsproblem som er oppdaga i den opplasta JSON-fila."
   },
   "export.download.button": {
     "en": "Download Excel sheet",
