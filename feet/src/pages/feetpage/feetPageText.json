@@ -44,6 +44,11 @@
     "no": "Brannsentraler",
     "nn": "Brannsentraler"
   },
+  "export.panel.missing-json": {
+    "en": "It appears there are no fire panels in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire panel and try again.",
+    "no": "Det ser ut til at det ikke er noen brannsentraler i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder brannsentral og prøv igjen.",
+    "nn": "Det ser ut til at det ikkje er nokon brannsentralar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsentral og prøv igjen."
+  },
   "export.panel.infobox.title": {
     "en": "Fire panels",
     "no": "Brannsentraler",
@@ -58,6 +63,11 @@
     "en": "Zones",
     "no": "Soner",
     "nn": "Soner"
+  },
+  "export.zone.missing-json": {
+    "en": "It appears there are no zones in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes zones and try again. A possible reason for this issue could be that you converted a FX file to JSON directly, without saving it in editor mode before downloading.",
+    "no": "Det ser ut til at det ikke er noen soner i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder soner og prøv igjen. En mulig årsak til dette problemet kan være at du konverterte en FX-fil til JSON direkte, uten å lagre den i redigeringsmodus før du lastet den ned.",
+    "nn": "Det ser ut til at det ikkje er nokon soner i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld soner og prøv igjen. Ein mogleg årsak til dette problemet kan vere at du konverterte ein FX-fil til JSON direkte, utan å lagre den i redigeringsmodus før du lasta den ned."
   },
   "export.zone.infobox.title": {
     "en": "Zones",
@@ -74,6 +84,11 @@
     "no": "Brannsløyfer",
     "nn": "Brannsløyfer"
   },
+  "export.loop.missing-json": {
+    "en": "It appears there are no fire loops in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire loop and try again.",
+    "no": "Det ser ut til at det ikke er noen brannsløyfer i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder brannsløyfer og prøv igjen.",
+    "nn": "Det ser ut til at det ikkje er nokon brannsløyfer i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsløyfer og prøv igjen."
+  },
   "export.loop.infobox.title": {
     "en": "Fire loops",
     "no": "Brannsløyfer",
@@ -88,6 +103,11 @@
     "en": "IO boards",
     "no": "IO kort",
     "nn": "IO kort"
+  },
+  "export.board.missing-json": {
+    "en": "It appears there are no IO boards in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes IO board and try again.",
+    "no": "Det ser ut til at det ikke er noen IO kort i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder IO kort og prøv igjen.",
+    "nn": "Det ser ut til at det ikkje er nokon IO kort i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld IO kort og prøv igjen."
   },
   "export.board.infobox.title": {
     "en": "IO boards",
@@ -104,6 +124,11 @@
     "no": "Styringer",
     "nn": "Styringer"
   },
+  "export.io.missing-json": {
+    "en": "It appears there are no inputs and outputs in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes input and output data and try again.",
+    "no": "Det ser ut til at det ikke er noen styringer i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder styringer og prøv igjen.",
+    "nn": "Det ser ut til at det ikkje er nokon styringar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld styringer og prøv igjen."
+  },
   "export.io.infobox.title": {
     "en": "Input and output",
     "no": "Styringer",
@@ -118,6 +143,11 @@
     "en": "Control groups",
     "no": "Kontrollgrupper",
     "nn": "Kontrollgrupper"
+  },
+  "export.controlgroups.missing-json": {
+    "en": "It appears there are no control groups in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes control groups and try again.",
+    "no": "Det ser ut til at det ikke er noen kontrollgrupper i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder kontrollgrupper og prøv igjen.",
+    "nn": "Det ser ut til at det ikkje er nokon kontrollgrupper i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld kontrollgrupper og prøv igjen."
   },
   "export.controlgroups.infobox.title": {
     "en": "Control groups",
@@ -148,6 +178,11 @@
     "en": "Configuration check",
     "no": "Konfigurasjonssjekk",
     "nn": "Konfigurasjonssjekk"
+  },
+  "export.configcheck.missing-json": {
+    "en": "The uploaded JSON file looks good, and we’ve found no errors to report. Therefore, there’s no need for that Excel tab.",
+    "no": "Den opplastede JSON-filen ser bra ut, og vi har ikke funnet noen feil å rapportere. Derfor er det ikke behov for den Excel-fanen.",
+    "nn": "Den opplasta JSON-fila ser bra ut, og vi har ikkje funne nokon feil å rapportere. Difor er det ikkje behov for den Excel-fana."
   },
   "export.configcheck.infobox.title": {
     "en": "Configuration check",
