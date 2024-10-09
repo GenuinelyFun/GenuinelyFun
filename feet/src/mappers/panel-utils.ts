@@ -4,15 +4,16 @@ import { feetLanguages } from './utils';
 export const mapPanelToExcel = (panel: Panel) => {
   const serialPort = panel.communication.serial_port1;
   const delayedAlarmOutputs = panel.delayed_alarm_outputs;
-  const fireAlarmDevice: string = delayedAlarmOutputs.delayed_outputs.includes(
-    'Fire alarm devices controlled by control groups A, B, B2 and as general',
-  )
-    ? 'Controlled by control groups A, B, B2 and as general'
-    : delayedAlarmOutputs.delayed_outputs.includes(
-          'Fire alarm devices controlled by control groups B, B2 and as general',
-        )
-      ? 'Controlled by control groups B, B2 and as general'
-      : 'N/A';
+  const fireAlarmDevice: string =
+    delayedAlarmOutputs?.delayed_outputs?.includes(
+      'Fire alarm devices controlled by control groups A, B, B2 and as general',
+    )
+      ? 'Controlled by control groups A, B, B2 and as general'
+      : delayedAlarmOutputs?.delayed_outputs?.includes(
+            'Fire alarm devices controlled by control groups B, B2 and as general',
+          )
+        ? 'Controlled by control groups B, B2 and as general'
+        : 'N/A';
 
   const activationConditions = panel.fire_door.activation;
   const sensorInputDisabled = () => {
@@ -52,20 +53,20 @@ export const mapPanelToExcel = (panel: Panel) => {
     'Delays: Delay T1': delayedAlarmOutputs?.delay_T1,
     'Delays: Delay T2': delayedAlarmOutputs?.delay_T2,
     'Delays: Fire alarm transmitter':
-      delayedAlarmOutputs.delayed_outputs.includes('Fire alarm transmitter')
+      delayedAlarmOutputs?.delayed_outputs?.includes('Fire alarm transmitter')
         ? 'Included in delayed outputs'
         : null,
     'Delays: Fire alarm devices': fireAlarmDevice,
     'Delays: Fire control outputs':
-      delayedAlarmOutputs.delayed_outputs.includes('Fire control outputs')
+      delayedAlarmOutputs?.delayed_outputs?.includes('Fire control outputs')
         ? 'Included in delayed outputs'
         : null,
     'Delays: Terminate delay after 2nd delayed alarm':
-      delayedAlarmOutputs.terminate_delay_at_second.delayed_alarm,
+      delayedAlarmOutputs?.terminate_delay_at_second.delayed_alarm,
     'Delays: Terminate delay after non-delayed alarm':
-      delayedAlarmOutputs.terminate_delay_at_second.non_delayed_alarm,
+      delayedAlarmOutputs?.terminate_delay_at_second.non_delayed_alarm,
     'Delays: Indicate delayed alarm as disablement':
-      delayedAlarmOutputs.delayed_alarm_indication_as_disablement,
+      delayedAlarmOutputs?.delayed_alarm_indication_as_disablement,
     'Fire Door: Fire Alarm': activationConditions.includes('Fire alarm'),
     'Fire Door: Pre Alarm': activationConditions.includes('Prealarm'),
     'Fire Door: Address Fault': activationConditions.includes('Address fault'),
@@ -105,7 +106,8 @@ export const mapPanelToExcel = (panel: Panel) => {
         : '5910,6010'
       : '5910,6010',
     'Main supply fault delay in minutes':
-      panel.power_supply.mains_off_fault_time,
-    'Battery package monitoring': panel.power_supply.battery_package_monitoring,
+      panel.power_supply?.mains_off_fault_time,
+    'Battery package monitoring':
+      panel.power_supply?.battery_package_monitoring,
   };
 };

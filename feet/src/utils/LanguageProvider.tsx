@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 import { useContextOrThrow } from './context-utils';
 
+import genericText from './genericTexts.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
 import { languageText } from '../components/LanguageButton';
-import genericText from './genericTexts.json';
 
 export enum Language {
   EN = 'en',

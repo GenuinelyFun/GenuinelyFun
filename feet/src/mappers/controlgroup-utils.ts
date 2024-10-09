@@ -71,11 +71,9 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
     const { output_control } = device;
     const { control_groups } = output_control || {};
     const { control } = output_control || {};
+
     if (control_group_ABB2.length > 0) {
       control_group_ABB2.forEach((control_group) => {
-        if (device.description === 'ROM 03G01.903 INTERN KORRIDOR') {
-          console.log(device);
-        }
         inputs.push({
           'Control Group': control_group,
           Address: address,

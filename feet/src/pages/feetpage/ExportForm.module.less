@@ -1,7 +1,6 @@
 .container {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   gap: var(--spacing-xsmall);
   width: 300px;
   margin-top: var(--spacing-medium);
@@ -18,8 +17,13 @@
 
 .label {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 100%;
+}
+
+.selectAll {
+  margin-left: var(--spacing-medium);
 }
 
 .input {
@@ -31,6 +35,11 @@
   width: 100%;
 }
 
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 
 .button {
   width: 100%;

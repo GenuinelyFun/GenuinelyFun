@@ -1,9 +1,18 @@
-import { CSSProperties, FC, FormEventHandler, useState } from 'react';
+import {
+  CSSProperties,
+  FC,
+  FormEventHandler,
+  useEffect,
+  useState,
+} from 'react';
 import { utils, write } from 'xlsx';
 import FileSaver from 'file-saver';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 
-import { useLanguageContext } from '../../utils/LanguageProvider';
+import {
+  TranslateTextKeyType,
+  useLanguageContext,
+} from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
 import { Root } from '../../interfaces/jsonDataInterface';
 import InfoBox from '../../components/InfoBox';
@@ -34,6 +43,16 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
   const [report, setReport] = useState<boolean>(true);
   const [control, setControl] = useState<boolean>(true);
 
+  const isZonesAvailable =
+    data !== undefined ? data.system.zones !== undefined : true;
+
+  useEffect(() => {
+    if (data !== undefined) {
+      if (data.system.zones === undefined) {
+        setZone(false);
+      }
+    }
+  }, [data]);
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (data === undefined) return;
@@ -50,7 +69,7 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
         'Panel',
       );
     }
-    if (zone) {
+    if (zones !== undefined && zone) {
       utils.book_append_sheet(
         workbook,
         utils.json_to_sheet(mapPanelsWithZones(panels, zones)),
@@ -104,29 +123,54 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
     setLoading(false);
     FileSaver.saveAs(blob, `${fileName}.xlsx`);
   };
+  const isAllSelected =
+    panel &&
+    (isZonesAvailable ? zone : true) &&
+    loop &&
+    board &&
+    address &&
+    report &&
+    control;
 
   const toggleSelectAll = () => {
-    const isAllSelected =
-      panel && zone && loop && board && address && report && control;
-
-    if (isAllSelected) {
-      setPanel(false);
-      setZone(false);
-      setLoop(false);
-      setBoard(false);
-      setAddress(false);
-      setReport(false);
-      setControl(false);
-    } else {
-      setPanel(true);
-      setZone(true);
-      setLoop(true);
-      setBoard(true);
-      setAddress(true);
-      setReport(true);
-      setControl(true);
+    setPanel(!isAllSelected);
+    if (isZonesAvailable) {
+      setZone(!isAllSelected);
     }
+    setLoop(!isAllSelected);
+    setBoard(!isAllSelected);
+    setAddress(!isAllSelected);
+    setReport(!isAllSelected);
+    setControl(!isAllSelected);
   };
+
+  const CheckboxWithInfobox: FC<{
+    textKey: string;
+    value: boolean;
+    setValue: () => void;
+    disabled?: boolean;
+  }> = ({ textKey, value, setValue, disabled }) => (
+    <li className={styles.checkboxContainer}>
+      <InfoBox
+        message={translate(
+          `export.${textKey}.infobox.description` as TranslateTextKeyType,
+        )}
+        header={translate(
+          `export.${textKey}.infobox.title` as TranslateTextKeyType,
+        )}
+        altText="Help Icon"
+      />
+      <label className={styles.label}>
+        {translate(`export.${textKey}.checkbox.label` as TranslateTextKeyType)}
+        <input
+          type={'checkbox'}
+          checked={value}
+          onChange={setValue}
+          disabled={disabled}
+        />
+      </label>
+    </li>
+  );
 
   return (
     <>
@@ -139,122 +183,56 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
             onChange={(e) => setFileName(e.target.value)}
           />
         </label>
-        <label>
-          <input
-            type={'checkbox'}
-            checked={
-              panel && zone && loop && board && address && report && control
-            }
-            onChange={toggleSelectAll}
+        <ul className={styles.list}>
+          <li>
+            <label className={styles.selectAll}>
+              Select all
+              <input
+                type={'checkbox'}
+                checked={isAllSelected}
+                onChange={toggleSelectAll}
+              />
+            </label>
+          </li>
+          <CheckboxWithInfobox
+            textKey={'panel'}
+            value={panel}
+            setValue={() => setPanel(!panel)}
           />
-          Select all
-        </label>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.panel.infobox.description')}
-            header={translate('export.panel.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'zone'}
+            value={zone}
+            setValue={() => setZone(!zone)}
+            disabled={!isZonesAvailable}
           />
-          <label className={styles.label}>
-            {translate('export.panel.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={panel}
-              onChange={() => setPanel(!panel)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.zone.infobox.description')}
-            header={translate('export.zone.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'loop'}
+            value={loop}
+            setValue={() => setLoop(!loop)}
           />
-          <label className={styles.label}>
-            {translate('export.zone.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={zone}
-              onChange={() => setZone(!zone)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.loop.infobox.description')}
-            header={translate('export.loop.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'board'}
+            value={board}
+            setValue={() => setBoard(!board)}
           />
-          <label className={styles.label}>
-            {translate('export.loop.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={loop}
-              onChange={() => setLoop(!loop)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.board.infobox.description')}
-            header={translate('export.board.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'address'}
+            value={address}
+            setValue={() => setAddress(!address)}
           />
-          <label className={styles.label}>
-            {translate('export.board.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={board}
-              onChange={() => setBoard(!board)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.address.infobox.description')}
-            header={translate('export.address.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'io'}
+            value={report}
+            setValue={() => setReport(!report)}
           />
-          <label className={styles.label}>
-            {translate('export.address.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={address}
-              onChange={() => setAddress(!address)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.report.infobox.description')}
-            header={translate('export.report.infobox.title')}
-            altText="Help Icon"
+          <CheckboxWithInfobox
+            textKey={'controlgroups'}
+            value={control}
+            setValue={() => setControl(!control)}
           />
-          <label className={styles.label}>
-            {translate('export.report.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={report}
-              onChange={() => setReport(!report)}
-            />
-          </label>
-        </div>
-        <div className={styles.checkboxContainer}>
-          <InfoBox
-            message={translate('export.control.infobox.description')}
-            header={translate('export.control.infobox.title')}
-            altText="Help Icon"
-          />
-          <label className={styles.label}>
-            {translate('export.control.checkbox.label')}
-            <input
-              type={'checkbox'}
-              checked={control}
-              onChange={() => setControl(!control)}
-            />
-          </label>
-        </div>
+        </ul>
         <GenericButton
+          className={styles.button}
           disabled={data === undefined}
           buttonText={translate('export.download.button')}
         />
@@ -265,10 +243,9 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
         loading={!loading}
         size={24}
         cssOverride={spinnerStyling}
-        aria-label="Loading Spinner"
-        data-testid="loader"
+        aria-label={translate('loadig.aria-label')}
       />
-      <p>Vennligst vent mens vi.. no morsomt no</p>
+      <p>{translate('loading.description')}</p>
     </>
   );
 };

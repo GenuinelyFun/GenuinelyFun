@@ -99,6 +99,21 @@
     "no": "Dette genererer en Excel fane som lister opp alle IO kort sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle IO kort saman med deira konfigurasjon."
   },
+  "export.address.checkbox.label": {
+    "en": "Addresses",
+    "no": "Adresser",
+    "nn": "Adresser"
+  },
+  "export.address.infobox.title": {
+    "en": "Addresses",
+    "no": "Adresser",
+    "nn": "Adresser"
+  },
+  "export.address.infobox.description": {
+    "en": "This option generates an Excel tab listing all addresses along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle adresser sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle adresser saman med deira konfigurasjon."
+  },
   "export.io.checkbox.label": {
     "en": "Input and output",
     "no": "Styringer",
@@ -163,5 +178,15 @@
     "en": "Download Excel sheet",
     "no": "Last ned Excel filen",
     "nn": "Last ned Excel-fila"
+  },
+  "loading.description": {
+    "en": "Please wait while we.. something fun.",
+    "no": "Vennligst vent mens vi.. no morsomt no.",
+    "nn": "Vennligst vent mens vi.. no morsomt no."
+  },
+  "loadig.aria-label": {
+    "en": "Loading spinner",
+    "no": "Laster spinner",
+    "nn": "Laster spinner"
   }
 }
