@@ -16,7 +16,7 @@ export interface Version {
 
 export interface System {
   panels: Panel[];
-  zones: Zone[];
+  zones?: Zone[];
   ntp_pool?: string[];
   timezone?: string;
 }
@@ -28,9 +28,9 @@ export interface Panel {
   primary_language: string;
   secondary_language: string;
   loop_controllers: LoopController[];
-  delayed_alarm_outputs: DelayedAlarmOutputs;
+  delayed_alarm_outputs?: DelayedAlarmOutputs;
   input_output_units: InputOutputUnit[];
-  power_supply: PowerSupply;
+  power_supply?: PowerSupply;
   fire_door: FireDoor;
   reactivation_of_silenced_alarm_devices_by_new_fire_alarm: boolean;
   deactivation_of_alarm_routers_at_alarm_silence: boolean;
@@ -122,7 +122,7 @@ export interface DelayedAlarmOutputs {
   delay_T1?: number;
   delay_T2?: number;
   terminate_delay_at_second: TerminateDelayAtSecond;
-  delayed_outputs: string[];
+  delayed_outputs?: string[];
   delayed_alarm_indication_as_disablement: boolean;
 }
 

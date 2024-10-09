@@ -4,7 +4,7 @@ export const mapZonesToExcel = (zone: Zone, panel: number) => {
   return {
     'Panel Number': panel,
     Zone: zone.number,
-    Description: zone.description || 'N/A',
+    Description: zone.description,
   };
 };
 

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xsmall);
-  width: 270px;
+  width: 300px;
   margin-top: var(--spacing-medium);
   background-color: var(--color-gray-light);
   border-radius: 8px;
@@ -17,6 +17,13 @@
 
 .label {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.selectAll {
+  margin-left: var(--spacing-medium);
 }
 
 .input {
@@ -25,4 +32,19 @@
   margin-top: 8px;
   background-color: var(--color-white);
   color: var(--color-black);
+  width: 100%;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.button {
+  width: 100%;
+}
+
+.spinner {
+  height: 24px;
 }

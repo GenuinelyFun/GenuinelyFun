@@ -1,5 +1,6 @@
-import pandas as pd
 import json
+import pandas as pd
+
 
 def process_board_items(panel_number, board_type, board_number, board_items, item_type, structured_data):
     for item in board_items:
@@ -57,6 +58,7 @@ def process_board_items(panel_number, board_type, board_number, board_items, ite
 
         structured_data.append(base_info)
 
+
 def process_json_to_excel(json_file_path, excel_file_path, sheet_name='database_io_report'):
     try:
         with open(json_file_path, 'r', encoding='utf-8') as json_file:
@@ -64,7 +66,7 @@ def process_json_to_excel(json_file_path, excel_file_path, sheet_name='database_
 
         structured_data_1 = []
         structured_data_2 = []
-        
+
         # Process the first part of the JSON file
         for panel in json_data['system']['panels']:
             panel_number = panel.get('number')
@@ -76,10 +78,12 @@ def process_json_to_excel(json_file_path, excel_file_path, sheet_name='database_
                         board_number = board.get('number')
 
                         if 'clean_contact_inputs' in board:
-                            process_board_items(panel_number, board_type, board_number, board['clean_contact_inputs'], 'input', structured_data_1)
+                            process_board_items(panel_number, board_type, board_number, board['clean_contact_inputs'],
+                                                'input', structured_data_1)
                         if 'clean_contact_outputs' in board or 'monitored_outputs' in board:
                             outputs = board.get('clean_contact_outputs', []) + board.get('monitored_outputs', [])
-                            process_board_items(panel_number, board_type, board_number, outputs, 'output', structured_data_1)
+                            process_board_items(panel_number, board_type, board_number, outputs, 'output',
+                                                structured_data_1)
 
         # Process the second part of the JSON file
         for panel in json_data['system']['panels']:
@@ -124,24 +128,26 @@ def process_json_to_excel(json_file_path, excel_file_path, sheet_name='database_
         # Combine data from both parts
         combined_structured_data = structured_data_1 + structured_data_2
         structured_df = pd.DataFrame(combined_structured_data)
-        
+
         # Filtering rows based on the deletion rules
         conditions_to_delete = (
             # Both Input Function and Output Function are empty
-            (structured_df['Input Function'].isnull() | structured_df['Input Function'].eq("")) &
-            (structured_df['Output Function'].isnull() | structured_df['Output Function'].eq("")) |
-    
-            # One of the functions is empty and the other is 'Not in use'
-            ((structured_df['Input Function'].isnull() | structured_df['Input Function'].eq("")) & structured_df['Output Function'].eq("Not in use")) |
-            ((structured_df['Output Function'].isnull() | structured_df['Output Function'].eq("")) & structured_df['Input Function'].eq("Not in use")) |
-    
-            # Either Input Function or Output Function is 'Manual call point'
-            structured_df['Input Function'].eq("Manual call point") |
-            structured_df['Output Function'].eq("Manual call point")
-            )
+                (structured_df['Input Function'].isnull() | structured_df['Input Function'].eq("")) &
+                (structured_df['Output Function'].isnull() | structured_df['Output Function'].eq("")) |
+
+                # One of the functions is empty and the other is 'Not in use'
+                ((structured_df['Input Function'].isnull() | structured_df['Input Function'].eq("")) & structured_df[
+                    'Output Function'].eq("Not in use")) |
+                ((structured_df['Output Function'].isnull() | structured_df['Output Function'].eq("")) & structured_df[
+                    'Input Function'].eq("Not in use")) |
+
+                # Either Input Function or Output Function is 'Manual call point'
+                structured_df['Input Function'].eq("Manual call point") |
+                structured_df['Output Function'].eq("Manual call point")
+        )
 
         # Apply filter to exclude rows based on conditions
-        structured_df = structured_df[~conditions_to_delete]        
+        structured_df = structured_df[~conditions_to_delete]
 
         # Ensure all columns are in the DataFrame
         columns_order = ['Address', 'Zone', 'Description', 'Input Function', 'Output Function', 'Other Functions']
