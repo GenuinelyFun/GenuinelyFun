@@ -1,27 +1,34 @@
-### Description ###
+## Trello Link
+
+<!-- Edit the Trello URL link below -->
+[Trello card](https://trello.com/c/)
+
+## Description
+
 <!-- Briefly describe what this PR does and the approach taken -->
 
-### Screenshots (if applicable) ###
-<!-- Add screenshots or GIFs to illustrate the UI changes or functionality -->
+## Screenshots
 
-### Trello Link ###
-<!-- Place your Trello card link here for reference -->
+### Before
 
-### Checklist ###
-- [ ] Code is well-documented (comments, README, etc.)
+<!-- Add screenshots to illustrate the UI changes or functionality before the changes where made -->
+
+### After
+
+<!-- Add screenshots to illustrate the UI changes or functionality after the changes where made -->
+
+## Checklist
+
+<!-- Check the list after the PR are made -->
+
 - [ ] Tests have been written or updated:
-  - [ ] Unit tests
-  - [ ] Integration tests
-  - [ ] End-to-end tests (if applicable)
-- [ ] Code has been tested locally
+    - [ ] Unit tests
+    - [ ] Integration tests
+    - [ ] End-to-end tests (if applicable)
 - [ ] Accessibility has been checked:
-  - [ ] Dark mode
-  - [ ] Screen reader
-  - [ ] Keyboard navigation
+    - [ ] Dark mode
+    - [ ] Screen reader
+    - [ ] Keyboard navigation
 - [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
 - [ ] Responsive design verified (mobile, tablet, desktop)
-- [ ] Linting and formatting rules are followed
 - [ ] No console errors or warnings
-- [ ] Peer review requested and feedback addressed
-- [ ] Documentation has been updated (if necessary)
-- [ ] Relevant Trello/GitHub issues are linked (e.g., closes #123)
