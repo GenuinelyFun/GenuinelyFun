@@ -1,8 +1,17 @@
-import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
+import React, {
+  ChangeEvent,
+  DragEventHandler,
+  FC,
+  useEffect,
+  useState,
+} from 'react';
 import { Root } from '../../interfaces/jsonDataInterface';
 import { useLanguageContext } from '../../utils/LanguageProvider';
-import styles from './ImportForm.module.less';
 import GenericButton from '../../components/GenericButton';
+import iconUpload from '../../assets/icons/upload.svg';
+import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
+import iconSuccess from '../../assets/icons/upload-success.svg';
+import styles from './ImportForm.module.less';
 
 const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   data,
@@ -10,7 +19,24 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
 }) => {
   const [error, setError] = useState<string | boolean>(false);
   const [loading, setLoading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isWrongFileType, setIsNotJson] = useState(false);
   const { translate } = useLanguageContext();
+
+  /* Prevent browser from loading a drag-and-dropped file */
+  useEffect(() => {
+    const noDropZone = (event: Event) => {
+      event.preventDefault();
+    };
+
+    window.addEventListener('dragover', noDropZone, false);
+    window.addEventListener('drop', noDropZone, false);
+
+    return () => {
+      window.removeEventListener('dragover', noDropZone, false);
+      window.removeEventListener('drop', noDropZone, false);
+    };
+  }, []);
 
   const handleUploadedFile = (file: File) => {
     const fileReader = new FileReader();
@@ -33,9 +59,18 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
     event.preventDefault();
     setError(false);
     setLoading(true);
+    setIsDragging(false);
+    setIsNotJson(false);
 
-    if (event.dataTransfer.files[0]) {
-      handleUploadedFile(event.dataTransfer.files[0]);
+    const file = event.dataTransfer.files[0];
+    if (file && file.type !== 'application/json') {
+      setIsNotJson(true);
+      setLoading(false);
+      return;
+    }
+
+    if (file) {
+      handleUploadedFile(file);
     }
   };
 
@@ -43,9 +78,17 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
     event.preventDefault();
     setLoading(true);
     setError(false);
+    setIsNotJson(false);
 
-    if (event.target.files?.[0]) {
-      handleUploadedFile(event.target.files[0]);
+    const file = event.target.files?.[0];
+    if (file && file.type !== 'application/json') {
+      setIsNotJson(true);
+      setLoading(false);
+      return;
+    }
+
+    if (file) {
+      handleUploadedFile(file);
     }
   };
 
@@ -57,35 +100,69 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   };
 
   return (
-    <>
-      <div
-        className={styles.container}
-        onDrop={handleDrop}
-        onDragOver={(e) => e.preventDefault()}
-      >
+    <div
+      className={styles.container}
+      onDrop={handleDrop}
+      onDragOver={(e) => {
+        e.preventDefault();
+        if (!isDragging) {
+          setIsDragging(true);
+        }
+        const file = e.dataTransfer.items[0];
+        if (file && file.kind === 'file' && file.type !== 'application/json') {
+          setIsNotJson(true);
+        } else {
+          setIsNotJson(false);
+        }
+      }}
+      onDragLeave={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setIsDragging(false);
+          setIsNotJson(false);
+        }
+      }}
+    >
+      {isDragging && (
+        <img
+          src={isWrongFileType ? iconWrongFileType : iconUpload}
+          className={styles.draggingSvg}
+        />
+      )}
+      {data && !isDragging && (
         <>
-          {data ? (
-            <p>{translate('upload.success')}</p>
-          ) : (
-            <>
-              <p>{translate('upload.description')}</p>
-              <p>{translate('upload.or')}</p>
-            </>
-          )}
-          <input
-            type="file"
-            id="file-upload"
-            style={{ display: 'none' }}
-            onChange={onFileSelected}
-          />
-          <GenericButton
-            onClick={() => document.getElementById('file-upload')?.click()}
-            buttonText={translate('upload.button')}
-          />
+          <img src={iconSuccess} className={styles.draggingSvg} />
+          <p>{translate('upload.success')}</p>
         </>
-      </div>
+      )}
+      <>
+        {isDragging && isWrongFileType && <p>{translate('upload.not.json')}</p>}
+        {isDragging && !isWrongFileType && (
+          <p>{translate('upload.release.to.upload')}</p>
+        )}
+        {!isDragging && !data && (
+          <>
+            <p>
+              {isWrongFileType
+                ? translate('upload.not.json')
+                : translate('upload.description')}
+            </p>
+            <p className={styles.paragraph}>{translate('upload.or')}</p>
+          </>
+        )}
+        <input
+          type="file"
+          id="file-upload"
+          style={{ display: 'none' }}
+          onChange={onFileSelected}
+        />
+        <GenericButton
+          className={styles.uploadButton}
+          onClick={() => document.getElementById('file-upload')?.click()}
+          buttonText={translate('upload.button')}
+        />
+      </>
       {error && <p className={styles.error}>{errorText()}</p>}
-    </>
+    </div>
   );
 };
 

@@ -4,10 +4,25 @@
     "no": "Du kan dra og slippe JSON filen for å laste opp",
     "nn": "Du kan dra og sleppe JSON-fila for å laste opp"
   },
+  "upload.not.json": {
+    "en": "The file you're holding doesn't appear to be in JSON format. Please try using a different file.",
+    "no": "Filen du holder ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
+    "nn": "Fila du held ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
+  },
+  "uploaded.file.not.json": {
+    "en": "The file you tried to upload doesn't appear to be in JSON format. Please try using a different file.",
+    "no": "Filen du prøvde å laste opp ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
+    "nn": "Fila du prøvde å laste opp ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
+  },
   "upload.or": {
     "en": "or",
     "no": "eller",
     "nn": "eller"
+  },
+  "upload.release.to.upload": {
+    "en": "Great! You can now release the file to upload.",
+    "no": "Flott! Du kan nå slippe filen for å laste opp.",
+    "nn": "Flott! Du kan no sleppe fila for å laste opp."
   },
   "upload.success": {
     "en": "Success",

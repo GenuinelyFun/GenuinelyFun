@@ -7,7 +7,6 @@ import {
 } from 'react';
 import { utils, write } from 'xlsx';
 import FileSaver from 'file-saver';
-import PacmanLoader from 'react-spinners/PacmanLoader';
 
 import {
   TranslateTextKeyType,
@@ -173,80 +172,69 @@ const ExportForm: FC<{ data?: Root; filename?: string }> = ({
   );
 
   return (
-    <>
-      <form className={styles.container} onSubmit={exportToExcel}>
-        <label>
-          {translate('export.filename.label')}
-          <input
-            className={styles.input}
-            value={fileName}
-            onChange={(e) => setFileName(e.target.value)}
-          />
-        </label>
-        <ul className={styles.list}>
-          <li>
-            <label className={styles.selectAll}>
-              Select all
-              <input
-                type={'checkbox'}
-                checked={isAllSelected}
-                onChange={toggleSelectAll}
-              />
-            </label>
-          </li>
-          <CheckboxWithInfobox
-            textKey={'panel'}
-            value={panel}
-            setValue={() => setPanel(!panel)}
-          />
-          <CheckboxWithInfobox
-            textKey={'zone'}
-            value={zone}
-            setValue={() => setZone(!zone)}
-            disabled={!isZonesAvailable}
-          />
-          <CheckboxWithInfobox
-            textKey={'loop'}
-            value={loop}
-            setValue={() => setLoop(!loop)}
-          />
-          <CheckboxWithInfobox
-            textKey={'board'}
-            value={board}
-            setValue={() => setBoard(!board)}
-          />
-          <CheckboxWithInfobox
-            textKey={'address'}
-            value={address}
-            setValue={() => setAddress(!address)}
-          />
-          <CheckboxWithInfobox
-            textKey={'io'}
-            value={report}
-            setValue={() => setReport(!report)}
-          />
-          <CheckboxWithInfobox
-            textKey={'controlgroups'}
-            value={control}
-            setValue={() => setControl(!control)}
-          />
-        </ul>
-        <GenericButton
-          className={styles.button}
-          disabled={data === undefined}
-          buttonText={translate('export.download.button')}
+    <form className={styles.container} onSubmit={exportToExcel}>
+      <label>
+        {translate('export.filename.label')}
+        <input
+          className={styles.input}
+          value={fileName}
+          onChange={(e) => setFileName(e.target.value)}
         />
-      </form>
-      {error && <p>Something went wrong</p>}
-      <PacmanLoader
-        color={'#00573f'}
-        loading={!loading}
-        size={24}
-        cssOverride={spinnerStyling}
-        aria-label={translate('loadig.aria-label')}
+      </label>
+      <ul className={styles.list}>
+        <li>
+          <label className={styles.selectAll}>
+            Select all
+            <input
+              type={'checkbox'}
+              checked={isAllSelected}
+              onChange={toggleSelectAll}
+            />
+          </label>
+        </li>
+        <CheckboxWithInfobox
+          textKey={'panel'}
+          value={panel}
+          setValue={() => setPanel(!panel)}
+        />
+        <CheckboxWithInfobox
+          textKey={'zone'}
+          value={zone}
+          setValue={() => setZone(!zone)}
+          disabled={!isZonesAvailable}
+        />
+        <CheckboxWithInfobox
+          textKey={'loop'}
+          value={loop}
+          setValue={() => setLoop(!loop)}
+        />
+        <CheckboxWithInfobox
+          textKey={'board'}
+          value={board}
+          setValue={() => setBoard(!board)}
+        />
+        <CheckboxWithInfobox
+          textKey={'address'}
+          value={address}
+          setValue={() => setAddress(!address)}
+        />
+        <CheckboxWithInfobox
+          textKey={'io'}
+          value={report}
+          setValue={() => setReport(!report)}
+        />
+        <CheckboxWithInfobox
+          textKey={'controlgroups'}
+          value={control}
+          setValue={() => setControl(!control)}
+        />
+      </ul>
+      <GenericButton
+        className={styles.button}
+        disabled={data === undefined}
+        buttonText={translate('export.download.button')}
       />
-      <p>{translate('loading.description')}</p>
-    </>
+    </form>
   );
 };
 
