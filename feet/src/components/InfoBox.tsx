@@ -2,7 +2,10 @@ import React from 'react';
 import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
 import { useModal } from '../utils/useModal';
 import Modal from './Modal';
-import { useLanguageContext } from '../utils/LanguageProvider';
+import {
+  TranslateTextKeyType,
+  useLanguageContext,
+} from '../utils/LanguageProvider';
 import GenericButton from './GenericButton';
 
 import styles from './InfoBox.module.less';
@@ -10,7 +13,7 @@ import styles from './InfoBox.module.less';
 interface InfoBoxProps {
   message: string;
   header: string;
-  altText: string;
+  altText?: TranslateTextKeyType;
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
@@ -22,7 +25,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
       <button
         onClick={modal.openModal}
         className={styles.infoButton}
-        aria-label={'more info'}
+        aria-label={translate(altText ? altText : 'more-info')}
+        role={'button'}
       >
         <QuestionMarkIcon className={styles.icon} />
       </button>
@@ -30,6 +34,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
         <h2>{header}</h2>
         <p>{message}</p>
         <GenericButton
+          className={styles.closeButton}
           onClick={modal.closeModal}
           buttonText={translate('close')}
         />

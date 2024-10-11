@@ -34,7 +34,7 @@
     "no": "Velg en fil",
     "nn": "Vel ein fil"
   },
-  "upload.error": {
+  "upload.error-general": {
     "en": "Something went wrong, please try again later.",
     "no": "Noe gikk galt, prøv igjen senere.",
     "nn": "Noko gjekk gale, prøv igjen seinare."
@@ -43,6 +43,21 @@
     "en": "Must be JSON filetype, try again.",
     "no": "Må være JSON filtype, prøv igjen.",
     "nn": "Må vere JSON-filtype, prøv igjen."
+  },
+  "upload.error-root": {
+    "en": "Invalid JSON format, please make sure it is the correct file and try again.",
+    "no": "Ugyldig JSON-format, vennligst sjekk at det er riktig fil og prøv igjen.",
+    "nn": "Ugyldig JSON-format, ver venleg å sjekka at det er rett fil og prøv igjen."
+  },
+  "export.error": {
+    "en": "Something went wrong, please try again later.",
+    "no": "Noe gikk galt, prøv igjen senere.",
+    "nn": "Noko gjekk gale, prøv igjen seinare."
+  },
+  "export.started": {
+    "en": "Processes running, download imminent, you impressed.",
+    "no": "Prosesser kjører, nedlasting straks, du imponert.",
+    "nn": "Prosessar køyrer, nedlasting straks, du imponert."
   },
   "export.filename.label": {
     "en": "Edit filename",
@@ -53,6 +68,21 @@
     "en": "best-filename-ever",
     "no": "beste-filnavnet",
     "nn": "beste-filnamnet"
+  },
+  "export.selectall.checkbox.label": {
+    "en": "Select all",
+    "no": "Velg alle",
+    "nn": "Velg alle"
+  },
+  "export.selectall.infobox.title": {
+    "en": "Select all",
+    "no": "Velg alle",
+    "nn": "Velg alle"
+  },
+  "export.selectall.infobox.description": {
+    "en": "This is the 'Select All' button. Because, obviously, clicking each one individually sounds exhausting.",
+    "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da.",
+    "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då."
   },
   "export.panel.checkbox.label": {
     "en": "Fire panels",

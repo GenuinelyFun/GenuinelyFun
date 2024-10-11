@@ -13,16 +13,19 @@ import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
 import iconSuccess from '../../assets/icons/upload-success.svg';
 import styles from './ImportForm.module.less';
 
-const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
-  data,
-  setData,
-}) => {
-  const [error, setError] = useState<string | boolean>(false);
-  const [loading, setLoading] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isWrongFileType, setIsNotJson] = useState(false);
-  const { translate } = useLanguageContext();
+import { useToast } from '../../utils/useToast';
 
+const ImportForm: FC<{
+  data?: Record<string, Root>;
+  setData: (value: Record<string, Root>) => void;
+}> = ({ data, setData }) => {
+  const toast = useToast();
+
+    const [error, setError] = useState<string | boolean>(false);
+    const [loading, setLoading] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
+    const [isWrongFileType, setIsNotJson] = useState(false);
+    const { translate } = useLanguageContext();
   /* Prevent browser from loading a drag-and-dropped file */
   useEffect(() => {
     const noDropZone = (event: Event) => {
@@ -39,18 +42,31 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
   }, []);
 
   const handleUploadedFile = (file: File) => {
+    if (file === null) {
+      toast({ type: 'error', textKey: 'upload.error-general' });
+    }
     const fileReader = new FileReader();
     fileReader.readAsText(file, 'UTF-8');
     fileReader.onload = (e) => {
       if (e.target?.result) {
         try {
-          setData(JSON.parse(e.target.result.toString()));
+          const json = JSON.parse(e.target.result.toString()) as Root;
+          if (json.system === undefined) {
+            toast({
+              type: 'error',
+              textKey: 'upload.error-root',
+            });
+          } else {
+            setData({ [file.name]: json });
+          }
         } catch (error) {
           if (error instanceof SyntaxError) {
-            setError('json');
+            toast({
+              textKey: 'upload.error-json',
+              type: 'error',
+            });
           }
         }
-        setLoading(false);
       }
     };
   };
@@ -90,13 +106,6 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
     if (file) {
       handleUploadedFile(file);
     }
-  };
-
-  const errorText = () => {
-    if (error === 'json') {
-      return translate('upload.error-json');
-    }
-    return translate('upload.error');
   };
 
   return (
@@ -161,7 +170,6 @@ const ImportForm: FC<{ data?: Root; setData: (value: Root) => void }> = ({
           buttonText={translate('upload.button')}
         />
       </>
-      {error && <p className={styles.error}>{errorText()}</p>}
     </div>
   );
 };

@@ -6,11 +6,11 @@ import ImportForm from './ImportForm';
 import styles from './FeetPage.module.less';
 
 const FeetPage: FC = () => {
-  const [data, setData] = useState<Root>();
+  const [data, setData] = useState<Record<string, Root>>();
 
   return (
     <section className={styles.container}>
-      <ExportForm data={data} />
+        <ExportForm data={data} setData={setData} />
       <ImportForm data={data} setData={setData} />
     </section>
   );

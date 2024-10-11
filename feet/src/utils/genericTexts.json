@@ -3,5 +3,10 @@
     "en": "Close",
     "no": "Lukk",
     "nn": "Lukk"
+  },
+  "more-info": {
+    "en": "More info",
+    "no": "Mer info",
+    "nn": "Meir info"
   }
 }

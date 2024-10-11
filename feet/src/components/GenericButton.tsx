@@ -12,8 +12,8 @@ const GenericButton: FC<Props> = ({
   buttonText,
   invert,
   onClick,
-  disabled,
   className,
+  ...buttonProps
 }) => {
   return (
     <button
@@ -21,7 +21,7 @@ const GenericButton: FC<Props> = ({
         [styles.invert]: invert,
       })}
       onClick={onClick}
-      disabled={disabled}
+      {...buttonProps}
     >
       {buttonText}
     </button>
