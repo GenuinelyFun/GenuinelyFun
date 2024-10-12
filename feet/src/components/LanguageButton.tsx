@@ -1,23 +1,32 @@
-import { useLanguageContext } from '../utils/LanguageProvider';
+import {
+  TranslateTextKeyType,
+  useLanguageContext,
+} from '../utils/LanguageProvider';
 import styles from './LanguageButton.module.less';
+import DropDownMenu from './DropDownMenu';
+import classNames from 'classnames';
 
 const LanguageButton = () => {
   const { languages, onClickLanguageChange, i18n, translate } =
     useLanguageContext();
 
   return (
-    <select
-      onChange={(e) => onClickLanguageChange(e.target.value)}
-      value={i18n.language}
-      className={styles.button}
-      aria-label={translate('language.aria-label')}
-    >
-      {Object.keys(languages).map((key) => (
-        <option key={key} value={key} className={styles.dropdown}>
+    <DropDownMenu
+      buttonTextKey={i18n.language as TranslateTextKeyType}
+      buttonClassName={styles.button}
+      listItems={Object.keys(languages).map((key) => (
+        <button
+          key={key}
+          value={key}
+          className={classNames(styles.dropdown, {
+            [styles.active]: i18n.language === key,
+          })}
+          onClick={() => onClickLanguageChange(key)}
+        >
           {languages[key]}
-        </option>
+        </button>
       ))}
-    </select>
+    />
   );
 };
 
@@ -28,5 +37,20 @@ export const languageText = {
     en: 'Select language',
     no: 'Velg språk',
     nn: 'Vel språk',
+  },
+  no: {
+    en: 'Norsk',
+    no: 'Norsk',
+    nn: 'Norsk',
+  },
+  nn: {
+    en: 'Nynorsk',
+    no: 'Nynorsk',
+    nn: 'Nynorsk',
+  },
+  en: {
+    en: 'English',
+    no: 'English',
+    nn: 'English',
   },
 };

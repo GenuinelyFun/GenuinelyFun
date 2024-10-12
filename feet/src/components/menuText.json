@@ -4,6 +4,16 @@
     "no": "Hjem",
     "nn": "Heim"
   },
+  "tab.journal": {
+    "en": "Journal",
+    "no": "Journal",
+    "nn": "Journal"
+  },
+  "tab.dropzone": {
+    "en": "DropZone",
+    "no": "DropZone",
+    "nn": "DropZone"
+  },
   "tab.feet": {
     "en": "FEET",
     "no": "FEET",
