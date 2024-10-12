@@ -10,8 +10,8 @@ const FeetPage: FC = () => {
 
   return (
     <section className={styles.container}>
-      <ImportForm data={data} setData={setData} />
       <ExportForm data={data} />
+      <ImportForm data={data} setData={setData} />
     </section>
   );
 };
