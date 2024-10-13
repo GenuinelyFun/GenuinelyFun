@@ -10,7 +10,6 @@ import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
 import iconUpload from '../../assets/icons/upload.svg';
 import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
-import iconSuccess from '../../assets/icons/upload-success.svg';
 import styles from './ImportForm.module.less';
 
 import { useToast } from '../../utils/useToast';
@@ -18,7 +17,7 @@ import { useDataContext } from '../../utils/DataProvider';
 
 const ImportForm: FC = () => {
   const toast = useToast();
-  const { files, addFiles } = useDataContext();
+  const { addFiles } = useDataContext();
   const [isDragging, setIsDragging] = useState(false);
   const [isNotJson, setIsNotJson] = useState(false);
   const { translate } = useLanguageContext();
@@ -133,29 +132,16 @@ const ImportForm: FC = () => {
           className={styles.statusIcon}
         />
       )}
-      {files.length !== 0 && !isDragging && (
-        <>
-          <img
-            src={iconSuccess}
-            alt={translate('upload.success-icon.aria-label')}
-            className={styles.statusIcon}
-          />
-          <p>{translate('upload.success')}</p>
-        </>
-      )}
       <>
-        {isDragging && (
+        {isDragging ? (
           <p>
             {translate(
               isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
             )}
           </p>
-        )}
-        {!isDragging && (
+        ) : (
           <>
-            <p>
-              {translate(isNotJson ? 'upload.not.json' : 'upload.description')}
-            </p>
+            <p>{translate('upload.description')}</p>
             <p className={styles.paragraph}>{translate('upload.or')}</p>
           </>
         )}

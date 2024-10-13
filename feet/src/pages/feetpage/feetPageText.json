@@ -29,16 +29,6 @@
     "no": "Feil sirkel ikon",
     "nn": "Feil sirkel ikon"
   },
-  "upload.success-icon.aria-label": {
-    "en": "Success upload icon",
-    "no": "Suksess sirkel ikon",
-    "nn": "Suksess sirkel ikon"
-  },
-  "upload.success": {
-    "en": "Files successfully uploaded, you can upload more or download the Excel sheets.",
-    "no": "Filer suksessfullt lastet opp, du kan laste opp flere eller laste ned Excel-arkene.",
-    "nn": "Filar suksessfullt lasta opp, du kan laste opp fleire eller laste ned Excel-arka."
-  },
   "upload.button": {
     "en": "Browse computer",
     "no": "Velg en fil",
