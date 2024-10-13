@@ -1,0 +1,35 @@
+.card {
+  width: var(--max-width-page);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-small);
+  margin: var(--spacing-xxlarge) 0;
+  background-color: var(--color-green);
+
+  img {
+    width: 200px;
+    border-radius: 50%;
+    margin-right: var(--spacing-medium);
+  }
+}
+
+.textContainer {
+  flex-direction: column;
+
+  p {
+    margin: 0;
+  }
+}
+
+.iconRow {
+  display: flex;
+  margin-top: var(--spacing-small);
+  gap: var(--spacing-small);
+
+  svg {
+    width: 32px;
+    height: auto;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+  }
+}
