@@ -38,31 +38,3 @@
 .spinner {
   height: 24px;
 }
-
-.fileCard {
-  border: var(--border) var(--color-black);
-  justify-content: space-between;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: var(--max-width-page);
-  background-color: var(--color-gray-light);
-  padding: 0 var(--spacing-small);
-  margin-bottom: var(--spacing-small);
-
-  & div {
-    display: flex;
-    flex-direction: row;
-  }
-
-  & svg {
-    width: 24px;
-    height: auto;
-    fill: var(--color-white);
-
-    [data-theme='dark'] & {
-      fill: var(--color-black);
-    }
-  }
-}

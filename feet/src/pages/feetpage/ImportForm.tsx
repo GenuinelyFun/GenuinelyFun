@@ -14,20 +14,13 @@ import iconSuccess from '../../assets/icons/upload-success.svg';
 import styles from './ImportForm.module.less';
 
 import { useToast } from '../../utils/useToast';
+import { useDataContext } from '../../utils/DataProvider';
 
-const ImportForm: FC<{
-  data?: Record<string, Root>;
-  setData: (value: Record<string, Root>) => void;
-}> = ({ data, setData }) => {
+const ImportForm: FC = () => {
   const toast = useToast();
-
-    const [error, setError] = useState<string | boolean>(false);
-    const [loading, setLoading] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const [isWrongFileType, setIsNotJson] = useState(false);
-    const { translate } = useLanguageContext();
+  const { files, addFiles } = useDataContext();
   const [isDragging, setIsDragging] = useState(false);
-  const [isWrongFileType, setIsNotJson] = useState(false);
+  const [isNotJson, setIsNotJson] = useState(false);
   const { translate } = useLanguageContext();
   /* Prevent browser from loading a drag-and-dropped file */
   useEffect(() => {
@@ -44,67 +37,68 @@ const ImportForm: FC<{
     };
   }, []);
 
-  const handleUploadedFile = (file: File) => {
-    if (file === null) {
-      toast({ type: 'error', textKey: 'upload.error-general' });
-    }
-    const fileReader = new FileReader();
-    fileReader.readAsText(file, 'UTF-8');
-    fileReader.onload = (e) => {
-      if (e.target?.result) {
-        try {
-          const json = JSON.parse(e.target.result.toString()) as Root;
-          if (json.system === undefined) {
-            toast({
-              type: 'error',
-              textKey: 'upload.error-root',
-            });
-          } else {
-            setData({ [file.name]: json });
-          }
-        } catch (error) {
-          if (error instanceof SyntaxError) {
-            toast({
-              textKey: 'upload.error-json',
-              type: 'error',
-            });
-          }
-        }
+  const handleUploadedFiles = async (files: FileList) => {
+    setIsDragging(false);
+    setIsNotJson(false);
+
+    let filesArray = Array.from(files).map((file) => {
+      if (file === null) {
+        toast({ type: 'error', textKey: 'upload.error-general' });
       }
-    };
+      const fileReader = new FileReader();
+      return new Promise<{ name: string; json: Root } | false>((resolve) => {
+        fileReader.onload = () => {
+          try {
+            const json = JSON.parse(
+              fileReader.result?.toString() || '',
+            ) as Root;
+            if (json.system === undefined) {
+              toast({
+                type: 'error',
+                textKey: 'upload.error-root',
+              });
+              resolve(false);
+            } else {
+              return resolve({
+                name: file.name,
+                json: JSON.parse(fileReader.result?.toString() || '') as Root,
+              });
+            }
+          } catch (error) {
+            if (error instanceof SyntaxError) {
+              setIsNotJson(true);
+              toast({
+                textKey: 'upload.error-json',
+                type: 'error',
+              });
+              resolve(false);
+            }
+          }
+        };
+
+        fileReader.readAsText(file, 'UTF-8');
+      });
+    });
+    addFiles(
+      (
+        await Promise.all<{ name: string; json: Root } | false>(filesArray)
+      ).filter((file) => file !== false) as { name: string; json: Root }[],
+    );
   };
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
-    setIsDragging(false);
-    setIsNotJson(false);
 
-    const file = event.dataTransfer.files[0];
-    if (file && file.type !== 'application/json') {
-      setIsNotJson(true);
-      return;
-    }
-
-    if (file) {
-      handleUploadedFile(file);
-    }
+    handleUploadedFiles(event.dataTransfer.files);
   };
 
   const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setIsNotJson(false);
 
-    const file = event.target.files?.[0];
-    if (file && file.type !== 'application/json') {
-      setIsNotJson(true);
-      return;
-    }
-
-    if (file) {
-      handleUploadedFile(file);
+    if (event.target.files) {
+      handleUploadedFiles(event.target.files);
     }
   };
-
   return (
     <div
       className={styles.container}
@@ -131,20 +125,20 @@ const ImportForm: FC<{
       {isDragging && (
         <img
           alt={translate(
-            isWrongFileType
+            isNotJson
               ? 'upload.error-icon.aria-label'
               : 'upload.icon.aria-label',
           )}
-          src={isWrongFileType ? iconWrongFileType : iconUpload}
-          className={styles.draggingSvg}
+          src={isNotJson ? iconWrongFileType : iconUpload}
+          className={styles.statusIcon}
         />
       )}
-      {data && !isDragging && (
+      {files.length !== 0 && !isDragging && (
         <>
           <img
             src={iconSuccess}
             alt={translate('upload.success-icon.aria-label')}
-            className={styles.draggingSvg}
+            className={styles.statusIcon}
           />
           <p>{translate('upload.success')}</p>
         </>
@@ -153,16 +147,14 @@ const ImportForm: FC<{
         {isDragging && (
           <p>
             {translate(
-              isWrongFileType ? 'upload.not.json' : 'upload.release.to.upload',
+              isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
             )}
           </p>
         )}
-        {!isDragging && !data && (
+        {!isDragging && (
           <>
             <p>
-              {translate(
-                isWrongFileType ? 'upload.not.json' : 'upload.description',
-              )}
+              {translate(isNotJson ? 'upload.not.json' : 'upload.description')}
             </p>
             <p className={styles.paragraph}>{translate('upload.or')}</p>
           </>

@@ -7,9 +7,6 @@ import {
   useLanguageContext,
 } from '../../utils/LanguageProvider';
 import { useToast } from '../../utils/useToast';
-import { Root } from '../../interfaces/jsonDataInterface';
-import { ReactComponent as FileIcon } from '../../assets/icons/file.svg';
-import { ReactComponent as TrashIcon } from '../../assets/icons/trash.svg';
 import InfoBox from '../../components/InfoBox';
 import GenericButton from '../../components/GenericButton';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
@@ -19,14 +16,13 @@ import { mapBoardToExcel } from '../../mappers/board-utils';
 import { mapLoopAddressToExcel } from '../../mappers/address-utils';
 import { mapToIOReportToExcel } from '../../mappers/io-report-utils';
 import { mapControlGroupsToExcel } from '../../mappers/controlgroup-utils';
+import { useDataContext } from '../../utils/DataProvider';
 import styles from './ExportForm.module.less';
 
-const ExportForm: FC<{
-  data?: Record<string, Root>;
-  setData: (value: Record<string, Root> | undefined) => void;
-}> = ({ data, setData }) => {
-  const { translate } = useLanguageContext();
+const ExportForm: FC = () => {
   const toast = useToast();
+  const { translate } = useLanguageContext();
+  const { files } = useDataContext();
 
   const [panel, setPanel] = useState<boolean>(true);
   const [zone, setZone] = useState<boolean>(true);
@@ -37,26 +33,21 @@ const ExportForm: FC<{
   const [control, setControl] = useState<boolean>(true);
 
   const isZonesAvailable =
-    data !== undefined
-      ? Object.values(data)[0].system.zones !== undefined
-      : true;
+    files.length === 1 ? files[0].json.system.zones !== undefined : true;
 
   useEffect(() => {
-    if (data !== undefined) {
-      if (Object.values(data)[0].system.zones === undefined) {
-        setZone(false);
-      }
+    if (!isZonesAvailable) {
+      setZone(false);
     }
-  }, [data]);
+  }, [files]);
+
   const exportToExcel: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (data === undefined) return;
+    if (files.length === 0) return;
 
     toast({ type: 'success', textKey: 'export.started' });
 
-    Object.keys(data).forEach((key) => {
-      const json = data[key];
-
+    files.forEach(({ name, json }) => {
       const workbook = utils.book_new();
       const panels = json.system.panels;
       const zones = json.system.zones;
@@ -121,7 +112,7 @@ const ExportForm: FC<{
       const blob = new Blob([excelBuffer], {
         type: 'application/octet-stream',
       });
-      FileSaver.saveAs(blob, `${key.slice(0, key.indexOf('.json'))}.xlsx`);
+      FileSaver.saveAs(blob, `${name.slice(0, name.indexOf('.json'))}.xlsx`);
     });
   };
 
@@ -177,70 +168,57 @@ const ExportForm: FC<{
   );
 
   return (
-    <>
-      {data && (
-        <div className={styles.fileCard}>
-          <div>
-            <FileIcon />
-            <p>{Object.keys(data)}</p>
-          </div>
-          <button onClick={() => setData(undefined)}>
-            <TrashIcon />
-          </button>
-        </div>
-      )}
-      <form className={styles.container} onSubmit={exportToExcel}>
-        <ul className={styles.list}>
-          <CheckboxWithInfobox
-            textKey={'selectall'}
-            value={isAllSelected}
-            setValue={toggleSelectAll}
-          />
-          <CheckboxWithInfobox
-            textKey={'panel'}
-            value={panel}
-            setValue={() => setPanel(!panel)}
-          />
-          <CheckboxWithInfobox
-            textKey={'zone'}
-            value={zone}
-            setValue={() => setZone(!zone)}
-            disabled={!isZonesAvailable}
-          />
-          <CheckboxWithInfobox
-            textKey={'loop'}
-            value={loop}
-            setValue={() => setLoop(!loop)}
-          />
-          <CheckboxWithInfobox
-            textKey={'board'}
-            value={board}
-            setValue={() => setBoard(!board)}
-          />
-          <CheckboxWithInfobox
-            textKey={'address'}
-            value={address}
-            setValue={() => setAddress(!address)}
-          />
-          <CheckboxWithInfobox
-            textKey={'io'}
-            value={report}
-            setValue={() => setReport(!report)}
-          />
-          <CheckboxWithInfobox
-            textKey={'controlgroups'}
-            value={control}
-            setValue={() => setControl(!control)}
-          />
-        </ul>
-        <GenericButton
-          className={styles.button}
-          disabled={data === undefined || isNoneSelected}
-          role={'submit'}
-          buttonText={translate('export.download.button')}
+    <form className={styles.container} onSubmit={exportToExcel}>
+      <ul className={styles.list}>
+        <CheckboxWithInfobox
+          textKey={'selectall'}
+          value={isAllSelected}
+          setValue={toggleSelectAll}
         />
-      </form>
-    </>
+        <CheckboxWithInfobox
+          textKey={'panel'}
+          value={panel}
+          setValue={() => setPanel(!panel)}
+        />
+        <CheckboxWithInfobox
+          textKey={'zone'}
+          value={zone}
+          setValue={() => setZone(!zone)}
+          disabled={!isZonesAvailable}
+        />
+        <CheckboxWithInfobox
+          textKey={'loop'}
+          value={loop}
+          setValue={() => setLoop(!loop)}
+        />
+        <CheckboxWithInfobox
+          textKey={'board'}
+          value={board}
+          setValue={() => setBoard(!board)}
+        />
+        <CheckboxWithInfobox
+          textKey={'address'}
+          value={address}
+          setValue={() => setAddress(!address)}
+        />
+        <CheckboxWithInfobox
+          textKey={'io'}
+          value={report}
+          setValue={() => setReport(!report)}
+        />
+        <CheckboxWithInfobox
+          textKey={'controlgroups'}
+          value={control}
+          setValue={() => setControl(!control)}
+        />
+      </ul>
+      <GenericButton
+        className={styles.button}
+        disabled={files.length === 0 || isNoneSelected}
+        role={'submit'}
+        buttonText={translate('export.download.button')}
+      />
+    </form>
   );
 };
 

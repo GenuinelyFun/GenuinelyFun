@@ -35,14 +35,19 @@
     "nn": "Suksess sirkel ikon"
   },
   "upload.success": {
-    "en": "Success",
-    "no": "Suksess",
-    "nn": "Suksess"
+    "en": "Files successfully uploaded, you can upload more or download the Excel sheets.",
+    "no": "Filer suksessfullt lastet opp, du kan laste opp flere eller laste ned Excel-arkene.",
+    "nn": "Filar suksessfullt lasta opp, du kan laste opp fleire eller laste ned Excel-arka."
   },
   "upload.button": {
     "en": "Browse computer",
     "no": "Velg en fil",
     "nn": "Vel ein fil"
+  },
+  "upload.duplicate": {
+    "en": "Tried to upload the same file again? You're a rebel.",
+    "no": "Prøvde å laste opp den samme filen igjen? Du er en rebel.",
+    "nn": "Prøvde å laste opp den same fila igjen? Du er ein rebel."
   },
   "upload.error-general": {
     "en": "Something went wrong, please try again later.",
