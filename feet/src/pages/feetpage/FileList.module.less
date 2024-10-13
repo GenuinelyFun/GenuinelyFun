@@ -1,0 +1,31 @@
+.fileList {
+  padding: 0;
+}
+
+.fileCard {
+  width: 300px;
+  border: var(--border) var(--color-black);
+  justify-content: space-between;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  max-width: var(--max-width-page);
+  background-color: var(--color-gray-light);
+  padding: 0 var(--spacing-small);
+  margin: var(--spacing-large);
+
+  & div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  & svg {
+    width: 24px;
+    height: auto;
+    fill: var(--color-white);
+
+    [data-theme="dark"] & {
+      fill: var(--color-black);
+    }
+  }
+}

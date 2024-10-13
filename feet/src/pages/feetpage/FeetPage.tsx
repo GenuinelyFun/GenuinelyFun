@@ -1,18 +1,21 @@
-import { FC, useState } from 'react';
-
-import { Root } from '../../interfaces/jsonDataInterface';
+import { FC } from 'react';
+import { DataProvider } from '../../utils/DataProvider';
 import ExportForm from './ExportForm';
 import ImportForm from './ImportForm';
+import FileList from './FileList';
 import styles from './FeetPage.module.less';
 
 const FeetPage: FC = () => {
-  const [data, setData] = useState<Root>();
-
   return (
-    <section className={styles.container}>
-      <ExportForm data={data} />
-      <ImportForm data={data} setData={setData} />
-    </section>
+    <DataProvider>
+      <section className={styles.container}>
+        <aside>
+          <ExportForm />
+          <FileList />
+        </aside>
+        <ImportForm />
+      </section>
+    </DataProvider>
   );
 };
 
