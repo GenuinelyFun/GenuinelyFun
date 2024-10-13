@@ -26,6 +26,9 @@ const ImportForm: FC<{
     const [isDragging, setIsDragging] = useState(false);
     const [isWrongFileType, setIsNotJson] = useState(false);
     const { translate } = useLanguageContext();
+  const [isDragging, setIsDragging] = useState(false);
+  const [isWrongFileType, setIsNotJson] = useState(false);
+  const { translate } = useLanguageContext();
   /* Prevent browser from loading a drag-and-dropped file */
   useEffect(() => {
     const noDropZone = (event: Event) => {
@@ -73,15 +76,12 @@ const ImportForm: FC<{
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
-    setError(false);
-    setLoading(true);
     setIsDragging(false);
     setIsNotJson(false);
 
     const file = event.dataTransfer.files[0];
     if (file && file.type !== 'application/json') {
       setIsNotJson(true);
-      setLoading(false);
       return;
     }
 
@@ -92,14 +92,11 @@ const ImportForm: FC<{
 
   const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setLoading(true);
-    setError(false);
     setIsNotJson(false);
 
     const file = event.target.files?.[0];
     if (file && file.type !== 'application/json') {
       setIsNotJson(true);
-      setLoading(false);
       return;
     }
 
@@ -133,27 +130,39 @@ const ImportForm: FC<{
     >
       {isDragging && (
         <img
+          alt={translate(
+            isWrongFileType
+              ? 'upload.error-icon.aria-label'
+              : 'upload.icon.aria-label',
+          )}
           src={isWrongFileType ? iconWrongFileType : iconUpload}
           className={styles.draggingSvg}
         />
       )}
       {data && !isDragging && (
         <>
-          <img src={iconSuccess} className={styles.draggingSvg} />
+          <img
+            src={iconSuccess}
+            alt={translate('upload.success-icon.aria-label')}
+            className={styles.draggingSvg}
+          />
           <p>{translate('upload.success')}</p>
         </>
       )}
       <>
-        {isDragging && isWrongFileType && <p>{translate('upload.not.json')}</p>}
-        {isDragging && !isWrongFileType && (
-          <p>{translate('upload.release.to.upload')}</p>
+        {isDragging && (
+          <p>
+            {translate(
+              isWrongFileType ? 'upload.not.json' : 'upload.release.to.upload',
+            )}
+          </p>
         )}
         {!isDragging && !data && (
           <>
             <p>
-              {isWrongFileType
-                ? translate('upload.not.json')
-                : translate('upload.description')}
+              {translate(
+                isWrongFileType ? 'upload.not.json' : 'upload.description',
+              )}
             </p>
             <p className={styles.paragraph}>{translate('upload.or')}</p>
           </>
@@ -162,6 +171,8 @@ const ImportForm: FC<{
           type="file"
           id="file-upload"
           style={{ display: 'none' }}
+          multiple={true}
+          accept={'application/json'}
           onChange={onFileSelected}
         />
         <GenericButton

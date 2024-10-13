@@ -5,14 +5,9 @@
     "nn": "Du kan dra og sleppe JSON-fila for å laste opp"
   },
   "upload.not.json": {
-    "en": "The file you're holding doesn't appear to be in JSON format. Please try using a different file.",
-    "no": "Filen du holder ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
-    "nn": "Fila du held ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
-  },
-  "uploaded.file.not.json": {
-    "en": "The file you tried to upload doesn't appear to be in JSON format. Please try using a different file.",
-    "no": "Filen du prøvde å laste opp ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
-    "nn": "Fila du prøvde å laste opp ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
+    "en": "The file you're trying to upload doesn't appear to be in JSON format. Please try using a different file.",
+    "no": "Filen du prøver å laste opp ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
+    "nn": "Fila du prøver å laste opp ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
   },
   "upload.or": {
     "en": "or",
@@ -23,6 +18,21 @@
     "en": "Great! You can now release the file to upload.",
     "no": "Flott! Du kan nå slippe filen for å laste opp.",
     "nn": "Flott! Du kan no sleppe fila for å laste opp."
+  },
+  "upload.icon.aria-label": {
+    "en": "Upload icon",
+    "no": "Last opp ikon",
+    "nn": "Last opp ikon"
+  },
+  "upload.error-icon.aria-label": {
+    "en": "Error upload icon",
+    "no": "Feil sirkel ikon",
+    "nn": "Feil sirkel ikon"
+  },
+  "upload.success-icon.aria-label": {
+    "en": "Success upload icon",
+    "no": "Suksess sirkel ikon",
+    "nn": "Suksess sirkel ikon"
   },
   "upload.success": {
     "en": "Success",
