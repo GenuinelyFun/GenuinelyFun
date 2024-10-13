@@ -32,13 +32,20 @@ const Menu: React.FC = () => {
         buttonTextKey={'tab.journal'}
         listItems={[
           <Link
-            key="dropzone"
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]: location.pathname === '/dropzone',
             })}
             to="/dropzone"
           >
             {translate('tab.dropzone')}
+          </Link>,
+          <Link
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === '/tech-best-practice',
+            })}
+            to="/tech-best-practice"
+          >
+            {translate('tab.tech.best.practice')}
           </Link>,
         ]}
       />

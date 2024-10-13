@@ -1,0 +1,37 @@
+{
+  "about": {
+    "en": "About me",
+    "no": "Om meg",
+    "nn": "Om meg"
+  },
+  "arthur.image.aria-label": {
+    "en": "Picture of Arthur",
+    "no": "Bilde av Arthur",
+    "nn": "Bilete av Arthur"
+  },
+  "arthur.title": {
+    "en": "Hey, I’m Arthur Leonard Thomassen",
+    "no": "Hei, jeg er Arthur Leonard Thomassen",
+    "nn": "Hei, eg er Arthur Leonard Thomassen"
+  },
+  "arthur.paragraph": {
+    "en": "A full-stack developer and senior field technician in fire and security. I enjoy getting to the bottom of complex problems and learning from every experience to understand things more deeply. You can reach me on GitHub, LinkedIn or X.",
+    "no": "En full-stack utvikler og senior teknikker innen brann og sikkerhet. Jeg liker å komme til bunns i komplekse problemer og lære av hver erfaring for å forstå ting mer dyptgående. Du kan nå meg på GitHub, LinkedIn eller X.",
+    "nn": "Ein full-stack utviklar og senior teknikker innan brann og sikkerheit. Eg likar å kome til botn i komplekse problem og lære av kvar erfaring for å forstå ting meir djuptgåande. Du kan nå meg på GitHub, LinkedIn eller X."
+  },
+  "nghi.image.aria-label": {
+    "en": "Picture of Nghi",
+    "no": "Bilde av Nghi",
+    "nn": "Bilete av Nghi"
+  },
+  "nghi.title": {
+    "en": "Hey, I’m Nghi Nguyen",
+    "no": "Hei, jeg er Nghi Nguyen",
+    "nn": "Hei, eg er Nghi Nguyen"
+  },
+  "nghi.paragraph": {
+    "en": "A full-stack developer, who gets to the bottom of complex problems and learning from every experience to understand things more deeply. You can reach me on GitHub or LinkedIn.",
+    "no": "En full-stack utvikler, som kommer til bunns i komplekse problemer og lærer av hver erfaring for å forstå ting mer dyptgående. Du kan nå meg på GitHub eller LinkedIn.",
+    "nn": "Ein full-stack utviklar, som kjem til botn i komplekse problem og lærer av kvar erfaring for å forstå ting meir djuptgåande. Du kan nå meg på GitHub eller LinkedIn."
+  }
+}
