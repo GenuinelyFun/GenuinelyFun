@@ -1,16 +1,18 @@
 import React from 'react';
-import { useLanguageContext } from '../utils/LanguageProvider';
 import { Link, useLocation } from 'react-router-dom';
-import styles from './Menu.module.less';
 import classNames from 'classnames';
+import { useLanguageContext } from '../utils/LanguageProvider';
+import DropDownMenu from './DropDownMenu';
+import styles from './Menu.module.less';
 
 const Menu: React.FC = () => {
   const { translate } = useLanguageContext();
   const location = useLocation();
+
   return (
     <nav className={styles.menu}>
       <Link
-        className={classNames(styles.link, {
+        className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === '/',
         })}
         to="/"
@@ -18,13 +20,28 @@ const Menu: React.FC = () => {
         {translate('tab.homepage')}
       </Link>
       <Link
-        className={classNames(styles.link, {
+        to="/feet"
+        className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === '/feet',
         })}
-        to="/feet"
       >
         {translate('tab.feet')}
       </Link>
+      <DropDownMenu
+        buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
+        buttonTextKey={'tab.journal'}
+        listItems={[
+          <Link
+            key="dropzone"
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === '/dropzone',
+            })}
+            to="/dropzone"
+          >
+            {translate('tab.dropzone')}
+          </Link>,
+        ]}
+      />
     </nav>
   );
 };
