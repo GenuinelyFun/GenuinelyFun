@@ -26,8 +26,11 @@ export const mapPanelsWithZones = (
     const firstZone = panel.first_zone;
     const amountOfZones = panel.number_of_zones;
 
-    for (let i = firstZone - 1; i < firstZone + amountOfZones - 1; i++) {
-      mappedPanelZones.push(mapZonesToExcel(zones[i], panel.number));
+    for (let i = firstZone; i < firstZone + amountOfZones; i++) {
+      const zone = zones.find((zone) => zone.number === i);
+      if (zone) {
+        mappedPanelZones.push(mapZonesToExcel(zone, panel.number));
+      }
     }
   });
 
