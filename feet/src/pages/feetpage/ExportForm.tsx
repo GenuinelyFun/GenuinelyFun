@@ -55,7 +55,9 @@ const ExportForm: FC = () => {
       if (panel) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(panels.map((panel) => mapPanelToExcel(panel))),
+          utils.json_to_sheet(
+            panels.map((panel) => mapPanelToExcel(json.system, panel)),
+          ),
           'Panel',
         );
       }
