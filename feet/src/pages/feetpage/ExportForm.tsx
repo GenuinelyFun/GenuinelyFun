@@ -104,7 +104,7 @@ const ExportForm: FC = () => {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapControlGroupsToExcel(panels)),
-          'Control Groups Detailed',
+          'Control Groups',
         );
       }
 
