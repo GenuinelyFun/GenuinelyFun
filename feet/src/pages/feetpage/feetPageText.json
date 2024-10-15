@@ -74,6 +74,11 @@
     "no": "beste-filnavnet",
     "nn": "beste-filnamnet"
   },
+  "export.disclaimer.checkbox.label": {
+    "en": "I understand this is just a tool, and that I must verify all content myself.",
+    "no": "Jeg forstår at dette bare er et verktøy, og at jeg må verifisere alt innhold selv.",
+    "nn": "Eg forstår at dette berre er eit verktøy, og at eg må verifisere alt innhald sjølv."
+  },
   "export.selectall.checkbox.label": {
     "en": "Select all",
     "no": "Velg alle",
