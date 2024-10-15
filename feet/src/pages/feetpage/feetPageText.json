@@ -60,9 +60,9 @@
     "nn": "Noko gjekk gale, prøv igjen seinare."
   },
   "export.started": {
-    "en": "Processes running, download imminent, you impressed.",
-    "no": "Prosesser kjører, nedlasting straks, du imponert.",
-    "nn": "Prosessar køyrer, nedlasting straks, du imponert."
+    "en": "The process is rolling. What you selected is on its way! Quite impressive, don’t you think?",
+    "no": "Prosessen er i gang. Det du har valgt er på vei! Ganske imponerende, ikke sant?",
+    "nn": "Prosessen er i gang. Det du har valt er på veg! Ganske imponerande, er det ikkje?"
   },
   "export.filename.label": {
     "en": "Edit filename",
