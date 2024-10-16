@@ -8,20 +8,21 @@
   justify-content: space-between;
   border-radius: 8px;
   display: flex;
-  flex-direction: row;
-  max-width: var(--max-width-page);
   background-color: var(--color-gray-light);
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--spacing-mini);
   margin: var(--spacing-large);
+  word-break: break-all;
 
   & div {
     display: flex;
-    flex-direction: row;
+    margin: 0 var(--spacing-mini);
+    gap: var(--spacing-xsmall);
   }
 
   & svg {
     width: 24px;
     height: auto;
+    min-width: 24px;
     fill: var(--color-white);
 
     [data-theme="dark"] & {
