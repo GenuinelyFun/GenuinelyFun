@@ -1,15 +1,16 @@
 import React, { createContext, FC, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
-import { useContextOrThrow } from './context-utils';
 
 import authorCardText from '../pages/journalpage/authorCardText.json';
-import genericText from './genericTexts.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
+
+import { useContextOrThrow } from './context-utils';
+import genericText from './genericTexts.json';
 import { languageText } from '../components/LanguageButton';
 
 export enum Language {

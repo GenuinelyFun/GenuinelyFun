@@ -1,15 +1,15 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 import image from '../../assets/icons/image_test_560x560.png';
 import codingIcon from '../../assets/icons/lightbulb_code.svg';
 import websiteIcon from '../../assets/icons/website.svg';
-import { ReactComponent as ToolsIcon } from '../../assets/icons/tools.svg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
+import { ReactComponent as ToolsIcon } from '../../assets/icons/tools.svg';
+import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
 import Card, { IconPosition } from './Card';
 import styles from './HomePage.module.less';
-import classNames from 'classnames';
-import { useLanguageContext } from '../../utils/LanguageProvider';
 
 const HomePage: FC = () => {
   const { translate } = useLanguageContext();

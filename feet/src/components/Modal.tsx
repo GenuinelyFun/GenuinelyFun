@@ -1,6 +1,6 @@
-import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import ReactModal from 'react-modal';
+import classNames from 'classnames';
 import { ReactComponent as CrossIcon } from '../assets/icons/cross.svg';
 import { useLanguageContext } from '../utils/LanguageProvider';
 

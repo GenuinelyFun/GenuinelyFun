@@ -1,6 +1,6 @@
-import styles from './Card.module.less';
 import { FC, PropsWithChildren, ReactNode } from 'react';
 import classNames from 'classnames';
+import styles from './Card.module.less';
 
 export enum IconPosition {
   LEFT = 'left',

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Footer.module.less';
 import { useLanguageContext } from '../utils/LanguageProvider';
+import styles from './Footer.module.less';
 
 const Footer = (): JSX.Element => {
   const { translate } = useLanguageContext();
