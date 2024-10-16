@@ -31,6 +31,7 @@ const ExportForm: FC = () => {
   const [address, setAddress] = useState<boolean>(true);
   const [report, setReport] = useState<boolean>(true);
   const [control, setControl] = useState<boolean>(true);
+  const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const isZonesAvailable =
     files.length === 1 ? files[0].json.system.zones !== undefined : true;
@@ -213,10 +214,23 @@ const ExportForm: FC = () => {
           value={control}
           setValue={() => setControl(!control)}
         />
+        <li className={styles.checkboxContainer}>
+          <label>
+            <input
+              type={'checkbox'}
+              checked={disclaimer}
+              onChange={() => setDisclaimer(!disclaimer)}
+            />
+            {translate(
+              `export.disclaimer.checkbox.label` as TranslateTextKeyType,
+            )}
+          </label>
+        </li>
       </ul>
+
       <GenericButton
         className={styles.button}
-        disabled={files.length === 0 || isNoneSelected}
+        disabled={files.length === 0 || isNoneSelected || !disclaimer}
         role={'submit'}
         buttonText={translate('export.download.button')}
       />
