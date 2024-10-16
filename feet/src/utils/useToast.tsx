@@ -48,7 +48,7 @@ export const useToast = () => {
           hotToast.error(content, darkmodeStyles);
           break;
         case 'success':
-          hotToast.success(content, darkmodeStyles);
+          hotToast.success(content, { ...darkmodeStyles, duration: 4000 });
           break;
         case 'promise':
           if (promise !== undefined) {
