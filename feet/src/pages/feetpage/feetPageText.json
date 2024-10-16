@@ -1,4 +1,9 @@
 {
+  "supported-version": {
+    "en": "We support Fire Expert version ",
+    "no": "Vi støtter Fire Expert versjon ",
+    "nn": "Me støttar Fire Expert versjon "
+  },
   "upload.description": {
     "en": "You can drag and drop the JSON file to upload",
     "no": "Du kan dra og slippe JSON filen for å laste opp",
