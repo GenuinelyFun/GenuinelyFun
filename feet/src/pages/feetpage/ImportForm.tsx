@@ -15,6 +15,8 @@ import styles from './ImportForm.module.less';
 import { useToast } from '../../utils/useToast';
 import { useDataContext } from '../../utils/DataProvider';
 
+const FIRE_EXPERT_VERSION = '24.5';
+
 const ImportForm: FC = () => {
   const toast = useToast();
   const { addFiles } = useDataContext();
@@ -99,67 +101,74 @@ const ImportForm: FC = () => {
     }
   };
   return (
-    <div
-      className={styles.container}
-      onDrop={handleDrop}
-      onDragOver={(e) => {
-        e.preventDefault();
-        if (!isDragging) {
-          setIsDragging(true);
-        }
-        const file = e.dataTransfer.items[0];
-        if (file && file.kind === 'file' && file.type !== 'application/json') {
-          setIsNotJson(true);
-        } else {
-          setIsNotJson(false);
-        }
-      }}
-      onDragLeave={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-          setIsDragging(false);
-          setIsNotJson(false);
-        }
-      }}
-    >
-      {isDragging && (
-        <img
-          alt={translate(
-            isNotJson
-              ? 'upload.error-icon.aria-label'
-              : 'upload.icon.aria-label',
-          )}
-          src={isNotJson ? iconWrongFileType : iconUpload}
-          className={styles.statusIcon}
-        />
-      )}
-      <>
-        {isDragging ? (
-          <p>
-            {translate(
-              isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
+    <section className={styles.container}>
+      <div
+        className={styles.uploadContainer}
+        onDrop={handleDrop}
+        onDragOver={(e) => {
+          e.preventDefault();
+          if (!isDragging) {
+            setIsDragging(true);
+          }
+          const file = e.dataTransfer.items[0];
+          if (
+            file &&
+            file.kind === 'file' &&
+            file.type !== 'application/json'
+          ) {
+            setIsNotJson(true);
+          } else {
+            setIsNotJson(false);
+          }
+        }}
+        onDragLeave={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+            setIsDragging(false);
+            setIsNotJson(false);
+          }
+        }}
+      >
+        {isDragging && (
+          <img
+            alt={translate(
+              isNotJson
+                ? 'upload.error-icon.aria-label'
+                : 'upload.icon.aria-label',
             )}
-          </p>
-        ) : (
-          <>
-            <p>{translate('upload.description')}</p>
-            <p className={styles.paragraph}>{translate('upload.or')}</p>
-          </>
+            src={isNotJson ? iconWrongFileType : iconUpload}
+            className={styles.statusIcon}
+          />
         )}
-        <input
-          type="file"
-          id="file-upload"
-          style={{ display: 'none' }}
-          multiple={true}
-          accept={'application/json'}
-          onChange={onFileSelected}
-        />
-        <GenericButton
-          className={styles.uploadButton}
-          onClick={() => document.getElementById('file-upload')?.click()}
-          buttonText={translate('upload.button')}
-        />
-      </>
-    </div>
+        <>
+          {isDragging ? (
+            <p>
+              {translate(
+                isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
+              )}
+            </p>
+          ) : (
+            <>
+              <p>{translate('upload.description')}</p>
+              <p className={styles.paragraph}>{translate('upload.or')}</p>
+            </>
+          )}
+          <input
+            type="file"
+            id="file-upload"
+            style={{ display: 'none' }}
+            multiple={true}
+            accept={'application/json'}
+            onChange={onFileSelected}
+          />
+          <GenericButton
+            className={styles.uploadButton}
+            onClick={() => document.getElementById('file-upload')?.click()}
+            buttonText={translate('upload.button')}
+          />
+        </>
+      </div>
+      <p>{translate('supported-version') + FIRE_EXPERT_VERSION}</p>
+    </section>
   );
 };
 
