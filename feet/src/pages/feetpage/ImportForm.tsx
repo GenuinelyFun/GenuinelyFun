@@ -5,15 +5,15 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { Root } from '../../interfaces/jsonDataInterface';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import GenericButton from '../../components/GenericButton';
 import iconUpload from '../../assets/icons/upload.svg';
 import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
+import { useLanguageContext } from '../../utils/LanguageProvider';
+import { useToast } from '../../utils/useToast';
+import { Root } from '../../interfaces/jsonDataInterface';
+import { useDataContext } from '../../utils/DataProvider';
+import GenericButton from '../../components/GenericButton';
 import styles from './ImportForm.module.less';
 
-import { useToast } from '../../utils/useToast';
-import { useDataContext } from '../../utils/DataProvider';
 
 const ImportForm: FC = () => {
   const toast = useToast();

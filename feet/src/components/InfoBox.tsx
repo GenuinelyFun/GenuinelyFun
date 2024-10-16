@@ -1,11 +1,11 @@
 import React from 'react';
 import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
+import {
+    TranslateTextKeyType,
+    useLanguageContext,
+} from '../utils/LanguageProvider';
 import { useModal } from '../utils/useModal';
 import Modal from './Modal';
-import {
-  TranslateTextKeyType,
-  useLanguageContext,
-} from '../utils/LanguageProvider';
 import GenericButton from './GenericButton';
 
 import styles from './InfoBox.module.less';

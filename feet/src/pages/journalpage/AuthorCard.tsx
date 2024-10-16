@@ -1,13 +1,13 @@
 import React, { FC, ReactNode } from 'react';
-import {
-  TranslateTextKeyType,
-  useLanguageContext,
-} from '../../utils/LanguageProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg';
 import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
 import { ReactComponent as Xicon } from '../../assets/icons/x.svg';
+import {
+  TranslateTextKeyType,
+  useLanguageContext,
+} from '../../utils/LanguageProvider';
 import styles from './AuthorCard.module.less';
 
 const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {

@@ -1,6 +1,6 @@
 import { createContext, FC, PropsWithChildren, useState } from 'react';
-import { useContextOrThrow } from './context-utils';
 import { Root } from '../interfaces/jsonDataInterface';
+import { useContextOrThrow } from './context-utils';
 import { useToast } from './useToast';
 
 type DataContextType = {

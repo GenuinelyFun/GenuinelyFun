@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import {
   TranslateTextKeyType,
   useLanguageContext,
 } from '../utils/LanguageProvider';
 import styles from './LanguageButton.module.less';
 import DropDownMenu from './DropDownMenu';
-import classNames from 'classnames';
 
 const LanguageButton = () => {
   const { languages, onClickLanguageChange, i18n, translate } =

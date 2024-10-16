@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Darkmode, useDarkmodeContext } from '../utils/DarkmodeProvider';
-import styles from './DarkmodeToggle.module.less';
 import { ReactComponent as SunIcon } from '../assets/icons/toggle-sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/icons/toggle-moon.svg';
+import { Darkmode, useDarkmodeContext } from '../utils/DarkmodeProvider';
+import styles from './DarkmodeToggle.module.less';
 
 interface DarkmodeToggleProps {
   className?: string;
