@@ -1,7 +1,7 @@
-import { Panel } from '../interfaces/jsonDataInterface';
+import { Panel, System } from '../interfaces/jsonDataInterface';
 import { feetLanguages } from './utils';
 
-export const mapPanelToExcel = (panel: Panel) => {
+export const mapPanelToExcel = (system: System, panel: Panel) => {
   const serialPort = panel.communication.serial_port1;
   const delayedAlarmOutputs = panel.delayed_alarm_outputs;
   const fireAlarmDevice: string =
@@ -38,7 +38,6 @@ export const mapPanelToExcel = (panel: Panel) => {
         : 'No visible panels',
     'Primary language': feetLanguages[panel.primary_language],
     'Secondary language': feetLanguages[panel.secondary_language],
-    'Assistant Processor Unit In Use': panel.assistant_processor_unit_in_use,
     'First Zone': panel.first_zone,
     'Number of Zones': panel.number_of_zones,
     'Last Local Control Group': panel.last_local_control_zone,
@@ -109,5 +108,8 @@ export const mapPanelToExcel = (panel: Panel) => {
       panel.power_supply?.mains_off_fault_time,
     'Battery package monitoring':
       panel.power_supply?.battery_package_monitoring,
+    'Assistant Processor Unit In Use': panel.assistant_processor_unit_in_use,
+    'Time Zone': system.timezone,
+    'NTP Pool': system.ntp_pool?.join(', '),
   };
 };
