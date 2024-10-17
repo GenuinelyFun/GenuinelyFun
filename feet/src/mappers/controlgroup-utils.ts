@@ -1,4 +1,4 @@
-import { Panel } from '../interfaces/jsonDataInterface';
+import { ControlGroupC, Panel } from '../interfaces/jsonDataInterface';
 import { forEachDeviceInLoopControllers } from './loop-utils';
 
 export const mapControlGroupsToExcel = (panels: Panel[]) => {
@@ -68,7 +68,7 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
       device.control_group_B,
       device.control_group_B2,
     ].filter((el) => !!el);
-    const { output_control } = device;
+    const { output_control, control_group_C } = device;
     const { control_groups } = output_control || {};
     const { control } = output_control || {};
 
@@ -76,6 +76,30 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
       control_group_ABB2.forEach((control_group) => {
         inputs.push({
           'Control Group': control_group,
+          Address: address,
+          'Device ID': device.device_id,
+          Zone: device.zone,
+          Description: device.description,
+          'Device Type': device.type,
+          'Protocol Type': device.protocol_type,
+        });
+      });
+    }
+    if (control_group_C && control_group_C.length > 0) {
+      control_group_C.forEach((control_group: ControlGroupC) => {
+        const controlGroupC = () => {
+          const minutes = control_group.delay ? Math.floor(control_group.delay / 60) : 0;
+          const seconds = control_group.delay ? control_group.delay - minutes * 60 : 0;
+          return (
+              control_group.group +
+              ' ' +
+              String(minutes).padStart(2, '0') +
+              ':' +
+              String(seconds).padStart(2, '0')
+          );
+        };
+        inputs.push({
+          'Control Group': controlGroupC(),
           Address: address,
           'Device ID': device.device_id,
           Zone: device.zone,
@@ -152,19 +176,42 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
     );
   });
 
+  const sortControlGroupC = (c: string) => {
+    if (String(c).split(' ').length === 2) {
+      return Number(c.split(' ')[0]);
+    }
+    return false;
+  };
+
   const keys = [
     ...inputsToExcel.map((input) => input['Control Group']),
     ...outputToExcel.map((output) => output['Control Groups']),
   ]
     .filter((value, index, array) => array.indexOf(value) === index)
     .sort((a, b) => {
-      if (!isNaN(a) && !isNaN(b)) {
-        return a - b;
+      const controlCa = sortControlGroupC(a);
+      const controlCb = sortControlGroupC(b);
+      
+      if ( typeof controlCa === "number" && typeof controlCb === "number") {
+        if ((controlCa - controlCb) === 0) {
+          return String(a).localeCompare(b);
+        }
+        return controlCa - controlCb;
       }
-      if (!isNaN(a) && isNaN(b)) {
+      if (
+          (typeof controlCa === "number" && typeof b === "number")
+      ) {
+        return controlCa === b ? 1 : controlCa - b;
+      }
+      if (
+          (typeof a === "number" && typeof controlCb ==="number")
+      ) {
+        return a === controlCb ? -1 : a - controlCb;
+      }
+      if ((typeof controlCa ==="number" || typeof a=== "number") && isNaN(b)) {
         return -1;
       }
-      if (isNaN(a) && !isNaN(b)) {
+      if ((typeof controlCb === "number" || typeof b === "number") && isNaN(a)) {
         return 1;
       }
       return String(a).localeCompare(b);
