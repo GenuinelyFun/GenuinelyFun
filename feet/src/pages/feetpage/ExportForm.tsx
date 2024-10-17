@@ -24,13 +24,13 @@ const ExportForm: FC = () => {
   const { translate } = useLanguageContext();
   const { files } = useDataContext();
 
-  const [panel, setPanel] = useState<boolean>(true);
+  const [firePanel, setFirePanel] = useState<boolean>(true);
   const [zone, setZone] = useState<boolean>(true);
-  const [loop, setLoop] = useState<boolean>(true);
-  const [board, setBoard] = useState<boolean>(true);
-  const [address, setAddress] = useState<boolean>(true);
-  const [report, setReport] = useState<boolean>(true);
-  const [control, setControl] = useState<boolean>(true);
+  const [fireLoop, setFireLoop] = useState<boolean>(true);
+  const [ioBoard, setIoBoard] = useState<boolean>(true);
+  const [addressReport, setAddressReport] = useState<boolean>(true);
+  const [ioReport, setIoReport] = useState<boolean>(true);
+  const [controlGroupReport, setControlGroupReport] = useState<boolean>(true);
   const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const isZonesAvailable =
@@ -53,7 +53,7 @@ const ExportForm: FC = () => {
       const panels = json.system.panels;
       const zones = json.system.zones;
 
-      if (panel) {
+      if (firePanel) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(
@@ -69,7 +69,7 @@ const ExportForm: FC = () => {
           'Zone',
         );
       }
-      if (loop) {
+      if (fireLoop) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(
@@ -82,28 +82,28 @@ const ExportForm: FC = () => {
           'Loop',
         );
       }
-      if (board) {
+      if (ioBoard) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapBoardToExcel(panels)),
           'Board',
         );
       }
-      if (address) {
+      if (addressReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapLoopAddressToExcel(panels)),
           'Address',
         );
       }
-      if (report) {
+      if (ioReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapToIOReportToExcel(panels)),
           'IO Report',
         );
       }
-      if (control) {
+      if (controlGroupReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapControlGroupsToExcel(panels)),
@@ -120,27 +120,33 @@ const ExportForm: FC = () => {
   };
 
   const isAllSelected =
-    panel &&
+    firePanel &&
     (isZonesAvailable ? zone : true) &&
-    loop &&
-    board &&
-    address &&
-    report &&
-    control;
+    fireLoop &&
+    ioBoard &&
+    addressReport &&
+    ioReport &&
+    controlGroupReport;
 
   const isNoneSelected =
-    !panel && !zone && !loop && !board && !address && !report && !control;
+    !firePanel &&
+    !zone &&
+    !fireLoop &&
+    !ioBoard &&
+    !addressReport &&
+    !ioReport &&
+    !controlGroupReport;
 
   const toggleSelectAll = () => {
-    setPanel(!isAllSelected);
+    setFirePanel(!isAllSelected);
     if (isZonesAvailable) {
       setZone(!isAllSelected);
     }
-    setLoop(!isAllSelected);
-    setBoard(!isAllSelected);
-    setAddress(!isAllSelected);
-    setReport(!isAllSelected);
-    setControl(!isAllSelected);
+    setFireLoop(!isAllSelected);
+    setIoBoard(!isAllSelected);
+    setAddressReport(!isAllSelected);
+    setIoReport(!isAllSelected);
+    setControlGroupReport(!isAllSelected);
   };
 
   const CheckboxWithInfobox: FC<{
@@ -180,8 +186,8 @@ const ExportForm: FC = () => {
         />
         <CheckboxWithInfobox
           textKey={'panel'}
-          value={panel}
-          setValue={() => setPanel(!panel)}
+          value={firePanel}
+          setValue={() => setFirePanel(!firePanel)}
         />
         <CheckboxWithInfobox
           textKey={'zone'}
@@ -191,28 +197,28 @@ const ExportForm: FC = () => {
         />
         <CheckboxWithInfobox
           textKey={'loop'}
-          value={loop}
-          setValue={() => setLoop(!loop)}
+          value={fireLoop}
+          setValue={() => setFireLoop(!fireLoop)}
         />
         <CheckboxWithInfobox
           textKey={'board'}
-          value={board}
-          setValue={() => setBoard(!board)}
+          value={ioBoard}
+          setValue={() => setIoBoard(!ioBoard)}
         />
         <CheckboxWithInfobox
           textKey={'address'}
-          value={address}
-          setValue={() => setAddress(!address)}
+          value={addressReport}
+          setValue={() => setAddressReport(!addressReport)}
         />
         <CheckboxWithInfobox
           textKey={'io'}
-          value={report}
-          setValue={() => setReport(!report)}
+          value={ioReport}
+          setValue={() => setIoReport(!ioReport)}
         />
         <CheckboxWithInfobox
           textKey={'controlgroups'}
-          value={control}
-          setValue={() => setControl(!control)}
+          value={controlGroupReport}
+          setValue={() => setControlGroupReport(!controlGroupReport)}
         />
         <li className={styles.checkboxContainer}>
           <label>
