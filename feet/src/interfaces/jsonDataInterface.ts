@@ -168,9 +168,9 @@ export interface FireDoor {
 }
 
 export interface Communication {
-  serial_port1?: SerialPort; // Panel Connections : RS485
-  system1: System;
-  system2: System;
+  serial_port1?: SerialPort; // Panel connections : RS485
+  system1: communicationSystem;
+  system2: communicationSystem;
 }
 
 export interface SerialPort {
@@ -180,7 +180,7 @@ export interface SerialPort {
   description: string;
 }
 
-export interface System {
+export interface communicationSystem {
   usage?: string;
   baudrate?: number;
 }
