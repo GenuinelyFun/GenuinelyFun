@@ -59,7 +59,7 @@ const ExportForm: FC = () => {
           utils.json_to_sheet(
             panels.map((panel) => mapPanelToExcel(json.system, panel)),
           ),
-          'Panel',
+          'Fire panel',
         );
       }
       if (zones !== undefined && zone) {
@@ -79,35 +79,35 @@ const ExportForm: FC = () => {
               ),
             ),
           ),
-          'Loop',
+          'Fire loop',
         );
       }
       if (ioBoard) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapBoardToExcel(panels)),
-          'Board',
+          'IO Board',
         );
       }
       if (addressReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapLoopAddressToExcel(panels)),
-          'Address',
+          'Address report',
         );
       }
       if (ioReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapToIOReportToExcel(panels)),
-          'IO Report',
+          'IO report',
         );
       }
       if (controlGroupReport) {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(mapControlGroupsToExcel(panels)),
-          'Control Groups',
+          'Control group report',
         );
       }
 
