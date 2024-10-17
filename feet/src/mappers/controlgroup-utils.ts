@@ -84,7 +84,8 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
           'Protocol Type': device.protocol_type,
         });
       });
-    } else if (control_groups || control) {
+    }
+    if (control_groups || control) {
       if (control === 'General control' && control_groups?.length === 0) {
         loop_outputs.push({
           'Control Groups': 'Control groups general control',
