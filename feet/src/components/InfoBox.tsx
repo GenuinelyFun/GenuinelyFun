@@ -1,8 +1,8 @@
 import React from 'react';
 import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
 import {
-    TranslateTextKeyType,
-    useLanguageContext,
+  TranslateTextKeyType,
+  useLanguageContext,
 } from '../utils/LanguageProvider';
 import { useModal } from '../utils/useModal';
 import Modal from './Modal';
@@ -36,8 +36,9 @@ const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
         <GenericButton
           className={styles.closeButton}
           onClick={modal.closeModal}
-          buttonText={translate('close')}
-        />
+        >
+          {translate('close')}
+        </GenericButton>
       </Modal>
     </>
   );

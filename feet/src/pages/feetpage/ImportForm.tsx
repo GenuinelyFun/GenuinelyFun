@@ -14,7 +14,6 @@ import { useDataContext } from '../../utils/DataProvider';
 import GenericButton from '../../components/GenericButton';
 import styles from './ImportForm.module.less';
 
-
 const FIRE_EXPERT_VERSION = '24.5';
 
 const ImportForm: FC = () => {
@@ -163,8 +162,9 @@ const ImportForm: FC = () => {
           <GenericButton
             className={styles.uploadButton}
             onClick={() => document.getElementById('file-upload')?.click()}
-            buttonText={translate('upload.button')}
-          />
+          >
+            {translate('upload.button')}
+          </GenericButton>
         </>
       </div>
       <p>{translate('supported-version') + FIRE_EXPERT_VERSION}</p>

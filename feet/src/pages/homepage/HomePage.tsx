@@ -83,9 +83,10 @@ const HomePage: FC = () => {
             <p>{translate('main-section.infobox-description')}</p>
             <GenericButton
               onClick={() => console.log('I DO NOTHING YET TODO TODO TODO')}
-              buttonText={translate('main-section.infobox-button')}
               invert={true}
-            />
+            >
+              {translate('main-section.infobox-button')}
+            </GenericButton>
           </div>
         </Card>
         <Card

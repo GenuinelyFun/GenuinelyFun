@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
+import { useWindowSize } from 'usehooks-ts';
+
 import { useLanguageContext } from '../utils/LanguageProvider';
 import DropDownMenu from './DropDownMenu';
+
 import styles from './Menu.module.less';
 
-const Menu: React.FC = () => {
+const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
   const { translate } = useLanguageContext();
   const location = useLocation();
+  const { width } = useWindowSize();
 
   return (
     <nav className={styles.menu}>
@@ -16,6 +20,7 @@ const Menu: React.FC = () => {
           [styles.active]: location.pathname === '/',
         })}
         to="/"
+        onClick={onLinkClick}
       >
         {translate('tab.homepage')}
       </Link>
@@ -24,6 +29,7 @@ const Menu: React.FC = () => {
         className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === '/feet',
         })}
+        onClick={onLinkClick}
       >
         {translate('tab.feet')}
       </Link>
@@ -36,6 +42,7 @@ const Menu: React.FC = () => {
               [styles.active]: location.pathname === '/dropzone',
             })}
             to="/dropzone"
+            onClick={onLinkClick}
           >
             {translate('tab.dropzone')}
           </Link>,
@@ -44,6 +51,7 @@ const Menu: React.FC = () => {
               [styles.active]: location.pathname === '/tech-best-practice',
             })}
             to="/tech-best-practice"
+            onClick={onLinkClick}
           >
             {translate('tab.tech.best.practice')}
           </Link>,
@@ -54,14 +62,3 @@ const Menu: React.FC = () => {
 };
 
 export default Menu;
-
-export const MenuText = {
-  'tab-homepage': {
-    en: 'Home',
-    no: 'Hjem',
-  },
-  'tab-feet': {
-    en: 'FEET',
-    no: 'FEET',
-  },
-};

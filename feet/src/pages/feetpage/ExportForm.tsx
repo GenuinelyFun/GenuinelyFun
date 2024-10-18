@@ -232,8 +232,9 @@ const ExportForm: FC = () => {
         className={styles.button}
         disabled={files.length === 0 || isNoneSelected || !disclaimer}
         role={'submit'}
-        buttonText={translate('export.download.button')}
-      />
+      >
+        {translate('export.download.button')}
+      </GenericButton>
     </form>
   );
 };

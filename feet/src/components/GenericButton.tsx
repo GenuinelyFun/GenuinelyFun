@@ -3,16 +3,15 @@ import classNames from 'classnames';
 import styles from './GenericButton.module.less';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonText: string;
   onClick?: () => void;
   invert?: boolean;
 }
 
 const GenericButton: FC<Props> = ({
-  buttonText,
   invert,
   onClick,
   className,
+  children,
   ...buttonProps
 }) => {
   return (
@@ -23,7 +22,7 @@ const GenericButton: FC<Props> = ({
       onClick={onClick}
       {...buttonProps}
     >
-      {buttonText}
+      {children}
     </button>
   );
 };
