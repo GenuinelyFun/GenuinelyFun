@@ -16,6 +16,7 @@ import { mapBoardToExcel } from '../../mappers/board-utils';
 import { mapLoopAddressToExcel } from '../../mappers/address-utils';
 import { mapToIOReportToExcel } from '../../mappers/io-report-utils';
 import { mapControlGroupsToExcel } from '../../mappers/controlgroup-utils';
+import { feetLanguages, sheetTranslateMapper } from '../../mappers/utils';
 import { useDataContext } from '../../utils/DataProvider';
 import styles from './ExportForm.module.less';
 
@@ -32,6 +33,8 @@ const ExportForm: FC = () => {
   const [ioReport, setIoReport] = useState<boolean>(true);
   const [controlGroupReport, setControlGroupReport] = useState<boolean>(true);
   const [disclaimer, setDisclaimer] = useState<boolean>(false);
+  const [sheetLanguage, setSheetLanguage] =
+    useState<keyof typeof feetLanguages>('nb');
 
   const isZonesAvailable =
     files.length === 1 ? files[0].json.system.zones !== undefined : true;
@@ -57,7 +60,10 @@ const ExportForm: FC = () => {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(
-            panels.map((panel) => mapPanelToExcel(json.system, panel)),
+            sheetTranslateMapper(
+              panels.map((panel) => mapPanelToExcel(json.system, panel)),
+              sheetLanguage,
+            ),
           ),
           'Fire panel',
         );
@@ -65,7 +71,12 @@ const ExportForm: FC = () => {
       if (zones !== undefined && zone) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(mapPanelsWithZones(panels, zones)),
+          utils.json_to_sheet(
+            sheetTranslateMapper(
+              mapPanelsWithZones(panels, zones),
+              sheetLanguage,
+            ),
+          ),
           'Zone',
         );
       }
@@ -73,10 +84,13 @@ const ExportForm: FC = () => {
         utils.book_append_sheet(
           workbook,
           utils.json_to_sheet(
-            panels.flatMap((panel) =>
-              panel.loop_controllers.flatMap((loop_controller) =>
-                mapLoopToExcel(loop_controller, panel.number),
+            sheetTranslateMapper(
+              panels.flatMap((panel) =>
+                panel.loop_controllers.flatMap((loop_controller) =>
+                  mapLoopToExcel(loop_controller, panel.number),
+                ),
               ),
+              sheetLanguage,
             ),
           ),
           'Fire loop',
@@ -85,28 +99,39 @@ const ExportForm: FC = () => {
       if (ioBoard) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(mapBoardToExcel(panels)),
+          utils.json_to_sheet(
+            sheetTranslateMapper(mapBoardToExcel(panels), sheetLanguage),
+          ),
           'IO Board',
         );
       }
       if (addressReport) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(mapLoopAddressToExcel(panels)),
+          utils.json_to_sheet(
+            sheetTranslateMapper(mapLoopAddressToExcel(panels), sheetLanguage),
+          ),
           'Address report',
         );
       }
       if (ioReport) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(mapToIOReportToExcel(panels)),
+          utils.json_to_sheet(
+            sheetTranslateMapper(mapToIOReportToExcel(panels), sheetLanguage),
+          ),
           'IO report',
         );
       }
       if (controlGroupReport) {
         utils.book_append_sheet(
           workbook,
-          utils.json_to_sheet(mapControlGroupsToExcel(panels)),
+          utils.json_to_sheet(
+            sheetTranslateMapper(
+              mapControlGroupsToExcel(panels),
+              sheetLanguage,
+            ),
+          ),
           'Control group report',
         );
       }
@@ -179,6 +204,15 @@ const ExportForm: FC = () => {
   return (
     <form className={styles.container} onSubmit={exportToExcel}>
       <ul className={styles.list}>
+        <li className={styles.checkboxContainer}>
+          <select onChange={(e) => setSheetLanguage(e.target.value)}>
+            {Object.keys(feetLanguages).map((key) => (
+              <option className={styles.select} value={key} key={key}>
+                {feetLanguages[key]}
+              </option>
+            ))}
+          </select>
+        </li>
         <CheckboxWithInfobox
           textKey={'selectall'}
           value={isAllSelected}
