@@ -1411,7 +1411,7 @@
     "Description": "Beskrivelse",
     "Enable INFO": "Aktiver INFO protokoll",
     "Enabled": "Aktivert",
-    "FX Protocol": "FX protokoll",
+    "fx_protocol": "FX protokoll",
     "Last local control group number": "Siste lokale kontrollgruppenummer",
     "Monitor INFO": "Overvåk INFO protokoll",
     "Panel connections": "Sentraltilkoblinger",
@@ -1420,6 +1420,7 @@
     "System 1": "System 1",
     "System 2": "System 2"
   },
+  "fx_protocol": "FX protokoll",
   "configuration.panel.eventrecording": {
     "Access level 1 -> 2 and 2 -> changes": "Adgangsnivå 1 -> 2 og 2 -> 1 endringer",
     "Disablement and re-enablement, test on/off events": "Utkobling og Innkobling, Test på/av hendelser",
