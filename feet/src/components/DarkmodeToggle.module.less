@@ -1,8 +1,12 @@
 .darkmodeToggle {
-  display: inline-block;
-  cursor: pointer;
   background-color: unset;
-  width: 20px;
-  height: 20px;
-  margin: auto var(--spacing-small);
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+
+  & svg {
+    width: 20px;
+    height: auto;
+    margin: auto;
+  }
 }

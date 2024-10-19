@@ -1,9 +1,20 @@
+@import "../utils/variables.less";
+
 .menu {
   display: flex;
   margin-left: auto;
-  align-items: center;
+  align-self: center;
   font-size: var(--font-size-medium);
+  margin-right: var(--spacing-medium);
+
+  @media @breakpoint-mobile {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
 }
+
 
 .menuButton {
   height: 100%;

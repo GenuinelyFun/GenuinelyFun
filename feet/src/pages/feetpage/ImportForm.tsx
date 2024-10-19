@@ -162,8 +162,9 @@ const ImportForm: FC = () => {
           <GenericButton
             className={styles.uploadButton}
             onClick={() => document.getElementById('file-upload')?.click()}
-            buttonText={translate('upload.button')}
-          />
+          >
+            {translate('upload.button')}
+          </GenericButton>
         </>
       </div>
       <p>{translate('supported-version') + FIRE_EXPERT_VERSION}</p>

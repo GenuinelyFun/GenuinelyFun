@@ -11,14 +11,16 @@ interface Props extends PropsWithChildren {
   isOpen: boolean;
   className?: string;
   crossAriaLabel?: string;
+  overlayClassname?: string;
 }
 
 const Modal: FC<Props> = ({
+  children,
   onClose,
   isOpen,
   className,
   crossAriaLabel,
-  children,
+  overlayClassname,
 }) => {
   const { translate } = useLanguageContext();
   return (
@@ -29,7 +31,7 @@ const Modal: FC<Props> = ({
       shouldCloseOnOverlayClick={true}
       shouldFocusAfterRender={true}
       shouldReturnFocusAfterClose={true}
-      overlayClassName={styles.overlay}
+      overlayClassName={classNames(styles.overlay, overlayClassname)}
       className={classNames(styles.modal, className)}
       appElement={document.getElementById('root') as HTMLElement}
     >
@@ -41,7 +43,7 @@ const Modal: FC<Props> = ({
       >
         <CrossIcon />
       </button>
-      {children}
+      <div className={styles.modalContent}>{children}</div>
     </ReactModal>
   );
 };

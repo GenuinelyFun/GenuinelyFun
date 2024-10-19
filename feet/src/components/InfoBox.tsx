@@ -36,8 +36,9 @@ const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
         <GenericButton
           className={styles.closeButton}
           onClick={modal.closeModal}
-          buttonText={translate('close')}
-        />
+        >
+          {translate('close')}
+        </GenericButton>
       </Modal>
     </>
   );

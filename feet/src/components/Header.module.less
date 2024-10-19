@@ -1,5 +1,8 @@
+@import "../utils/variables.less";
+
 .header {
   display: flex;
+  justify-content: space-between;
 }
 
 .funIcon {
@@ -8,18 +11,40 @@
   margin: var(--spacing-xsmall);
 }
 
-.menuContainer {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  margin-right: var(--spacing-medium);
-  padding-left: var(--spacing-medium);
-}
-
 .buttonContainer {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--spacing-xsmall);
   position: relative;
-  right: 10px;
+  margin-right: 10px;
+
+  @media @breakpoint-mobile {
+    margin-bottom: var(--spacing-large);
+  }
+}
+
+.burger {
+  width: 24px;
+  height: auto;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sidebarMenu {
+  max-height: unset;
+  height: 100%;
+  max-width: 300px;
+  border-radius: 8px 0 0 8px;
+  right: 0;
+  top: 0;
+  transition: all 1s ease-in;
+  animation: slideInRight 0.4s ease-in-out;
+
 }
