@@ -88,14 +88,18 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
     if (control_group_C && control_group_C.length > 0) {
       control_group_C.forEach((control_group: ControlGroupC) => {
         const controlGroupC = () => {
-          const minutes = control_group.delay ? Math.floor(control_group.delay / 60) : 0;
-          const seconds = control_group.delay ? control_group.delay - minutes * 60 : 0;
+          const minutes = control_group.delay
+            ? Math.floor(control_group.delay / 60)
+            : 0;
+          const seconds = control_group.delay
+            ? control_group.delay - minutes * 60
+            : 0;
           return (
-              control_group.group +
-              ' ' +
-              String(minutes).padStart(2, '0') +
-              ':' +
-              String(seconds).padStart(2, '0')
+            control_group.group +
+            ' ' +
+            String(minutes).padStart(2, '0') +
+            ':' +
+            String(seconds).padStart(2, '0')
           );
         };
         inputs.push({
@@ -191,27 +195,29 @@ export const mapControlGroupsToExcel = (panels: Panel[]) => {
     .sort((a, b) => {
       const controlCa = sortControlGroupC(a);
       const controlCb = sortControlGroupC(b);
-      
-      if ( typeof controlCa === "number" && typeof controlCb === "number") {
-        if ((controlCa - controlCb) === 0) {
+
+      if (typeof controlCa === 'number' && typeof controlCb === 'number') {
+        if (controlCa - controlCb === 0) {
           return String(a).localeCompare(b);
         }
         return controlCa - controlCb;
       }
-      if (
-          (typeof controlCa === "number" && typeof b === "number")
-      ) {
+      if (typeof controlCa === 'number' && typeof b === 'number') {
         return controlCa === b ? 1 : controlCa - b;
       }
-      if (
-          (typeof a === "number" && typeof controlCb ==="number")
-      ) {
+      if (typeof a === 'number' && typeof controlCb === 'number') {
         return a === controlCb ? -1 : a - controlCb;
       }
-      if ((typeof controlCa ==="number" || typeof a=== "number") && isNaN(b)) {
+      if (
+        (typeof controlCa === 'number' || typeof a === 'number') &&
+        isNaN(b)
+      ) {
         return -1;
       }
-      if ((typeof controlCb === "number" || typeof b === "number") && isNaN(a)) {
+      if (
+        (typeof controlCb === 'number' || typeof b === 'number') &&
+        isNaN(a)
+      ) {
         return 1;
       }
       return String(a).localeCompare(b);

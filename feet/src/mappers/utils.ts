@@ -1,3 +1,6 @@
+import { Workbook } from 'exceljs';
+import { Root } from '../interfaces/jsonDataInterface';
+
 export const feetLanguages: Record<string, string> = {
   //cs: 'Czech',
   da: 'Danish',
@@ -53,4 +56,38 @@ export const sheetTranslateMapper = (
   });
 
   return translatedSheet;
+};
+
+export const addSheetToWorkbook = (
+  workbook: Workbook,
+  data: { [key: string]: any }[],
+  sheetName: string,
+  json: Root,
+) => {
+  const sheet = workbook.addWorksheet(sheetName);
+  sheet.addRow(['Configuration number ' + json.version.number]);
+  sheet.addTable({
+    name: sheetName,
+    ref: 'A2',
+    headerRow: true,
+    columns: Object.keys(data[0]).map((key) => {
+      return {
+        name: key,
+        key: key,
+        filterButton: true,
+      };
+    }),
+    rows: data.map((row) => Object.values(row)),
+
+    style: {
+      showRowStripes: true,
+    },
+  });
+  sheet.eachRow({ includeEmpty: true }, function (row) {
+    row.eachCell({ includeEmpty: true }, function (cell) {
+      cell.alignment = {
+        horizontal: 'left',
+      };
+    });
+  });
 };

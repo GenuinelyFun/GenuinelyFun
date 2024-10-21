@@ -1,5 +1,5 @@
 import { FC, FormEventHandler, useEffect, useState } from 'react';
-import { utils, write } from 'xlsx';
+import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 
 import {
@@ -7,6 +7,7 @@ import {
   useLanguageContext,
 } from '../../utils/LanguageProvider';
 import { useToast } from '../../utils/useToast';
+import { useDataContext } from '../../utils/DataProvider';
 import InfoBox from '../../components/InfoBox';
 import GenericButton from '../../components/GenericButton';
 import { mapPanelToExcel } from '../../mappers/panel-utils';
@@ -16,8 +17,7 @@ import { mapBoardToExcel } from '../../mappers/board-utils';
 import { mapLoopAddressToExcel } from '../../mappers/address-utils';
 import { mapToIOReportToExcel } from '../../mappers/io-report-utils';
 import { mapControlGroupsToExcel } from '../../mappers/controlgroup-utils';
-import { feetLanguages, sheetTranslateMapper } from '../../mappers/utils';
-import { useDataContext } from '../../utils/DataProvider';
+import { addSheetToWorkbook, feetLanguages } from '../../mappers/utils';
 import styles from './ExportForm.module.less';
 
 const ExportForm: FC = () => {
@@ -50,97 +50,73 @@ const ExportForm: FC = () => {
     if (files.length === 0) return;
 
     toast({ type: 'success', textKey: 'export.started' });
-
     files.forEach(({ name, json }) => {
-      const workbook = utils.book_new();
+      const workbook = new Workbook();
       const panels = json.system.panels;
       const zones = json.system.zones;
 
       if (firePanel) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(
-              panels.map((panel) => mapPanelToExcel(json.system, panel)),
-              sheetLanguage,
-            ),
-          ),
-          'Fire panel',
+          panels.map((panel) => mapPanelToExcel(json.system, panel)),
+          'Fire_panel',
+          json,
         );
       }
       if (zones !== undefined && zone) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(
-              mapPanelsWithZones(panels, zones),
-              sheetLanguage,
-            ),
-          ),
+          mapPanelsWithZones(panels, zones),
           'Zone',
+          json,
         );
       }
       if (fireLoop) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(
-              panels.flatMap((panel) =>
-                panel.loop_controllers.flatMap((loop_controller) =>
-                  mapLoopToExcel(loop_controller, panel.number),
-                ),
-              ),
-              sheetLanguage,
+          panels.flatMap((panel) =>
+            panel.loop_controllers.flatMap((loop_controller) =>
+              mapLoopToExcel(loop_controller, panel.number),
             ),
           ),
-          'Fire loop',
+          'Fire_loop',
+          json,
         );
       }
       if (ioBoard) {
-        utils.book_append_sheet(
-          workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(mapBoardToExcel(panels), sheetLanguage),
-          ),
-          'IO Board',
-        );
+        addSheetToWorkbook(workbook, mapBoardToExcel(panels), 'IO_Board', json);
       }
       if (addressReport) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(mapLoopAddressToExcel(panels), sheetLanguage),
-          ),
-          'Address report',
+          mapLoopAddressToExcel(panels),
+          'Address_report',
+          json,
         );
       }
       if (ioReport) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(mapToIOReportToExcel(panels), sheetLanguage),
-          ),
-          'IO report',
+          mapToIOReportToExcel(panels),
+          'IO_report',
+          json,
         );
       }
       if (controlGroupReport) {
-        utils.book_append_sheet(
+        addSheetToWorkbook(
           workbook,
-          utils.json_to_sheet(
-            sheetTranslateMapper(
-              mapControlGroupsToExcel(panels),
-              sheetLanguage,
-            ),
-          ),
-          'Control group report',
+          mapControlGroupsToExcel(panels),
+          'Control_group_report',
+          json,
         );
       }
 
-      const excelBuffer = write(workbook, { bookType: 'xlsx', type: 'array' });
-      const blob = new Blob([excelBuffer], {
-        type: 'application/octet-stream',
+      workbook.xlsx.writeBuffer().then((buffer) => {
+        const blob = new Blob([buffer], {
+          type: 'application/octet-stream',
+        });
+        FileSaver.saveAs(blob, `${name.slice(0, name.indexOf('.json'))}.xlsx`);
       });
-      FileSaver.saveAs(blob, `${name.slice(0, name.indexOf('.json'))}.xlsx`);
     });
   };
 
