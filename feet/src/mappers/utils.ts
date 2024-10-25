@@ -2,26 +2,14 @@ import { Workbook } from 'exceljs';
 import { Root } from '../interfaces/jsonDataInterface';
 
 export const feetLanguages: Record<string, string> = {
-  //cs: 'Czech',
-  da: 'Danish',
-  //'nl-NL': 'Dutch',
   en: 'English',
-  //et: 'Estonian',
-  fi: 'Finnish',
-  //'nl-BE': 'Flemish',
-  //fr: 'French',
-  //de: 'German',
-  //hu: 'Hungarian',
-  it: 'Italian',
-  //lv: 'Latvian',
-  //lt: 'Lithuanian',
-  nb: 'Norwegian',
-  //pl: 'Polish',
-  //pt: 'Portuguese',
-  ru: 'Russian',
-  es: 'Spanish',
-  sv: 'Swedish',
-  //tr: 'Turkish',
+  fi: 'Suomi',
+  sv: 'Svenska',
+  nb: 'Norsk',
+  da: 'Dansk',
+  it: 'Italiano',
+  ru: 'Русский',
+  es: 'Español',
 };
 
 export const sheetTranslateMapper = (
