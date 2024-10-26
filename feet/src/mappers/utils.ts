@@ -16,9 +16,6 @@ export const sheetTranslateMapper = (
   sheet: { [key: string]: any }[],
   language: keyof typeof feetLanguages,
 ): { [key: string]: any }[] => {
-  if (language === 'en') {
-    return sheet;
-  }
   const translate: Record<string, string> = require(
     `../feet-translations/translate.en-${language}.json`,
   );
