@@ -1,5 +1,5 @@
 import { Panel } from '../interfaces/jsonDataInterface';
-import { forEachDeviceInLoopControllers } from './loop-utils';
+import { forEachDeviceInLoopControllers } from './fire-loop-utils';
 import { sheetTranslate } from './utils';
 
 const isNull = (el: any) => el === null || el === '' || el === undefined;
