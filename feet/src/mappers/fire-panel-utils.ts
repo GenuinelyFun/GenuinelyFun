@@ -1,5 +1,5 @@
 import { Panel, System } from '../interfaces/jsonDataInterface';
-import { feetLanguages, sheetTranslate } from './utils';
+import { sheetTranslate } from './utils';
 
 export const mapPanelToExcel = (
   system: System,
@@ -40,8 +40,8 @@ export const mapPanelToExcel = (
       panel.visible_panels !== undefined && panel.visible_panels.length > 0
         ? panel.visible_panels.join(', ')
         : 'No visible panels',
-    'Primary language': feetLanguages[panel.primary_language],
-    'Secondary language': feetLanguages[panel.secondary_language],
+    'Primary language': panel.primary_language,
+    'Secondary language': panel.secondary_language,
     'First Zone': panel.first_zone,
     'Number of Zones': panel.number_of_zones,
     'Last Local Control Group': panel.last_local_control_zone,
