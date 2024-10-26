@@ -10,6 +10,15 @@ function flattenJson(nestedJson: JsonObject): string {
 
   // List of allowed parent keys
   const allowedKeys = [
+    'configuration.grid.celleditor.controllc',
+    'firesystem.functionaltype.Description',
+    'orientationMap.objectExplorer.state',
+    'configuration.address.filters.ALCGrid',
+    'firesystem.monitor.PanelStructure',
+    'configuration.powerSupply',
+    'configuration.inputOutputController',
+    'firesystem.monitor.Disable',
+    'configuration.systemPanels',
     'configuration.deviceScan',
     'configuration.deviceScan.Grid',
     'configuration.grid.header',
@@ -32,7 +41,7 @@ function flattenJson(nestedJson: JsonObject): string {
     'configuration.option.mcioInputFunction',
     'configuration.option.mcioMode',
     'configuration.option.mcioOutputFunction',
-    'configuration.option.monitored',
+    'configuration.mcuio.monitoredrelayoutput.grid.column.monitored',
     'configuration.option.outputControl',
     'configuration.option.outputFunction',
     'configuration.option.outputMode',
@@ -76,52 +85,131 @@ function flattenJson(nestedJson: JsonObject): string {
   return flatJson;
 }
 
-// Define the file paths
-const inputFilePath = path.join(__dirname, 'translate.en-nb.json'); // Path to input.json
-const outputFilePath = path.join(__dirname, 'Script-output.json'); // Path to output.json
+const availableLanguages = ['da', 'en', 'es', 'fi', 'it', 'nb', 'ru', 'sv']; // List of available language codes
 
-// Load your JSON file
-fs.readFile(inputFilePath, 'utf8', (err, data) => {
-  if (err) {
-    console.error('Error reading input file:', err);
-    return;
-  }
-
-  // Parse the input JSON data
-  const nestedJson: JsonObject = JSON.parse(data);
-
-  // Flatten the JSON structure by removing top-level keys and concatenating inner values
-  const flattenedData = flattenJson(nestedJson).slice(0, -2); // Removing last comma and adding final braces
-
-  // Remove duplicate lines, keeping unique lines only (case insensitive)
-  const lines = flattenedData.split('\n');
-  const uniqueLinesMap: { [key: string]: string } = {};
-
-  lines.forEach((line) => {
-    const match = line.match(/^"(.*?)":/);
-    if (match) {
-      const key = match[1].toLowerCase();
-      if (!uniqueLinesMap[key]) {
-        uniqueLinesMap[key] = line;
-      }
-    }
-  });
-
-  const uniqueLines = Object.values(uniqueLinesMap).join('\n');
-
-  const finalData = `{
-${uniqueLines}
-}`;
-
-  // Save the flattened JSON (with unique keys) to the output file
-  fs.writeFile(outputFilePath, finalData, 'utf8', (err) => {
+// Load the manual translations and the main translations
+fs.readFile(
+  path.join(path.join(__dirname), 'translate.manual.json'),
+  'utf8',
+  (err, manualData) => {
     if (err) {
-      console.error('Error writing output file:', err);
+      console.error('Error reading manual file:', err);
       return;
     }
 
-    console.log(
-      `Flattened JSON (with unique keys) has been written to ${outputFilePath}`,
-    );
-  });
-});
+    availableLanguages.forEach((language) => {
+      // Set base paths
+      const scriptBasePath = path.join(__dirname); // Path to script folder
+      const translationsBasePath = path.resolve(scriptBasePath, '..'); // Parent folder containing translations
+
+      // Define paths to script files and manual translations
+      const inputFilePath = path.join(
+        scriptBasePath,
+        `translate.en-${language}.json`,
+      ); // Dynamic input file path based on language
+      const outputFilePath = path.join(
+        translationsBasePath,
+        `translate.en-${language}.json`,
+      ); // Dynamic output file path based on language
+
+      const manualJson: JsonObject = JSON.parse(manualData);
+      const manualKey = `translate.manual.en-${language}`;
+      let manualFlattenedData = '';
+
+      if (manualJson[manualKey]) {
+        // Flatten the manual translations first
+        const manualEntries = manualJson[manualKey];
+        Object.keys(manualEntries).forEach((key) => {
+          manualFlattenedData += `"${key}": "${manualEntries[key]}",\n`;
+        });
+      } else {
+        console.warn(
+          `No manual translations found for language code: ${language}`,
+        );
+      }
+
+      // Load the main translation file
+      fs.readFile(inputFilePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error('Error reading input file:', err);
+          return;
+        }
+
+        // Parse the input JSON data
+        const nestedJson: JsonObject = JSON.parse(data);
+
+        // Flatten the JSON structure by removing top-level keys and concatenating inner values
+        const flattenedData = flattenJson(nestedJson).slice(0, -2); // Removing last comma and adding final braces
+
+        // Remove duplicate lines, keeping unique lines only, but allow different cases (e.g., "true": "True", "TRUE": "True")
+        const combinedData = manualFlattenedData + flattenedData;
+        const lines = combinedData.split('\n');
+        const uniqueLinesMap: { [key: string]: string[] } = {};
+
+        // Iterate through lines and handle case-insensitive duplicates correctly
+        lines.forEach((line) => {
+          const match = line.match(/^"(.*?)":/);
+          if (match !== null) {
+            const key = match[1];
+            const lowerCaseKey = key.toLowerCase();
+
+            // If the key exists but with a different case, we allow both entries
+            if (!uniqueLinesMap[lowerCaseKey]) {
+              uniqueLinesMap[lowerCaseKey] = [line];
+            } else {
+              // Check if the current key has the same case as any existing one
+              const existingEntryWithSameCase = uniqueLinesMap[
+                lowerCaseKey
+              ].find(
+                (existingLine) => existingLine.match(/^"(.*?)":/)?.[1] === key,
+              );
+
+              // If no existing entry with the same case, we add the new case variant
+              if (!existingEntryWithSameCase) {
+                uniqueLinesMap[lowerCaseKey].push(line);
+              }
+            }
+          }
+        });
+
+        // Flatten uniqueLinesMap into an array of lines
+        const uniqueLines = Object.values(uniqueLinesMap).flat();
+
+        // Format the unique lines to ensure there is no trailing comma on the last line
+        const formattedLines = uniqueLines
+          .map((line, index) => {
+            if (index === uniqueLines.length - 1) {
+              return line.replace(/,$/, ''); // Last line without comma
+            } else {
+              return line.replace(/,$/, '') + ','; // Add a comma to all lines except the last one
+            }
+          })
+          .join('\n');
+
+        const finalData = `{
+${formattedLines}
+}`;
+
+        // Clear the output file and then write the new data
+        fs.writeFile(outputFilePath, '', 'utf8', (clearErr) => {
+          if (clearErr) {
+            console.error('Error clearing output file:', clearErr);
+            return;
+          }
+
+          // Write the flattened JSON (with unique keys) to the output file
+          fs.writeFile(outputFilePath, finalData, 'utf8', (writeErr) => {
+            if (writeErr) {
+              console.error('Error writing output file:', writeErr);
+              return;
+            }
+
+            console.log(
+              `Flattened JSON (with unique keys) has been written to ${outputFilePath}`,
+            );
+          });
+        });
+      });
+    });
+  },
+);

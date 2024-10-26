@@ -4,10 +4,12 @@ import {
   LoopController,
   Panel,
 } from '../interfaces/jsonDataInterface';
+import { sheetTranslate } from './utils';
 
 export const mapLoopToExcel = (
   loopControllers: LoopController,
   panel_number: number,
+  language: string,
 ) => {
   const loopExcel = [];
   for (const loop of loopControllers.loops) {
@@ -16,53 +18,64 @@ export const mapLoopToExcel = (
 
       loopExcel.push({
         'Panel Number': panel_number,
-        'Loop Controller Type': loopControllers.type,
-        'Loop Controller Number': loopControllers.number,
-        'Loop Number': loop.number,
-        'Device Number': device.number,
+        'Loop.type.title': loopControllers.type,
+        'Panel.loop.number.title': loopControllers.number,
+        'Loop.number.title': loopControllers.number,
+        'Device.number.title': device.number,
         Zone: device.zone,
-        'Device ID': device.device_id,
-        'Device Type': device.type,
-        'Protocol Type': device.protocol_type,
+        'DeviceId.title': device.device_id,
+        'Type.title': device.type,
+        'Protocol.type.title': device.protocol_type,
         Description: device.description,
-        'Control Group A': device.control_group_A,
-        'Control Group B': device.control_group_B,
-        'Control Group B2': device.control_group_B2,
-        'C1 Group': control_group_C?.find((el) => el.number === 1)?.group,
-        'C1 Delay': control_group_C?.find((el) => el.number === 1)?.delay,
-        'C2 Group': control_group_C?.find((el) => el.number === 2)?.group,
-        'C2 Delay': control_group_C?.find((el) => el.number === 2)?.delay,
-        'C3 Group': control_group_C?.find((el) => el.number === 3)?.group,
-        'C3 Delay': control_group_C?.find((el) => el.number === 3)?.delay,
-        'C4 Group': control_group_C?.find((el) => el.number === 4)?.group,
-        'C4 Delay': control_group_C?.find((el) => el.number === 4)?.delay,
-        'C5 Group': control_group_C?.find((el) => el.number === 5)?.group,
-        'C5 Delay': control_group_C?.find((el) => el.number === 5)?.delay,
-        'C6 Group': control_group_C?.find((el) => el.number === 6)?.group,
-        'C6 Delay': control_group_C?.find((el) => el.number === 6)?.delay,
-        'C7 Group': control_group_C?.find((el) => el.number === 7)?.group,
-        'C7 Delay': control_group_C?.find((el) => el.number === 7)?.delay,
-        'Alarm Thresholds Fire': alarm_thresholds?.find(
-          (el) => el.name === 'Fire',
-        )?.value,
-        'Alarm Thresholds Prealarm': alarm_thresholds?.find(
+        'Ctrl A.title': device.control_group_A,
+        'Ctrl B.title': device.control_group_B,
+        'Ctrl B2.title': device.control_group_B2,
+        'Ctrl C1.title': control_group_C?.find((el) => el.number === 1)?.group,
+        'Ctrl C1.title.delay': control_group_C?.find((el) => el.number === 1)
+          ?.delay,
+        'Ctrl C2.title': control_group_C?.find((el) => el.number === 2)?.group,
+        'Ctrl C2.title.delay': control_group_C?.find((el) => el.number === 2)
+          ?.delay,
+        'Ctrl C3.title': control_group_C?.find((el) => el.number === 3)?.group,
+        'Ctrl C3.title.delay': control_group_C?.find((el) => el.number === 3)
+          ?.delay,
+        'Ctrl C4.title': control_group_C?.find((el) => el.number === 4)?.group,
+        'Ctrl C4.title.delay': control_group_C?.find((el) => el.number === 4)
+          ?.delay,
+        'Ctrl C5.title': control_group_C?.find((el) => el.number === 5)?.group,
+        'Ctrl C5.title.delay': control_group_C?.find((el) => el.number === 5)
+          ?.delay,
+        'Ctrl C6.title': control_group_C?.find((el) => el.number === 6)?.group,
+        'Ctrl C6.title.delay': control_group_C?.find((el) => el.number === 6)
+          ?.delay,
+        'Ctrl C7.title': control_group_C?.find((el) => el.number === 7)?.group,
+        'Ctrl C7.title.delay': control_group_C?.find((el) => el.number === 7)
+          ?.delay,
+        'fireLevel.title': alarm_thresholds?.find((el) => el.name === 'Fire')
+          ?.value,
+        'prealarmLevel.title': alarm_thresholds?.find(
           (el) => (el.name = 'Prealarm'),
         ),
-        'Alarm Thresholds Fire Day Mode': alarm_thresholds?.find(
+        'Day mode fire level.title': alarm_thresholds?.find(
           (el) => (el.name = 'Fire, day mode'),
         ),
-        'Alarm Thresholds Prealarm Day Mode':
+        'Day mode prealarm level.title':
           alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode')) ||
           'N/A',
-        'Day Mode': device.in_day_mode || 'No day mode',
-        'Input Function': device.input_function,
-        'Alarm Mode': device.alarm_mode?.join(', '),
-        'Zone Disables': device.zone_disables?.join(', '),
-        'Input Delay': device.input_delay,
-        'Short Circuit Monitoring': device.short_circuit_monitoring,
-        'Output Function': output_control?.output_function,
-        'Output Function 2': output_control?.output_function_2,
-        'Control Groups':
+        'InputFunction.title': device.input_function,
+        'AlarmMode.title': device.alarm_mode?.join(', '),
+        'zoneDisables.title': device.zone_disables
+          ?.map((item) => sheetTranslate(item, language))
+          .join(', '),
+        'Input delay.title': device.input_delay,
+        'Input filter.title': device.input_filter,
+        'Day mode.title': device.in_day_mode
+          ? 'Day mode thresholds'
+          : 'No day mode',
+        'Short circuit is alarm.title': device.short_circuit_monitoring,
+        'outputFunction.title': output_control?.output_function,
+        'outputFunction2.title': output_control?.output_function_2,
+        'Control groups.title':
           output_control?.control === 'Control Groups'
             ? output_control.control_groups.join(', ')
             : ['General control', 'Local control'].includes(
@@ -70,11 +83,19 @@ export const mapLoopToExcel = (
                 )
               ? output_control?.control
               : null,
-        'Output External OR': output_control?.output_external_or ? 'Yes' : 'No',
+        'ExternalOr.title': output_control?.output_external_or ? 'Yes' : 'No',
         'Sounder Mode': device.sounder?.mode,
-        'Sounder Tone': device.sounder?.tone,
-        'Sounder Volume': device.sounder?.volume,
-        'Sounder Alert Tone': device.sounder?.alert_tone,
+        'Sounder,evacuation tones.title': device.sounder?.tone
+          ? `p.sounder.primary${device.sounder.tone}`
+          : undefined,
+        'Sounder volume.title':
+          device.sounder?.volume === 1
+            ? 'Low'
+            : device.sounder?.volume === 3
+              ? 'High'
+              : device.sounder?.volume,
+        'Sounder,phased evacuation,alert tones.title':
+          device.sounder?.alert_tone,
       });
     }
   }

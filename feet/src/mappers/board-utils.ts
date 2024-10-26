@@ -16,10 +16,15 @@ export const mapBoardToExcel = (panels: Panel[]) => {
           'Output Function': null,
           Description: item.description,
           Monitored: item.monitored ? 'Monitored' : 'Not monitored',
-          Contact: item.contact,
-          'Control Group A': item.control_group_A,
-          'Control Group B': item.control_group_B,
-          'Control Group B2': item.control_group_B2,
+          'Contact.title':
+            item.contact === 'NO'
+              ? 'Normally open'
+              : item.contact === 'NC'
+                ? 'Normally closed'
+                : item.contact,
+          'Ctrl A.title': item.control_group_A,
+          'Ctrl B.title': item.control_group_B,
+          'Ctrl B2.title': item.control_group_B2,
           'Control Groups': null,
           'Output Mode': null,
         });
@@ -38,9 +43,9 @@ export const mapBoardToExcel = (panels: Panel[]) => {
           Description: item.description,
           Monitored: null,
           Contact: null,
-          'Control Group A': null,
-          'Control Group B': null,
-          'Control Group B2': null,
+          'Ctrl A.title': null,
+          'Ctrl B.title': null,
+          'Ctrl B2.title': null,
           'Control Groups':
             output_control.control === 'Control Groups'
               ? output_control.control_groups.join(', ')
@@ -66,9 +71,9 @@ export const mapBoardToExcel = (panels: Panel[]) => {
           Description: item.description,
           Monitored: 'Monitored',
           Contact: null,
-          'Control Group A': null,
-          'Control Group B': null,
-          'Control Group B2': null,
+          'Ctrl A.title': null,
+          'Ctrl B.title': null,
+          'Ctrl B2.title': null,
           'Control Groups':
             output_control.control === 'Control Groups'
               ? output_control.control_groups.join(', ')

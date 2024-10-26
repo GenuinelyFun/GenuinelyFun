@@ -1552,7 +1552,7 @@
     "Number": "Número",
     "Ok": "De acuerdo",
     "Panel identifier": "Identificador de panel",
-    "Panel name": "Nombre del panel"
+    "Panel Name": "Nombre del panel"
   },
   "configuration.zones": {
     "Cancel": "Cancelar",
@@ -1886,7 +1886,7 @@
     "Panels": "Paneles"
   },
   "design.summary.PanelName": {
-    "Panel name": "Nombre del panel"
+    "Panel Name": "Nombre del panel"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Notas del panel"
@@ -2587,7 +2587,7 @@
     "Mark as demo system": "Marcar como sistema de demostración",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "¡NOTA! Después de la eliminación del sistema, se revoca cualquier acceso al sistema compartido pendiente o transferencia de propiedad. La eliminación y desactivación del sistema no elimina la información del sistema de forma permanente en caso de que sea necesario revertirla.",
     "Note": "Nota",
-    "Panel name": "Nombre del panel",
+    "Panel Name": "Nombre del panel",
     "Panel type": "Tipo de panel",
     "Remove": "Eliminar",
     "Remove access": "Quitar acceso",
@@ -2880,10 +2880,10 @@
     "Customer text": "Texto del cliente",
     "Description": "Descripción",
     "Disabled": "Deshabilitado",
-    "Input function": "Función de entrada",
+    "Input Function": "Función de entrada",
     "Invalid zone number": "Número de zona no válido",
-    "Loop devices": "Dispositivos de Lazo",
-    "Output function": "Función de salida",
+    "Loop Devices": "Dispositivos de Lazo",
+    "Output Function": "Función de salida",
     "Protocol": "Protocolo",
     "Test mode": "Modo de prueba",
     "Type": "Tipo",

@@ -58,9 +58,12 @@ const ExportForm: FC = () => {
       if (firePanel) {
         addSheetToWorkbook(
           workbook,
-          panels.map((panel) => mapPanelToExcel(json.system, panel)),
+          panels.map((panel) =>
+            mapPanelToExcel(json.system, panel, sheetLanguage),
+          ),
           'Fire_panel',
           json,
+          sheetLanguage,
         );
       }
       if (zones !== undefined && zone) {
@@ -69,6 +72,7 @@ const ExportForm: FC = () => {
           mapPanelsWithZones(panels, zones),
           'Zone',
           json,
+          sheetLanguage,
         );
       }
       if (fireLoop) {
@@ -76,15 +80,22 @@ const ExportForm: FC = () => {
           workbook,
           panels.flatMap((panel) =>
             panel.loop_controllers.flatMap((loop_controller) =>
-              mapLoopToExcel(loop_controller, panel.number),
+              mapLoopToExcel(loop_controller, panel.number, sheetLanguage),
             ),
           ),
           'Fire_loop',
           json,
+          sheetLanguage,
         );
       }
       if (ioBoard) {
-        addSheetToWorkbook(workbook, mapBoardToExcel(panels), 'IO_Board', json);
+        addSheetToWorkbook(
+          workbook,
+          mapBoardToExcel(panels),
+          'IO_Board',
+          json,
+          sheetLanguage,
+        );
       }
       if (addressReport) {
         addSheetToWorkbook(
@@ -92,22 +103,25 @@ const ExportForm: FC = () => {
           mapLoopAddressToExcel(panels),
           'Address_report',
           json,
+          sheetLanguage,
         );
       }
       if (ioReport) {
         addSheetToWorkbook(
           workbook,
-          mapToIOReportToExcel(panels),
+          mapToIOReportToExcel(panels, sheetLanguage),
           'IO_report',
           json,
+          sheetLanguage,
         );
       }
       if (controlGroupReport) {
         addSheetToWorkbook(
           workbook,
-          mapControlGroupsToExcel(panels),
+          mapControlGroupsToExcel(panels, sheetLanguage),
           'Control_group_report',
           json,
+          sheetLanguage,
         );
       }
 

@@ -1552,7 +1552,7 @@
     "Number": "Nummer",
     "Ok": "OK",
     "Panel identifier": "UUID",
-    "Panel name": "Centralnamn"
+    "Panel Name": "Centralnamn"
   },
   "configuration.zones": {
     "Cancel": "Avbryt",
@@ -1885,7 +1885,7 @@
     "Panels": "Centraler"
   },
   "design.summary.PanelName": {
-    "Panel name": "Centralnamn"
+    "Panel Name": "Centralnamn"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Centralnoteringar"
@@ -2585,7 +2585,7 @@
     "MCU Version": "MCU-version",
     "Mark as demo system": "Markera som ett DEMO-system",
     "Note": "OBS!",
-    "Panel name": "Systemnamn",
+    "Panel Name": "Systemnamn",
     "Panel type": "Centraltyp",
     "Remove": "Avsluta",
     "Remove access": "Avsluta access",
@@ -2876,10 +2876,10 @@
     "Customer text": "Text",
     "Description": "Beskrivning",
     "Disabled": "Frånkopplad",
-    "Input function": "Ingångsfunktion",
+    "Input Function": "Ingångsfunktion",
     "Invalid zone number": "Ogiltigt sektionsnummer",
-    "Loop devices": "Slingkomponenter",
-    "Output function": "Utgångsfunktion",
+    "Loop Devices": "Slingkomponenter",
+    "Output Function": "Utgångsfunktion",
     "Protocol": "Protokoll",
     "Test mode": "Testläge",
     "Type": "Typ",
