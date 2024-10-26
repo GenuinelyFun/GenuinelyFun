@@ -86,6 +86,7 @@ export interface Address {
   control_group_C?: ControlGroupC[];
   device_id?: string;
   input_delay?: number;
+  input_filter?: number;
   sounder?: Sounder;
 }
 

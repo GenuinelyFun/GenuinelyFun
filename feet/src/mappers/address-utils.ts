@@ -9,11 +9,11 @@ export const mapLoopAddressToExcel = (panels: Panel[]) => {
         loop.addresses.forEach((device) => {
           addressExcel.push({
             Address: `${String(loop.number).padStart(3, '0')}.${String(device.number).padStart(3, '0')}`,
-            'Device ID': device.device_id,
+            'DeviceId.title': device.device_id,
             Zone: device.zone,
             Description: device.description,
-            'Device Type': device.type,
-            'Protocol Type': device.protocol_type,
+            'Type.title': device.type,
+            'Protocol.type.title': device.protocol_type,
           });
         });
       });

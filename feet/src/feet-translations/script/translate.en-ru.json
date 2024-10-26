@@ -1552,7 +1552,7 @@
     "Number": "Номер",
     "Ok": "ОК",
     "Panel identifier": "Идентификатор панели",
-    "Panel name": "Название панели"
+    "Panel Name": "Название панели"
   },
   "configuration.zones": {
     "Cancel": "Отменить",
@@ -1886,7 +1886,7 @@
     "Panels": "Панели"
   },
   "design.summary.PanelName": {
-    "Panel name": "Название панели"
+    "Panel Name": "Название панели"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Примечания к панели"
@@ -2587,7 +2587,7 @@
     "Mark as demo system": "Отметить как демонстрационную систему",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "ПРИМЕЧАНИЕ! После удаления системы любой доступ к разделяемой системе или передача права собственности аннулируются. Удаление и отключение вашей системы не приводит к окончательному удалению вашей системной информации в случае ее отката.",
     "Note": "Примечание",
-    "Panel name": "Название панели",
+    "Panel Name": "Название панели",
     "Panel type": "Тип панели",
     "Remove": "Удалить",
     "Remove access": "Удалить доступ",
@@ -2880,10 +2880,10 @@
     "Customer text": "Текст пользователя",
     "Description": "Описание",
     "Disabled": "Отключено",
-    "Input function": "Функция входа",
+    "Input Function": "Функция входа",
     "Invalid zone number": "Неверный номер зоны",
-    "Loop devices": "Устройства шлейфа",
-    "Output function": "Функция выхода",
+    "Loop Devices": "Устройства шлейфа",
+    "Output Function": "Функция выхода",
     "Protocol": "Протокол",
     "Test mode": "Тестовый режим",
     "Type": "Тип",

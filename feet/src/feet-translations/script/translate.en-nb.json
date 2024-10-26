@@ -1048,7 +1048,7 @@
     "Not monitored": "Ikke Overvåket"
   },
   "configuration.option.outputControl": {
-    "Control groups": "Kontrollgrupper (Utgang)",
+    "Control groups": "Kontrollgrupper",
     "General control": "Generell kontroll",
     "Local control": "Lokal kontroll"
   },
@@ -1411,7 +1411,7 @@
     "Description": "Beskrivelse",
     "Enable INFO": "Aktiver INFO protokoll",
     "Enabled": "Aktivert",
-    "fx_protocol": "FX protokoll",
+    "FX Protocol": "FX protokoll",
     "Last local control group number": "Siste lokale kontrollgruppenummer",
     "Monitor INFO": "Overvåk INFO protokoll",
     "Panel connections": "Sentraltilkoblinger",
@@ -1553,7 +1553,7 @@
     "Number": "Nummer",
     "Ok": "ok",
     "Panel identifier": "Sentralidentifikator",
-    "Panel name": "Sentralnavn"
+    "Panel Name": "Sentralnavn"
   },
   "configuration.zones": {
     "Cancel": "Avbryt",
@@ -1887,7 +1887,7 @@
     "Panels": "Sentraler"
   },
   "design.summary.PanelName": {
-    "Panel name": "Sentralnavn"
+    "Panel Name": "Sentralnavn"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Sentralnotater"
@@ -2588,7 +2588,7 @@
     "Mark as demo system": "Merk som demo system",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "MERK! Etter systemfjerning tilbakekalles vil alle avventende delte systemtilganger eller eierskapsoverføring avbrytes. Fjerning og deaktivering av systemet sletter ikke systeminformasjonen permanent i tilfelle det må rulles tilbake.",
     "Note": "Merk",
-    "Panel name": "Sentralnavn",
+    "Panel Name": "Sentralnavn",
     "Panel type": "Sentraltype",
     "Remove": "Fjern",
     "Remove access": "Fjern tilgangen",
@@ -2881,10 +2881,10 @@
     "Customer text": "Kundetekst",
     "Description": "Beskrivelse",
     "Disabled": "Utkoblet",
-    "Input function": "Inngangsfunksjon",
+    "Input Function": "Inngangsfunksjon",
     "Invalid zone number": "Ugyldig sone nummer",
-    "Loop devices": "Sløyfeenheter",
-    "Output function": "Utgangsfunksjon",
+    "Loop Devices": "Sløyfeenheter",
+    "Output Function": "Utgangsfunksjon",
     "Protocol": "Protokoll",
     "Test mode": "Testmodus",
     "Type": "Type",

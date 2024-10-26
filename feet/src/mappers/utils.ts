@@ -30,11 +30,13 @@ export const sheetTranslateMapper = (
 
     Object.keys(row).forEach((key) => {
       const value = row[key];
-      if (
-        value !== null &&
-        value !== undefined &&
-        translate[value] !== undefined
-      ) {
+      if (translate[key] !== undefined) {
+        if (translate[value] !== undefined) {
+          translatedRow[translate[key]] = translate[value];
+        } else {
+          translatedRow[translate[key]] = value;
+        }
+      } else if (translate[value] !== undefined) {
         translatedRow[key] = translate[value];
       } else {
         translatedRow[key] = value;
@@ -46,27 +48,42 @@ export const sheetTranslateMapper = (
   return translatedSheet;
 };
 
+export const sheetTranslate = (key: string, language: string) => {
+  if (language === 'en') {
+    return key;
+  }
+  const translate: Record<string, string> = require(
+    `../feet-translations/translate.en-${language}.json`,
+  );
+
+  if (translate[key] !== undefined) {
+    return translate[key];
+  }
+  return key;
+};
+
 export const addSheetToWorkbook = (
   workbook: Workbook,
   data: { [key: string]: any }[],
   sheetName: string,
   json: Root,
+  sheetLanguage: keyof typeof feetLanguages,
 ) => {
   const sheet = workbook.addWorksheet(sheetName);
+  const translatedData = sheetTranslateMapper(data, sheetLanguage);
   sheet.addRow(['Configuration number ' + json.version.number]);
   sheet.addTable({
     name: sheetName,
     ref: 'A2',
     headerRow: true,
-    columns: Object.keys(data[0]).map((key) => {
+    columns: Object.keys(translatedData[0]).map((key) => {
       return {
         name: key,
         key: key,
         filterButton: true,
       };
     }),
-    rows: data.map((row) => Object.values(row)),
-
+    rows: translatedData.map((row) => Object.values(row)),
     style: {
       showRowStripes: true,
     },

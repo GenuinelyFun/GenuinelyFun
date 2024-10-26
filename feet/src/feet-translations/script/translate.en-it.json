@@ -1552,7 +1552,7 @@
     "Number": "Numero",
     "Ok": "Ok",
     "Panel identifier": "Identificativo del pannello",
-    "Panel name": "Nome della centrale"
+    "Panel Name": "Nome della centrale"
   },
   "configuration.zones": {
     "Cancel": "Annulla",
@@ -1886,7 +1886,7 @@
     "Panels": "Centrali"
   },
   "design.summary.PanelName": {
-    "Panel name": "Nome del pannello"
+    "Panel Name": "Nome del pannello"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Note del pannello"
@@ -2587,7 +2587,7 @@
     "Mark as demo system": "Contrassegna come sistema demo",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "NOTA! Dopo la rimozione del sistema, qualsiasi accesso al sistema condiviso in sospeso o trasferimento di proprietà viene revocato. La rimozione e la disattivazione del sistema non elimina le informazioni di sistema in modo permanente nel caso in cui sia necessario ripristinarle.",
     "Note": "Nota",
-    "Panel name": "Nome della centrale",
+    "Panel Name": "Nome della centrale",
     "Panel type": "Tipo di centrale",
     "Remove": "Togliere",
     "Remove access": "Rimuovere l'accesso",
@@ -2879,10 +2879,10 @@
     "Customer text": "Testo del cliente",
     "Description": "Descrizione",
     "Disabled": "Disabilitato",
-    "Input function": "Funzione di input",
+    "Input Function": "Funzione di input",
     "Invalid zone number": "Numero di zona non valido",
-    "Loop devices": "Dispositivi loop",
-    "Output function": "Funzione di uscita",
+    "Loop Devices": "Dispositivi loop",
+    "Output Function": "Funzione di uscita",
     "Protocol": "Protocollo",
     "Test mode": "Modalità test",
     "Type": "Digitare",

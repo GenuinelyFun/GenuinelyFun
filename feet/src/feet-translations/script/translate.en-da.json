@@ -1552,7 +1552,7 @@
     "Number": "Nummer",
     "Ok": "Ok",
     "Panel identifier": "Fire Expert ID",
-    "Panel name": "Central navn"
+    "Panel Name": "Central navn"
   },
   "configuration.zones": {
     "Cancel": "Afbryd",
@@ -1886,7 +1886,7 @@
     "Panels": "Centraler"
   },
   "design.summary.PanelName": {
-    "Panel name": "Central navn"
+    "Panel Name": "Central navn"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Central noter"
@@ -2587,7 +2587,7 @@
     "Mark as demo system": "Markér som demo system",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "Bemærk! Efter systemet er fjernet vil afventende deling eller overførsel af ejerskab på system blive ugyldige. Fjernelse af dit system sletter dog ikke ikke dine system data permanent i tilfælde af at handlingen skal fortrydes.",
     "Note": "Bemærk",
-    "Panel name": "Central navn",
+    "Panel Name": "Central navn",
     "Panel type": "Central type",
     "Remove": "Fjern",
     "Remove access": "Fjern adgang",
@@ -2877,10 +2877,10 @@
     "Customer text": "Kundetekst",
     "Description": "Beskrivelse",
     "Disabled": "Frakoblet",
-    "Input function": "Input funktion",
+    "Input Function": "Input funktion",
     "Invalid zone number": "Ugyldigt gruppe nummer",
-    "Loop devices": "Sløjfe enheder",
-    "Output function": "Output funktion",
+    "Loop Devices": "Sløjfe enheder",
+    "Output Function": "Output funktion",
     "Protocol": "Protokol",
     "Test mode": "Test tilstand",
     "Type": "Type",

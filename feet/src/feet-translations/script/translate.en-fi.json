@@ -1551,7 +1551,7 @@
     "Number": "Numero",
     "Ok": "OK",
     "Panel identifier": "Keskuksen tunnus",
-    "Panel name": "Keskuksen nimi"
+    "Panel Name": "Keskuksen nimi"
   },
   "configuration.zones": {
     "Cancel": "Peruuta",
@@ -1885,7 +1885,7 @@
     "Panels": "Keskukset"
   },
   "design.summary.PanelName": {
-    "Panel name": "Keskuksen nimi"
+    "Panel Name": "Keskuksen nimi"
   },
   "design.summary.PanelNotes": {
     "Panel notes": "Keskuksen muistiinpanot"
@@ -2586,7 +2586,7 @@
     "Mark as demo system": "Merkitse demo-järjestelmäksi",
     "NOTE! After system removal any pending shared system access or ownership transfer are revoked. Removing and disabling your system does not delete your system information permanently in case of it needs to be rolled back.": "HUOM! Järjestelmän poiston jälkeen kaikki odottavassa tilassa olevat järjestelmän käyttöoikeuksien jaot tai omistajuuden siirrot peruutetaan. Järjestelmän poistaminen ei poista järjestelmätietoja palvelusta pysyvästi.",
     "Note": "Merkintä",
-    "Panel name": "Keskuksen nimi",
+    "Panel Name": "Keskuksen nimi",
     "Panel type": "Keskuksen tyyppi",
     "Remove": "Poista",
     "Remove access": "Poista pääsy",
@@ -2877,10 +2877,10 @@
     "Customer text": "Asiakasteksti",
     "Description": "Kuvaus",
     "Disabled": "Irtikytketty",
-    "Input function": "Tulotoiminto",
+    "Input Function": "Tulotoiminto",
     "Invalid zone number": "Virheellinen paloryhmänumero",
-    "Loop devices": "Silmukkalaitteet",
-    "Output function": "Ohjaustoiminnot",
+    "Loop Devices": "Silmukkalaitteet",
+    "Output Function": "Ohjaustoiminnot",
     "Protocol": "Protokolla",
     "Test mode": "Testitila",
     "Type": "Tyyppi",
