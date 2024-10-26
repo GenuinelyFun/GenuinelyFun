@@ -1,5 +1,5 @@
 import { ControlGroupC, Panel } from '../interfaces/jsonDataInterface';
-import { forEachDeviceInLoopControllers } from './loop-utils';
+import { forEachDeviceInLoopControllers } from './fire-loop-utils';
 import { sheetTranslate } from './utils';
 
 export const mapControlGroupsToExcel = (
