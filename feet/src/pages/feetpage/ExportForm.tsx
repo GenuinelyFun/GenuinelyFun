@@ -22,7 +22,7 @@ import styles from './ExportForm.module.less';
 
 const ExportForm: FC = () => {
   const toast = useToast();
-  const { translate } = useLanguageContext();
+  const { translate, i18n } = useLanguageContext();
   const { files } = useDataContext();
 
   const [firePanel, setFirePanel] = useState<boolean>(true);
@@ -33,8 +33,9 @@ const ExportForm: FC = () => {
   const [ioReport, setIoReport] = useState<boolean>(true);
   const [controlGroupReport, setControlGroupReport] = useState<boolean>(true);
   const [disclaimer, setDisclaimer] = useState<boolean>(false);
-  const [sheetLanguage, setSheetLanguage] =
-    useState<keyof typeof feetLanguages>('nb');
+  const [sheetLanguage, setSheetLanguage] = useState<
+    keyof typeof feetLanguages
+  >(i18n.language === 'no' ? 'nb' : 'en');
 
   const isZonesAvailable =
     files.length === 1 ? files[0].json.system.zones !== undefined : true;
@@ -195,7 +196,10 @@ const ExportForm: FC = () => {
     <form className={styles.container} onSubmit={exportToExcel}>
       <ul className={styles.list}>
         <li className={styles.checkboxContainer}>
-          <select onChange={(e) => setSheetLanguage(e.target.value)}>
+          <select
+            onChange={(e) => setSheetLanguage(e.target.value)}
+            value={sheetLanguage}
+          >
             {Object.keys(feetLanguages).map((key) => (
               <option className={styles.select} value={key} key={key}>
                 {feetLanguages[key]}
