@@ -1,5 +1,9 @@
 {
   "translate.manual.en-da": {
+    "Configuration number": "Konfigurationsnummer",
+    "Control group report": "Kontrolgruppe_rapport",
+    "IO_report": "IO_rapport",
+    "Address_report": "Adresse_rapport",
     "da": "Dansk",
     "en": "Engelsk",
     "et": "Estisk",
@@ -59,6 +63,7 @@
     "configuration.panel.delays.controlledByABB2General": "Styret af CZ-A, CZ-B, CZ-B2 og Generel",
     "configuration.panel.delays.controlledByBB2General": "styret af CZ-B, CZ-B2 og Generel",
     "Input/Output Type": "Indgang/Udgangstype",
+    "Board": "Kort",
     "Board Type": "Korttype",
     "Board Number": "Kortnummer",
     "Input Number": "Indgangsnummer",
@@ -569,6 +574,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-en": {
+    "Configuration number": "Configuration number",
+    "Control group report": "Control_group_report",
+    "IO_report": "IO_report",
+    "Address_report": "Address_report",
     "da": "Danish",
     "en": "English",
     "et": "Estonian",
@@ -628,6 +637,7 @@
     "configuration.panel.delays.controlledByABB2General": "Controlled by Ctrl A, Ctrl B, Ctrl B2 and as General",
     "configuration.panel.delays.controlledByBB2General": "Controlled by Ctrl B, Ctrl B2 and as General",
     "Input/Output Type": "Input/Output Type",
+    "Board": "Board",
     "Board Type": "Board Type",
     "Board Number": "Board Number",
     "Input Number": "Input Number",
@@ -1133,6 +1143,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-es": {
+    "Configuration number": "Número de configuración",
+    "Control group report": "Grupo_de_control_informe",
+    "IO_report": "IO_informe",
+    "Address_report": "Informe de direcciones",
     "de": "Alemán",
     "cs": "Checo",
     "da": "Danés",
@@ -1192,6 +1206,7 @@
     "configuration.panel.delays.controlledByABB2General": "Controlado por Ctrl A, Ctrl B, Ctrl B2 y como General",
     "configuration.panel.delays.controlledByBB2General": "Controlado por Ctrl B, Ctrl B2 y como General",
     "Input/Output Type": "Tipo de entrada/salida",
+    "Board": "Tablero",
     "Board Type": "Tipo de tablero",
     "Board Number": "Número de tablero",
     "Input Number": "Número de entrada",
@@ -1702,6 +1717,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-fi": {
+    "Configuration number": "Konfiguraation numero",
+    "Control group report": "Ohjausryhmä_raportti",
+    "IO_report": "IO_raportti",
+    "Address_report": "Osoiteraportti",
     "en": "Englanti",
     "es": "Espanja",
     "nl-BE": "Flaami",
@@ -1761,6 +1780,7 @@
     "configuration.panel.delays.controlledByABB2General": "joita ohjaa Ohj A, Ohj B, Ohj B2 ja Yleinen",
     "configuration.panel.delays.controlledByBB2General": "joita ohjaa Ohj B, Ohj B2 ja Yleinen",
     "Input/Output Type": "Sisääntulo/Lähtötyyppi",
+    "Board": "Kortti",
     "Board Type": "Korttityyppi",
     "Board Number": "Kortin numero",
     "Input Number": "Syötteen numero",
@@ -2271,6 +2291,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-it": {
+    "Configuration number": "Numero di configurazione",
+    "Control group report": "Gruppo_di_controllo_rapporto",
+    "IO_report": "IO_rapporto",
+    "Address_report": "Rapporto_indirizzo",
     "cs": "Ceco",
     "da": "Danese",
     "et": "Estoniano",
@@ -2328,6 +2352,7 @@
     "configuration.panel.delays.controlledByABB2General": "Controllato da Ctrl A, Ctrl B, Ctrl B2 e come Generale",
     "configuration.panel.delays.controlledByBB2General": "Controllato da Ctrl B, Ctrl B2 e come Generale",
     "Input/Output Type": "Tipo di ingresso/uscita",
+    "Board": "Scheda",
     "Board Type": "Tipo di scheda",
     "Board Number": "Numero di scheda",
     "Input Number": "Numero di ingresso",
@@ -2838,6 +2863,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-nb": {
+    "Configuration number": "Konfigurasjonsnummer",
+    "Control group report": "Kontrollgruppe_rapport",
+    "IO_report": "IO_rapport",
+    "Address_report": "Adresse_rapport",
     "da": "Dansk",
     "en": "Engelsk",
     "et": "Estisk",
@@ -2897,6 +2926,7 @@
     "configuration.panel.delays.controlledByABB2General": "Kontrollert av Kontroll A, B, B2 og Generell",
     "configuration.panel.delays.controlledByBB2General": "Kontrollert av Kontroll B, B2 og Generell",
     "Input/Output Type": "Inngang/Utgangstype",
+    "Board": "Kort",
     "Board Type": "Korttype",
     "Board Number": "Kortnummer",
     "Input Number": "Inngangsnummer",
@@ -3407,6 +3437,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-ru": {
+    "Configuration number": "Номер конфигурации",
+    "Control group report": "Группа_управления_отчет",
+    "IO_report": "IO_отчет",
+    "Address_report": "Отчет_об_адресе",
     "en": "Английский",
     "hu": "Венгерский",
     "nl-NL": "Голландский",
@@ -3465,6 +3499,7 @@
     "configuration.panel.delays.controlledByABB2General": "Управляемые по Упр.A, Упр.B, Упр.В2  и Общей ЗУ",
     "configuration.panel.delays.controlledByBB2General": "Управляемые по Упр.B, Упр.В2  и Общей ЗУ",
     "Input/Output Type": "Тип входа/выхода",
+    "Board": "Плата",
     "Board Type": "Тип платы",
     "Board Number": "Номер платы",
     "Input Number": "Номер входа",
@@ -3975,6 +4010,10 @@
     "UTC": "UTC/undefined"
   },
   "translate.manual.en-sv": {
+    "Configuration number": "Konfigurationsnummer",
+    "Control group report": "Kontrollgrupp_rapport",
+    "IO_report": "IO_rapport",
+    "Address_report": "Adressrapport",
     "da": "Danska",
     "en": "Engelska",
     "et": "Estniska",
@@ -4034,6 +4073,7 @@
     "configuration.panel.delays.controlledByABB2General": "styrda av Ctrl-A, Ctrl-B, Ctrl-B2 och generellt",
     "configuration.panel.delays.controlledByBB2General": "styrda av Ctrl-B, Ctrl-B2 och generellt",
     "Input/Output Type": "Ingång/Utgångstyp",
+    "Board": "Kort",
     "Board Type": "Korttyp",
     "Board Number": "Kortnummer",
     "Input Number": "Ingångsnummer",

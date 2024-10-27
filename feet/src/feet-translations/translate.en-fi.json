@@ -1,4 +1,8 @@
 {
+  "Configuration number": "Konfiguraation numero",
+  "Control group report": "Ohjausryhmä_raportti",
+  "IO_report": "IO_raportti",
+  "Address_report": "Osoiteraportti",
   "en": "Englanti",
   "es": "Espanja",
   "nl-BE": "Flaami",
@@ -59,6 +63,7 @@
   "configuration.panel.delays.controlledByABB2General": "joita ohjaa Ohj A, Ohj B, Ohj B2 ja Yleinen",
   "configuration.panel.delays.controlledByBB2General": "joita ohjaa Ohj B, Ohj B2 ja Yleinen",
   "Input/Output Type": "Sisääntulo/Lähtötyyppi",
+  "Board": "Kortti",
   "Board Type": "Korttityyppi",
   "Board Number": "Kortin numero",
   "Input Number": "Syötteen numero",

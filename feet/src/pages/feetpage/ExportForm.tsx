@@ -62,7 +62,7 @@ const ExportForm: FC = () => {
           panels.map((panel) =>
             mapPanelToExcel(json.system, panel, sheetLanguage),
           ),
-          'Fire_panel',
+          'Panel',
           json,
           sheetLanguage,
         );
@@ -84,7 +84,7 @@ const ExportForm: FC = () => {
               mapLoopToExcel(loop_controller, panel.number, sheetLanguage),
             ),
           ),
-          'Fire_loop',
+          'Loop',
           json,
           sheetLanguage,
         );
@@ -93,7 +93,7 @@ const ExportForm: FC = () => {
         addSheetToWorkbook(
           workbook,
           mapBoardToExcel(panels),
-          'IO_Board',
+          'Board',
           json,
           sheetLanguage,
         );
@@ -120,7 +120,7 @@ const ExportForm: FC = () => {
         addSheetToWorkbook(
           workbook,
           mapControlGroupsToExcel(panels, sheetLanguage),
-          'Control_group_report',
+          'Control group report',
           json,
           sheetLanguage,
         );
