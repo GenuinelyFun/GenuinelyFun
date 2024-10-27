@@ -1,4 +1,7 @@
-import { Panel } from '../interfaces/jsonDataInterface';
+import {
+  MonitoredAndCleanContactOutput,
+  Panel,
+} from '../interfaces/jsonDataInterface';
 import { forEachDeviceInLoopControllers } from './fire-loop-utils';
 import { sheetTranslate } from './utils';
 
@@ -6,6 +9,51 @@ const isNull = (el: any) => el === null || el === '' || el === undefined;
 
 export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
   const IOReport: Record<string, any>[] = [];
+
+  const handleMonitoredAndCleanContactOutputs = (
+    output: MonitoredAndCleanContactOutput,
+    address: string,
+  ) => {
+    const { output_control } = output;
+    const { output_function } = output_control;
+    const { control, control_groups } = output_control;
+
+    if (output_function === 'Not in use') {
+      return;
+    }
+
+    const otherFunctions = [];
+    if (!control_groups || control_groups.length === 0) {
+      if (control === 'General control') {
+        otherFunctions.push(
+          sheetTranslate('Control groups', language) +
+            ': ' +
+            sheetTranslate('General control', language),
+        );
+      } else if (control === 'Local control') {
+        otherFunctions.push(
+          sheetTranslate('Control groups', language) +
+            ': ' +
+            sheetTranslate('Local control', language),
+        );
+      }
+    } else {
+      otherFunctions.push(
+        sheetTranslate('Control groups', language) +
+          ': ' +
+          control_groups.join(', '),
+      );
+    }
+
+    IOReport.push({
+      Address: address,
+      Zone: null,
+      Description: output.description,
+      'Input Function': null,
+      'Output Function': output_function,
+      'Other Functions': otherFunctions.join(', '),
+    });
+  };
 
   panels.forEach((panel) => {
     panel.input_output_units.forEach((board) => {
@@ -39,50 +87,15 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
         });
       });
 
-      board.clean_contact_outputs
-        .concat(board.monitored_outputs || [])
-        .forEach((output) => {
-          const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', language)} ${output.number}`;
-          const { output_control } = output;
-          const { output_function } = output_control;
-          const { control, control_groups } = output_control;
+      board.clean_contact_outputs.forEach((output) => {
+        const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', language)} ${output.number}`;
 
-          if (output_function === 'Not in use') {
-            return;
-          }
-
-          const otherFunctions = [];
-          if (!control_groups || control_groups.length === 0) {
-            if (control === 'General control') {
-              otherFunctions.push(
-                sheetTranslate('Control groups', language) +
-                  ': ' +
-                  sheetTranslate('General control', language),
-              );
-            } else if (control === 'Local control') {
-              otherFunctions.push(
-                sheetTranslate('Control groups', language) +
-                  ': ' +
-                  sheetTranslate('Local control', language),
-              );
-            }
-          } else {
-            otherFunctions.push(
-              sheetTranslate('Control groups', language) +
-                ': ' +
-                control_groups.join(', '),
-            );
-          }
-
-          IOReport.push({
-            Address: address,
-            Zone: null,
-            Description: output.description,
-            'Input Function': null,
-            'Output Function': output_function,
-            'Other Functions': otherFunctions.join(', '),
-          });
-        });
+        handleMonitoredAndCleanContactOutputs(output, address);
+      });
+      board.monitored_outputs?.forEach((output) => {
+        const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Monitored Output', language)} ${output.number}`;
+        handleMonitoredAndCleanContactOutputs(output, address);
+      });
     });
   });
 
