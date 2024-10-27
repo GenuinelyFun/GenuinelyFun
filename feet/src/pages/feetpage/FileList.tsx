@@ -1,6 +1,6 @@
 import { useDataContext } from '../../utils/DataProvider';
 import { ReactComponent as FileIcon } from '../../assets/icons/file.svg';
-import { ReactComponent as TrashIcon } from '../../assets/icons/trash.svg';
+import { ReactComponent as CrossIcon } from '../../assets/icons/thick-cross.svg';
 import styles from './FileList.module.less';
 
 const FileList = () => {
@@ -14,7 +14,7 @@ const FileList = () => {
             <p>{name}</p>
           </div>
           <button onClick={() => removeFile(name)}>
-            <TrashIcon />
+            <CrossIcon />
           </button>
         </li>
       ))}

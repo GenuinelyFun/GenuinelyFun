@@ -9,9 +9,23 @@
   border-radius: 8px;
   display: flex;
   background-color: var(--color-gray-light);
-  padding: 0 var(--spacing-mini);
   margin: var(--spacing-large);
+  align-items: center;
   word-break: break-all;
+
+  & button {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      min-width: unset;
+      width: 18px;
+      height: auto;
+    }
+  }
 
   & div {
     display: flex;
