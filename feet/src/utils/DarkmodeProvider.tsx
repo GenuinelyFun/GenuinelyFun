@@ -29,8 +29,8 @@ export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (!defaultLight) {
-      setTheme(Darkmode.Dark);
-      document.documentElement.setAttribute('data-theme', Darkmode.Dark);
+      setTheme(theme);
+      document.documentElement.setAttribute('data-theme', theme);
     }
   }, []);
 
