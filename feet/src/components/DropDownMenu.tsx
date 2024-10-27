@@ -2,14 +2,14 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { ReactComponent as Arrow } from '../assets/icons/chevron-dropdown.svg';
 import {
-  TranslateTextKeyType,
+  TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
 import styles from './DropDownMenu.module.less';
 
 type DropDownMenuProps = {
   buttonClassName?: string;
-  buttonTextKey: TranslateTextKeyType;
+  buttonTextKey: TranslateTextKey;
   listItems: ReactNode[];
 };
 

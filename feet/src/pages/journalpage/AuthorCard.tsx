@@ -5,7 +5,7 @@ import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg';
 import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
 import { ReactComponent as Xicon } from '../../assets/icons/x.svg';
 import {
-  TranslateTextKeyType,
+  TranslateTextKey,
   useLanguageContext,
 } from '../../utils/LanguageProvider';
 import styles from './AuthorCard.module.less';
@@ -48,13 +48,13 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
     <div className={styles.card}>
       <img
         src={author === 'arthur' ? arthur : nghi}
-        alt={translate(`${author}.image.aria-label` as TranslateTextKeyType)}
+        alt={translate(`${author}.image.aria-label` as TranslateTextKey)}
         className={styles.genericImage}
       />
       <div className={styles.textContainer}>
         <h2>{translate('about')}</h2>
-        <p>{translate(`${author}.title` as TranslateTextKeyType)}</p>
-        <p>{translate(`${author}.paragraph` as TranslateTextKeyType)}</p>
+        <p>{translate(`${author}.title` as TranslateTextKey)}</p>
+        <p>{translate(`${author}.paragraph` as TranslateTextKey)}</p>
         <div className={styles.iconRow}>
           {Object.keys(links).map((link) => (
             <a

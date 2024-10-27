@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import {
-  TranslateTextKeyType,
+  TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
 import styles from './LanguageButton.module.less';
@@ -12,7 +12,7 @@ const LanguageButton = () => {
 
   return (
     <DropDownMenu
-      buttonTextKey={i18n.language as TranslateTextKeyType}
+      buttonTextKey={i18n.language as TranslateTextKey}
       buttonClassName={styles.button}
       listItems={Object.keys(languages).map((key) => (
         <button
