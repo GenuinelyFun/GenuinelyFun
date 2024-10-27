@@ -1,6 +1,6 @@
 import { ReactElement, useCallback } from 'react';
 import hotToast, { Renderable, ValueOrFunction } from 'react-hot-toast';
-import { TranslateTextKeyType, useLanguageContext } from './LanguageProvider';
+import { TranslateTextKey, useLanguageContext } from './LanguageProvider';
 import { useDarkmodeContext } from './DarkmodeProvider';
 
 export const useToast = () => {
@@ -34,7 +34,7 @@ export const useToast = () => {
       promise,
     }: {
       type: 'error' | 'success' | 'promise' | 'info';
-      textKey?: TranslateTextKeyType;
+      textKey?: TranslateTextKey;
       element?: ReactElement;
       promise?: PromiseProps;
     }) => {

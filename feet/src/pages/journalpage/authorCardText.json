@@ -5,9 +5,9 @@
     "nn": "Om meg"
   },
   "arthur.image.aria-label": {
-    "en": "Picture of Arthur",
-    "no": "Bilde av Arthur",
-    "nn": "Bilete av Arthur"
+    "en": "Person Arthur",
+    "no": "Person Arthur",
+    "nn": "Person Arthur"
   },
   "arthur.title": {
     "en": "Hey, I’m Arthur Leonard Thomassen",
@@ -20,9 +20,9 @@
     "nn": "Ein full-stack utviklar og senior teknikker innan brann og sikkerheit. Eg likar å kome til botn i komplekse problem og lære av kvar erfaring for å forstå ting meir djuptgåande. Du kan nå meg på GitHub, LinkedIn eller X."
   },
   "nghi.image.aria-label": {
-    "en": "Picture of Nghi",
-    "no": "Bilde av Nghi",
-    "nn": "Bilete av Nghi"
+    "en": "Person Nghi",
+    "no": "Person Nghi",
+    "nn": "Person Nghi"
   },
   "nghi.title": {
     "en": "Hey, I’m Nghi Nguyen",

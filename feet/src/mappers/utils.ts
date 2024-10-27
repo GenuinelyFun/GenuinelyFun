@@ -84,6 +84,7 @@ export const addSheetToWorkbook = (
     }),
     rows: translatedData.map((row) => Object.values(row)),
     style: {
+      theme: 'TableStyleLight1',
       showRowStripes: true,
     },
   });
@@ -98,13 +99,19 @@ export const addSheetToWorkbook = (
     column.width = dataMax < 10 ? 10 : dataMax;
   });
   sheet.eachRow({ includeEmpty: true }, function (row) {
-    if (sheetName === 'Control_group_report' && row.number === 2) {
+    if (sheetName === 'Control group report' && row.number === 2) {
       row.eachCell({ includeEmpty: true }, function (cell) {
         if (Number(cell.col) <= 7) {
           cell.fill = {
             type: 'pattern',
             pattern: 'solid',
-            fgColor: { argb: '60497A' },
+            fgColor: { argb: 'E2B9B2' },
+          };
+        } else {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: '92AEBB' },
           };
         }
       });

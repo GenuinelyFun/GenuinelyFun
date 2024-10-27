@@ -25,14 +25,14 @@
     "nn": "Flott! Du kan no sleppe fila for å laste opp."
   },
   "upload.icon.aria-label": {
-    "en": "Upload icon",
-    "no": "Last opp ikon",
-    "nn": "Last opp ikon"
+    "en": "Up arrow in a file",
+    "no": "Opp pil i en fil",
+    "nn": "Opp pil i ei fil"
   },
   "upload.error-icon.aria-label": {
-    "en": "Error upload icon",
-    "no": "Feil sirkel ikon",
-    "nn": "Feil sirkel ikon"
+    "en": "Cross in circle",
+    "no": "Kryss i sirkel",
+    "nn": "Kryss i sirkel"
   },
   "upload.button": {
     "en": "Browse computer",

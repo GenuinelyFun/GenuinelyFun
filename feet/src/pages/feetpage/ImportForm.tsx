@@ -88,17 +88,17 @@ const ImportForm: FC = () => {
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
-
     handleUploadedFiles(event.dataTransfer.files);
   };
 
   const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-
     if (event.target.files) {
       handleUploadedFiles(event.target.files);
     }
+    event.target.value = '';
   };
+
   return (
     <section className={styles.container}>
       <div

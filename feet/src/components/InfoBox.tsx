@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
 import {
-  TranslateTextKeyType,
+  TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
 import { useModal } from '../utils/useModal';
@@ -13,7 +13,7 @@ import styles from './InfoBox.module.less';
 interface InfoBoxProps {
   message: string;
   header: string;
-  altText?: TranslateTextKeyType;
+  altText?: TranslateTextKey;
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {

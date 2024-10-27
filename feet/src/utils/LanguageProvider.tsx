@@ -30,13 +30,13 @@ const allText = {
   ...menuText,
 };
 
-export type TranslateTextKeyType = keyof typeof allText;
+export type TranslateTextKey = keyof typeof allText;
 
 type Languages = Record<string, string>;
 
 type LanguageContextType = {
   t: TFunction<'translation', undefined>;
-  translate: (textKey: TranslateTextKeyType) => string;
+  translate: (textKey: TranslateTextKey) => string;
   i18n: i18n;
   onClickLanguageChange: (language: string) => void;
   languages: Languages;
@@ -57,7 +57,7 @@ export const LanguageContextProvider: FC<PropsWithChildren> = ({
     i18n.changeLanguage(language);
   };
 
-  const translate = (key: TranslateTextKeyType) => {
+  const translate = (key: TranslateTextKey) => {
     if (!allText.hasOwnProperty(key)) {
       console.error(
         `Error: This textKey ${key} does not exist in translations.`,

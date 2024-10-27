@@ -3,7 +3,7 @@ import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 
 import {
-  TranslateTextKeyType,
+  TranslateTextKey,
   useLanguageContext,
 } from '../../utils/LanguageProvider';
 import { useToast } from '../../utils/useToast';
@@ -179,14 +179,14 @@ const ExportForm: FC = () => {
           onChange={setValue}
           disabled={disabled}
         />
-        {translate(`export.${textKey}.checkbox.label` as TranslateTextKeyType)}
+        {translate(`export.${textKey}.checkbox.label` as TranslateTextKey)}
       </label>
       <InfoBox
         message={translate(
-          `export.${textKey}.infobox.description` as TranslateTextKeyType,
+          `export.${textKey}.infobox.description` as TranslateTextKey,
         )}
         header={translate(
-          `export.${textKey}.infobox.title` as TranslateTextKeyType,
+          `export.${textKey}.infobox.title` as TranslateTextKey,
         )}
       />
     </li>
@@ -255,9 +255,7 @@ const ExportForm: FC = () => {
               checked={disclaimer}
               onChange={() => setDisclaimer(!disclaimer)}
             />
-            {translate(
-              `export.disclaimer.checkbox.label` as TranslateTextKeyType,
-            )}
+            {translate(`export.disclaimer.checkbox.label` as TranslateTextKey)}
           </label>
         </li>
       </ul>
