@@ -100,9 +100,9 @@
     "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då."
   },
   "export.panel.checkbox.label": {
-    "en": "Fire panel",
-    "no": "Brannsentral",
-    "nn": "Brannsentral"
+    "en": "Panel",
+    "no": "Sentral",
+    "nn": "Sentral"
   },
   "export.panel.missing-json": {
     "en": "It appears there are no fire panels in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire panel and try again.",
@@ -110,9 +110,9 @@
     "nn": "Det ser ut til at det ikkje er nokon brannsentralar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsentral og prøv igjen."
   },
   "export.panel.infobox.title": {
-    "en": "Fire panel",
-    "no": "Brannsentral",
-    "nn": "Brannsentral"
+    "en": "Panel",
+    "no": "Sentral",
+    "nn": "Sentral"
   },
   "export.panel.infobox.description": {
     "en": "This option generates an Excel tab that contains the complete configuration details for all fire panels. Each row in the sheet represents a fire panel.",
@@ -140,9 +140,9 @@
     "nn": "Dette genererer ein Excel-fane som listar opp alle soner saman med deira beskrivingar. Viss ein sone ikkje har ein konfigurert beskriving, vil den tilsvarande cella i fanen vere tom."
   },
   "export.loop.checkbox.label": {
-    "en": "Fire loop",
-    "no": "Brannsløyfe",
-    "nn": "Brannsløyfe"
+    "en": "Loop",
+    "no": "Sløyfe",
+    "nn": "Sløyfe"
   },
   "export.loop.missing-json": {
     "en": "It appears there are no fire loops in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire loop and try again.",
@@ -150,9 +150,9 @@
     "nn": "Det ser ut til at det ikkje er nokon brannsløyfer i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsløyfer og prøv igjen."
   },
   "export.loop.infobox.title": {
-    "en": "Fire loop",
-    "no": "Brannsløyfe",
-    "nn": "Brannsløyfe"
+    "en": "Loop",
+    "no": "Sløyfe",
+    "nn": "Sløyfe"
   },
   "export.loop.infobox.description": {
     "en": "This option generates an Excel tab listing all fire loops along with their configuration.",
@@ -160,9 +160,9 @@
     "nn": "Dette genererer ein Excel-fane som listar opp alle brannsløyfer saman med deira konfigurasjon."
   },
   "export.board.checkbox.label": {
-    "en": "IO board",
-    "no": "IO kort",
-    "nn": "IO kort"
+    "en": "Board",
+    "no": "Kort",
+    "nn": "Kort"
   },
   "export.board.missing-json": {
     "en": "It appears there are no IO boards in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes IO board and try again.",
@@ -170,9 +170,9 @@
     "nn": "Det ser ut til at det ikkje er nokon IO kort i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld IO kort og prøv igjen."
   },
   "export.board.infobox.title": {
-    "en": "IO board",
-    "no": "IO kort",
-    "nn": "IO kort"
+    "en": "Board",
+    "no": "Kort",
+    "nn": "Kort"
   },
   "export.board.infobox.description": {
     "en": "This option generates an Excel tab listing all IO boards along with their configuration.",
@@ -181,13 +181,13 @@
   },
   "export.address.checkbox.label": {
     "en": "Address report",
-    "no": "Adresse liste",
-    "nn": "Adresse liste"
+    "no": "Adresse rapport",
+    "nn": "Adresse rapport"
   },
   "export.address.infobox.title": {
     "en": "Address report",
-    "no": "Adresse liste",
-    "nn": "Adresse liste"
+    "no": "Adresse rapport",
+    "nn": "Adresse rapport"
   },
   "export.address.infobox.description": {
     "en": "This option generates an Excel tab listing all addresses along with their configuration.",
@@ -196,8 +196,8 @@
   },
   "export.io.checkbox.label": {
     "en": "IO report",
-    "no": "Styringer",
-    "nn": "Styringer"
+    "no": "IO rapport",
+    "nn": "IO rapport"
   },
   "export.io.missing-json": {
     "en": "It appears there are no inputs and outputs in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes input and output data and try again.",
@@ -206,8 +206,8 @@
   },
   "export.io.infobox.title": {
     "en": "IO report",
-    "no": "Styringer",
-    "nn": "Styringer"
+    "no": "IO rapport",
+    "nn": "IO rapport"
   },
   "export.io.infobox.description": {
     "en": "This option generates an Excel tab listing all inputs and outputs along with their configuration.",
@@ -216,8 +216,8 @@
   },
   "export.controlgroups.checkbox.label": {
     "en": "Control group report",
-    "no": "Kontrollgruppe liste",
-    "nn": "Kontrollgruppe liste"
+    "no": "Kontrollgruppe rapport",
+    "nn": "Kontrollgruppe rapport"
   },
   "export.controlgroups.missing-json": {
     "en": "It appears there are no control groups in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes control groups and try again.",
@@ -225,49 +225,14 @@
     "nn": "Det ser ut til at det ikkje er nokon kontrollgrupper i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld kontrollgrupper og prøv igjen."
   },
   "export.controlgroups.infobox.title": {
-    "en": "Control group",
-    "no": "Kontrollgruppe",
-    "nn": "Kontrollgruppe"
+    "en": "Control group report",
+    "no": "Kontrollgruppe rapport",
+    "nn": "Kontrollgruppe rapport"
   },
   "export.controlgroups.infobox.description": {
     "en": "This option generates an Excel tab that lists all control groups along with the associated devices that trigger them.",
     "no": "Dette genererer en Excel fane som lister opp alle kontrollgrupper sammen med de tilknyttede enhetene som aktiverer dem.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle kontrollgrupper saman med dei tilknytte einingane som aktiverer dei."
-  },
-  "export.custom.checkbox.label": {
-    "en": "Custom list",
-    "no": "Tilpasset liste",
-    "nn": "Tilpassa liste"
-  },
-  "export.custom.infobox.title": {
-    "en": "Custom list",
-    "no": "Tilpasset liste",
-    "nn": "Tilpassa liste"
-  },
-  "export.custom.infobox.description": {
-    "en": "This option allows you to generate a customized Excel tab that lists your selected options.",
-    "no": "Dette alternativet lar deg generere en tilpasset Excel fane som lister opp dine valgte alternativer.",
-    "nn": "Dette alternativet let deg generere ein tilpassa Excel-fane som listar opp dine valde alternativ."
-  },
-  "export.configcheck.checkbox.label": {
-    "en": "Configuration check",
-    "no": "Konfigurasjonssjekk",
-    "nn": "Konfigurasjonssjekk"
-  },
-  "export.configcheck.missing-json": {
-    "en": "The uploaded JSON file looks good, and we’ve found no errors to report. Therefore, there’s no need for that Excel tab.",
-    "no": "Den opplastede JSON-filen ser bra ut, og vi har ikke funnet noen feil å rapportere. Derfor er det ikke behov for den Excel-fanen.",
-    "nn": "Den opplasta JSON-fila ser bra ut, og vi har ikkje funne nokon feil å rapportere. Difor er det ikkje behov for den Excel-fana."
-  },
-  "export.configcheck.infobox.title": {
-    "en": "Configuration check",
-    "no": "Konfigurasjonssjekk",
-    "nn": "Konfigurasjonssjekk"
-  },
-  "export.configcheck.infobox.description": {
-    "en": "This option generates an Excel tab that lists all potential configuration issues detected in the uploaded JSON file.",
-    "no": "Dette genererer en Excel fane som lister opp alle potensielle konfigurasjonsproblemer som er oppdaget i den opplastede JSON-filen.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle potensielle konfigurasjonsproblem som er oppdaga i den opplasta JSON-fila."
   },
   "export.download.button": {
     "en": "Download Excel sheet",
