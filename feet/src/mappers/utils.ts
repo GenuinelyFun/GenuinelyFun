@@ -46,9 +46,6 @@ export const sheetTranslateMapper = (
 };
 
 export const sheetTranslate = (key: string, language: string) => {
-  if (language === 'en') {
-    return key;
-  }
   const translate: Record<string, string> = require(
     `../feet-translations/translate.en-${language}.json`,
   );
