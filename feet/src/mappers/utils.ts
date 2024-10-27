@@ -85,7 +85,28 @@ export const addSheetToWorkbook = (
       showRowStripes: true,
     },
   });
+  sheet.columns.forEach((column) => {
+    let dataMax = 0;
+    column?.eachCell?.({ includeEmpty: true }, function (cell) {
+      let columnLength = cell.value?.toString().length || 0;
+      if (columnLength > dataMax) {
+        dataMax = columnLength;
+      }
+    });
+    column.width = dataMax < 10 ? 10 : dataMax;
+  });
   sheet.eachRow({ includeEmpty: true }, function (row) {
+    if (sheetName === 'Control_group_report' && row.number === 2) {
+      row.eachCell({ includeEmpty: true }, function (cell) {
+        if (Number(cell.col) <= 7) {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: '60497A' },
+          };
+        }
+      });
+    }
     row.eachCell({ includeEmpty: true }, function (cell) {
       cell.alignment = {
         horizontal: 'left',
