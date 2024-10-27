@@ -55,13 +55,13 @@ export const mapLoopToExcel = (
           ?.value,
         'prealarmLevel.title': alarm_thresholds?.find(
           (el) => (el.name = 'Prealarm'),
-        ),
+        )?.value,
         'Day mode fire level.title': alarm_thresholds?.find(
           (el) => (el.name = 'Fire, day mode'),
-        ),
+        )?.value,
         'Day mode prealarm level.title':
-          alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode')) ||
-          'N/A',
+          alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode'))
+            ?.value || 'N/A',
         'InputFunction.title': device.input_function,
         'AlarmMode.title': device.alarm_mode?.join(', '),
         'zoneDisables.title': device.zone_disables

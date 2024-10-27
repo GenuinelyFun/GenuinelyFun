@@ -2,7 +2,7 @@ import {
   MonitoredAndCleanContactOutput,
   Panel,
 } from '../interfaces/jsonDataInterface';
-import { forEachDeviceInLoopControllers } from './fire-loop-utils';
+import { forEachDeviceInLoopControllers } from './loop-utils';
 import { sheetTranslate } from './utils';
 
 const isNull = (el: any) => el === null || el === '' || el === undefined;
@@ -89,9 +89,9 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
 
       board.clean_contact_outputs.forEach((output) => {
         const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', language)} ${output.number}`;
-
         handleMonitoredAndCleanContactOutputs(output, address);
       });
+
       board.monitored_outputs?.forEach((output) => {
         const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Monitored Output', language)} ${output.number}`;
         handleMonitoredAndCleanContactOutputs(output, address);

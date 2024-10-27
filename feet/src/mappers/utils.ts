@@ -46,9 +46,6 @@ export const sheetTranslateMapper = (
 };
 
 export const sheetTranslate = (key: string, language: string) => {
-  if (language === 'en') {
-    return key;
-  }
   const translate: Record<string, string> = require(
     `../feet-translations/translate.en-${language}.json`,
   );
@@ -66,11 +63,16 @@ export const addSheetToWorkbook = (
   json: Root,
   sheetLanguage: keyof typeof feetLanguages,
 ) => {
-  const sheet = workbook.addWorksheet(sheetName);
+  const translatedSheetName = sheetTranslate(sheetName, sheetLanguage);
+  const sheet = workbook.addWorksheet(translatedSheetName);
   const translatedData = sheetTranslateMapper(data, sheetLanguage);
-  sheet.addRow(['Configuration number ' + json.version.number]);
+  sheet.addRow([
+    sheetTranslate('Configuration number', sheetLanguage) +
+      ': ' +
+      json.version.number,
+  ]);
   sheet.addTable({
-    name: sheetName,
+    name: translatedSheetName,
     ref: 'A2',
     headerRow: true,
     columns: Object.keys(translatedData[0]).map((key) => {

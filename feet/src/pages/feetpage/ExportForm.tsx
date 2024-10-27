@@ -10,10 +10,10 @@ import { useToast } from '../../utils/useToast';
 import { useDataContext } from '../../utils/DataProvider';
 import InfoBox from '../../components/InfoBox';
 import GenericButton from '../../components/GenericButton';
-import { mapPanelToExcel } from '../../mappers/fire-panel-utils';
+import { mapPanelToExcel } from '../../mappers/panel-utils';
 import { mapPanelsWithZones } from '../../mappers/zone-utils';
-import { mapLoopToExcel } from '../../mappers/fire-loop-utils';
-import { mapBoardToExcel } from '../../mappers/io-board-utils';
+import { mapLoopToExcel } from '../../mappers/loop-utils';
+import { mapBoardToExcel } from '../../mappers/board-utils';
 import { mapLoopAddressToExcel } from '../../mappers/address-report-utils';
 import { mapToIOReportToExcel } from '../../mappers/io-report-utils';
 import { mapControlGroupsToExcel } from '../../mappers/control-group-report-utils';
@@ -62,7 +62,7 @@ const ExportForm: FC = () => {
           panels.map((panel) =>
             mapPanelToExcel(json.system, panel, sheetLanguage),
           ),
-          'Fire_panel',
+          'Panel',
           json,
           sheetLanguage,
         );
@@ -84,7 +84,7 @@ const ExportForm: FC = () => {
               mapLoopToExcel(loop_controller, panel.number, sheetLanguage),
             ),
           ),
-          'Fire_loop',
+          'Loop',
           json,
           sheetLanguage,
         );
@@ -93,7 +93,7 @@ const ExportForm: FC = () => {
         addSheetToWorkbook(
           workbook,
           mapBoardToExcel(panels),
-          'IO_Board',
+          'Board',
           json,
           sheetLanguage,
         );
@@ -120,7 +120,7 @@ const ExportForm: FC = () => {
         addSheetToWorkbook(
           workbook,
           mapControlGroupsToExcel(panels, sheetLanguage),
-          'Control_group_report',
+          'Control group report',
           json,
           sheetLanguage,
         );
