@@ -19,5 +19,26 @@ export const mapLoopAddressToExcel = (panels: Panel[]) => {
     });
   });
 
+  let emptyIdColumn = true;
+
+  addressExcel
+    .map((item) => item['DeviceId.title'])
+    .forEach((item) => {
+      if (item !== undefined) {
+        emptyIdColumn = false;
+      }
+    });
+
+  if (emptyIdColumn) {
+    return addressExcel.map((item) => {
+      return {
+        Address: item.Address,
+        Zone: item.Zone,
+        Description: item.Description,
+        'Type.title': item['Type.title'],
+      };
+    });
+  }
+
   return addressExcel;
 };
