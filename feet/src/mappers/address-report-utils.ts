@@ -12,8 +12,7 @@ export const mapLoopAddressToExcel = (panels: Panel[]) => {
             'DeviceId.title': device.device_id,
             Zone: device.zone,
             Description: device.description,
-            'Type.title': device.type,
-            'Protocol.type.title': device.protocol_type,
+            'Type.title': device.type + ', ' + device.protocol_type,
           });
         });
       });
