@@ -11,9 +11,16 @@
   background-color: var(--color-gray-light);
   margin: var(--spacing-large);
   align-items: center;
-  word-break: break-all;
+
+  & p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    white-space: nowrap;
+  }
 
   & button {
+    min-width: 44px;
     width: 44px;
     height: 44px;
     display: flex;
@@ -21,7 +28,7 @@
     justify-content: center;
 
     & svg {
-      min-width: unset;
+      min-width: 18px;
       width: 18px;
       height: auto;
     }
