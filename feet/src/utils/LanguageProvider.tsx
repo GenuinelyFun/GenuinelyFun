@@ -4,6 +4,7 @@ import { i18n, TFunction } from 'i18next';
 
 import authorCardText from '../pages/journalpage/authorCardText.json';
 import homePageText from '../pages/homepage/homePageText.json';
+import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import footerText from '../components/footerText.json';
@@ -24,6 +25,7 @@ const allText = {
   ...genericText,
   ...languageText,
   ...homePageText,
+  ...pageNotFoundText,
   ...feetPageText,
   ...techBestPracticePageText,
   ...footerText,
