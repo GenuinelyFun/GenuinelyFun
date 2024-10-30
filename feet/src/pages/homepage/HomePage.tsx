@@ -5,7 +5,7 @@ import codingIcon from '../../assets/icons/lightbulb_code.svg';
 import websiteIcon from '../../assets/icons/website.svg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
-import { ReactComponent as ToolsIcon } from '../../assets/icons/tools.svg';
+import toolsicon from '../../assets/icons/tools.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
 import Card, { IconPosition } from './Card';
@@ -18,21 +18,21 @@ const HomePage: FC = () => {
       <section className={styles.heroSection}>
         <img
           src={codingIcon}
-          alt="Coding Icon"
+          alt={translate('hero.lightbulb.aria')}
           className={styles.heroSectionIconLeft}
         />
         <div>
           <h1>
-            {translate('hero-section.title-part1')}
-            <span>{translate('hero-section.title-part2')}</span>
-            {translate('hero-section.title-part3')}
+            {translate('hero.title.part1')}
+            <span>{translate('hero.title.part2')}</span>
+            {translate('hero.title.part3')}
           </h1>
 
-          <p> {translate('hero-section.description')} </p>
+          <p> {translate('hero.title.description')} </p>
         </div>
         <img
           src={websiteIcon}
-          alt="Website Icon"
+          alt={translate('hero.webpage-on-screen.aria')}
           className={styles.heroSectionIconRight}
         />
       </section>
@@ -41,15 +41,15 @@ const HomePage: FC = () => {
           icon={
             <img
               src={nghi}
-              alt="A picture of Nghi"
+              alt={translate('author-card.nghi.aria')}
               className={styles.genericImage}
             />
           }
           iconPosition={IconPosition.LEFT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main.nghi.title')} </h2>
-            <p>{translate('main.nghi.description')} </p>
+            <h2>{translate('about-card.nghi.title')} </h2>
+            <p>{translate('about-card.nghi.description')} </p>
           </div>
         </Card>
 
@@ -57,35 +57,42 @@ const HomePage: FC = () => {
           icon={
             <img
               src={arthur}
-              alt="A picture of Arthur"
+              alt={translate('author-card.arthur.aria')}
               className={styles.genericImage}
             />
           }
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main.arthur.title')} </h2>
-            <p>{translate('main.arthur.description')} </p>
+            <h2>{translate('about-card.arthur.title')} </h2>
+            <p>{translate('about-card.arthur.description')} </p>
           </div>
         </Card>
 
         <Card
           className={styles.mainSectionInfoBox}
-          icon={<ToolsIcon className={styles.icon} />}
+          icon={
+            <img
+              src={toolsicon}
+              alt={translate('infobox.angle-tool-pencil.aria')}
+              className={styles.icon}
+            />
+          }
           iconPosition={IconPosition.LEFT}
+          aria-label={translate('infobox.angle-tool-pencil.aria')}
         >
           <div className={classNames(styles.cardContent, styles.mainContent)}>
             <h2>
-              {translate('main-section.infobox.title-part1')}
-              <span>{translate('main-section.infobox.title-part2')}</span>
-              {translate('main-section.infobox.title-part3')}
+              {translate('infobox.title.part1')}
+              <span>{translate('infobox.title.part2')}</span>
+              {translate('infobox.title.part3')}
             </h2>
-            <p>{translate('main-section.infobox-description')}</p>
+            <p>{translate('infobox.description')}</p>
             <GenericButton
               onClick={() => console.log('I DO NOTHING YET TODO TODO TODO')}
               invert={true}
             >
-              {translate('main-section.infobox-button')}
+              {translate('infobox.button')}
             </GenericButton>
           </div>
         </Card>
@@ -93,15 +100,15 @@ const HomePage: FC = () => {
           icon={
             <img
               src={image}
-              alt="A test image"
+              alt={translate('about-us.test-image.aria')}
               className={styles.genericImage}
             />
           }
           iconPosition={IconPosition.RIGHT}
         >
           <div className={styles.cardContent}>
-            <h2>{translate('main-section.footsteps.title')}</h2>
-            <p>{translate('main-section.footsteps.description')}</p>
+            <h2>{translate('about-us.title')}</h2>
+            <p>{translate('about-us.description')}</p>
           </div>
         </Card>
       </div>

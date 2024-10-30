@@ -52,9 +52,11 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
         className={styles.genericImage}
       />
       <div className={styles.textContainer}>
-        <h2>{translate('about')}</h2>
-        <p>{translate(`${author}.title` as TranslateTextKey)}</p>
-        <p>{translate(`${author}.paragraph` as TranslateTextKey)}</p>
+        <h2>{translate('author-card.about')}</h2>
+        <p>{translate(`author-card.${author}.title` as TranslateTextKey)}</p>
+        <p>
+          {translate(`author-card.${author}.paragraph` as TranslateTextKey)}
+        </p>
         <div className={styles.iconRow}>
           {Object.keys(links).map((link) => (
             <a
