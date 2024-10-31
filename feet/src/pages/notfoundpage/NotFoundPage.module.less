@@ -1,0 +1,90 @@
+.pagenotfound {
+  width: var(--max-width-page);
+  height: 100vh;
+  color: var(--color-black);
+  text-align: center;
+  margin: 0 auto;
+  flex-direction: column;
+  position: relative;
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
+
+  & h1 {
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-bold);
+  }
+
+  & p {
+    font-size: var(--font-size-medium);
+  }
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
+}
+
+.button {
+  margin-top: 100px;
+}
+
+@keyframes rotateMoon {
+  0% {
+    transform: rotate(0deg) translateX(40px) translateY(15px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(40px) translateY(15px) rotate(-360deg);
+  }
+}
+
+@keyframes rotateRocket {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  12.5% {
+    transform: translateX(20px) translateY(-10px) rotate(45deg);
+  }
+  25% {
+    transform: translateX(40px) translateY(0px) rotate(90deg);
+  }
+  37.5% {
+    transform: translateX(20px) translateY(10px) rotate(135deg);
+  }
+  50% {
+    transform: translateX(0px) translateY(0px) rotate(180deg);
+  }
+  62.5% {
+    transform: translateX(-20px) translateY(-10px) rotate(225deg);
+  }
+  75% {
+    transform: translateX(-40px) translateY(0px) rotate(270deg);
+  }
+  87.5% {
+    transform: translateX(-20px) translateY(10px) rotate(315deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(360deg);
+  }
+}
+
+.moon {
+  position: relative;
+  animation: rotateMoon 20s linear infinite;
+  left: 100%;
+}
+
+.rocket {
+  position: relative;
+  top: 30%;
+  left: -120%;
+  animation: rotateRocket 20s linear infinite;
+}
+
+.astronaut {
+  position: relative;
+  bottom: 5%;
+  left: 0;
+  height: 700px;
+  width: auto;
+}
