@@ -6,6 +6,7 @@ import authorCardText from '../pages/journalpage/authorCardText.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
+import fileListText from '../pages/feetpage/fileListText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
@@ -27,6 +28,7 @@ const allText = {
   ...homePageText,
   ...pageNotFoundText,
   ...feetPageText,
+  ...fileListText,
   ...techBestPracticePageText,
   ...footerText,
   ...menuText,

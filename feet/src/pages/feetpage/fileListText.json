@@ -1,0 +1,17 @@
+{
+  "file-list.title.aria": {
+    "en": "of uploaded JSON files",
+    "no": "av opplastede JSON-filer",
+    "nn": "av opplasta JSON-filer"
+  },
+  "file-list.document.aria": {
+    "en": "Document file",
+    "no": "Dokumentfil",
+    "nn": "Dokumentfil"
+  },
+  "file-list.remove-file.aria": {
+    "en": "Remove the currently selected file",
+    "no": "Fjern den valgte filen",
+    "nn": "Fjern den valgte filen"
+  }
+}
