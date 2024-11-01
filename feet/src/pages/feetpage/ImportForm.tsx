@@ -130,9 +130,7 @@ const ImportForm: FC = () => {
         {isDragging && (
           <img
             alt={translate(
-              isNotJson
-                ? 'upload.error-icon.aria-label'
-                : 'upload.icon.aria-label',
+              isNotJson ? 'upload.error-icon.aria' : 'upload.icon.aria',
             )}
             src={isNotJson ? iconWrongFileType : iconUpload}
             className={styles.statusIcon}
