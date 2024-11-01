@@ -1,0 +1,12 @@
+{
+  "export.settings.aria": {
+    "en": "Export settings",
+    "no": "Eksportinnstillinger",
+    "nN": "export.checkbox.label"
+  },
+  "export.settings.language.aria": {
+    "en": "languages for the Excel export",
+    "no": "språk for Excel-eksport",
+    "nn": "språk for Excel-eksport"
+  }
+}

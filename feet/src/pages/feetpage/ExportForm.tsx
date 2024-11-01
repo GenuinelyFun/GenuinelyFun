@@ -194,8 +194,10 @@ const ExportForm: FC = () => {
 
   return (
     <form className={styles.container} onSubmit={exportToExcel}>
-      <ul className={styles.list}>
-        <li className={styles.checkboxContainer}>
+      <ul className={styles.list}
+          aria-label={translate(`export.settings.aria`)}>
+        <li className={styles.checkboxContainer}
+            aria-label={translate(`export.settings.language.aria`)}>
           <label className={styles.languageSelect}>
             {translate('export.language.select')}
             <select

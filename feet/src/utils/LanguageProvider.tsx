@@ -8,6 +8,7 @@ import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import importFormText from '../pages/feetpage/importFormText.json';
 import fileListText from '../pages/feetpage/fileListText.json';
+import exportFormText from '../pages/feetpage/exportFormText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
@@ -31,6 +32,7 @@ const allText = {
   ...feetPageText,
   ...importFormText,
   ...fileListText,
+  ...exportFormText,
   ...techBestPracticePageText,
   ...footerText,
   ...menuText,
