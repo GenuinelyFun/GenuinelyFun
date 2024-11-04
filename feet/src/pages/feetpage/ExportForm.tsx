@@ -196,16 +196,19 @@ const ExportForm: FC = () => {
     <form className={styles.container} onSubmit={exportToExcel}>
       <ul className={styles.list}>
         <li className={styles.checkboxContainer}>
-          <select
-            onChange={(e) => setSheetLanguage(e.target.value)}
-            value={sheetLanguage}
-          >
-            {Object.keys(feetLanguages).map((key) => (
-              <option className={styles.select} value={key} key={key}>
-                {feetLanguages[key]}
-              </option>
-            ))}
-          </select>
+          <label className={styles.languageSelect}>
+            {translate('export.language.select')}
+            <select
+              onChange={(e) => setSheetLanguage(e.target.value)}
+              value={sheetLanguage}
+            >
+              {Object.keys(feetLanguages).map((key) => (
+                <option className={styles.select} value={key} key={key}>
+                  {feetLanguages[key]}
+                </option>
+              ))}
+            </select>
+          </label>
         </li>
         <CheckboxWithInfobox
           textKey={'selectall'}

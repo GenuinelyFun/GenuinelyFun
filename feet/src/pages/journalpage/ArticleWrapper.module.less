@@ -1,0 +1,15 @@
+@import "../../utils/variables.less";
+
+.article {
+  max-width: var(--max-width-page);
+  margin: var(--page-margin);
+
+  @media @breakpoint-tablet {
+    margin: var(--spacing-medium);
+  }
+
+  h1 {
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-bold);
+  }
+}

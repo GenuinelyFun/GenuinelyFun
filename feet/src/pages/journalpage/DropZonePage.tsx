@@ -1,10 +1,11 @@
 import React from 'react';
+import { ArticleWrapper } from './ArticleWrapper';
 
 const DropZonePage = (): JSX.Element => {
   return (
-    <div>
+    <ArticleWrapper>
       <h1>Developer's Journal</h1>
-    </div>
+    </ArticleWrapper>
   );
 };
 

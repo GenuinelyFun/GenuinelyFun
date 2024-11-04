@@ -59,6 +59,11 @@
     "no": "Ugyldig JSON-format, vennligst sjekk at det er riktig fil og prøv igjen.",
     "nn": "Ugyldig JSON-format, ver venleg å sjekka at det er rett fil og prøv igjen."
   },
+  "export.language.select": {
+    "en": "Select language",
+    "no": "Velg språk",
+    "nn": "Vel språk"
+  },
   "export.error": {
     "en": "Something went wrong, please try again later.",
     "no": "Noe gikk galt, prøv igjen senere.",

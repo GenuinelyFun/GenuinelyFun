@@ -1,6 +1,8 @@
+@import "../../utils/variables.less";
+
 .heroSection {
   width: 100%;
-  height: 700px;
+  min-height: 700px;
   background-color: var(--color-green);
   text-align: center;
   display: flex;
@@ -11,6 +13,14 @@
   justify-content: center;
   gap: 10%;
   color: var(--color-white);
+
+  @media @breakpoint-tablet {
+    flex-direction: column;
+    min-height: 300px;
+    & img {
+      display: none;
+    }
+  }
 
   [data-theme="dark"] & {
     color: var(--color-black);
@@ -72,7 +82,7 @@
 }
 
 .genericImage {
-  width: 30%;
+  width: 200px;
   height: auto;
   padding: 5%;
 }
@@ -99,6 +109,10 @@
     position: absolute;
     left: -60px;
     filter: drop-shadow(1px 1px 1px #000000);
+
+    @media @breakpoint-mobile {
+      display: none;
+    }
   }
 
   & span {
@@ -110,4 +124,8 @@
   width: 60%;
   margin-left: auto;
   filter: drop-shadow(1px 1px 1px #000000);
+
+  @media @breakpoint-mobile {
+    margin: 0;
+  }
 }

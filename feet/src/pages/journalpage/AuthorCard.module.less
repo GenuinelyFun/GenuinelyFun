@@ -1,5 +1,7 @@
+@import "../../utils/variables.less";
+
 .card {
-  width: var(--max-width-page);
+  max-width: var(--max-width-page);
   height: auto;
   display: flex;
   align-items: flex-start;
@@ -7,10 +9,18 @@
   margin: var(--spacing-xxlarge) 0;
   background-color: var(--color-green);
 
+  @media @breakpoint-tablet {
+    flex-direction: column;
+  }
+
   img {
     width: 200px;
     border-radius: 50%;
     margin-right: var(--spacing-medium);
+
+    @media @breakpoint-tablet {
+      align-self: center;
+    }
   }
 }
 

@@ -1,15 +1,19 @@
+@import "../../utils/variables.less";
+
 .fileList {
   padding: 0;
 }
 
 .fileCard {
-  width: 300px;
+  min-width: 300px;
   border: var(--border) var(--color-black);
   justify-content: space-between;
   border-radius: 8px;
   display: flex;
   background-color: var(--color-gray-light);
-  margin: var(--spacing-large);
+  padding: 0 var(--spacing-mini);
+  margin: var(--spacing-large) 0;
+  word-break: break-all;
   align-items: center;
 
   & p {

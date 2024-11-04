@@ -1,6 +1,17 @@
+@import "../../utils/variables.less";
+
 .container {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: calc(100% - var(--height-header));
+  margin: var(--spacing-medium);
+  gap: var(--spacing-large);
+
+  @media @breakpoint-tablet {
+    flex-direction: column;
+
+    & aside {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 }
