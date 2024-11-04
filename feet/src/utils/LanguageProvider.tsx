@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 
 import authorCardText from '../pages/journalpage/authorCardText.json';
+import darkmodeToggleText from '../components/darkmodeToggleText.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
@@ -25,6 +26,7 @@ export enum Language {
 
 const allText = {
   ...authorCardText,
+  ...darkmodeToggleText,
   ...genericText,
   ...languageText,
   ...homePageText,
