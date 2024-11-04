@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg';
-import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
-import { ReactComponent as Xicon } from '../../assets/icons/x.svg';
+import GithubIcon from '../../assets/icons/github.svg';
+import LinkedinIcon from '../../assets/icons/linkedin.svg';
+import Xicon from '../../assets/icons/x.svg';
 import {
   TranslateTextKey,
   useLanguageContext,
@@ -18,15 +18,15 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
   } = {
     github: {
       url: 'https://github.com/Friftycode',
-      icon: <GithubIcon aria-label="GitHub" />,
+      icon: <img src={GithubIcon} alt="GitHub" />,
     },
     linkedin: {
       url: 'https://www.linkedin.com/in/arthur90/',
-      icon: <LinkedinIcon aria-label="LinkedIn" />,
+      icon: <img src={LinkedinIcon} alt="LinkedIn" />,
     },
     x: {
       url: 'https://x.com/ThomassenArthur',
-      icon: <Xicon aria-label="X" />,
+      icon: <img src={Xicon} alt="X" />,
     },
   };
   const nghiLinks: {
@@ -34,11 +34,11 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
   } = {
     github: {
       url: 'https://github.com/NghiNg',
-      icon: <GithubIcon aria-label="GitHub" />,
+      icon: <img src={GithubIcon} alt="GitHub" />,
     },
     linkedin: {
       url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
-      icon: <LinkedinIcon aria-label="LinkedIn" />,
+      icon: <img src={LinkedinIcon} alt="LinkedIn" />,
     },
   };
 
@@ -48,7 +48,7 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
     <div className={styles.card}>
       <img
         src={author === 'arthur' ? arthur : nghi}
-        alt={translate(`${author}.image.aria-label` as TranslateTextKey)}
+        alt={translate(`author-card.${author}.aria` as TranslateTextKey)}
         className={styles.genericImage}
       />
       <div className={styles.textContainer}>
