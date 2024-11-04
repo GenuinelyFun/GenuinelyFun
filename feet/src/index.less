@@ -66,6 +66,8 @@ html,
 #root {
   height: 100%;
   transition: var(--transition-dark-light-mode);
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -81,6 +83,10 @@ body {
   & a {
     color: var(--color-black);
   }
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 button {

@@ -8,13 +8,13 @@ import styles from './FeetPage.module.less';
 const FeetPage: FC = () => {
   return (
     <DataProvider>
-      <section className={styles.container}>
+      <main className={styles.container}>
+        <ImportForm />
         <aside>
           <ExportForm />
           <FileList />
         </aside>
-        <ImportForm />
-      </section>
+      </main>
     </DataProvider>
   );
 };

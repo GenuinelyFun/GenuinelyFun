@@ -140,14 +140,16 @@ const ImportForm: FC = () => {
         )}
         <>
           {isDragging ? (
-            <p>
+            <p className={styles.paragraph}>
               {translate(
                 isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
               )}
             </p>
           ) : (
             <>
-              <p>{translate('upload.description')}</p>
+              <p className={styles.paragraph}>
+                {translate('upload.description')}
+              </p>
               <p className={styles.paragraph}>{translate('upload.or')}</p>
             </>
           )}
