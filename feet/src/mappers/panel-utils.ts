@@ -39,7 +39,7 @@ export const mapPanelToExcel = (
     'Visible Panels':
       panel.visible_panels !== undefined && panel.visible_panels.length > 0
         ? panel.visible_panels.join(', ')
-        : 'No visible panels',
+        : false,
     'Primary language': panel.primary_language,
     'Secondary language': panel.secondary_language,
     'First Zone': panel.first_zone,

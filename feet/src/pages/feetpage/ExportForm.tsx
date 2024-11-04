@@ -101,7 +101,7 @@ const ExportForm: FC = () => {
       if (addressReport) {
         addSheetToWorkbook(
           workbook,
-          mapLoopAddressToExcel(panels),
+          mapLoopAddressToExcel(panels, sheetLanguage),
           'Address_report',
           json,
           sheetLanguage,
