@@ -9,38 +9,41 @@ import {
   useLanguageContext,
 } from '../../utils/LanguageProvider';
 import styles from './AuthorCard.module.less';
+import GenericButton from '../../components/GenericButton';
+import { routePaths } from '../../App';
+
+export const arthurLinks: {
+  [key: string]: { url: string; icon: ReactNode };
+} = {
+  github: {
+    url: 'https://github.com/Friftycode',
+    icon: <img src={GithubIcon} alt="GitHub" />,
+  },
+  linkedin: {
+    url: 'https://www.linkedin.com/in/arthur90/',
+    icon: <img src={LinkedinIcon} alt="LinkedIn" />,
+  },
+  x: {
+    url: 'https://x.com/ThomassenArthur',
+    icon: <img src={Xicon} alt="X" />,
+  },
+};
+
+export const nghiLinks: {
+  [key: string]: { url: string; icon: ReactNode };
+} = {
+  github: {
+    url: 'https://github.com/NghiNg',
+    icon: <img src={GithubIcon} alt="GitHub" />,
+  },
+  linkedin: {
+    url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
+    icon: <img src={LinkedinIcon} alt="LinkedIn" />,
+  },
+};
 
 const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
   const { translate } = useLanguageContext();
-
-  const arthurLinks: {
-    [key: string]: { url: string; icon: ReactNode };
-  } = {
-    github: {
-      url: 'https://github.com/Friftycode',
-      icon: <img src={GithubIcon} alt="GitHub" />,
-    },
-    linkedin: {
-      url: 'https://www.linkedin.com/in/arthur90/',
-      icon: <img src={LinkedinIcon} alt="LinkedIn" />,
-    },
-    x: {
-      url: 'https://x.com/ThomassenArthur',
-      icon: <img src={Xicon} alt="X" />,
-    },
-  };
-  const nghiLinks: {
-    [key: string]: { url: string; icon: ReactNode };
-  } = {
-    github: {
-      url: 'https://github.com/NghiNg',
-      icon: <img src={GithubIcon} alt="GitHub" />,
-    },
-    linkedin: {
-      url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
-      icon: <img src={LinkedinIcon} alt="LinkedIn" />,
-    },
-  };
 
   const links = author === 'arthur' ? arthurLinks : nghiLinks;
 
@@ -68,6 +71,14 @@ const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
               {links[link].icon}
             </a>
           ))}
+          <GenericButton
+            className={styles.button}
+            invert={true}
+            as={'link'}
+            to={routePaths.arthur}
+          >
+            To my portfolio page
+          </GenericButton>
         </div>
       </div>
     </div>
