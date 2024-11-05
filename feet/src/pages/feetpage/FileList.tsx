@@ -8,6 +8,11 @@ const FileList = () => {
   const { translate } = useLanguageContext();
   const { files, removeFile } = useDataContext();
 
+  const shortenedFileName = (name: string) => {
+    if (name.length <= 22) return name;
+    return name.slice(0, 22) + '...';
+  };
+
   return (
     <ul
       className={styles.fileList}
@@ -16,16 +21,22 @@ const FileList = () => {
       {files.map(({ name }) => (
         <li
           className={styles.fileCard}
-          key={name}
-          aria-label={name.slice(0, 22)}
+          key={shortenedFileName(name)}
+          aria-label={shortenedFileName(name)}
         >
           <div>
             <img src={FileIcon} alt={translate('file-list.document.aria')} />
-            <p aria-label={name.slice(0, 22)}>{name}</p>
+            <p aria-label={shortenedFileName(name)}>
+              {shortenedFileName(name)}
+            </p>
           </div>
           <button
             onClick={() => removeFile(name)}
-            aria-label={translate('file-list.remove-file.aria')}
+            aria-label={
+              translate('file-list.remove-file.aria') +
+              ' ' +
+              shortenedFileName(name)
+            }
           >
             <img src={CrossIcon} />
           </button>

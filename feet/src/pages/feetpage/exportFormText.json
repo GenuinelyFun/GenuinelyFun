@@ -1,12 +1,17 @@
 {
   "export.settings.aria": {
     "en": "Export settings",
-    "no": "Eksportinnstillinger",
-    "nN": "export.checkbox.label"
+    "no": "Eksport innstillinger",
+    "nn": "Eksport innstillingar"
   },
   "export.settings.language.aria": {
     "en": "languages for the Excel export",
     "no": "språk for Excel-eksport",
     "nn": "språk for Excel-eksport"
+  },
+  "export.settings.sheet-list": {
+    "en": "Select sheets in Excel:",
+    "no": "Velg ark i Excel:",
+    "nn": "Vel ark i Excel:"
   }
 }

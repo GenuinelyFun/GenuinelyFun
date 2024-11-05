@@ -172,7 +172,7 @@ const ExportForm: FC = () => {
     disabled?: boolean;
   }> = ({ textKey, value, setValue, disabled }) => (
     <li className={styles.checkboxContainer}>
-      <label>
+      <label className={styles.checkbox}>
         <input
           type={'checkbox'}
           checked={value}
@@ -193,25 +193,29 @@ const ExportForm: FC = () => {
   );
 
   return (
-    <form className={styles.container} onSubmit={exportToExcel}>
-      <ul className={styles.list}
-          aria-label={translate(`export.settings.aria`)}>
-        <li className={styles.checkboxContainer}
-            aria-label={translate(`export.settings.language.aria`)}>
-          <label className={styles.languageSelect}>
-            {translate('export.language.select')}
-            <select
-              onChange={(e) => setSheetLanguage(e.target.value)}
-              value={sheetLanguage}
-            >
-              {Object.keys(feetLanguages).map((key) => (
-                <option className={styles.select} value={key} key={key}>
-                  {feetLanguages[key]}
-                </option>
-              ))}
-            </select>
-          </label>
-        </li>
+    <form
+      className={styles.container}
+      onSubmit={exportToExcel}
+      role={'form'}
+      aria-label={translate(`export.settings.aria`)}
+    >
+      <label className={styles.select}>
+        {translate('export.language.select')}
+        <select
+          onChange={(e) => setSheetLanguage(e.target.value)}
+          value={sheetLanguage}
+        >
+          {Object.keys(feetLanguages).map((key) => (
+            <option className={styles.select} value={key} key={key}>
+              {feetLanguages[key]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label id={'sheet-checkbox-list'}>
+        {translate('export.settings.sheet-list')}
+      </label>
+      <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
         <CheckboxWithInfobox
           textKey={'selectall'}
           value={isAllSelected}
@@ -253,18 +257,15 @@ const ExportForm: FC = () => {
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
         />
-        <li className={styles.checkboxContainer}>
-          <label>
-            <input
-              type={'checkbox'}
-              checked={disclaimer}
-              onChange={() => setDisclaimer(!disclaimer)}
-            />
-            {translate(`export.disclaimer.checkbox.label` as TranslateTextKey)}
-          </label>
-        </li>
       </ul>
-
+      <label className={styles.checkbox}>
+        <input
+          type={'checkbox'}
+          checked={disclaimer}
+          onChange={() => setDisclaimer(!disclaimer)}
+        />
+        {translate(`export.disclaimer.checkbox.label` as TranslateTextKey)}
+      </label>
       <GenericButton
         className={styles.button}
         disabled={files.length === 0 || isNoneSelected || !disclaimer}
