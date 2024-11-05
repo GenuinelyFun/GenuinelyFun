@@ -29,26 +29,6 @@
     "no": "Nettside på skjerm",
     "nn": "Nettside på skjerm"
   },
-  "about-card.nghi.title": {
-    "en": "Nghi",
-    "no": "Nghi",
-    "nn": "Nghi"
-  },
-  "about-card.nghi.description": {
-    "en": "A full stack developer. Passionate about design, she types a quick 90 words per minute, she can program as fast as the speed of light! (ahem…not really). She’s always dressed in stylish outfits that reflect her cool, modern vibe.",
-    "no": "En fullstack-utvikler. Lidenskapelig opptatt av design, hun skriver raskt 90 ord per minutt, og hun kan programmere så raskt som lysets hastighet! (ehm... ikke helt). Hun er alltid kledd i stilige antrekk som gjenspeiler hennes kule, moderne stil.",
-    "nn": "Ein fullstack-utviklar. Lidenskapelig oppteken av design, ho skriv raskt 90 ord i minuttet, og ho kan programmere like raskt som ljosfarten! (ehm… ikkje heilt). Ho er alltid kledd i stilige antrekk som speglar hennar kule, moderne stil."
-  },
-  "about-card.arthur.title": {
-    "en": "Arthur",
-    "no": "Arthur",
-    "nn": "Arthur"
-  },
-  "about-card.arthur.description": {
-    "en": "By day, I'm a field technician, but by night (and occasionally onlunch breaks), I moonlight as a full-stack developer. As afreelancer, I love creating smart solutions and tools that helppeople get better results with less effort—and more importantly,less time. Oh, and I also build websites. Because, why not?",
-    "no": "Om dagen er jeg en felttekniker, men om natten (og av og til i lunsjpausene) tar jeg på meg rollen som fullstack-utvikler. Som frilanser elsker jeg å skape smarte løsninger og verktøy som hjelper folk å oppnå bedre resultater med mindre innsats – og enda viktigere, mindre tid. Å ja, og jeg bygger også nettsider. Fordi, hvorfor ikke?",
-    "nn": "Om dagen er eg ein feltteknikar, men om natta (og av og til i lunsjpausane) tek eg på meg rolla som fullstack-utviklar. Som frilanser elskar eg å skape smarte løysingar og verktøy som hjelper folk å oppnå betre resultat med mindre innsats – og endå viktigare, mindre tid. Å ja, eg byggjer òg nettsider. Kvifor ikkje?"
-  },
   "infobox.title.part1": {
     "en": "We make your",
     "no": "Vi gjør",

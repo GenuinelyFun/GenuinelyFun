@@ -3,11 +3,10 @@ import classNames from 'classnames';
 import image from '../../assets/icons/image_test_560x560.png';
 import codingIcon from '../../assets/icons/lightbulb_code.svg';
 import websiteIcon from '../../assets/icons/website.svg';
-import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import toolsicon from '../../assets/icons/tools.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
+import AuthorCard from '../journalpage/AuthorCard';
 import Card, { IconPosition } from './Card';
 import styles from './HomePage.module.less';
 
@@ -37,37 +36,12 @@ const HomePage: FC = () => {
         />
       </section>
       <div className={styles.mainSection}>
-        <Card
-          icon={
-            <img
-              src={nghi}
-              alt={translate('author-card.nghi.aria')}
-              className={styles.genericImage}
-            />
-          }
-          iconPosition={IconPosition.LEFT}
-        >
-          <div className={styles.cardContent}>
-            <h2>{translate('about-card.nghi.title')} </h2>
-            <p>{translate('about-card.nghi.description')} </p>
-          </div>
-        </Card>
-
-        <Card
-          icon={
-            <img
-              src={arthur}
-              alt={translate('author-card.arthur.aria')}
-              className={styles.genericImage}
-            />
-          }
-          iconPosition={IconPosition.RIGHT}
-        >
-          <div className={styles.cardContent}>
-            <h2>{translate('about-card.arthur.title')} </h2>
-            <p>{translate('about-card.arthur.description')} </p>
-          </div>
-        </Card>
+        <AuthorCard author={'arthur'} className={styles.mainSection} />
+        <AuthorCard
+          author={'nghi'}
+          className={styles.mainSection}
+          flip={true}
+        />
 
         <Card
           className={styles.mainSectionInfoBox}

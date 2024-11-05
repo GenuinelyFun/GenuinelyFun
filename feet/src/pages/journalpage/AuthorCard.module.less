@@ -6,7 +6,7 @@
   display: flex;
   align-items: flex-start;
   padding: var(--spacing-small);
-  margin: var(--spacing-xxlarge) 0;
+  margin: var(--spacing-xxlarge) auto;
   background-color: var(--color-green);
 
   @media @breakpoint-tablet {
@@ -22,6 +22,10 @@
       align-self: center;
     }
   }
+}
+
+.flip {
+  flex-direction: row-reverse;
 }
 
 .textContainer {

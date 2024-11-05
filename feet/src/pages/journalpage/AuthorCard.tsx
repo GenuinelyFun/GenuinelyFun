@@ -1,16 +1,17 @@
 import React, { FC, ReactNode } from 'react';
+import classNames from 'classnames';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import GithubIcon from '../../assets/icons/github.svg';
 import LinkedinIcon from '../../assets/icons/linkedin.svg';
 import Xicon from '../../assets/icons/x.svg';
+import GenericButton from '../../components/GenericButton';
 import {
   TranslateTextKey,
   useLanguageContext,
 } from '../../utils/LanguageProvider';
-import styles from './AuthorCard.module.less';
-import GenericButton from '../../components/GenericButton';
 import { routePaths } from '../../App';
+import styles from './AuthorCard.module.less';
 
 export const arthurLinks: {
   [key: string]: { url: string; icon: ReactNode };
@@ -42,13 +43,21 @@ export const nghiLinks: {
   },
 };
 
-const AuthorCard: FC<{ author: 'arthur' | 'nghi' }> = ({ author }) => {
+const AuthorCard: FC<{
+  author: 'arthur' | 'nghi';
+  className?: string;
+  flip?: boolean;
+}> = ({ author, className, flip }) => {
   const { translate } = useLanguageContext();
 
   const links = author === 'arthur' ? arthurLinks : nghiLinks;
 
   return (
-    <div className={styles.card}>
+    <div
+      className={classNames(styles.card, className, {
+        [styles.flip]: flip,
+      })}
+    >
       <img
         src={author === 'arthur' ? arthur : nghi}
         alt={translate(`author-card.${author}.aria` as TranslateTextKey)}
