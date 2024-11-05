@@ -1,9 +1,12 @@
 @import '../../utils/variables.less';
 
 .container {
+  margin: var(--spacing-medium);
+}
+
+.content {
   display: flex;
   flex-direction: row;
-  margin: var(--spacing-medium);
   gap: var(--spacing-large);
 
   @media @breakpoint-tablet {

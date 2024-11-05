@@ -45,22 +45,32 @@ export const useToast = () => {
           : 'Hot toast burnt';
       switch (type) {
         case 'error':
-          hotToast.error(content, darkmodeStyles);
+          hotToast.error(content, {
+            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
+            ...darkmodeStyles,
+          });
           break;
         case 'success':
           hotToast.success(content, {
+            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
             ...darkmodeStyles,
             duration: 4000,
           });
           break;
         case 'promise':
           if (promise !== undefined) {
-            hotToast.promise(promise.loader, promise.options, darkmodeStyles);
+            hotToast.promise(promise.loader, promise.options, {
+              ariaProps: { role: 'alert', 'aria-live': 'assertive' },
+              ...darkmodeStyles,
+            });
           }
           break;
         case 'info':
         default:
-          hotToast(content, darkmodeStyles);
+          hotToast(content, {
+            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
+            ...darkmodeStyles,
+          });
           break;
       }
     },

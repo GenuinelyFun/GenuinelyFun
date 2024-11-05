@@ -31,7 +31,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ message, header, altText }) => {
         <QuestionMarkIcon className={styles.icon} />
       </button>
       <Modal isOpen={modal.isOpen} onClose={modal.closeModal}>
-        <h2>{header}</h2>
+        <h1>{header}</h1>
         <p>{message}</p>
         <GenericButton
           className={styles.closeButton}
