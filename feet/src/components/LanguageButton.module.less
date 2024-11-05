@@ -6,8 +6,7 @@
   width: 100%;
   float: left;
   text-align: left;
-  padding-left: var(--spacing-mini);
-  margin: var(--spacing-mini) 0;
+  margin: 0 0 var(--spacing-mini);
   text-decoration: none;
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
@@ -15,15 +14,7 @@
   color: var(--color-black);
 
   &:hover {
-    border-bottom: var(--border) var(--color-green);
+    border-bottom: var(--border) var(--color-black);
 
-    [data-theme='dark'] & {
-      border-color: var(--color-black);
-    }
   }
-}
-
-.active {
-  border-bottom: var(--border) var(--color-green);
-  color: var(--color-black);
 }

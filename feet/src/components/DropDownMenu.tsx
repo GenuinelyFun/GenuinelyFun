@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useId, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { ReactComponent as Arrow } from '../assets/icons/chevron-dropdown.svg';
 import {
@@ -10,13 +10,17 @@ import styles from './DropDownMenu.module.less';
 type DropDownMenuProps = {
   buttonClassName?: string;
   buttonTextKey: TranslateTextKey;
+  buttonAriaLabel?: string;
   listItems: ReactNode[];
+  listItemClassName?: string;
 };
 
 const DropDownMenu = ({
   buttonClassName,
   buttonTextKey,
+  buttonAriaLabel,
   listItems,
+  listItemClassName,
 }: DropDownMenuProps): JSX.Element => {
   const [open, setOpen] = useState(false);
   const { translate } = useLanguageContext();
@@ -46,12 +50,16 @@ const DropDownMenu = ({
     setOpen((prevOpen) => !prevOpen);
   };
 
+  const labelId = useId();
+
   return (
     <div className={styles.dropdownContainer}>
       <button
         ref={dropdownRef}
         onClick={toggleDropdown}
+        id={labelId}
         className={classNames(styles.dropdownButton, buttonClassName)}
+        aria-label={buttonAriaLabel}
       >
         {translate(buttonTextKey)}
         <Arrow
@@ -62,18 +70,22 @@ const DropDownMenu = ({
         />
       </button>
 
-      <div
+      <ul
         className={classNames(
           styles.dropdownContent,
           open ? styles.open : styles.hidden,
+          styles.dropdownList,
         )}
+        aria-labelledby={labelId}
       >
-        <ul className={styles.dropdownList}>
-          {listItems.map((item, index) => {
-            return <li key={index}>{item}</li>;
-          })}
-        </ul>
-      </div>
+        {listItems.map((item, index) => {
+          return (
+            <li key={index} className={listItemClassName}>
+              {item}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
