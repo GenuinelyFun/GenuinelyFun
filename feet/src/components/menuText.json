@@ -14,7 +14,7 @@
     "no": "DropZone",
     "nn": "DropZone"
   },
-  "tab.tech.best.practice": {
+  "tab.tech-best-practice": {
     "en": "Standards",
     "no": "Standarder",
     "nn": "Standardar"
@@ -23,5 +23,20 @@
     "en": "FEET",
     "no": "FEET",
     "nn": "FEET"
+  },
+  "tab.portfolio": {
+    "en": "Portfolio",
+    "no": "Portefølje",
+    "nn": "Portefølje"
+  },
+  "tab.arthur": {
+    "en": "Arthur",
+    "no": "Arthur",
+    "nn": "Arthur"
+  },
+  "tab.nghi": {
+    "en": "Nghi",
+    "no": "Nghi",
+    "nn": "Nghi"
   }
 }

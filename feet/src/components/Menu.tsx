@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { useWindowSize } from 'usehooks-ts';
 
 import { useLanguageContext } from '../utils/LanguageProvider';
+import { routePaths } from '../App';
 import DropDownMenu from './DropDownMenu';
 
 import styles from './Menu.module.less';
@@ -17,7 +18,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
     <nav className={styles.menu}>
       <Link
         className={classNames(styles.menuButton, {
-          [styles.active]: location.pathname === '/',
+          [styles.active]: location.pathname === routePaths.home,
         })}
         to="/"
         onClick={onLinkClick}
@@ -27,7 +28,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
       <Link
         to="/feet"
         className={classNames(styles.menuButton, {
-          [styles.active]: location.pathname === '/feet',
+          [styles.active]: location.pathname === routePaths.feet,
         })}
         onClick={onLinkClick}
       >
@@ -39,21 +40,46 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         listItems={[
           <Link
             className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]: location.pathname === '/dropzone',
+              [styles.active]: location.pathname === routePaths.dropzone,
             })}
-            to="/dropzone"
+            to={routePaths.dropzone}
             onClick={onLinkClick}
           >
             {translate('tab.dropzone')}
           </Link>,
           <Link
             className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]: location.pathname === '/tech-best-practice',
+              [styles.active]:
+                location.pathname === routePaths.techBestPractice,
             })}
-            to="/tech-best-practice"
+            to={routePaths.techBestPractice}
             onClick={onLinkClick}
           >
-            {translate('tab.tech.best.practice')}
+            {translate('tab.tech-best-practice')}
+          </Link>,
+        ]}
+      />
+      <DropDownMenu
+        buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
+        buttonTextKey={'tab.portfolio'}
+        listItems={[
+          <Link
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === routePaths.arthur,
+            })}
+            to={routePaths.arthur}
+            onClick={onLinkClick}
+          >
+            {translate('tab.arthur')}
+          </Link>,
+          <Link
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === routePaths.nghi,
+            })}
+            to={routePaths.nghi}
+            onClick={onLinkClick}
+          >
+            {translate('tab.nghi')}
           </Link>,
         ]}
       />
