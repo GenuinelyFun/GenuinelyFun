@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import { useLanguageContext } from '../utils/LanguageProvider';
 import styles from './Footer.module.less';
 
-const Footer = (): JSX.Element => {
+const Footer: FC = () => {
   const { translate } = useLanguageContext();
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.column}>
           <h5>GenuinelyFun</h5>
@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
           <h5>Arthur</h5>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

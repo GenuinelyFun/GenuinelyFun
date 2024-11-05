@@ -1,12 +1,17 @@
 {
-  "close": {
-    "en": "Close",
-    "no": "Lukk",
-    "nn": "Lukk"
+  "modal.close.aria": {
+    "en": "Close dialog",
+    "no": "Lukk dialog",
+    "nn": "Lukk dialog"
   },
   "more-info": {
     "en": "More info",
     "no": "Mer info",
     "nn": "Meir info"
+  },
+  "close": {
+    "en": "Close",
+    "no": "Lukk",
+    "nn": "Lukk"
   }
 }

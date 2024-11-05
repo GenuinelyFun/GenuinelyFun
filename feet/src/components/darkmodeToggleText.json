@@ -1,0 +1,12 @@
+{
+  "theme-toggle.dark.aria": {
+    "en": "Toggle light mode",
+    "no": "Bytt til lys modus",
+    "nn": "Bytt til lys modus"
+  },
+  "theme-toggle.light.aria": {
+    "en": "Toggle dark mode",
+    "no": "Bytt til mørk modus",
+    "nn": "Bytt til mørk modus"
+  }
+}

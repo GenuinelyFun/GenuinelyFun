@@ -1,0 +1,72 @@
+{
+  "upload.description": {
+    "en": "You can drag and drop the JSON file to upload",
+    "no": "Du kan dra og slippe JSON filen for å laste opp",
+    "nn": "Du kan dra og sleppe JSON-fila for å laste opp"
+  },
+  "upload.not.json": {
+    "en": "The file you're trying to upload doesn't appear to be in JSON format. Please try using a different file.",
+    "no": "Filen du prøver å laste opp ser ikke ut til å være i JSON-format. Prøv å bruke en annen fil.",
+    "nn": "Fila du prøver å laste opp ser ikkje ut til å vere i JSON-format. Prøv å bruke ei anna fil."
+  },
+  "upload.or": {
+    "en": "or",
+    "no": "eller",
+    "nn": "eller"
+  },
+  "upload.release.to.upload": {
+    "en": "Great! You can now release the file to upload.",
+    "no": "Flott! Du kan nå slippe filen for å laste opp.",
+    "nn": "Flott! Du kan no sleppe fila for å laste opp."
+  },
+  "upload.button": {
+    "en": "Browse computer",
+    "no": "Velg en fil",
+    "nn": "Vel ein fil"
+  },
+  "upload.duplicate": {
+    "en": "Tried to upload the same file again? You're a rebel.",
+    "no": "Prøvde å laste opp den samme filen igjen? Du er en rebel.",
+    "nn": "Prøvde å laste opp den same fila igjen? Du er ein rebel."
+  },
+  "upload.error-general": {
+    "en": "Something went wrong, please try again later.",
+    "no": "Noe gikk galt, prøv igjen senere.",
+    "nn": "Noko gjekk gale, prøv igjen seinare."
+  },
+  "upload.error-json": {
+    "en": "Must be JSON filetype, try again.",
+    "no": "Må være JSON filtype, prøv igjen.",
+    "nn": "Må vere JSON-filtype, prøv igjen."
+  },
+  "upload.error-root": {
+    "en": "Invalid JSON format, please make sure it is the correct file and try again.",
+    "no": "Ugyldig JSON-format, vennligst sjekk at det er riktig fil og prøv igjen.",
+    "nn": "Ugyldig JSON-format, ver venleg å sjekka at det er rett fil og prøv igjen."
+  },
+  "upload.error-icon.aria": {
+    "en": "Cross in circle",
+    "no": "Kryss i sirkel",
+    "nn": "Kryss i sirkel"
+  },
+  "upload.icon.aria": {
+    "en": "Up arrow in a file",
+    "no": "Opp pil i en fil",
+    "nn": "Opp pil i ei fil"
+  },
+  "supported-version": {
+    "en": "We support Fire Expert version ",
+    "no": "Vi støtter Fire Expert versjon ",
+    "nn": "Me støttar Fire Expert versjon "
+  },
+  "upload.icon.aria-label": {
+    "en": "Up arrow in a file",
+    "no": "Opp pil i en fil",
+    "nn": "Opp pil i ei fil"
+  },
+  "upload.error-icon.aria-label": {
+    "en": "Cross in circle",
+    "no": "Kryss i sirkel",
+    "nn": "Kryss i sirkel"
+  }
+}

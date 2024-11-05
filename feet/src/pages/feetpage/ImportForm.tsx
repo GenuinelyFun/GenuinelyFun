@@ -130,9 +130,7 @@ const ImportForm: FC = () => {
         {isDragging && (
           <img
             alt={translate(
-              isNotJson
-                ? 'upload.error-icon.aria-label'
-                : 'upload.icon.aria-label',
+              isNotJson ? 'upload.error-icon.aria' : 'upload.icon.aria',
             )}
             src={isNotJson ? iconWrongFileType : iconUpload}
             className={styles.statusIcon}
@@ -146,12 +144,10 @@ const ImportForm: FC = () => {
               )}
             </p>
           ) : (
-            <>
-              <p className={styles.paragraph}>
-                {translate('upload.description')}
-              </p>
-              <p className={styles.paragraph}>{translate('upload.or')}</p>
-            </>
+            <p className={styles.textWithOr}>
+              <span>{translate('upload.description')}</span>
+              <span className={styles.paragraph}>{translate('upload.or')}</span>
+            </p>
           )}
           <input
             type="file"

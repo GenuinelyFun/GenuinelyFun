@@ -39,7 +39,7 @@ const Modal: FC<Props> = ({
         className={styles.closeButton}
         type="button"
         onClick={onClose}
-        aria-label={crossAriaLabel && translate('close')}
+        aria-label={crossAriaLabel || translate('modal.close.aria')}
       >
         <CrossIcon />
       </button>

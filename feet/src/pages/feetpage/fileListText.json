@@ -1,0 +1,17 @@
+{
+  "file-list.title.aria": {
+    "en": "uploaded JSON files",
+    "no": "opplastede JSON-filer",
+    "nn": "opplasta JSON-filer"
+  },
+  "file-list.document.aria": {
+    "en": "Document file",
+    "no": "Dokumentfil",
+    "nn": "Dokumentfil"
+  },
+  "file-list.remove-file.aria": {
+    "en": "Remove file",
+    "no": "Fjern fil",
+    "nn": "Fjern fil"
+  }
+}

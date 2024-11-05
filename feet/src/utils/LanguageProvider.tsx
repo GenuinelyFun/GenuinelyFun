@@ -3,9 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 
 import authorCardText from '../pages/journalpage/authorCardText.json';
+import darkmodeToggleText from '../components/darkmodeToggleText.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
+import importFormText from '../pages/feetpage/importFormText.json';
+import fileListText from '../pages/feetpage/fileListText.json';
+import exportFormText from '../pages/feetpage/exportFormText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
@@ -22,11 +26,15 @@ export enum Language {
 
 const allText = {
   ...authorCardText,
+  ...darkmodeToggleText,
   ...genericText,
   ...languageText,
   ...homePageText,
   ...pageNotFoundText,
   ...feetPageText,
+  ...importFormText,
+  ...fileListText,
+  ...exportFormText,
   ...techBestPracticePageText,
   ...footerText,
   ...menuText,

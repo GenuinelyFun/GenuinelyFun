@@ -3,8 +3,8 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
-import styles from './LanguageButton.module.less';
 import DropDownMenu from './DropDownMenu';
+import styles from './LanguageButton.module.less';
 
 const LanguageButton = () => {
   const { languages, onClickLanguageChange, i18n, translate } =
@@ -14,6 +14,7 @@ const LanguageButton = () => {
     <DropDownMenu
       buttonTextKey={i18n.language as TranslateTextKey}
       buttonClassName={styles.button}
+      buttonAriaLabel={translate('language.aria-label')}
       listItems={Object.keys(languages).map((key) => (
         <button
           key={key}
