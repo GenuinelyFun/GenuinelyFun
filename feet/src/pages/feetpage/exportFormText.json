@@ -4,6 +4,11 @@
     "no": "Eksport innstillinger",
     "nn": "Eksport innstillingar"
   },
+  "export.title": {
+    "en": "Export settings",
+    "no": "Eksport innstillinger",
+    "nn": "Eksport innstillingar"
+  },
   "export.settings.language.aria": {
     "en": "languages for the Excel export",
     "no": "språk for Excel-eksport",

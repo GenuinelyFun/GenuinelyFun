@@ -199,8 +199,9 @@ const ExportForm: FC = () => {
       role={'form'}
       aria-label={translate(`export.settings.aria`)}
     >
+      <h2>Export settings</h2>
       <label className={styles.select}>
-        {translate('export.language.select')}
+        {translate(`export.title`)}
         <select
           onChange={(e) => setSheetLanguage(e.target.value)}
           value={sheetLanguage}
@@ -212,7 +213,7 @@ const ExportForm: FC = () => {
           ))}
         </select>
       </label>
-      <label id={'sheet-checkbox-list'}>
+      <label id={'sheet-checkbox-list'} className={styles.listLabel}>
         {translate('export.settings.sheet-list')}
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
