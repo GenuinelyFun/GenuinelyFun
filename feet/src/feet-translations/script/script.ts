@@ -10,6 +10,7 @@ function flattenJson(nestedJson: JsonObject): string {
 
   // List of allowed parent keys
   const allowedKeys = [
+    'design.summary.LoopController',
     'configuration.grid.celleditor.controllc',
     'firesystem.functionaltype.Description',
     'orientationMap.objectExplorer.state',
