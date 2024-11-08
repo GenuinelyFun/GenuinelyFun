@@ -20,7 +20,7 @@ export const mapLoopToExcel = (
         'Panel Number': panel_number,
         'Loop.type.title': loopControllers.type,
         'Panel.loop.number.title': loopControllers.number,
-        'Loop.number.title': loopControllers.number,
+        'Loop.number.title': loop.number,
         'Device.number.title': device.number,
         Zone: device.zone,
         'DeviceId.title': device.device_id,
