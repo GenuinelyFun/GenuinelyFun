@@ -76,7 +76,7 @@ export const mapLoopToExcel = (
         'outputFunction.title': output_control?.output_function,
         'outputFunction2.title': output_control?.output_function_2,
         'Control groups.title':
-          output_control?.control === 'Control Groups'
+          output_control?.control === 'Control groups'
             ? output_control.control_groups.join(', ')
             : ['General control', 'Local control'].includes(
                   output_control?.control || '',
