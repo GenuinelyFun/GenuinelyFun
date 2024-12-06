@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import styles from './PortfolioPage.module.less';
+import styles from './ArthurPage.module.less';
 
 const NghiPage: FC = () => {
   const { translate } = useLanguageContext();
