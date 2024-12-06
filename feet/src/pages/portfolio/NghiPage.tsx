@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import styles from './ArthurPage.module.less';
+import { nghiLinks } from '../journalpage/AuthorCard';
 
 const NghiPage: FC = () => {
   const { translate } = useLanguageContext();
@@ -13,9 +14,22 @@ const NghiPage: FC = () => {
           alt={translate('author-card.nghi.aria')}
           className={styles.profileImage}
         />
-        <h1>{translate('author-card.nghi.title')}</h1>
+        <div className={styles.headerContent}>
+          <h1 className={styles.profileText}>
+            {translate('author-card.nghi.title')},
+          </h1>
+          <div className={styles.socialMedia}>
+            {Object.keys(nghiLinks).map((key) => {
+              const link = nghiLinks[key];
+              return (
+                <a key={key} href={link.url} className={styles.socialLink}>
+                  {link.icon}
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <h2>{translate('author-card.nghi.title')}</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur
         tellus nec imperdiet fermentum. Donec nec dictum arcu. Curabitur in
