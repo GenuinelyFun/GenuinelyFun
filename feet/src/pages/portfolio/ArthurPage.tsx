@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import {
   TranslateTextKey,
   useLanguageContext,
@@ -7,6 +7,8 @@ import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import { arthurLinks } from '../journalpage/AuthorCard';
 import styles from './ArthurPage.module.less';
 import classNames from 'classnames';
+import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
+import { useLocation } from 'react-router-dom';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
@@ -120,6 +122,13 @@ const ArthurPage: FC = () => {
     },
   ];
 
+  const { theme } = useDarkmodeContext();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className={styles.container}>
       <div className={styles.header}>
@@ -136,7 +145,13 @@ const ArthurPage: FC = () => {
             {Object.keys(arthurLinks).map((key) => {
               const link = arthurLinks[key];
               return (
-                <a key={key} href={link.url} className={styles.socialLink}>
+                <a
+                  key={key}
+                  href={link.url}
+                  className={classNames({
+                    [styles.lightSocialLinks]: theme === Darkmode.Light,
+                  })}
+                >
                   {link.icon}
                 </a>
               );

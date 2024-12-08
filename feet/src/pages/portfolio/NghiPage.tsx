@@ -1,11 +1,21 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import classNames from 'classnames';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import styles from './ArthurPage.module.less';
 import { nghiLinks } from '../journalpage/AuthorCard';
+import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
+import styles from './ArthurPage.module.less';
+import { useLocation } from 'react-router-dom';
 
 const NghiPage: FC = () => {
   const { translate } = useLanguageContext();
+  const { theme } = useDarkmodeContext();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className={styles.container}>
       <div className={styles.header}>
@@ -22,7 +32,13 @@ const NghiPage: FC = () => {
             {Object.keys(nghiLinks).map((key) => {
               const link = nghiLinks[key];
               return (
-                <a key={key} href={link.url} className={styles.socialLink}>
+                <a
+                  key={key}
+                  href={link.url}
+                  className={classNames({
+                    [styles.lightSocialLinks]: theme === Darkmode.Light,
+                  })}
+                >
                   {link.icon}
                 </a>
               );

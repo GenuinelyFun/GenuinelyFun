@@ -92,7 +92,7 @@ const AuthorCard: FC<{
             className={styles.button}
             invert={true}
             as={'link'}
-            to={routePaths.arthur}
+            to={author === 'arthur' ? routePaths.arthur : routePaths.nghi}
           >
             To my portfolio page
           </GenericButton>
