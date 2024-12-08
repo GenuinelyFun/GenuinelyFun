@@ -11,7 +11,8 @@ import importFormText from '../pages/feetpage/importFormText.json';
 import fileListText from '../pages/feetpage/fileListText.json';
 import exportFormText from '../pages/feetpage/exportFormText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
-import arthurPage from '../pages/portfolio/arthurPageText.json';
+import arthurPageText from '../pages/portfolio/arthurPageText.json';
+import nghiPageText from '../pages/portfolio/nghiPageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
 
@@ -37,7 +38,8 @@ const allText = {
   ...fileListText,
   ...exportFormText,
   ...techBestPracticePageText,
-  ...arthurPage,
+  ...arthurPageText,
+  ...nghiPageText,
   ...footerText,
   ...menuText,
 };
