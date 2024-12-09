@@ -9,7 +9,9 @@ const Footer: FC = () => {
       <div className={styles.footerContainer}>
         <div className={styles.column}>
           <h5>GenuinelyFun</h5>
-          <p>{translate('email')}: post@genuinelyfun.com</p>
+          <a href={'mailto:post@genuinelyfun.com'}>
+            {translate('email')}: post@genuinelyfun.com
+          </a>
           <p className={styles.allRightsReserved}>© 2024 GenuinelyFun.</p>
         </div>
         <div className={styles.column}>
