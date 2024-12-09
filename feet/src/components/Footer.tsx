@@ -3,9 +3,13 @@ import { useLanguageContext } from '../utils/LanguageProvider';
 import styles from './Footer.module.less';
 import { nghiLinks } from '../utils/nghi-utils';
 import { arthurLinks } from '../utils/arthur-utils';
+import { useMobileSizes } from '../utils/useMobileSizes';
 
 const Footer: FC = () => {
   const { translate } = useLanguageContext();
+  const { isDesktop } = useMobileSizes();
+  console.log(isDesktop);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
@@ -23,7 +27,7 @@ const Footer: FC = () => {
               <li key={link.name} className={styles.link}>
                 <a href={link.url}>
                   {link.icon}
-                  {link.name}
+                  {isDesktop && link.name}
                 </a>
               </li>
             ))}
@@ -36,7 +40,7 @@ const Footer: FC = () => {
               <li key={link.name} className={styles.link}>
                 <a href={link.url}>
                   {link.icon}
-                  {link.name}
+                  {isDesktop && link.name}
                 </a>
               </li>
             ))}

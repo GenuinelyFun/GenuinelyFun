@@ -1,6 +1,8 @@
+@import '../utils/variables.less';
+
 .footer {
   background-color: var(--color-green);
-  height: 200px;
+  height: auto;
   padding: var(--spacing-large);
 }
 
@@ -45,8 +47,16 @@
 }
 
 .link {
+  margin-bottom: var(--spacing-small);
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+
   img {
-    height: 12px;
+    height: 24px;
     width: auto;
     margin-right: var(--spacing-mini);
   }
