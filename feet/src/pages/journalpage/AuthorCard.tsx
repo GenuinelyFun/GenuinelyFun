@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
@@ -60,6 +61,7 @@ const AuthorCard: FC<{
   const { translate } = useLanguageContext();
 
   const links = author === 'arthur' ? arthurLinks : nghiLinks;
+  const location = useLocation();
 
   return (
     <div
@@ -92,7 +94,10 @@ const AuthorCard: FC<{
             className={styles.button}
             invert={true}
             as={'link'}
-            to={author === 'arthur' ? routePaths.arthur : routePaths.nghi}
+            to={
+              (location.pathname !== '/' ? '../' : '') +
+              (author === 'arthur' ? routePaths.arthur : routePaths.nghi)
+            }
           >
             To my portfolio page
           </GenericButton>

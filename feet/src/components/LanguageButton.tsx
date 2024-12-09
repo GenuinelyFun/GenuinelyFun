@@ -32,26 +32,3 @@ const LanguageButton = () => {
 };
 
 export default LanguageButton;
-
-export const languageText = {
-  'language.aria-label': {
-    en: 'Select language',
-    no: 'Velg språk',
-    nn: 'Vel språk',
-  },
-  no: {
-    en: 'Norsk',
-    no: 'Norsk',
-    nn: 'Norsk',
-  },
-  nn: {
-    en: 'Nynorsk',
-    no: 'Nynorsk',
-    nn: 'Nynorsk',
-  },
-  en: {
-    en: 'English',
-    no: 'English',
-    nn: 'English',
-  },
-};
