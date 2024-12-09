@@ -18,7 +18,6 @@ import menuText from '../components/menuText.json';
 
 import { useContextOrThrow } from './context-utils';
 import genericText from './genericTexts.json';
-import { languageText } from '../components/LanguageButton';
 
 export enum Language {
   EN = 'en',
@@ -30,7 +29,6 @@ const allText = {
   ...authorCardText,
   ...darkmodeToggleText,
   ...genericText,
-  ...languageText,
   ...homePageText,
   ...pageNotFoundText,
   ...feetPageText,

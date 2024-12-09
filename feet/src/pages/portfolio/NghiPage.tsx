@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import {
   TranslateTextKey,
   useLanguageContext,
@@ -8,7 +8,6 @@ import { nghiLinks } from '../journalpage/AuthorCard';
 import styles from './ArthurPage.module.less';
 import classNames from 'classnames';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
-import { useLocation } from 'react-router-dom';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
@@ -210,11 +209,6 @@ const ArthurPage: FC = () => {
   ];
 
   const { theme } = useDarkmodeContext();
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   return (
     <main className={styles.container}>
