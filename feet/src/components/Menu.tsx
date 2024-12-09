@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useWindowSize } from 'usehooks-ts';
 
 import { useLanguageContext } from '../utils/LanguageProvider';
-import { routePaths } from '../App';
+import { routePaths } from '../index';
 import DropDownMenu from './DropDownMenu';
 
 import styles from './Menu.module.less';

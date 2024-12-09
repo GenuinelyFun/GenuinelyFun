@@ -2,7 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import App, { routePaths } from './App';
+import App from './App';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import DropZonePage from './pages/journalpage/DropZonePage';
@@ -10,8 +10,19 @@ import TechBestPracticePage from './pages/journalpage/TechBestPracticePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
+import TogglePage from './pages/togglePage/TogglePage';
 import './utils/i18n';
 import './index.less';
+
+export const routePaths = {
+  home: '',
+  dropzone: 'dropzone',
+  techBestPractice: 'tech-best-practice',
+  feet: 'feet',
+  arthur: 'arthur',
+  nghi: 'nghi',
+  toggle: 'toggle',
+};
 
 const router = createBrowserRouter([
   {
@@ -25,6 +36,7 @@ const router = createBrowserRouter([
       { path: routePaths.feet, element: <FeetPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
+      { path: routePaths.toggle, element: <TogglePage /> },
     ],
   },
 ]);

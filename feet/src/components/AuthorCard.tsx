@@ -10,7 +10,7 @@ import {
 } from '../utils/LanguageProvider';
 import { arthurLinks } from '../utils/arthur-utils';
 import { nghiLinks } from '../utils/nghi-utils';
-import { routePaths } from '../App';
+import { routePaths } from '../index';
 import styles from './AuthorCard.module.less';
 
 const AuthorCard: FC<{

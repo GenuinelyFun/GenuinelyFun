@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useLanguageContext } from '../utils/LanguageProvider';
 import styles from './Footer.module.less';
+import { nghiLinks } from '../utils/nghi-utils';
+import { arthurLinks } from '../utils/arthur-utils';
 
 const Footer: FC = () => {
   const { translate } = useLanguageContext();
@@ -16,9 +18,29 @@ const Footer: FC = () => {
         </div>
         <div className={styles.column}>
           <h5>Nghi</h5>
+          <ul className={styles.linkList}>
+            {Object.values(nghiLinks).map((link) => (
+              <li key={link.name} className={styles.link}>
+                <a href={link.url}>
+                  {link.icon}
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={styles.column}>
           <h5>Arthur</h5>
+          <ul className={styles.linkList}>
+            {Object.values(arthurLinks).map((link) => (
+              <li key={link.name} className={styles.link}>
+                <a href={link.url}>
+                  {link.icon}
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

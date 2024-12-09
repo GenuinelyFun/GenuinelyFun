@@ -6,15 +6,6 @@ import Footer from './components/Footer';
 import { DarkmodeProvider } from './utils/DarkmodeProvider';
 import { LanguageContextProvider } from './utils/LanguageProvider';
 
-export const routePaths = {
-  home: '',
-  dropzone: 'dropzone',
-  techBestPractice: 'tech-best-practice',
-  feet: 'feet',
-  arthur: 'arthur',
-  nghi: 'nghi',
-};
-
 const App: FC = () => {
   return (
     <LanguageContextProvider>

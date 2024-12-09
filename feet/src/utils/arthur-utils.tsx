@@ -6,23 +6,27 @@ import LinkedinIcon from '../assets/icons/linkedin.svg';
 import Xicon from '../assets/icons/x.svg';
 
 export const arthurLinks: {
-  [key: string]: { url: string; icon: ReactNode };
+  [key: string]: { url: string; icon: ReactNode; name: string };
 } = {
   email: {
     url: 'mailto:arthur.leonard.thomassen@gmail.com',
     icon: <img src={EmailIcon} alt={'Email'} />,
+    name: 'Email',
   },
   github: {
     url: 'https://github.com/Friftycode',
     icon: <img src={GithubIcon} alt="GitHub" />,
+    name: 'GitHub',
   },
   linkedin: {
     url: 'https://www.linkedin.com/in/arthur90/',
     icon: <img src={LinkedinIcon} alt="LinkedIn" />,
+    name: 'LinkedIn',
   },
   x: {
     url: 'https://x.com/ThomassenArthur',
     icon: <img src={Xicon} alt="X" />,
+    name: 'X',
   },
 };
 
