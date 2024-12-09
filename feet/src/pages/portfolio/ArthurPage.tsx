@@ -1,10 +1,134 @@
-import { FC } from 'react';
-import { useLanguageContext } from '../../utils/LanguageProvider';
+import { FC, useEffect, useState } from 'react';
+import {
+  TranslateTextKey,
+  useLanguageContext,
+} from '../../utils/LanguageProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
-import styles from './PortfolioPage.module.less';
+import { arthurLinks } from '../journalpage/AuthorCard';
+import styles from './ArthurPage.module.less';
+import classNames from 'classnames';
+import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
+import { useLocation } from 'react-router-dom';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
+  const [visibleContent, setVisibleContent] = useState<number>(1);
+
+  const handleButtonClick = (index: number) => {
+    setVisibleContent(index);
+  };
+
+  const certificates: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'arthur.certificate.FG750-title',
+      description: 'arthur.certificate.FG750-description',
+    },
+    {
+      title: 'arthur.certificate.EPC-title',
+      description: 'arthur.certificate.EPC-description',
+    },
+    {
+      title: 'arthur.certificate.TOA-title',
+      description: 'arthur.certificate.TOA-description',
+    },
+    {
+      title: 'arthur.certificate.ASD531-title',
+      description: 'arthur.certificate.ASD531-description',
+    },
+    {
+      title: 'arthur.certificate.Securiton-title',
+      description: 'arthur.certificate.Securiton-description',
+    },
+    {
+      title: 'arthur.certificate.CEAG-title',
+      description: 'arthur.certificate.CEAG-description',
+    },
+    {
+      title: 'arthur.certificate.DARDO-title',
+      description: 'arthur.certificate.DARDO-description',
+    },
+    {
+      title: 'arthur.certificate.Eltek-title',
+      description: 'arthur.certificate.Eltek-description',
+    },
+    {
+      title: 'arthur.certificate.Autosafe-title',
+      description: 'arthur.certificate.Autosafe-description',
+    },
+    {
+      title: 'arthur.certificate.ElectricalControl-title',
+      description: 'arthur.certificate.ElectricalControl-description',
+    },
+    {
+      title: 'arthur.certificate.Thermography-title',
+      description: 'arthur.certificate.Thermography-description',
+    },
+    {
+      title: 'arthur.certificate.Autoprime-title',
+      description: 'arthur.certificate.Autoprime-description',
+    },
+    {
+      title: 'arthur.certificate.FXNET-title',
+      description: 'arthur.certificate.FXNET-description',
+    },
+    {
+      title: 'arthur.certificate.PRODEX-title',
+      description: 'arthur.certificate.PRODEX-description',
+    },
+    {
+      title: 'arthur.certificate.FirePrevention-title',
+      description: 'arthur.certificate.FirePrevention-description',
+    },
+    {
+      title: 'arthur.certificate.Magnum-title',
+      description: 'arthur.certificate.Magnum-description',
+    },
+  ];
+
+  const skills: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'arthur.skills.developer-title',
+      description: 'arthur.skills.developer-description',
+    },
+    {
+      title: 'arthur.skills.technician-title',
+      description: 'arthur.skills.technician-description',
+    },
+  ];
+
+  const volunteering: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'arthur.volunteering.RK-title',
+      description: 'arthur.volunteering.RK-description',
+    },
+    {
+      title: 'arthur.volunteering.visual-design-title',
+      description: 'arthur.volunteering.visual-design-description',
+    },
+    {
+      title: 'arthur.volunteering.BSU-title',
+      description: 'arthur.volunteering.BSU-description',
+    },
+  ];
+
+  const honors: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'arthur.honors.world-skills-norway-title',
+      description: 'arthur.honors.world-skills-norway-description',
+    },
+    {
+      title: 'arthur.honors.norwaycup-sanshou-title',
+      description: 'arthur.honors.norwaycup-sanshou-description',
+    },
+  ];
+
+  const { theme } = useDarkmodeContext();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className={styles.container}>
       <div className={styles.header}>
@@ -13,74 +137,121 @@ const ArthurPage: FC = () => {
           alt={translate('author-card.arthur.aria')}
           className={styles.profileImage}
         />
-        <h1>{translate('author-card.arthur.title')}</h1>
+        <div className={styles.headerContent}>
+          <h1 className={styles.profileText}>
+            {translate('author-card.arthur.title')},
+          </h1>
+          <div className={styles.socialMedia}>
+            {Object.keys(arthurLinks).map((key) => {
+              const link = arthurLinks[key];
+              return (
+                <a
+                  key={key}
+                  href={link.url}
+                  className={classNames({
+                    [styles.lightSocialLinks]: theme === Darkmode.Light,
+                  })}
+                >
+                  {link.icon}
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <h2>{translate('author-card.arthur.title')}</h2>
+      <h2>{translate('about.title')}</h2>
+      <p>{translate('arthur.about.text.part1')}</p>
+      <p>{translate('arthur.about.text.part2')}</p>
+      <h3>{translate('experience.title')}</h3>
+      <h4>{translate('arthur.experience.EDA2-title')}</h4>
+      <p>{translate('arthur.experience.EDA2-description')}</p>
+      <h4>{translate('arthur.experience.SE-title')}</h4>
+      <p>{translate('arthur.experience.SE-description')}</p>
+      <h4>{translate('arthur.experience.EDA1-title')}</h4>
+      <p>{translate('arthur.experience.EDA1-description')}</p>
+      <h4>{translate('arthur.experience.Sonnico-title')}</h4>
+      <p>{translate('arthur.experience.Sonnico-description')}</p>
+      <h3>{translate('education.title')}</h3>
+      <h4>{translate('arthur.education.JessheimVGS-title')}</h4>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur
-        tellus nec imperdiet fermentum. Donec nec dictum arcu. Curabitur in
-        maximus lacus. Donec venenatis volutpat leo, a tristique turpis cursus
-        eget. Maecenas fermentum porttitor velit, tempor vehicula magna
-        pellentesque eu. Nullam blandit faucibus nisi sit amet euismod. Ut
-        semper euismod risus vel mattis. Aenean mi lectus, fringilla et magna
-        vitae, volutpat fringilla nulla. Aenean condimentum quam sed metus
-        volutpat facilisis. Praesent vel nulla tristique massa fringilla
-        convallis eu a sapien. Sed volutpat mauris in est ornare, sed gravida
-        dolor volutpat. Suspendisse potenti. Integer luctus ipsum in augue
-        efficitur, eu pellentesque arcu feugiat. Pellentesque tristique sed
-        felis at mattis. Quisque vitae lorem a magna efficitur sagittis in a
-        est. Nunc dignissim quam nec vestibulum auctor.
+        {translate('arthur.education.JessheimVGS-description')} <br />{' '}
+        {translate('arthur.education.JessheimVGS-description-extra')}
       </p>
-      <p>
-        Sed porta nulla vel eros lobortis auctor. Phasellus feugiat mauris sit
-        amet tincidunt bibendum. Suspendisse egestas tortor in massa lacinia
-        dignissim. Nullam vitae tortor elementum, feugiat sapien vitae, faucibus
-        sem. Praesent eu nulla tristique, scelerisque leo et, sollicitudin enim.
-        Sed pretium a metus id convallis. Curabitur vel ex sit amet ex viverra
-        sodales. Phasellus rutrum sollicitudin quam, quis tempus nulla congue
-        ac. Aenean porta ornare diam, eu vulputate nisi bibendum id. Vestibulum
-        auctor turpis vel nunc dapibus, id porttitor ipsum efficitur. Morbi
-        ipsum elit, placerat vitae sapien quis, interdum maximus ante. Aliquam
-        elementum, magna id tincidunt laoreet, risus lectus porta lorem, ac
-        malesuada sem turpis sit amet lacus.
-      </p>
-      <h3>Subheading jeg er så kul hallo hei</h3>
-      <p>
-        Mauris vulputate tincidunt augue sit amet placerat. Fusce eros urna,
-        bibendum nec pretium in, aliquam in enim. Aliquam erat volutpat. Nam
-        pharetra mauris non urna feugiat venenatis. Aenean in felis quis velit
-        faucibus dapibus. Nulla in lacus ac odio ultricies eleifend eget in
-        nisi. Duis vulputate, neque finibus ornare interdum, tortor lorem
-        dapibus quam, facilisis mollis purus augue nec sem. Duis ex enim,
-        fermentum vel viverra nec, pellentesque tristique ante. Sed dictum
-        sodales leo, at tempor nulla vehicula vitae. In consequat tincidunt sem,
-        in vehicula erat finibus sed. Donec a mauris magna. Fusce dui dolor,
-        consequat vitae mollis a, sollicitudin id mauris. Aenean in blandit
-        magna.
-      </p>
-      <h3>Siste få ord fordi jeg har mye å siiiiiiiiiiiiiiiiiiiiiiiiii</h3>
-      <p>
-        Phasellus eu erat eu lacus tristique varius. Donec pulvinar sem augue,
-        sit amet pretium mi auctor finibus. Mauris id purus vel nibh gravida
-        cursus id vel lorem. Etiam nibh ante, rhoncus nec tristique quis, porta
-        ultricies justo. Aliquam ullamcorper eros at pulvinar maximus. Sed
-        blandit sagittis urna eu mollis. Nulla sit amet quam eget ligula semper
-        dignissim quis faucibus dolor. Praesent eu ex turpis. Phasellus ac
-        condimentum est.
-      </p>
-      <p>
-        Sed nec urna in ex accumsan accumsan nec sit amet ante. Etiam nisl
-        velit, ultricies sit amet lorem in, aliquam dapibus lacus. Vivamus
-        facilisis congue consequat. Duis libero tellus, dignissim at cursus
-        tincidunt, tincidunt et est. Suspendisse vitae magna a diam lacinia
-        fermentum. Cras at ipsum eget velit finibus aliquet. Maecenas at leo
-        pretium, accumsan libero et, varius ipsum. Cras eu nulla et orci
-        vehicula commodo. Quisque dignissim lacinia sapien, nec sodales justo
-        vulputate sed. Curabitur metus libero, congue et mi at, ullamcorper
-        ornare magna. Vestibulum et justo orci. Sed vestibulum varius mollis.
-        Nunc lobortis metus sed velit efficitur volutpat. Nam scelerisque ut sem
-        eu consequat. Ut elementum tempor libero.
-      </p>
+      <h3>{translate('qualifications.title')}</h3>
+      <div className={styles.buttonGroup}>
+        <button
+          onClick={() => handleButtonClick(1)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 1,
+          })}
+        >
+          {translate('qualifications.certificate')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(2)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 2,
+          })}
+        >
+          {translate('qualifications.skills')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(3)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 3,
+          })}
+        >
+          {translate('qualifications.volunteering')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(4)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 4,
+          })}
+        >
+          {translate('qualifications.honors')}
+        </button>
+      </div>
+      {visibleContent === 1 && (
+        <ul>
+          {certificates.map((skills, index) => (
+            <li key={index}>
+              <h4>{translate(skills.title)}</h4>
+              <p>{translate(skills.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 2 && (
+        <ul>
+          {skills.map((certificate, index) => (
+            <li key={index}>
+              <h4>{translate(certificate.title)}</h4>
+              <p>{translate(certificate.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 3 && (
+        <ul>
+          {volunteering.map((volunteering, index) => (
+            <li key={index}>
+              <h4>{translate(volunteering.title)}</h4>
+              <p>{translate(volunteering.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 4 && (
+        <ul>
+          {honors.map((honors, index) => (
+            <li key={index}>
+              <h4>{translate(honors.title)}</h4>
+              <p>{translate(honors.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 };

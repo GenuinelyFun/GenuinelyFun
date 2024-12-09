@@ -1,10 +1,221 @@
-import { FC } from 'react';
-import { useLanguageContext } from '../../utils/LanguageProvider';
+import { FC, useEffect, useState } from 'react';
+import {
+  TranslateTextKey,
+  useLanguageContext,
+} from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import styles from './PortfolioPage.module.less';
+import { nghiLinks } from '../journalpage/AuthorCard';
+import styles from './ArthurPage.module.less';
+import classNames from 'classnames';
+import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
+import { useLocation } from 'react-router-dom';
 
-const NghiPage: FC = () => {
+const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
+  const [visibleContent, setVisibleContent] = useState<number>(1);
+
+  const handleButtonClick = (index: number) => {
+    setVisibleContent(index);
+  };
+
+  const certificates: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'nghi.certificate.MicrosoftHTML5-title',
+      description: 'nghi.certificate.MicrosoftHTML5-description',
+    },
+    {
+      title: 'nghi.certificate.MicrosoftHTML5-title',
+      description: 'nghi.certificate.MicrosoftHTML5-description',
+    },
+    {
+      title: 'nghi.certificate.AndroidAppComponents-title',
+      description: 'nghi.certificate.AndroidAppComponents-description',
+    },
+    {
+      title: 'nghi.certificate.JavaForAndroid-title',
+      description: 'nghi.certificate.JavaForAndroid-description',
+    },
+    {
+      title: 'nghi.certificate.CodingInterviewPreparation-title',
+      description: 'nghi.certificate.CodingInterviewPreparation-description',
+    },
+    {
+      title: 'nghi.certificate.FrontEndDeveloperCapstone-title',
+      description: 'nghi.certificate.FrontEndDeveloperCapstone-description',
+    },
+    {
+      title: 'nghi.certificate.MetaFrontendDeveloperSpecialization-title',
+      description:
+        'nghi.certificate.MetaFrontendDeveloperSpecialization-description',
+    },
+    {
+      title: 'nghi.certificate.HTMLandCSSInDepth-title',
+      description: 'nghi.certificate.HTMLandCSSInDepth-description',
+    },
+    {
+      title: 'nghi.certificate.PrinciplesOfUXUIDesign-title',
+      description: 'nghi.certificate.PrinciplesOfUXUIDesign-description',
+    },
+    {
+      title: 'nghi.certificate.AdvancedReact-title',
+      description: 'nghi.certificate.AdvancedReact-description',
+    },
+    {
+      title: 'nghi.certificate.ReactBasics-title',
+      description: 'nghi.certificate.ReactBasics-description',
+    },
+    {
+      title: 'nghi.certificate.IntroductionToFrontendDevelopment-title',
+      description:
+        'nghi.certificate.IntroductionToFrontendDevelopment-description',
+    },
+    {
+      title: 'nghi.certificate.ProgrammingWithJavaScript-title',
+      description: 'nghi.certificate.ProgrammingWithJavaScript-description',
+    },
+    {
+      title: 'nghi.certificate.IntroductionToBackendDevelopment-title',
+      description:
+        'nghi.certificate.IntroductionToBackendDevelopment-description',
+    },
+    {
+      title: 'nghi.certificate.VersionControl-title',
+      description: 'nghi.certificate.VersionControl-description',
+    },
+    {
+      title: 'nghi.certificate.UnitTestingInJest-title',
+      description: 'nghi.certificate.UnitTestingInJest-description',
+    },
+    {
+      title: 'nghi.certificate.KotlinForJavaDevelopers-title',
+      description: 'nghi.certificate.KotlinForJavaDevelopers-description',
+    },
+    {
+      title: 'nghi.certificate.LearningHowToLearn-title',
+      description: 'nghi.certificate.LearningHowToLearn-description',
+    },
+    {
+      title: 'nghi.certificate.InformationVisualization-title',
+      description: 'nghi.certificate.InformationVisualization-description',
+    },
+    {
+      title: 'nghi.certificate.ProgrammingHTML5-title',
+      description: 'nghi.certificate.ProgrammingHTML5-description',
+    },
+    {
+      title: 'nghi.certificate.AdvancedBackendCloudSecurity-title',
+      description: 'nghi.certificate.AdvancedBackendCloudSecurity-description',
+    },
+    {
+      title: 'nghi.certificate.AcceleratedLearning-title',
+      description: 'nghi.certificate.AcceleratedLearning-description',
+    },
+  ];
+
+  const skills: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'nghi.skills.developer-title',
+      description: 'nghi.skills.developer-description',
+    },
+  ];
+
+  const volunteering: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'nghi.volunteering.DKC-title',
+      description: 'nghi.volunteering.DKC-description',
+    },
+    {
+      title: 'nghi.volunteering.FF-title',
+      description: 'nghi.volunteering.FF-description',
+    },
+  ];
+
+  const cours: Record<string, TranslateTextKey>[] = [
+    {
+      title: 'nghi.course.MAT1100-title',
+      description: 'nghi.course.MAT1100-description',
+    },
+    {
+      title: 'nghi.course.MAT1110-title',
+      description: 'nghi.course.MAT1110-description',
+    },
+    {
+      title: 'nghi.course.IN2090-title',
+      description: 'nghi.course.IN2090-description',
+    },
+    {
+      title: 'nghi.course.IN2040-title',
+      description: 'nghi.course.IN2040-description',
+    },
+    {
+      title: 'nghi.course.KJM1100-title',
+      description: 'nghi.course.KJM1100-description',
+    },
+    {
+      title: 'nghi.course.IN1020-title',
+      description: 'nghi.course.IN1020-description',
+    },
+    {
+      title: 'nghi.course.IN1900-title',
+      description: 'nghi.course.IN1900-description',
+    },
+    {
+      title: 'nghi.course.MAT1120-title',
+      description: 'nghi.course.MAT1120-description',
+    },
+    {
+      title: 'nghi.course.IN1150-title',
+      description: 'nghi.course.IN1150-description',
+    },
+    {
+      title: 'nghi.course.MAT1060-title',
+      description: 'nghi.course.MAT1060-description',
+    },
+    {
+      title: 'nghi.course.IN1010-title',
+      description: 'nghi.course.IN1010-description',
+    },
+    {
+      title: 'nghi.course.KJM1110-title',
+      description: 'nghi.course.KJM1110-description',
+    },
+    {
+      title: 'nghi.course.IN2030-title',
+      description: 'nghi.course.IN2030-description',
+    },
+    {
+      title: 'nghi.course.STK1100-title',
+      description: 'nghi.course.STK1100-description',
+    },
+    {
+      title: 'nghi.course.PROF1015-title',
+      description: 'nghi.course.PROF1015-description',
+    },
+    {
+      title: 'nghi.course.IN1910-title',
+      description: 'nghi.course.IN1910-description',
+    },
+    {
+      title: 'nghi.course.MAT-INF1100L-title',
+      description: 'nghi.course.MAT-INF1100L-description',
+    },
+    {
+      title: 'nghi.course.IN1030-title',
+      description: 'nghi.course.IN1030-description',
+    },
+    {
+      title: 'nghi.course.MEK1100-title',
+      description: 'nghi.course.MEK1100-description',
+    },
+  ];
+
+  const { theme } = useDarkmodeContext();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <main className={styles.container}>
       <div className={styles.header}>
@@ -13,76 +224,121 @@ const NghiPage: FC = () => {
           alt={translate('author-card.nghi.aria')}
           className={styles.profileImage}
         />
-        <h1>{translate('author-card.nghi.title')}</h1>
+        <div className={styles.headerContent}>
+          <h1 className={styles.profileText}>
+            {translate('author-card.nghi.title')},
+          </h1>
+          <div className={styles.socialMedia}>
+            {Object.keys(nghiLinks).map((key) => {
+              const link = nghiLinks[key];
+              return (
+                <a
+                  key={key}
+                  href={link.url}
+                  className={classNames({
+                    [styles.lightSocialLinks]: theme === Darkmode.Light,
+                  })}
+                >
+                  {link.icon}
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <h2>{translate('author-card.nghi.title')}</h2>
+      <h2>{translate('about.title')}</h2>
+      <p>{translate('nghi.about.text.part1')}</p>
+      <p>{translate('nghi.about.text.part2')}</p>
+      <h3>{translate('experience.title')}</h3>
+      <h4>{translate('nghi.experience.Posten-title')}</h4>
+      <p>{translate('nghi.experience.Posten-description')}</p>
+      <h4>{translate('nghi.experience.SpareBank-title')}</h4>
+      <p>{translate('nghi.experience.SpareBank-description')}</p>
+      <h4>{translate('nghi.experience.Experis-title')}</h4>
+      <p>{translate('nghi.experience.Experis-description')}</p>
+
+      <h3>{translate('education.title')}</h3>
+      <h4>{translate('nghi.education.OsloUniversity-title')}</h4>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur
-        tellus nec imperdiet fermentum. Donec nec dictum arcu. Curabitur in
-        maximus lacus. Donec venenatis volutpat leo, a tristique turpis cursus
-        eget. Maecenas fermentum porttitor velit, tempor vehicula magna
-        pellentesque eu. Nullam blandit faucibus nisi sit amet euismod. Ut
-        semper euismod risus vel mattis. Aenean mi lectus, fringilla et magna
-        vitae, volutpat fringilla nulla. Aenean condimentum quam sed metus
-        volutpat facilisis. Praesent vel nulla tristique massa fringilla
-        convallis eu a sapien. Sed volutpat mauris in est ornare, sed gravida
-        dolor volutpat. Suspendisse potenti. Integer luctus ipsum in augue
-        efficitur, eu pellentesque arcu feugiat. Pellentesque tristique sed
-        felis at mattis. Quisque vitae lorem a magna efficitur sagittis in a
-        est. Nunc dignissim quam nec vestibulum auctor.
+        {translate('nghi.education.OsloUniversity-description')} <br />{' '}
       </p>
-      <p>
-        Sed porta nulla vel eros lobortis auctor. Phasellus feugiat mauris sit
-        amet tincidunt bibendum. Suspendisse egestas tortor in massa lacinia
-        dignissim. Nullam vitae tortor elementum, feugiat sapien vitae, faucibus
-        sem. Praesent eu nulla tristique, scelerisque leo et, sollicitudin enim.
-        Sed pretium a metus id convallis. Curabitur vel ex sit amet ex viverra
-        sodales. Phasellus rutrum sollicitudin quam, quis tempus nulla congue
-        ac. Aenean porta ornare diam, eu vulputate nisi bibendum id. Vestibulum
-        auctor turpis vel nunc dapibus, id porttitor ipsum efficitur. Morbi
-        ipsum elit, placerat vitae sapien quis, interdum maximus ante. Aliquam
-        elementum, magna id tincidunt laoreet, risus lectus porta lorem, ac
-        malesuada sem turpis sit amet lacus.
-      </p>
-      <h3>Subheading jeg er så kul hallo hei</h3>
-      <p>
-        Mauris vulputate tincidunt augue sit amet placerat. Fusce eros urna,
-        bibendum nec pretium in, aliquam in enim. Aliquam erat volutpat. Nam
-        pharetra mauris non urna feugiat venenatis. Aenean in felis quis velit
-        faucibus dapibus. Nulla in lacus ac odio ultricies eleifend eget in
-        nisi. Duis vulputate, neque finibus ornare interdum, tortor lorem
-        dapibus quam, facilisis mollis purus augue nec sem. Duis ex enim,
-        fermentum vel viverra nec, pellentesque tristique ante. Sed dictum
-        sodales leo, at tempor nulla vehicula vitae. In consequat tincidunt sem,
-        in vehicula erat finibus sed. Donec a mauris magna. Fusce dui dolor,
-        consequat vitae mollis a, sollicitudin id mauris. Aenean in blandit
-        magna.
-      </p>
-      <h3>Siste få ord fordi jeg har mye å siiiiiiiiiiiiiiiiiiiiiiiiii</h3>
-      <p>
-        Phasellus eu erat eu lacus tristique varius. Donec pulvinar sem augue,
-        sit amet pretium mi auctor finibus. Mauris id purus vel nibh gravida
-        cursus id vel lorem. Etiam nibh ante, rhoncus nec tristique quis, porta
-        ultricies justo. Aliquam ullamcorper eros at pulvinar maximus. Sed
-        blandit sagittis urna eu mollis. Nulla sit amet quam eget ligula semper
-        dignissim quis faucibus dolor. Praesent eu ex turpis. Phasellus ac
-        condimentum est.
-      </p>
-      <p>
-        Sed nec urna in ex accumsan accumsan nec sit amet ante. Etiam nisl
-        velit, ultricies sit amet lorem in, aliquam dapibus lacus. Vivamus
-        facilisis congue consequat. Duis libero tellus, dignissim at cursus
-        tincidunt, tincidunt et est. Suspendisse vitae magna a diam lacinia
-        fermentum. Cras at ipsum eget velit finibus aliquet. Maecenas at leo
-        pretium, accumsan libero et, varius ipsum. Cras eu nulla et orci
-        vehicula commodo. Quisque dignissim lacinia sapien, nec sodales justo
-        vulputate sed. Curabitur metus libero, congue et mi at, ullamcorper
-        ornare magna. Vestibulum et justo orci. Sed vestibulum varius mollis.
-        Nunc lobortis metus sed velit efficitur volutpat. Nam scelerisque ut sem
-        eu consequat. Ut elementum tempor libero.
-      </p>
+      <h3>{translate('qualifications.title')}</h3>
+      <div className={styles.buttonGroup}>
+        <button
+          onClick={() => handleButtonClick(1)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 1,
+          })}
+        >
+          {translate('qualifications.certificate')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(2)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 2,
+          })}
+        >
+          {translate('qualifications.skills')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(3)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 3,
+          })}
+        >
+          {translate('qualifications.volunteering')}
+        </button>
+        <button
+          onClick={() => handleButtonClick(4)}
+          className={classNames({
+            [styles.activeButton]: visibleContent === 4,
+          })}
+        >
+          {translate('qualifications.cours')}
+        </button>
+      </div>
+      {visibleContent === 1 && (
+        <ul>
+          {certificates.map((skills, index) => (
+            <li key={index}>
+              <h4>{translate(skills.title)}</h4>
+              <p>{translate(skills.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 2 && (
+        <ul>
+          {skills.map((certificate, index) => (
+            <li key={index}>
+              <h4>{translate(certificate.title)}</h4>
+              <p>{translate(certificate.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 3 && (
+        <ul>
+          {volunteering.map((volunteering, index) => (
+            <li key={index}>
+              <h4>{translate(volunteering.title)}</h4>
+              <p>{translate(volunteering.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {visibleContent === 4 && (
+        <ul>
+          {cours.map((cours, index) => (
+            <li key={index}>
+              <h4>{translate(cours.title)}</h4>
+              <p>{translate(cours.description)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 };
 
-export default NghiPage;
+export default ArthurPage;

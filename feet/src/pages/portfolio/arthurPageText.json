@@ -1,0 +1,337 @@
+{
+  "about.title": {
+    "en": "Short about me",
+    "no": "Kort om meg",
+    "nn": "Kort om meg"
+  },
+  "arthur.about.text.part1": {
+    "en": "With a solid foundation in fire and safety systems, I bring a unique blend of technical expertise and hands-on experience. By working with various systems, I have developed a strong understanding of programming, especially in TypeScript, as well as Python, SQL, and VBA. These skills have enabled me to create tools and solutions that seamlessly integrate systems and enhance workflows.",
+    "no": "Med en solid bakgrunn innen brann- og sikkerhetssystemer bringer jeg en unik blanding av teknisk ekspertise og praktisk erfaring. Gjennom arbeid med ulike systemer har jeg utviklet en god forståelse for programmering, spesielt innen TypeScript, men også Python, SQL og VBA. Disse ferdighetene har jeg brukt til å lage verktøy og løsninger som effektivt integrerer systemer og forbedrer arbeidsprosesser.",
+    "nn": "Med ein solid bakgrunn innan brann- og tryggleikssystem bringar eg ein unik kombinasjon av teknisk ekspertise og praktisk erfaring. Gjennom arbeid med ulike system har eg utvikla ei god forståing for programmering, spesielt innan TypeScript, men òg Python, SQL og VBA. Eg har brukt desse ferdigheitene til å lage verktøy og løysingar som effektivt integrerer system og forbetrar arbeidsprosessar."
+  },
+  "arthur.about.text.part2": {
+    "en": "My programming experience has given me valuable insight into how technology can drive innovative solutions. I am passionate about developing systems that are not only functional but also highly efficient. Driven by curiosity and continuous learning.",
+    "no": "Min erfaring med programmering har gitt meg verdifull innsikt i hvordan teknologi kan skape innovative løsninger. Jeg brenner for å utvikle systemer som både er funksjonelle og effektive. Drevet av nysgjerrighet og kontinuerlig læring.",
+    "nn": "Mi erfaring med programmering har gitt meg verdifull innsikt i korleis teknologi kan drivast fram av innovative løysingar. Eg har ei sterk interesse for å utvikle system som både er funksjonelle og effektive. Driven av nysgjerrigheit og kontinuerleg læring."
+  },
+  "experience.title": {
+    "en": "Experience",
+    "no": "Erfaring",
+    "nn": "Erfaring"
+  },
+  "arthur.experience.EDA2-title": {
+    "en": "Senior Field Service Engineer | EDA Elektro Data Romerike AS | January 2021 - Present",
+    "no": "Senior Feltservicetekniker | EDA Elektro Data Romerike AS | Januar 2021 - Nå",
+    "nn": "Senior Feltserviceteknikar | EDA Elektro Data Romerike AS | Januar 2021 - No"
+  },
+  "arthur.experience.EDA2-description": {
+    "en": "Senior technician specializing in fire and safety systems, focusing on developing tools using TypeScript and Python to enhance technician efficiency and deliver higher quality.",
+    "no": "Senior teknikker med spesialisering innen brann- og sikkerhetssystemer, med fokus på å utvikle verktøy ved bruk av TypeScript og Python for å forbedre teknikerens effektivitet og levere høyere kvalitet.",
+    "nn": "Senior teknikar med spesialisering innan brann- og tryggleikssystem, med fokus på å utvikle verktøy ved bruk av TypeScript og Python for å forbetre teknikar sin effektivitet og levere høgare kvalitet."
+  },
+  "arthur.experience.SE-title": {
+    "en": "Field Service Engineer | Schneider Electric Norway | December 2015 - January 2021",
+    "no": "Feltservicetekniker | Schneider Electric Norge | Desember 2015 - Januar 2021",
+    "nn": "Feltserviceteknikar | Schneider Electric Noreg | Desember 2015 - Januar 2021"
+  },
+  "arthur.experience.SE-description": {
+    "en": "Fire and safety. Fire alarm, aspiration, extinguishing systems, emergency lighting, access control, intrusion alarm, servers, and top systems. Use of SQL for databases and servers. Development of systems and tools for technicians using VBA.",
+    "no": "Brann og sikkerhet. Brannalarm, aspirasjon, slukkeanlegg, nødlysanlegg, adgangskontroll, innbruddsalarm, servere og toppsystemer. Bruk av SQL for databaser og servere. Utvikling av systemer og verktøy for teknikere ved bruk av VBA.",
+    "nn": "Brann og tryggleik. Brannalarm, aspirasjon, sløkkjeanlegg, naudlysanlegg, adgangskontroll, innbrotalarm, serverar og toppsystem. Bruk av SQL for databasar og serverar. Utvikling av system og verktøy for teknikarar ved bruk av VBA."
+  },
+  "arthur.experience.EDA1-title": {
+    "en": "Electrical Inspector and Service Technician | EDA Elektro Data Romerike AS | July 2012 - Desember 2015",
+    "no": "Elektroinspektør og servicetekniker | EDA Elektro Data Romerike AS | Juli 2012 - Desember 2015",
+    "nn": "Elektroinspektør og serviceteknikar | EDA Elektro Data Romerike AS | Juli 2012 - Desember 2015"
+  },
+  "arthur.experience.EDA1-description": {
+    "en": "Inspection of electrical installations, fire alarm systems, emergency lighting systems, and thermography. Performed service assignments and commissioning of fire alarm systems.",
+    "no": "Kontroll av det elektriske anlegget, brannalarmanlegg, nødlysanlegg og termografering. Utførte service oppdrag og idriftsettelser på brannalarmanlegg.",
+    "nn": "Kontroll av det elektriske anlegget, brannalarmanlegg, nødlysanlegg og termografering. Utførte serviceoppdrag og idriftsetjingar på brannalarmanlegg."
+  },
+  "arthur.experience.Sonnico-title": {
+    "en": "Electrician | Sønnico Elektro AS | August 2007 - July 2012",
+    "no": "Elektriker | Sønnico Elektro AS | August 2007 - Juli 2012",
+    "nn": "Elektrikar | Sønnico Elektro AS | August 2007 - Juli 2012"
+  },
+  "arthur.experience.Sonnico-description": {
+    "en": "Installation of electrical installations and e-communication systems. Performed consulting services for Oslo University Hospital (OUS), where the tasks included work in NettDok, where I drew electrical drawings for OUS.",
+    "no": "Montering av elektriske installasjoner og e-kommunikasjonsanlegg. Utførte konsulenttjenester for Oslo Universitetssykehus (OUS), hvor arbeidsoppgavene inkluderte arbeid i NettDok, der jeg tegnet elektrotegninger for OUS.).",
+    "nn": "Montering av elektriske installasjonar og e-kommunikasjonsanlegg. Utførte konsulenttenester for Oslo Universitetssykehus (OUS), der arbeidsoppgåvene inkluderte arbeid i NettDok, der eg teikna elektroteikningar for OUS."
+  },
+  "education.title": {
+    "en": "Education",
+    "no": "Utdanning",
+    "nn": "Utdanning"
+  },
+  "arthur.education.JessheimVGS-title": {
+    "en": "Electrician | Jessheim high school | August 2007 - July 2012",
+    "no": "Elektrikerfaget | Jessheim videregående skole | August 2007 - July 2012",
+    "nn": "Elektrikarfaget | Jessheim vidaregåande skule | August 2007 - Juli 2012"
+  },
+  "arthur.education.JessheimVGS-description": {
+    "en": "Class: 6 - graduated with top honors (highest possible grade).",
+    "no": "Klasse: 6 - bestått meget godt (høyeste mulige karakter).",
+    "nn": "Klasse: 6 - bestått meget godt (høgaste mogelege karakter)."
+  },
+  "arthur.education.JessheimVGS-description-extra": {
+    "en": "Completed both high school and an apprenticeship simultaneously from 2007 to 2012.",
+    "no": "Fullførte både videregående skole og læretid samtidig fra 2007 til 2012.",
+    "nn": "Fullførte både vidaregåande skule og læretid samtidig frå 2007 til 2012."
+  },
+  "qualifications.title": {
+    "en": "Qualifications and activities",
+    "no": "Kvalifikasjoner og aktiviteter",
+    "nn": "Kvalifikasjonar og aktivitetar"
+  },
+  "qualifications.certificate": {
+    "en": "Certificates",
+    "no": "Sertifikater",
+    "nn": "Sertifikat"
+  },
+  "qualifications.skills": {
+    "en": "Skills",
+    "no": "Ferdigheter",
+    "nn": "Ferdigheiter"
+  },
+  "qualifications.volunteering": {
+    "en": "Volunteering",
+    "no": "Frivillig arbeid",
+    "nn": "Frivillig arbeid"
+  },
+  "qualifications.honors": {
+    "en": "Honors and awards",
+    "no": "Utmerkelser og priser",
+    "nn": "Utmerkingar og prisar"
+  },
+  "arthur.certificate.FG750-title": {
+    "en": "FG 750 Automatic Fire Alarm Systems | Kiwa Norge | January 2021",
+    "no": "FG 750 Automatiske brannalarmanlegg | Kiwa Norge | Januar 2021",
+    "nn": "FG 750 Automatiske brannalarmanlegg | Kiwa Norge | Januar 2021"
+  },
+  "arthur.certificate.FG750-description": {
+    "en": "The course provides certification according to FG rules for automatic fire alarm and voice alarm systems. It covers design, installation, commissioning, maintenance, and control of such systems, with specific certification classes for designers, installers, technicians, and controllers.",
+    "no": "Kurset gir sertifisering i henhold til FG-regler for automatiske brannalarm- og talevarslingsanlegg. Det dekker prosjektering, installasjon, idriftsetting, vedlikehold, og kontroll av slike anlegg, med spesifikke sertifiseringsklasser for prosjekterende, installatør, tekniker og kontrollør.",
+    "nn": "Kurset gir sertifisering i henhold til FG-regler for automatiske brannalarm- og talevarslingsanlegg. Det dekker prosjektering, installasjon, idriftsetting, vedlikehold, og kontroll av slike anlegg, med spesifikke sertifiseringsklasser for prosjekterende, installatør, tekniker og kontrollør."
+  },
+  "arthur.certificate.EPC-title": {
+    "en": "Exiway Power Control - EPC | Schneider Electric | August 2022",
+    "no": "Exiway Power Control - EPC | Schneider Electric | August 2022",
+    "nn": "Exiway Power Control - EPC | Schneider Electric | August 2022"
+  },
+  "arthur.certificate.EPC-description": {
+    "en": "Certification for Exiway Power Control systems by Schneider Electric.",
+    "no": "Sertifisering for Exiway Power Control-systemer fra Schneider Electric.",
+    "nn": "Sertifisering for Exiway Power Control-systemer frå Schneider Electric."
+  },
+  "arthur.certificate.TOA-title": {
+    "en": "TOA Voice Alarm | Scandec Systems AS | June 2022",
+    "no": "TOA talevarsling | Scandec Systemer AS | Juni 2022",
+    "nn": "TOA talevarsling | Scandec Systemer AS | Juni 2022"
+  },
+  "arthur.certificate.TOA-description": {
+    "en": "Certification to work with TOA voice alarm systems, covering installation and maintenance.",
+    "no": "Sertifisering for arbeid med TOA talevarslingssystemer, inkludert installasjon og vedlikehold.",
+    "nn": "Sertifisering for arbeid med TOA talevarslingssystem, inkludert installasjon og vedlikehald."
+  },
+  "arthur.certificate.ASD531-title": {
+    "en": "ASD531/ASD532 Aspirating Systems | Schneider Electric | June 2017",
+    "no": "ASD531/ASD532 aspirasjonssystemer | Schneider Electric | Juni 2017",
+    "nn": "ASD531/ASD532 aspirasjonssystem | Schneider Electric | Juni 2017"
+  },
+  "arthur.certificate.ASD531-description": {
+    "en": "Certification for the ASD531/ASD532 aspirating smoke detection systems by Schneider Electric.",
+    "no": "Sertifisering for ASD531/ASD532 aspirasjonsrøykdeteksjonssystemer fra Schneider Electric.",
+    "nn": "Sertifisering for ASD531/ASD532 aspirasjonsrøykdeteksjonssystem frå Schneider Electric."
+  },
+  "arthur.certificate.Securiton-title": {
+    "en": "Securiton Aspirating Systems | Schneider Electric | June 2017",
+    "no": "Securiton aspirasjonssystem | Schneider Electric | Juni 2017",
+    "nn": "Securiton aspirasjonssystem | Schneider Electric | Juni 2017"
+  },
+  "arthur.certificate.Securiton-description": {
+    "en": "Certification for working with Securiton aspirating smoke detection systems by Schneider Electric.",
+    "no": "Sertifisering for arbeid med Securiton aspirasjonsrøykdeteksjonssystemer fra Schneider Electric.",
+    "nn": "Sertifisering for arbeid med Securiton aspirasjonsrøykdeteksjonssystem frå Schneider Electric."
+  },
+  "arthur.certificate.CEAG-title": {
+    "en": "CEAG Emergency Lighting | Schneider Electric | October 2016",
+    "no": "CEAG nødbelysningssentraler | Schneider Electric | Oktober 2016",
+    "nn": "CEAG nødbelysningssentralar | Schneider Electric | Oktober 2016"
+  },
+  "arthur.certificate.CEAG-description": {
+    "en": "Certification to work with CEAG ZB-S and LP-Star emergency lighting systems by Schneider Electric.",
+    "no": "Sertifisering for arbeid med CEAG ZB-S og LP-Star nødbelysningssystemer fra Schneider Electric.",
+    "nn": "Sertifisering for arbeid med CEAG ZB-S og LP-Star nødbelysningssystem frå Schneider Electric."
+  },
+  "arthur.certificate.DARDO-title": {
+    "en": "DARDO and Wagfors Emergency Systems | Schneider Electric | October 2016",
+    "no": "DARDO- og Wagfors nødbelysningssentraler | Schneider Electric | Oktober 2016",
+    "nn": "DARDO- og Wagfors nødbelysningssentralar | Schneider Electric | Oktober 2016"
+  },
+  "arthur.certificate.DARDO-description": {
+    "en": "Certification for handling DARDO and Wagfors emergency lighting systems by Schneider Electric.",
+    "no": "Sertifisering for håndtering av DARDO- og Wagfors nødbelysningssystemer fra Schneider Electric.",
+    "nn": "Sertifisering for handtering av DARDO- og Wagfors nødbelysningssystem frå Schneider Electric."
+  },
+  "arthur.certificate.Eltek-title": {
+    "en": "Honeywell Eltek fire alarm systems | Honeywell | September 2015",
+    "no": "Honeywell Eltek brannsentral | Honeywell | September 2015",
+    "nn": "Honeywell Eltek brannsentral | Honeywell | September 2015"
+  },
+  "arthur.certificate.Eltek-description": {
+    "en": "Certification for installation and maintenance of Eltek fire alarm systems by Honeywell.",
+    "no": "Sertifisering for installasjon og vedlikehold av Eltek brannalarmsystemer fra Honeywell.",
+    "nn": "Sertifisering for installasjon og vedlikehald av Eltek brannalarmsystem frå Honeywell."
+  },
+  "arthur.certificate.Autosafe-title": {
+    "en": "AutoSafe Systems | Autronica Fire and Security AS | May 2015",
+    "no": "AutoSafe brannsentral | Autronica Fire and Security AS | Mai 2015",
+    "nn": "AutoSafe brannsentral | Autronica Fire and Security AS | Mai 2015"
+  },
+  "arthur.certificate.Autosafe-description": {
+    "en": "Certification for working with AutoSafe fire alarm systems by Autronica Fire and Security.",
+    "no": "Sertifisering for arbeid med AutoSafe brannalarmsystemer fra Autronica Fire and Security.",
+    "nn": "Sertifisering for arbeid med AutoSafe brannalarmsystem frå Autronica Fire and Security."
+  },
+  "arthur.certificate.ElectricalControl-title": {
+    "en": "Certified Inspector for Electrical Control (Business) | Nemko | January 2015 - January 2020",
+    "no": "Sertifisert kontrollør for EL-kontroll næring | Nemko | Januar 2015 - Januar 2020",
+    "nn": "Sertifisert kontrollør for EL-kontroll næring | Nemko | Januar 2015 - Januar 2020"
+  },
+  "arthur.certificate.ElectricalControl-description": {
+    "en": "Certification for conducting electrical safety inspections in commercial properties.",
+    "no": "Sertifisering for gjennomføring av elsikkerhetskontroller i næringseiendommer.",
+    "nn": "Sertifisering for gjennomføring av elsikkerheitskontroll i næringseigedom."
+  },
+  "arthur.certificate.Thermography-title": {
+    "en": "Certified Thermographer for Low-Voltage Systems | Nemko | January 2015 - January 2020",
+    "no": "Sertifisert termografør for elektrot termografi lavspenning | Nemko | Januar 2015 - Januar 2020",
+    "nn": "Sertifisert termografør for elektrot termografi lavspenning | Nemko | Januar 2015 - Januar 2020"
+  },
+  "arthur.certificate.Thermography-description": {
+    "en": "Certification for thermographic inspections of low-voltage electrical systems.",
+    "no": "Sertifisering for termografisk inspeksjon av lavspennings elektriske systemer.",
+    "nn": "Sertifisering for termografisk inspeksjon av lavspennings elektriske system."
+  },
+  "arthur.certificate.Autoprime-title": {
+    "en": "Autoprime Systems | Autronica Fire and Security AS | October 2014",
+    "no": "Autoprime brannsentral | Autronica Fire and Security AS | Oktober 2014",
+    "nn": "Autoprime brannsentral | Autronica Fire and Security AS | Oktober 2014"
+  },
+  "arthur.certificate.Autoprime-description": {
+    "en": "Certification for working with Autoprime fire alarm systems by Autronica Fire and Security.",
+    "no": "Sertifisering for arbeid med Autoprime brannalarmsystemer fra Autronica Fire and Security.",
+    "nn": "Sertifisering for arbeid med Autoprime brannalarmsystem frå Autronica Fire and Security."
+  },
+  "arthur.certificate.FXNET-title": {
+    "en": "FXNET Systems | Schneider Electric | September 2014",
+    "no": "FXNET brannsentral | Schneider Electric | September 2014",
+    "nn": "FXNET brannsentral | Schneider Electric | September 2014"
+  },
+  "arthur.certificate.FXNET-description": {
+    "en": "Certification for working with FXNET fire alarm systems by Schneider Electric.",
+    "no": "Sertifisering for arbeid med FXNET brannalarmsystemer fra Schneider Electric.",
+    "nn": "Sertifisering for arbeid med FXNET brannalarmsystem frå Schneider Electric."
+  },
+  "arthur.certificate.PRODEX-title": {
+    "en": "PRODEX Firelux Systems | Hedengren Security | February 2014 - February 2015",
+    "no": "PRODEX Firelux brannsentral | Hedengren Security | Februar 2014 - Februar 2015",
+    "nn": "PRODEX Firelux brannsentral | Hedengren Security | Februar 2014 - Februar 2015"
+  },
+  "arthur.certificate.PRODEX-description": {
+    "en": "Certification for installation and maintenance of PRODEX Firelux fire alarm systems by Hedengren Security.",
+    "no": "Sertifisering for installasjon og vedlikehold av PRODEX Firelux brannalarmsystemer fra Hedengren Security.",
+    "nn": "Sertifisering for installasjon og vedlikehald av PRODEX Firelux brannalarmsystem frå Hedengren Security."
+  },
+  "arthur.certificate.FirePrevention-title": {
+    "en": "Certified Inspector for Fire Prevention Electrical Control (Residential) | Nemko | August 2013 - August 2018",
+    "no": "Sertifisert kontrollør for brannforebyggende EL-kontroll bolig | Nemko | August 2013 - August 2018",
+    "nn": "Sertifisert kontrollør for brannførebyggande EL-kontroll bustad | Nemko | August 2013 - August 2018"
+  },
+  "arthur.certificate.FirePrevention-description": {
+    "en": "Certification for conducting electrical inspections focused on fire prevention in residential buildings.",
+    "no": "Sertifisering for gjennomføring av elektriske inspeksjoner med fokus på brannforebygging i boligbygg.",
+    "nn": "Sertifisering for gjennomføring av elektriske inspeksjonar med fokus på brannførebygging i bustadbygg."
+  },
+  "arthur.certificate.Magnum-title": {
+    "en": "Magnum Systems | Elotec AS | November 2012",
+    "no": "Magnum brannsentral | Elotec AS | November 2012",
+    "nn": "Magnum brannsentral | Elotec AS | November 2012"
+  },
+  "arthur.certificate.Magnum-description": {
+    "en": "Certification for working with Magnum fire alarm systems by Elotec.",
+    "no": "Sertifisering for arbeid med Magnum brannalarmsystemer fra Elotec.",
+    "nn": "Sertifisering for arbeid med Magnum brannalarmsystem frå Elotec."
+  },
+  "arthur.skills.developer-title": {
+    "en": "Full Stack Developer | August 2024 - Present",
+    "no": "Full Stack Utvikler | August 2024 - Nå",
+    "nn": "Full Stack Utviklar | August 2024 - No"
+  },
+  "arthur.skills.developer-description": {
+    "en": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA.",
+    "no": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA.",
+    "nn": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA."
+  },
+  "arthur.skills.technician-title": {
+    "en": "Fire and security | August 2012 - Present",
+    "no": "Brann og sikkerhet | August 2012 - Nå",
+    "nn": "Brann og tryggleik | August 2012 - No"
+  },
+  "arthur.skills.technician-description": {
+    "en": "Servers, databases, network, SQL, graphical presentation, fire alarm, aspiration, extinguishing systems, emergency lighting, access control, intrusion alarm.",
+    "no": "Servere, databaser, nettverk, SQL, grafisk presentasjon, brannalarm, aspirasjon, slukkeanlegg, nødlysanlegg, adgangskontroll, innbruddsalarm.",
+    "nn": "Serverar, databasar, nettverk, SQL, grafisk presentasjon, brannalarm, aspirasjon, sløkkjeanlegg, naudlysanlegg, adgangskontroll, innbrotalarm."
+  },
+  "arthur.volunteering.RK-title": {
+    "en": "Red Cross Search and Rescue | February 2018 - Present",
+    "no": "Røde Kors Hjelpekorps | February 2018 - Nå",
+    "nn": "Raudt Kors Hjelpekorps | February 2018 - No"
+  },
+  "arthur.volunteering.RK-description": {
+    "en": "As part of my role in the Red Cross Search and Rescue team, my focus areas included searches, first aid, emergency response, and serving as an instructor. I specialized in emergency operations on snow-covered mountains, contributing to rescue missions and providing aid in challenging winter conditions. Additionally, I took on the instructor role, teaching communication skills over the emergency network (Nødnett).",
+    "no": "Som en del av mitt arbeid i Røde Kors Hjelpekorps var mine fokusområder søk, førstehjelp, nødhjelp og rollen som instruktør. Jeg spesialiserte meg på nødoperasjoner på snødekte fjell, hvor jeg bidro til redningsoppdrag og ga hjelp under utfordrende vinterforhold. I tillegg hadde jeg instruktørrollen, der jeg underviste i kommunikasjon over nødnettet.",
+    "nn": "Som ein del av mitt arbeid i Raudt Kors Hjelpekorps var mine fokusområde søk, førstehjelp, nødhjelp og instruktørrolla. Eg spesialiserte meg på nødoperasjonar på snødekte fjell, der eg bidrog til redningsoppdrag og gav hjelp under utfordrande vinterforhold. I tillegg hadde eg instruktørrolla, der eg underviste i kommunikasjon over nødnettet."
+  },
+  "arthur.volunteering.visual-design-title": {
+    "en": "Red Cross Eidsvoll and Løten and EDA Elektro Data Romerike AS | January 2013 - Mars 2023",
+    "no": "Røde Kors Eidsvoll og Løten og EDA Elektro Data Romerike AS | Januar 2013 - Mars 2023",
+    "nn": "Raudt Kors Eidsvoll og Løten og EDA Elektro Data Romerike AS | Januar 2013 - Mars 2023"
+  },
+  "arthur.volunteering.visual-design-description": {
+    "en": "Design of visual material (website, posters etc.) for Red Cross Eidsvoll and Løten and EDA Elektro Data Romerike AS.",
+    "no": "Design av visuelt materiale (nettside, plakater etc.) for Røde Kors Eidsvoll og Løten og EDA Elektro Data Romerike AS.",
+    "nn": "Design av visuelt materiale (nettside, plakatar etc.) for Raudt Kors Eidsvoll og Løten og EDA Elektro Data Romerike AS."
+  },
+  "arthur.volunteering.BSU-title": {
+    "en": "Beijing Sport University - Norwegian Martial Arts Federation | June 2006 - July 2006",
+    "no": "Beijing Sports Universitet - Norges Kampsportforbund | Juni 2008 - Juli 2008",
+    "nn": "Beijing Sports Universitet - Noregs Kampsportforbund | Juni 2008 - Juli 2008"
+  },
+  "arthur.volunteering.BSU-description": {
+    "en": "I spent a summer at Beijing Sport University with the Norwegian Martial Arts Federation and the Norwegian national team. During this time, I had the opportunity to train and collaborate with top athletes and coaches in the field of martial arts.",
+    "no": "Jeg tilbrakte en sommer ved Beijing Sports Universitet sammen med Norges Kampsportforbund og det norske landslaget. I løpet av denne tiden fikk jeg muligheten til å trene og samarbeide med toppidrettsutøvere og trenere innen kampsport.",
+    "nn": "Eg tilbrakte ein sommar ved Beijing Sports Universitet saman med Noregs Kampsportforbund og det norske landslaget. I løpet av denne tida fekk eg moglegheit til å trene og samarbeide med toppidrettsutøvarar og trenarar innan kampsport."
+  },
+  "arthur.honors.world-skills-norway-title": {
+    "en": "WorldSkills Norway | January 2011 - Mars 2011",
+    "no": "Yrkes-NM Norge | Januar 2011 - Mars 2011",
+    "nn": "Yrkes-NM Noreg | Januar 2011 - Mars 2011"
+  },
+  "arthur.honors.world-skills-norway-description": {
+    "en": "WorldSkills Norway is a national competition where apprentices and young skilled workers showcase their talents in various vocational disciplines. It helps increase recognition of vocational education and serves as a selection process for WorldSkills Europe and WorldSkills. I participated as an electrician and reached the semi-final.",
+    "no": "Yrkes-NM er en nasjonal konkurranse hvor lærlinger og unge fagarbeidere viser frem sine ferdigheter. Det øker anerkjennelsen av yrkesfag og fungerer som uttak til Yrkes-EM og Yrkes-VM. Jeg deltok som elektriker og kom til semi-finalen.",
+    "nn": "Yrkes-NM er ein nasjonal konkurranse der lærlingar og unge fagarbeidarar viser fram sine ferdigheiter. Det aukar anerkjenninga av yrkesfag og fungerer som uttak til Yrkes-EM og Yrkes-VM. Eg deltok som elektrikar og kom til semi-finalen."
+  },
+  "arthur.honors.norwaycup-sanshou-title": {
+    "en": "Norway Cup Sanshou - Norwegian Martial Arts Federation | January 2008 - January 2008",
+    "no": "Norges cup Sanshou - Norges Kampsportforbund | Januar 2008 - Januar 2008",
+    "nn": "Noregs cup Sanshou - Noregs Kampsportforbund | Januar 2008 - Januar 2008"
+  },
+  "arthur.honors.norwaycup-sanshou-description": {
+    "en": "Sanshou (Sanda) is a fighting system originally developed by the Chinese military, based on traditional Chinese martial arts and modern combat techniques. It combines boxing and full-contact kickboxing, including close-range punches and kicks, with wrestling, takedowns, throws, sweeps, kick catches, and in some competitions, elbow and knee strikes. I won the Norwegian Cup in Sanshou in Bergen.",
+    "no": "Sanshou (Sanda) er et kampsystem som opprinnelig ble utviklet av det kinesiske militæret, basert på tradisjonelle kinesiske kampkunst og moderne kampteknikker. Det kombinerer boksing og fullkontakt kickboxing, inkludert nærkamp, slag og spark, med bryting, nedtak, kast, feiende teknikker, sparkfangst, og i noen konkurranser, albue- og kneslag. Jeg vant Norges cup i Sanshou i Bergen.",
+    "nn": "Sanshou (Sanda) er eit kampsystem som opphavleg vart utvikla av det kinesiske militæret, basert på tradisjonelle kinesiske kampkunst og moderne kampteknikkar. Det kombinerer boksing og fullkontakt kickboxing, inkludert nærkamp, slag og spark, med bryting, nedtak, kast, feiande teknikkar, sparkfangst, og i nokre konkurransar, albue- og kneslag. Eg vann Noregs cup i Sanshou i Bergen."
+  }
+}
