@@ -6,7 +6,7 @@ import websiteIcon from '../../assets/icons/website.svg';
 import toolsicon from '../../assets/icons/tools.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
-import AuthorCard from '../journalpage/AuthorCard';
+import AuthorCard from '../../components/AuthorCard';
 import Card, { IconPosition } from './Card';
 import styles from './HomePage.module.less';
 

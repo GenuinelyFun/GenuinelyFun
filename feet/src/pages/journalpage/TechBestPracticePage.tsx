@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguageContext } from '../../utils/LanguageProvider';
-import Card from './AuthorCard';
+import Card from '../../components/AuthorCard';
 import { ArticleWrapper } from './ArticleWrapper';
 
 const TechBestPracticePage = (): JSX.Element => {
