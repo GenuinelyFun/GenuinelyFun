@@ -1,57 +1,17 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import GithubIcon from '../../assets/icons/github.svg';
-import LinkedinIcon from '../../assets/icons/linkedin.svg';
-import Xicon from '../../assets/icons/x.svg';
-import EmailIcon from '../../assets/icons/email.png';
 import GenericButton from '../../components/GenericButton';
 import {
   TranslateTextKey,
   useLanguageContext,
 } from '../../utils/LanguageProvider';
+import { arthurLinks } from '../../utils/arthur-utils';
+import { nghiLinks } from '../../utils/nghi-utils';
 import { routePaths } from '../../App';
 import styles from './AuthorCard.module.less';
-
-export const arthurLinks: {
-  [key: string]: { url: string; icon: ReactNode };
-} = {
-  email: {
-    url: 'mailto:arthur.leonard.thomassen@gmail.com',
-    icon: <img src={EmailIcon} alt={'Email'} />,
-  },
-  github: {
-    url: 'https://github.com/Friftycode',
-    icon: <img src={GithubIcon} alt="GitHub" />,
-  },
-  linkedin: {
-    url: 'https://www.linkedin.com/in/arthur90/',
-    icon: <img src={LinkedinIcon} alt="LinkedIn" />,
-  },
-  x: {
-    url: 'https://x.com/ThomassenArthur',
-    icon: <img src={Xicon} alt="X" />,
-  },
-};
-
-export const nghiLinks: {
-  [key: string]: { url: string; icon: ReactNode };
-} = {
-  email: {
-    url: 'mailto:nguyenbdnghi@gmail.com',
-    icon: <img src={EmailIcon} alt={'Email'} />,
-  },
-  github: {
-    url: 'https://github.com/NghiNg',
-    icon: <img src={GithubIcon} alt="GitHub" />,
-  },
-  linkedin: {
-    url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
-    icon: <img src={LinkedinIcon} alt="LinkedIn" />,
-  },
-};
 
 const AuthorCard: FC<{
   author: 'arthur' | 'nghi';
