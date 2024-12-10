@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-import { useWindowSize } from 'usehooks-ts';
 
 import { useLanguageContext } from '../utils/LanguageProvider';
-import { routePaths } from '../App';
+import { routePaths } from '../index';
 import DropDownMenu from './DropDownMenu';
 
 import styles from './Menu.module.less';
@@ -12,7 +11,6 @@ import styles from './Menu.module.less';
 const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
   const { translate } = useLanguageContext();
   const location = useLocation();
-  const { width } = useWindowSize();
 
   return (
     <nav className={styles.menu}>

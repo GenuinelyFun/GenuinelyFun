@@ -2,7 +2,7 @@ import React, { createContext, FC, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 
-import authorCardText from '../pages/journalpage/authorCardText.json';
+import authorCardText from '../components/authorCardText.json';
 import darkmodeToggleText from '../components/darkmodeToggleText.json';
 import homePageText from '../pages/homepage/homePageText.json';
 import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';

@@ -1,4 +1,4 @@
-@import '../../utils/variables.less';
+@import '../utils/variables.less';
 
 .card {
   max-width: var(--max-width-page);
@@ -26,6 +26,10 @@
 
 .flip {
   flex-direction: row-reverse;
+
+  @media @breakpoint-tablet {
+    flex-direction: column;
+  }
 }
 
 .textContainer {
