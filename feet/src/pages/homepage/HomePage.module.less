@@ -8,7 +8,7 @@
 .heroSection {
   width: 100%;
   min-height: 700px;
-  background-color: var(--color-green);
+  background-color: var(--color-white-paris);
   text-align: center;
   display: flex;
   align-items: center;
@@ -17,14 +17,15 @@
   flex-direction: row;
   justify-content: center;
   gap: 10%;
-  color: var(--color-white);
+  color: var(--color-black);
+
+  [data-theme='dark'] & {
+    background-color: var(--color-green-light);
+  }
 
   @media @breakpoint-tablet {
     flex-direction: column;
     min-height: 300px;
-    & img {
-      display: none;
-    }
   }
 
   [data-theme='dark'] & {
@@ -34,37 +35,8 @@
   & h1 {
     font-size: var(--font-size-xlarge);
     font-weight: var(--font-weight-bold);
-    filter: drop-shadow(2px 2px 2px #000000);
     margin: 0;
-
-    & span {
-      color: #deb887;
-    }
-  }
-
-  & p {
-    font-size: var(--font-size-medium);
-    filter: drop-shadow(2px 2px 2px #000000);
-    margin: 0;
-  }
-
-  & div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  & img {
-    width: 150px;
-    height: auto;
-    filter: drop-shadow(2px 2px 2px #000000);
-
-    &:first-child {
-      transform: rotate(25deg) translate(60px);
-    }
-
-    &:last-child {
-      transform: rotate(-25deg) translateY(-50px);
-    }
+    max-width: var(--max-width-page);
   }
 }
 
@@ -93,7 +65,7 @@
 }
 
 .mainSectionInfoBox {
-  background-color: var(--color-green);
+  background-color: var(--color-white-paris);
   color: var(--color-white);
   position: relative;
   overflow: hidden;

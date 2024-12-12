@@ -8,7 +8,6 @@ import { useMobileSizes } from '../utils/useMobileSizes';
 const Footer: FC = () => {
   const { translate } = useLanguageContext();
   const { isDesktop } = useMobileSizes();
-  console.log(isDesktop);
 
   return (
     <footer className={styles.footer}>
