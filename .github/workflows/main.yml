@@ -1,0 +1,22 @@
+name: Deploy to One.com
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: GitHub Deploy to One.com
+        uses: rostimelk/one.com-deployer@master
+        env:
+          ONE_DOMAIN_NAME: genuinelyfun.com
+          ONE_SSH_KEY_PUBLIC: ${{ secrets.Arthur work PC }}
+          ONE_SSH_KEY_PRIVATE: ${{ secrets.Arthur work PC }}
+          TPO_SRC_PATH: ""
+          TPO_PATH: ""
