@@ -8,10 +8,10 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
-import { arthurLinks } from '../utils/arthur-utils';
 import { nghiLinks } from '../utils/nghi-utils';
 import { routePaths } from '../index';
 import styles from './AuthorCard.module.less';
+import { arthurLinks } from '../utils/arthur-utils';
 
 const AuthorCard: FC<{
   author: 'arthur' | 'nghi';
@@ -32,6 +32,7 @@ const AuthorCard: FC<{
       <img
         src={author === 'arthur' ? arthur : nghi}
         alt={translate(`author-card.${author}.aria` as TranslateTextKey)}
+        className={styles.profileImage}
       />
       <div className={styles.textContainer}>
         <h2>{translate('author-card.about')}</h2>

@@ -18,15 +18,23 @@
 
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--color-green);
+    background-color: var(--color-green-light);
   }
 }
 
 .invert {
-  background-color: var(--color-white);
-  color: var(--color-green);
+  color: var(--color-white);
+  background-color: var(--color-green);
+
+  [data-theme='dark'] & {
+    background-color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-gray-light);
+    }
+  }
 
   &:hover {
-    background-color: var(--color-gray-light);
+    background-color: var(--color-green-light);
   }
 }

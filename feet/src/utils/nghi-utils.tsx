@@ -3,23 +3,24 @@ import React, { ReactNode } from 'react';
 import EmailIcon from '../assets/icons/email.png';
 import GithubIcon from '../assets/icons/github.svg';
 import LinkedinIcon from '../assets/icons/linkedin.svg';
+import LinkIcon from '../components/LinkIcon';
 
 export const nghiLinks: {
   [key: string]: { url: string; icon: ReactNode; name: string };
 } = {
   email: {
     url: 'mailto:nguyenbdnghi@gmail.com',
-    icon: <img src={EmailIcon} alt={'Email'} />,
+    icon: <LinkIcon src={EmailIcon} alt={'Email'} />,
     name: 'Email',
   },
   github: {
     url: 'https://github.com/NghiNg',
-    icon: <img src={GithubIcon} alt="GitHub" />,
+    icon: <LinkIcon src={GithubIcon} alt="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
     url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
-    icon: <img src={LinkedinIcon} alt="LinkedIn" />,
+    icon: <LinkIcon src={LinkedinIcon} alt="LinkedIn" />,
     name: 'LinkedIn',
   },
 };

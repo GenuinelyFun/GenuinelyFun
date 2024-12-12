@@ -8,7 +8,6 @@ import {
   volunteering,
 } from '../../utils/arthur-utils';
 import { useLanguageContext } from '../../utils/LanguageProvider';
-import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 
 import styles from './ArthurPage.module.less';
@@ -20,8 +19,6 @@ const ArthurPage: FC = () => {
   const handleButtonClick = (index: number) => {
     setVisibleContent(index);
   };
-
-  const { theme } = useDarkmodeContext();
 
   return (
     <main className={styles.container}>
@@ -39,13 +36,7 @@ const ArthurPage: FC = () => {
             {Object.keys(arthurLinks).map((key) => {
               const link = arthurLinks[key];
               return (
-                <a
-                  key={key}
-                  href={link.url}
-                  className={classNames({
-                    [styles.lightSocialLinks]: theme === Darkmode.Light,
-                  })}
-                >
+                <a key={key} href={link.url}>
                   {link.icon}
                 </a>
               );

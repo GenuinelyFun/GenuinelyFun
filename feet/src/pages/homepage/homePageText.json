@@ -1,23 +1,8 @@
 {
-  "hero.title.part1": {
-    "en": "Where your",
-    "no": "Der",
-    "nn": "Der"
-  },
-  "hero.title.part2": {
-    "en": " i",
-    "no": " i",
-    "nn": " i"
-  },
-  "hero.title.part3": {
-    "en": "deas come to life",
-    "no": "déene dine blir til virkelighet",
-    "nn": "déane dine blir til røyndom"
-  },
-  "hero.title.description": {
-    "en": "We turn your ideas into reality with thoughtful coding.",
-    "no": "Vi realiserer idéene dine gjennom målrettet og nøye planlagt koding.",
-    "nn": "Vi realiserer idéane dine gjennom målretta og nøye planlagd koding."
+  "hero.title": {
+    "en": "Hi, we're Nghi and Arthur! Welcome to GenuinelyFun, where we share our coding projects.",
+    "no": "Hei, vi er Nghi og Arthur! Velkommen til GenuinelyFun, hvor vi deler våre kodingsprosjekter.",
+    "nn": "Hei, vi er Nghi og Arthur! Velkomen til GenuinelyFun, der vi deler våre kodingsprosjekt."
   },
   "hero.lightbulb.aria": {
     "en": "Tag inside a lightbulb",

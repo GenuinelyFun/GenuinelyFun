@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 import image from '../../assets/icons/image_test_560x560.png';
-import codingIcon from '../../assets/icons/lightbulb_code.svg';
-import websiteIcon from '../../assets/icons/website.svg';
 import toolsicon from '../../assets/icons/tools.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import GenericButton from '../../components/GenericButton';
@@ -17,25 +15,7 @@ const HomePage: FC = () => {
   return (
     <main>
       <section className={styles.heroSection}>
-        <img
-          src={codingIcon}
-          alt={translate('hero.lightbulb.aria')}
-          className={styles.heroSectionIconLeft}
-        />
-        <div>
-          <h1>
-            {translate('hero.title.part1')}
-            <span>{translate('hero.title.part2')}</span>
-            {translate('hero.title.part3')}
-          </h1>
-
-          <p> {translate('hero.title.description')} </p>
-        </div>
-        <img
-          src={websiteIcon}
-          alt={translate('hero.webpage-on-screen.aria')}
-          className={styles.heroSectionIconRight}
-        />
+        <h1>{translate('hero.title')}</h1>
       </section>
       <div className={styles.mainSection}>
         <AuthorCard author={'arthur'} className={styles.mainSection} />
