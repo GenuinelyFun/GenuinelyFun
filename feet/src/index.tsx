@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import DropZonePage from './pages/journalpage/DropZonePage';
 import TechBestPracticePage from './pages/journalpage/TechBestPracticePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
@@ -16,7 +15,6 @@ import './index.less';
 
 export const routePaths = {
   home: '',
-  dropzone: 'dropzone',
   techBestPractice: 'tech-best-practice',
   feet: 'feet',
   arthur: 'arthur',
@@ -31,7 +29,6 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: '*', element: <NotFoundPage /> },
-      { path: routePaths.dropzone, element: <DropZonePage /> },
       { path: routePaths.techBestPractice, element: <TechBestPracticePage /> },
       { path: routePaths.feet, element: <FeetPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },

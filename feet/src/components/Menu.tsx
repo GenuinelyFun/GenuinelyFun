@@ -38,15 +38,6 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         listItems={[
           <Link
             className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]: location.pathname === routePaths.dropzone,
-            })}
-            to={routePaths.dropzone}
-            onClick={onLinkClick}
-          >
-            {translate('tab.dropzone')}
-          </Link>,
-          <Link
-            className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]:
                 location.pathname === routePaths.techBestPractice,
             })}
