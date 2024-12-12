@@ -1,18 +1,8 @@
 {
   "hero.title": {
-    "en": "Hi, we're Nghi and Arthur! Welcome to GenuinelyFun, where we share our coding projects.",
-    "no": "Hei, vi er Nghi og Arthur! Velkommen til GenuinelyFun, hvor vi deler våre kodingsprosjekter.",
-    "nn": "Hei, vi er Nghi og Arthur! Velkomen til GenuinelyFun, der vi deler våre kodingsprosjekt."
-  },
-  "hero.lightbulb.aria": {
-    "en": "Tag inside a lightbulb",
-    "no": "Tag inni en lyspære",
-    "nn": "Tag inni ei lyspære"
-  },
-  "hero.webpage-on-screen.aria": {
-    "en": "Webpage on screen",
-    "no": "Nettside på skjerm",
-    "nn": "Nettside på skjerm"
+    "en": "Hi, we're Nghi and Arthur! Welcome to GenuinelyFun, where we share our favorite coding projects and ideas.",
+    "no": "Hei, vi er Nghi og Arthur! Velkommen til GenuinelyFun, hvor vi deler våre favorittprosjekter og idéer innen programmering.",
+    "nn": "Hei, vi er Nghi og Arthur! Velkomen til GenuinelyFun, der vi deler våre favorittprosjekt og idear innan programmering."
   },
   "infobox.title.part1": {
     "en": "We make your",
