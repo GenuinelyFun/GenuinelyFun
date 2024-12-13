@@ -20,9 +20,13 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           echo "${{ secrets.ARTHUR_WORK_PC_PUBLIC }}" > ~/.ssh/id_rsa.pub
           chmod 644 ~/.ssh/id_rsa.pub
+          ssh-keyscan -H ssh.genuinelyfun.com >> ~/.ssh/known_hosts
         env:
           ARTHUR_WORK_PC_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
           ARTHUR_WORK_PC_PUBLIC: ${{ secrets.ARTHUR_WORK_PC_PUBLIC }}
+
+      - name: Test SSH connection
+        run: ssh -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "echo 'SSH connection successful!'"
 
       - name: GitHub Deploy to One.com
         uses: rostimelk/one.com-deployer@master
@@ -32,4 +36,3 @@ jobs:
           ONE_SSH_KEY_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
           TPO_SRC_PATH: feet
           TPO_PATH: /www
-
