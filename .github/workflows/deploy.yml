@@ -18,5 +18,5 @@ jobs:
           ONE_DOMAIN_NAME: genuinelyfun.com
           ONE_SSH_KEY_PUBLIC: ${{ secrets.ARTHUR_WORK_PC_PUBLIC }}
           ONE_SSH_KEY_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
-          TPO_SRC_PATH: src
+          TPO_SRC_PATH: feet
           TPO_PATH: /www
