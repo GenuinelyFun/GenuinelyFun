@@ -10,24 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Set up SSH key for One.com
       - name: Set up SSH key for One.com
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.ARTHUR_WORK_PC_PRIVATE }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          echo "${{ secrets.ARTHUR_WORK_PC_PUBLIC }}" > ~/.ssh/id_rsa.pub
-          chmod 644 ~/.ssh/id_rsa.pub
           ssh-keyscan -H ssh.genuinelyfun.com >> ~/.ssh/known_hosts
+          ls -la ~/.ssh
+          cat ~/.ssh/id_rsa
         env:
           ARTHUR_WORK_PC_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
-          ARTHUR_WORK_PC_PUBLIC: ${{ secrets.ARTHUR_WORK_PC_PUBLIC }}
 
-      - name: Test SSH connection
-        run: ssh -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "echo 'SSH connection successful!'"
+      # Step 3: Debug SSH Connection
+      - name: Debug SSH Connection
+        run: ssh -v -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "echo 'SSH connection successful!'"
 
+      # Step 4: Deploy using the One.com deployer action
       - name: GitHub Deploy to One.com
         uses: rostimelk/one.com-deployer@master
         env:
