@@ -7,11 +7,23 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH key for One.com
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ARTHUR_WORK_PC_PRIVATE }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.ARTHUR_WORK_PC_PUBLIC }}" > ~/.ssh/id_rsa.pub
+          chmod 644 ~/.ssh/id_rsa.pub
+        env:
+          ARTHUR_WORK_PC_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
+          ARTHUR_WORK_PC_PUBLIC: ${{ secrets.ARTHUR_WORK_PC_PUBLIC }}
+
       - name: GitHub Deploy to One.com
         uses: rostimelk/one.com-deployer@master
         env:
