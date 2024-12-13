@@ -37,4 +37,5 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "
           ls -la /www
-          "
+          "git push web main
+
