@@ -47,7 +47,7 @@ export interface Panel {
   maintenance_interval_message?: string;
   first_zone: number;
   number_of_zones: number;
-  communication: Communication;
+  communication?: Communication;
   assistant_processor_unit_in_use: boolean;
   visible_panels?: number[];
   uuid: string;
