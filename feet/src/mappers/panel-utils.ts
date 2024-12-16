@@ -6,7 +6,7 @@ export const mapPanelToExcel = (
   panel: Panel,
   sheetLanguage: string,
 ) => {
-  const serialPort = panel.communication.serial_port1;
+  const serialPort = panel.communication?.serial_port1;
   const delayedAlarmOutputs = panel.delayed_alarm_outputs;
   const fireAlarmDevice: string =
     delayedAlarmOutputs?.delayed_outputs?.includes(
@@ -48,19 +48,19 @@ export const mapPanelToExcel = (
     [sheetTranslate('System 1', sheetLanguage) +
     ' ' +
     sheetTranslate('Protocol', sheetLanguage)]:
-      panel.communication.system1?.usage,
+      panel.communication?.system1?.usage,
     [sheetTranslate('System 1', sheetLanguage) +
     ' ' +
     sheetTranslate('Baud rate', sheetLanguage)]:
-      panel.communication.system1?.baudrate,
+      panel.communication?.system1?.baudrate,
     [sheetTranslate('System 2', sheetLanguage) +
     ' ' +
     sheetTranslate('Protocol', sheetLanguage)]:
-      panel.communication.system2?.usage,
+      panel.communication?.system2?.usage,
     [sheetTranslate('System 2', sheetLanguage) +
     ' ' +
     sheetTranslate('Baud rate', sheetLanguage)]:
-      panel.communication.system2?.baudrate,
+      panel.communication?.system2?.baudrate,
     [sheetTranslate('RS485', sheetLanguage) +
     ' ' +
     sheetTranslate('Enable INFO', sheetLanguage)]: serialPort?.usage,
