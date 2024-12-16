@@ -17,32 +17,7 @@ jobs:
         uses: rostimelk/one.com-deployer@master
         env:
           ONE_DOMAIN_NAME: genuinelyfun.com
-          ONE_SSH_KEY_PUBLIC: ${{ secrets.NGHI_MAIN_PC_PUBLIC }}
-          ONE_SSH_KEY_PRIVATE: ${{ secrets.NGHI_MAIN_PC_PRIVATE }}
-#
-#      - name: Set up SSH key for One.com
-#        run: |
-#          mkdir -p ~/.ssh
-#          echo "${{ secrets.ARTHUR_WORK_PC_PRIVATE }}" > ~/.ssh/id_rsa
-#          chmod 600 ~/.ssh/id_rsa
-#          ssh-keyscan -H ssh.genuinelyfun.com >> ~/.ssh/known_hosts
-#        env:
-#          ARTHUR_WORK_PC_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
-#
-#      - name: Test SSH connection
-#        run: |
-#          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no genuinelyfun.com@ssh.genuinelyfun.com echo "SSH connection successful!"
-#
-#      - name: Deploy to One.com
-#        run: |
-#          ssh -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "
-#          cd ~/website.git &&
-#          GIT_WORK_TREE=/www git checkout -f
-#          "
-#
-#      - name: Verify Deployment
-#        run: |
-#          ssh -i ~/.ssh/id_rsa genuinelyfun.com@ssh.genuinelyfun.com "
-#          ls -la /www
-#          "git push web main
-#
+          #ONE_SSH_KEY_PUBLIC: ${{ secrets.NGHI_MAIN_PC_PUBLIC }}
+          #ONE_SSH_KEY_PRIVATE: ${{ secrets.NGHI_MAIN_PC_PRIVATE }}
+          ONE_SSH_KEY_PUBLIC: ${{ secrets.ARTHUR_WORK_PC_PUBLIC }}
+          ONE_SSH_KEY_PRIVATE: ${{ secrets.ARTHUR_WORK_PC_PRIVATE }}
