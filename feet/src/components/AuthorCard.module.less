@@ -15,6 +15,7 @@
 
   @media @breakpoint-tablet {
     flex-direction: column;
+    max-width: unset;
   }
 }
 
@@ -38,9 +39,14 @@
 
 .textContainer {
   flex-direction: column;
+  margin-bottom: var(--spacing-small);
 
   p {
     margin: 0;
+  }
+
+  @media @breakpoint-tablet {
+    max-width: var(--max-width-page);
   }
 }
 
@@ -48,7 +54,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: var(--spacing-small);
+  margin: var(--spacing-small) 0;
   gap: var(--spacing-small);
 }
 

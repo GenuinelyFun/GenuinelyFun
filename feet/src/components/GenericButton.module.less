@@ -8,10 +8,6 @@
   color: var(--color-white);
   text-decoration: none;
 
-  [data-theme='dark'] & {
-    color: var(--color-black);
-  }
-
   &:hover {
     background-color: var(--color-green-light);
   }
@@ -20,11 +16,19 @@
     cursor: not-allowed;
     background-color: var(--color-green-light);
   }
+
+  [data-theme='dark'] & {
+    color: var(--color-black);
+  }
 }
 
 .invert {
   color: var(--color-white);
   background-color: var(--color-green);
+
+  &:hover {
+    background-color: var(--color-green-light);
+  }
 
   [data-theme='dark'] & {
     background-color: var(--color-white);
@@ -32,9 +36,5 @@
     &:hover {
       background-color: var(--color-gray-light);
     }
-  }
-
-  &:hover {
-    background-color: var(--color-green-light);
   }
 }
