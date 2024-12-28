@@ -63,6 +63,7 @@ const AuthorCard: FC<{
             To my portfolio page
           </GenericButton>
         </div>
+          {translate('author-card.portfolio-button')}
       </div>
     </div>
   );
