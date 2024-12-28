@@ -1,4 +1,9 @@
 {
+  "email-us": {
+    "en": "E-mail us",
+    "no": "Send oss en e-post",
+    "nn": "Send oss en e-post"
+  },
   "email": {
     "en": "E-mail",
     "no": "E-post",
