@@ -20,15 +20,14 @@ export const useDarkmodeContext = (): DarkmodeContextType =>
   useContextOrThrow(DarkmodeContext);
 
 export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {
-  const defaultLight = !window.matchMedia('(prefers-color-scheme: dark)')
-    .matches;
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useLocalStorage<Darkmode>(
     'theme',
-    defaultLight ? Darkmode.Light : Darkmode.Dark,
+    defaultDark ? Darkmode.Dark : Darkmode.Light,
   );
 
   useEffect(() => {
-    if (!defaultLight) {
+    if (defaultDark) {
       setTheme(theme);
       document.documentElement.setAttribute('data-theme', theme);
     }
