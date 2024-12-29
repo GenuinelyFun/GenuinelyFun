@@ -6,5 +6,6 @@ export const useMobileSizes = () => {
     isMobile: width <= 768,
     isTablet: width <= 1040 && width > 768,
     isDesktop: width > 1040,
+    isNotDesktop: width <= 1040,
   };
 };

@@ -14,7 +14,7 @@ import { useDataContext } from '../../utils/DataProvider';
 import GenericButton from '../../components/GenericButton';
 import styles from './ImportForm.module.less';
 
-const FIRE_EXPERT_VERSION = '24.5';
+const FIRE_EXPERT_VERSION = '24.11';
 
 const ImportForm: FC = () => {
   const toast = useToast();
