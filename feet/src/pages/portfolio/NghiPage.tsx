@@ -101,7 +101,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 4,
           })}
         >
-          {translate('qualifications.cours')}
+          {translate('qualifications.course')}
         </button>
       </div>
       {visibleContent === 1 && (
@@ -136,10 +136,10 @@ const ArthurPage: FC = () => {
       )}
       {visibleContent === 4 && (
         <ul>
-          {course.map((cours, index) => (
+          {course.map((course, index) => (
             <li key={index}>
-              <h4>{translate(cours.title)}</h4>
-              <p>{translate(cours.description)}</p>
+              <h4>{translate(course.title)}</h4>
+              <p>{translate(course.description)}</p>
             </li>
           ))}
         </ul>

@@ -2,4 +2,5 @@
 .idea/
 *.iml
 
+feet/build
 feet/node_modules

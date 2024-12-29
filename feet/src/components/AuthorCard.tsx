@@ -51,18 +51,18 @@ const AuthorCard: FC<{
               {links[link].icon}
             </a>
           ))}
-          <GenericButton
+        </div>
+        <GenericButton
             className={styles.button}
             invert={true}
             as={'link'}
             to={
-              (location.pathname !== '/' ? '../' : '') +
-              (author === 'arthur' ? routePaths.arthur : routePaths.nghi)
+                (location.pathname !== '/' ? '../' : '') +
+                (author === 'arthur' ? routePaths.arthur : routePaths.nghi)
             }
-          >
-            To my portfolio page
-          </GenericButton>
-        </div>
+        >
+          {translate('author-card.portfolio-button')}
+        </GenericButton>
       </div>
     </div>
   );

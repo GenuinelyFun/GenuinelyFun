@@ -16,6 +16,7 @@ const HomePage: FC = () => {
     <main>
       <section className={styles.heroSection}>
         <h1>{translate('hero.title')}</h1>
+        <h2>{translate('hero.subtitle')}</h2>
       </section>
       <div className={styles.mainSection}>
         <AuthorCard author={'arthur'} className={styles.mainSection} />
