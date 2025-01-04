@@ -1,0 +1,57 @@
+@import '../../utils/variables.less';
+
+.fileList {
+  padding: 0;
+}
+
+.fileCard {
+  min-width: 300px;
+  border: var(--border) var(--color-black);
+  justify-content: space-between;
+  border-radius: 8px;
+  display: flex;
+  background-color: var(--color-gray-light);
+  padding: 0 var(--spacing-mini);
+  margin: var(--spacing-large) 0;
+  word-break: break-all;
+  align-items: center;
+
+  & p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+    white-space: nowrap;
+  }
+
+  & button {
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      min-width: 18px;
+      width: 18px;
+      height: auto;
+    }
+  }
+
+  & div {
+    display: flex;
+    margin: 0 var(--spacing-mini);
+    gap: var(--spacing-xsmall);
+  }
+
+  & img {
+    width: 24px;
+    height: auto;
+    min-width: 24px;
+    fill: var(--color-white);
+
+    [data-theme='dark'] & {
+      fill: var(--color-black);
+    }
+  }
+}

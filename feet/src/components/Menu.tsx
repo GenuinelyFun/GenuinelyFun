@@ -32,6 +32,15 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
       >
         {translate('tab.feet')}
       </Link>
+      <Link
+        to={routePaths.pdf}
+        className={classNames(styles.menuButton, {
+          [styles.active]: location.pathname === routePaths.pdf,
+        })}
+        onClick={onLinkClick}
+      >
+        PDF
+      </Link>
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
         buttonTextKey={'tab.journal'}

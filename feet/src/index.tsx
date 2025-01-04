@@ -7,6 +7,7 @@ import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import TechBestPracticePage from './pages/journalpage/TechBestPracticePage';
 import FeetPage from './pages/feetpage/FeetPage';
+import PdfPage from './pages/pdfpage/PdfPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
 import TogglePage from './pages/togglePage/TogglePage';
@@ -17,6 +18,7 @@ export const routePaths = {
   home: '',
   techBestPractice: 'tech-best-practice',
   feet: 'feet',
+  pdf: 'pdf',
   arthur: 'arthur',
   nghi: 'nghi',
   toggle: 'toggle',
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
       { path: '*', element: <NotFoundPage /> },
       { path: routePaths.techBestPractice, element: <TechBestPracticePage /> },
       { path: routePaths.feet, element: <FeetPage /> },
+      { path: routePaths.pdf, element: <PdfPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
       { path: routePaths.toggle, element: <TogglePage /> },
