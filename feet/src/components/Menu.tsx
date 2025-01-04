@@ -18,13 +18,13 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === routePaths.home,
         })}
-        to="/"
+        to={routePaths.home}
         onClick={onLinkClick}
       >
         {translate('tab.homepage')}
       </Link>
       <Link
-        to="/feet"
+        to={routePaths.feet}
         className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === routePaths.feet,
         })}
