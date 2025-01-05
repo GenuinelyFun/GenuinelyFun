@@ -42,6 +42,8 @@ const ArthurPage: FC = () => {
                 <a
                   key={key}
                   href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={classNames({
                     [styles.lightSocialLinks]: theme === Darkmode.Light,
                   })}

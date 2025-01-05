@@ -24,6 +24,8 @@ const GenericButton: FC<Props> = ({
   if (as === 'a') {
     return (
       <a
+        target="_blank"
+        rel="noopener noreferrer"
         className={classNames(className, {
           [styles.invert]: invert,
         })}

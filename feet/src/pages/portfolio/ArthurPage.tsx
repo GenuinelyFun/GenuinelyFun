@@ -36,7 +36,12 @@ const ArthurPage: FC = () => {
             {Object.keys(arthurLinks).map((key) => {
               const link = arthurLinks[key];
               return (
-                <a key={key} href={link.url}>
+                <a
+                  key={key}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {link.icon}
                 </a>
               );

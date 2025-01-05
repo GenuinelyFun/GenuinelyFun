@@ -46,7 +46,7 @@ const Header: FC = () => {
           <DarkmodeToggle />
           <LanguageButton />
         </div>
-        <Menu />
+        <Menu onLinkClick={menuModal.closeModal} />
       </Modal>
     </header>
   );
