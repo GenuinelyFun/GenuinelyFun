@@ -10,7 +10,7 @@ import {
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 
-import styles from './ArthurPage.module.less';
+import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();

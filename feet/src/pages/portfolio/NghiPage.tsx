@@ -11,7 +11,7 @@ import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 
-import styles from './ArthurPage.module.less';
+import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
