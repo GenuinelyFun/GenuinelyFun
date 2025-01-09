@@ -27,8 +27,7 @@ const Footer: FC = () => {
             {Object.values(nghiLinks).map((link) => (
               <li key={link.name} className={styles.link}>
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.icon}
-                  {isNotDesktop && link.name}
+                  {isNotDesktop ? link.icon : <>{link.icon} {link.name}</>}
                 </a>
               </li>
             ))}
@@ -40,8 +39,7 @@ const Footer: FC = () => {
             {Object.values(arthurLinks).map((link) => (
               <li key={link.name} className={styles.link}>
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.icon}
-                  {isNotDesktop && link.name}
+                  {isNotDesktop ? link.icon : <>{link.icon} {link.name}</>}
                 </a>
               </li>
             ))}
