@@ -13,12 +13,14 @@ const NotFoundPage = (): JSX.Element => {
 
   return (
     <main className={styles.pagenotfound}>
-      <h1>{translate('title')}</h1>
-      <p>{translate('paragraph')}</p>
+      <div className={styles.header}>
+        <h1>{translate('title')}</h1>
+        <p>{translate('paragraph')}</p>
+        <GenericButton className={styles.button} onClick={() => navigate('/')}>
+          {translate('button')}
+        </GenericButton>
+      </div>
 
-      <GenericButton className={styles.button} onClick={() => navigate('/')}>
-        {translate('button')}
-      </GenericButton>
       <img src={moon} className={styles.moon} alt={translate('alt.moon')} />
       <img
         src={rocket}
