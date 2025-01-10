@@ -15,8 +15,15 @@ const HomePage: FC = () => {
   return (
     <main>
       <section className={styles.heroSection}>
-        <h1>{translate('hero.title')}</h1>
-        <h2>{translate('hero.subtitle')}</h2>
+        <h1>
+          {translate('hero.title_part1')} {translate('nghi.firstname')}{' '}
+          {translate('hero.title_part2')} {translate('arthur.firstname')}
+          {translate('hero.title_part3')}
+        </h1>
+        <h2>
+          {translate('hero.subtitle_part1')} {translate('genuinelyfun.name')}
+          {translate('hero.subtitle_part2')}
+        </h2>
       </section>
       <div className={styles.mainSection}>
         <AuthorCard author={'arthur'} className={styles.mainSection} />

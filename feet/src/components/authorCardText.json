@@ -10,9 +10,9 @@
     "nn": "Person Arthur"
   },
   "author-card.arthur.title": {
-    "en": "Hey, I’m Arthur Leonard Thomassen",
-    "no": "Hei, jeg er Arthur Leonard Thomassen",
-    "nn": "Hei, eg er Arthur Leonard Thomassen"
+    "en": "Hey, I’m",
+    "no": "Hei, jeg er",
+    "nn": "Hei, eg er"
   },
   "author-card.arthur.paragraph": {
     "en": "A front-end developer and senior field technician in fire and security. I am passionate about developing systems that are not only functional but also highly efficient. Driven by curiosity and continuous learning.",
@@ -25,9 +25,9 @@
     "nn": "Person Nghi"
   },
   "author-card.nghi.title": {
-    "en": "Hey, I’m Nghi Nguyen",
-    "no": "Hei, jeg er Nghi Nguyen",
-    "nn": "Hei, eg er Nghi Nguyen"
+    "en": "Hey, I’m",
+    "no": "Hei, jeg er",
+    "nn": "Hei, eg er"
   },
   "author-card.nghi.paragraph": {
     "en": "A full-stack developer, who gets to the bottom of complex problems and learning from every experience to understand things more deeply.",

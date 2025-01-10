@@ -79,6 +79,11 @@
     "no": "Arthur",
     "nn": "Arthur"
   },
+  "arthur.middle_name": {
+    "en": "Leonard",
+    "no": "Leonard",
+    "nn": "Leonard"
+  },
   "arthur.lastname": {
     "en": "Thomassen",
     "no": "Thomassen",
