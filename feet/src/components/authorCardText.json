@@ -15,9 +15,9 @@
     "nn": "Hei, eg er Arthur Leonard Thomassen"
   },
   "author-card.arthur.paragraph": {
-    "en": "A full-stack developer and senior field technician in fire and security. I enjoy getting to the bottom of complex problems and learning from every experience to understand things more deeply. You can reach me on GitHub, LinkedIn or X.",
-    "no": "En full-stack utvikler og senior teknikker innen brann og sikkerhet. Jeg liker å komme til bunns i komplekse problemer og lære av hver erfaring for å forstå ting mer dyptgående. Du kan nå meg på GitHub, LinkedIn eller X.",
-    "nn": "Ein full-stack utviklar og senior teknikker innan brann og sikkerheit. Eg likar å kome til botn i komplekse problem og lære av kvar erfaring for å forstå ting meir djuptgåande. Du kan nå meg på GitHub, LinkedIn eller X."
+    "en": "A front-end developer and senior field technician in fire and security. I am passionate about developing systems that are not only functional but also highly efficient. Driven by curiosity and continuous learning.",
+    "no": "En front-end utvikler og senior teknikker innen brann og sikkerhet. Jeg er lidenskapelig opptatt av å utvikle systemer som ikke bare er funksjonelle, men også svært effektive. Drevet av nysgjerrighet og kontinuerlig læring.",
+    "nn": "Ein front-end utviklar og senior teknikker innan brann og tryggleik. Eg er lidenskapelig oppteken av å utvikle system som ikkje berre er funksjonelle, men også svært effektive. Driven av nysgjerrigheit og kontinuerleg læring."
   },
   "author-card.nghi.aria": {
     "en": "Person Nghi",
@@ -30,9 +30,9 @@
     "nn": "Hei, eg er Nghi Nguyen"
   },
   "author-card.nghi.paragraph": {
-    "en": "A full-stack developer, who gets to the bottom of complex problems and learning from every experience to understand things more deeply. You can reach me on GitHub or LinkedIn.",
-    "no": "En full-stack utvikler, som kommer til bunns i komplekse problemer og lærer av hver erfaring for å forstå ting mer dyptgående. Du kan nå meg på GitHub eller LinkedIn.",
-    "nn": "Ein full-stack utviklar, som kjem til botn i komplekse problem og lærer av kvar erfaring for å forstå ting meir djuptgåande. Du kan nå meg på GitHub eller LinkedIn."
+    "en": "A full-stack developer, who gets to the bottom of complex problems and learning from every experience to understand things more deeply.",
+    "no": "En full-stack utvikler, som kommer til bunns i komplekse problemer og lærer av hver erfaring for å forstå ting mer dyptgående.",
+    "nn": "Ein full-stack utviklar, som kjem til botn i komplekse problem og lærer av kvar erfaring for å forstå ting meir djuptgåande."
   },
   "author-card.portfolio-button": {
     "en": "To my portfolio page",
