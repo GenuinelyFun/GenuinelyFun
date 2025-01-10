@@ -11,8 +11,11 @@ const FeetPage: FC = () => {
   return (
     <DataProvider>
       <main className={styles.container}>
-        <h1>{translate('feet-page.title')}</h1>
-        <p>{translate('feet-page.description')}</p>
+        <div className={styles.header}>
+          <h1>{translate('feet-page.title')}</h1>
+          <p>{translate('feet-page.description_part1')}</p>
+          <p>{translate('feet-page.description_part2')}</p>
+        </div>
         <div className={styles.content}>
           <ImportForm />
           <aside>
