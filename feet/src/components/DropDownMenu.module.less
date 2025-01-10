@@ -1,3 +1,8 @@
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+}
+
 .dropdownButton {
   border-radius: 0.375rem;
   padding: var(--spacing-mini) var(--spacing-mini) var(--spacing-mini)
@@ -43,10 +48,6 @@
   }
 }
 
-.dropdownContainer {
-  position: relative;
-}
-
 .dropdownContent {
   position: absolute;
   padding: var(--spacing-mini);
@@ -79,4 +80,6 @@
   margin: 0;
   list-style-type: none;
   padding: var(--spacing-xsmall);
+  display: flex;
+  flex-direction: column;
 }
