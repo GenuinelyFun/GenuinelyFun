@@ -10,7 +10,7 @@ import {
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
 
-import styles from './ArthurPage.module.less';
+import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
@@ -30,7 +30,9 @@ const ArthurPage: FC = () => {
         />
         <div className={styles.headerContent}>
           <h1 className={styles.profileText}>
-            {translate('author-card.arthur.title')},
+            {translate('author-card.arthur.title')}{' '}
+            {translate('arthur.firstname')} {translate('arthur.middle_name')}{' '}
+            {translate('arthur.lastname')}
           </h1>
           <div className={styles.socialMedia}>
             {Object.keys(arthurLinks).map((key) => {
@@ -50,28 +52,48 @@ const ArthurPage: FC = () => {
         </div>
       </div>
       <h2>{translate('about.title')}</h2>
-      <p>{translate('arthur.about.text.part1')}</p>
-      <p>{translate('arthur.about.text.part2')}</p>
-      <h3>{translate('experience.title')}</h3>
-      <h4>{translate('arthur.experience.EDA2-title')}</h4>
-      <p>{translate('arthur.experience.EDA2-description')}</p>
-      <h4>{translate('arthur.experience.SE-title')}</h4>
-      <p>{translate('arthur.experience.SE-description')}</p>
-      <h4>{translate('arthur.experience.EDA1-title')}</h4>
-      <p>{translate('arthur.experience.EDA1-description')}</p>
-      <h4>{translate('arthur.experience.Sonnico-title')}</h4>
-      <p>{translate('arthur.experience.Sonnico-description')}</p>
-      <h3>{translate('education.title')}</h3>
-      <h4>{translate('arthur.education.JessheimVGS-title')}</h4>
-      <p>
+      <p className={styles.paragraph}>{translate('arthur.about.text.part1')}</p>
+      <p className={styles.paragraph}>{translate('arthur.about.text.part2')}</p>
+      <h3 className={styles.categoryTitle}>{translate('experience.title')}</h3>
+      <h4 className={styles.categorySubtitle}>
+        {translate('arthur.experience.EDA2-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('arthur.experience.EDA2-description')}
+      </p>
+      <h4 className={styles.categorySubtitle}>
+        {translate('arthur.experience.SE-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('arthur.experience.SE-description')}
+      </p>
+      <h4 className={styles.categorySubtitle}>
+        {translate('arthur.experience.EDA1-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('arthur.experience.EDA1-description')}
+      </p>
+      <h4 className={styles.categorySubtitle}>
+        {translate('arthur.experience.Sonnico-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('arthur.experience.Sonnico-description')}
+      </p>
+      <h3 className={styles.categoryTitle}>{translate('education.title')}</h3>
+      <h4 className={styles.categorySubtitle}>
+        {translate('arthur.education.JessheimVGS-title')}
+      </h4>
+      <p className={styles.paragraph}>
         {translate('arthur.education.JessheimVGS-description')} <br />{' '}
         {translate('arthur.education.JessheimVGS-description-extra')}
       </p>
-      <h3>{translate('qualifications.title')}</h3>
+      <h3 className={styles.categoryTitle}>
+        {translate('qualifications.title')}
+      </h3>
       <div className={styles.buttonGroup}>
         <button
           onClick={() => handleButtonClick(1)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 1,
           })}
         >
@@ -79,7 +101,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(2)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 2,
           })}
         >
@@ -87,7 +109,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(3)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 3,
           })}
         >
@@ -95,7 +117,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(4)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 4,
           })}
         >
@@ -106,8 +128,12 @@ const ArthurPage: FC = () => {
         <ul>
           {certificates.map((skills, index) => (
             <li key={index}>
-              <h4>{translate(skills.title)}</h4>
-              <p>{translate(skills.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(skills.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(skills.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -116,8 +142,12 @@ const ArthurPage: FC = () => {
         <ul>
           {skills.map((certificate, index) => (
             <li key={index}>
-              <h4>{translate(certificate.title)}</h4>
-              <p>{translate(certificate.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(certificate.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(certificate.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -126,8 +156,12 @@ const ArthurPage: FC = () => {
         <ul>
           {volunteering.map((volunteering, index) => (
             <li key={index}>
-              <h4>{translate(volunteering.title)}</h4>
-              <p>{translate(volunteering.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(volunteering.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(volunteering.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -136,8 +170,12 @@ const ArthurPage: FC = () => {
         <ul>
           {honors.map((honors, index) => (
             <li key={index}>
-              <h4>{translate(honors.title)}</h4>
-              <p>{translate(honors.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(honors.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(honors.description)}
+              </p>
             </li>
           ))}
         </ul>

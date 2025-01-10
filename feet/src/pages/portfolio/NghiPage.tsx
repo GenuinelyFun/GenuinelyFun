@@ -11,7 +11,7 @@ import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 
-import styles from './ArthurPage.module.less';
+import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
@@ -33,7 +33,8 @@ const ArthurPage: FC = () => {
         />
         <div className={styles.headerContent}>
           <h1 className={styles.profileText}>
-            {translate('author-card.nghi.title')},
+            {translate('author-card.nghi.title')} {translate('nghi.firstname')}{' '}
+            {translate('nghi.lastname')}
           </h1>
           <div className={styles.socialMedia}>
             {Object.keys(nghiLinks).map((key) => {
@@ -56,26 +57,42 @@ const ArthurPage: FC = () => {
         </div>
       </div>
       <h2>{translate('about.title')}</h2>
-      <p>{translate('nghi.about.text.part1')}</p>
-      <p>{translate('nghi.about.text.part2')}</p>
-      <h3>{translate('experience.title')}</h3>
-      <h4>{translate('nghi.experience.Posten-title')}</h4>
-      <p>{translate('nghi.experience.Posten-description')}</p>
-      <h4>{translate('nghi.experience.SpareBank-title')}</h4>
-      <p>{translate('nghi.experience.SpareBank-description')}</p>
-      <h4>{translate('nghi.experience.Experis-title')}</h4>
-      <p>{translate('nghi.experience.Experis-description')}</p>
+      <p className={styles.paragraph}>{translate('nghi.about.text.part1')}</p>
+      <p className={styles.paragraph}>{translate('nghi.about.text.part2')}</p>
+      <h3 className={styles.categoryTitle}>{translate('experience.title')}</h3>
+      <h4 className={styles.categorySubtitle}>
+        {translate('nghi.experience.Posten-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('nghi.experience.Posten-description')}
+      </p>
+      <h4 className={styles.categorySubtitle}>
+        {translate('nghi.experience.SpareBank-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('nghi.experience.SpareBank-description')}
+      </p>
+      <h4 className={styles.categorySubtitle}>
+        {translate('nghi.experience.Experis-title')}
+      </h4>
+      <p className={styles.paragraph}>
+        {translate('nghi.experience.Experis-description')}
+      </p>
 
-      <h3>{translate('education.title')}</h3>
-      <h4>{translate('nghi.education.OsloUniversity-title')}</h4>
-      <p>
+      <h3 className={styles.categoryTitle}>{translate('education.title')}</h3>
+      <h4 className={styles.categorySubtitle}>
+        {translate('nghi.education.OsloUniversity-title')}
+      </h4>
+      <p className={styles.paragraph}>
         {translate('nghi.education.OsloUniversity-description')} <br />{' '}
       </p>
-      <h3>{translate('qualifications.title')}</h3>
+      <h3 className={styles.categoryTitle}>
+        {translate('qualifications.title')}
+      </h3>
       <div className={styles.buttonGroup}>
         <button
           onClick={() => handleButtonClick(1)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 1,
           })}
         >
@@ -83,7 +100,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(2)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 2,
           })}
         >
@@ -91,7 +108,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(3)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 3,
           })}
         >
@@ -99,7 +116,7 @@ const ArthurPage: FC = () => {
         </button>
         <button
           onClick={() => handleButtonClick(4)}
-          className={classNames({
+          className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 4,
           })}
         >
@@ -110,8 +127,12 @@ const ArthurPage: FC = () => {
         <ul>
           {certificates.map((skills, index) => (
             <li key={index}>
-              <h4>{translate(skills.title)}</h4>
-              <p>{translate(skills.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(skills.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(skills.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -120,8 +141,12 @@ const ArthurPage: FC = () => {
         <ul>
           {skills.map((certificate, index) => (
             <li key={index}>
-              <h4>{translate(certificate.title)}</h4>
-              <p>{translate(certificate.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(certificate.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(certificate.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -130,8 +155,12 @@ const ArthurPage: FC = () => {
         <ul>
           {volunteering.map((volunteering, index) => (
             <li key={index}>
-              <h4>{translate(volunteering.title)}</h4>
-              <p>{translate(volunteering.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(volunteering.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(volunteering.description)}
+              </p>
             </li>
           ))}
         </ul>
@@ -140,8 +169,12 @@ const ArthurPage: FC = () => {
         <ul>
           {course.map((course, index) => (
             <li key={index}>
-              <h4>{translate(course.title)}</h4>
-              <p>{translate(course.description)}</p>
+              <h4 className={styles.categorySubtitle}>
+                {translate(course.title)}
+              </h4>
+              <p className={styles.paragraph}>
+                {translate(course.description)}
+              </p>
             </li>
           ))}
         </ul>

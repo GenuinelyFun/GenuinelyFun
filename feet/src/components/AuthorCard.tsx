@@ -36,7 +36,10 @@ const AuthorCard: FC<{
       />
       <div className={styles.textContainer}>
         <h2>{translate('author-card.about')}</h2>
-        <p>{translate(`author-card.${author}.title` as TranslateTextKey)}</p>
+        <p>
+          {translate(`author-card.${author}.title` as TranslateTextKey)}{' '}
+          {translate(`${author}.firstname`)}
+        </p>
         <p>
           {translate(`author-card.${author}.paragraph` as TranslateTextKey)}
         </p>
@@ -53,13 +56,13 @@ const AuthorCard: FC<{
           ))}
         </div>
         <GenericButton
-            className={styles.button}
-            invert={true}
-            as={'link'}
-            to={
-                (location.pathname !== '/' ? '../' : '') +
-                (author === 'arthur' ? routePaths.arthur : routePaths.nghi)
-            }
+          className={styles.button}
+          invert={true}
+          as={'link'}
+          to={
+            (location.pathname !== '/' ? '../' : '') +
+            (author === 'arthur' ? routePaths.arthur : routePaths.nghi)
+          }
         >
           {translate('author-card.portfolio-button')}
         </GenericButton>

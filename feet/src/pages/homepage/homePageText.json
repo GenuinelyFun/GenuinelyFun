@@ -1,13 +1,28 @@
 {
-  "hero.title": {
-    "en": "Hi, we're Nghi and Arthur!",
-    "no": "Hei, vi er Nghi og Arthur!",
-    "nn": "Hei, vi er Nghi og Arthur!"
+  "hero.title_part1": {
+    "en": "Hi, we're",
+    "no": "Hei, vi er",
+    "nn": "Hei, vi er"
   },
-  "hero.subtitle": {
-    "en": "Welcome to GenuinelyFun, where we share our favorite coding projects and ideas.",
-    "no": "Velkommen til GenuinelyFun, hvor vi deler våre favorittprosjekter og idéer innen programmering.",
-    "nn": "Velkomen til GenuinelyFun, der vi deler våre favorittprosjekt og idear innan programmering."
+  "hero.title_part2": {
+    "en": "and",
+    "no": "and",
+    "nn": "and"
+  },
+  "hero.title_part3": {
+    "en": "!",
+    "no": "!",
+    "nn": "!"
+  },
+  "hero.subtitle_part1": {
+    "en": "Welcome to",
+    "no": "Velkommen",
+    "nn": "Velkomen"
+  },
+  "hero.subtitle_part2": {
+    "en": ", where we share our favorite coding projects and ideas.",
+    "no": ", hvor vi deler våre favorittprosjekter og idéer innen programmering.",
+    "nn": ", der vi deler våre favorittprosjekt og idear innan programmering."
   },
   "infobox.angle-tool-pencil.aria": {
     "en": "Angle tool and pencil",
