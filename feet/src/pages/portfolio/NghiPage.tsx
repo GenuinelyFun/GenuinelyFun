@@ -56,7 +56,7 @@ const ArthurPage: FC = () => {
           </div>
         </div>
       </div>
-      <h2>{translate('about.title')}</h2>
+      <h2>{translate('nghi.about.title')}</h2>
       <p className={styles.paragraph}>{translate('nghi.about.text.part1')}</p>
       <p className={styles.paragraph}>{translate('nghi.about.text.part2')}</p>
       <h3 className={styles.categoryTitle}>{translate('experience.title')}</h3>
@@ -79,7 +79,9 @@ const ArthurPage: FC = () => {
         {translate('nghi.experience.Experis-description')}
       </p>
 
-      <h3 className={styles.categoryTitle}>{translate('education.title')}</h3>
+      <h3 className={styles.categoryTitle}>
+        {translate('nghi.education.title')}
+      </h3>
       <h4 className={styles.categorySubtitle}>
         {translate('nghi.education.OsloUniversity-title')}
       </h4>
@@ -87,7 +89,7 @@ const ArthurPage: FC = () => {
         {translate('nghi.education.OsloUniversity-description')} <br />{' '}
       </p>
       <h3 className={styles.categoryTitle}>
-        {translate('qualifications.title')}
+        {translate('nghi.qualifications.title', { test: 'hullo' })}
       </h3>
       <div className={styles.buttonGroup}>
         <button
@@ -96,7 +98,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 1,
           })}
         >
-          {translate('qualifications.certificate')}
+          {translate('nghi.qualifications.certificate')}
         </button>
         <button
           onClick={() => handleButtonClick(2)}
@@ -104,7 +106,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 2,
           })}
         >
-          {translate('qualifications.skills')}
+          {translate('nghi.qualifications.skills')}
         </button>
         <button
           onClick={() => handleButtonClick(3)}
@@ -112,7 +114,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 3,
           })}
         >
-          {translate('qualifications.volunteering')}
+          {translate('nghi.qualifications.volunteering')}
         </button>
         <button
           onClick={() => handleButtonClick(4)}
@@ -120,7 +122,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 4,
           })}
         >
-          {translate('qualifications.course')}
+          {translate('nghi.qualifications.course')}
         </button>
       </div>
       {visibleContent === 1 && (

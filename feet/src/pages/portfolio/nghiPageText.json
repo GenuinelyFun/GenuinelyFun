@@ -1,5 +1,5 @@
 {
-  "about.title": {
+  "nghi.about.title": {
     "en": "Short about me",
     "no": "Kort om meg",
     "nn": "Kort om meg"
@@ -49,7 +49,7 @@
     "no": "Konsulent hos SpareBank 1 Utvikling Team Min Økonomi for å utvikle og administrere løsninger for å hjelpe kunders økonomi. Fullførte to akselererte læringskurs hos Noroff for å lære både backend- og frontend fullstack-teknologier med en praktisk case-oppgave.",
     "nn": "Konsulent hos SpareBank 1 Utvikling Team Min Økonomi for å utvikle og administrere løysingar for å hjelpe kundars økonomi. Fullførte to akselererte læringskurs hos Noroff for å lære både backend- og frontend fullstack-teknologiar med ei praktisk case-oppgåve."
   },
-  "education.title": {
+  "nghi.education.title": {
     "en": "Education",
     "no": "Utdanning",
     "nn": "Utdanning"
@@ -64,27 +64,27 @@
     "no": "Bachelorgrad i informatikk og matematikk, med fokus på objektorientert programmering, funksjonell programmering, databaser og datamodellering, datasystemer, krav og konsekvenser, logiske metoder, modellering og beregninger, sannsynlighetsregning og statistisk modellering med mer. Opparbeidet ferdigheter i C++, C#, Python, Assembly, ASP, SQL, PostgreSQL og Scheme.",
     "nn": "Bachelorgrad i informatikk og matematikk, med fokus på objektorientert programmering, funksjonell programmering, databasar og datamodellering, datasystem, krav og konsekvensar, logiske metodar, modellering og utrekningar, sannsynsrekning og statistisk modellering med meir. Opparbeidd ferdigheiter i C++, C#, Python, Assembly, ASP, SQL, PostgreSQL og Scheme."
   },
-  "qualifications.title": {
+  "nghi.qualifications.title": {
     "en": "Qualifications and activities",
     "no": "Kvalifikasjoner og aktiviteter",
     "nn": "Kvalifikasjonar og aktivitetar"
   },
-  "qualifications.certificate": {
+  "nghi.qualifications.certificate": {
     "en": "Certificates",
     "no": "Sertifikater",
     "nn": "Sertifikat"
   },
-  "qualifications.skills": {
+  "nghi.qualifications.skills": {
     "en": "Skills",
     "no": "Ferdigheter",
     "nn": "Ferdigheiter"
   },
-  "qualifications.volunteering": {
+  "nghi.qualifications.volunteering": {
     "en": "Volunteering",
     "no": "Frivillig arbeid",
     "nn": "Frivillig arbeid"
   },
-  "qualifications.course": {
+  "nghi.qualifications.course": {
     "en": "Course",
     "no": "Kurs",
     "nn": "Kurs"
