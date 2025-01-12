@@ -2,7 +2,7 @@
 
 .container {
   max-width: var(--max-width-page);
-  margin: 0 auto;
+  margin: 0 auto var(--spacing-xlarge);
 
   @media @breakpoint-mobile {
     margin: var(--spacing-medium);
@@ -69,11 +69,14 @@
 
 .buttonGroup {
   gap: var(--spacing-large);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 
   @media @breakpoint-tablet {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    gap: var(--spacing-small);
+    flex-wrap: wrap;
   }
 }
 
