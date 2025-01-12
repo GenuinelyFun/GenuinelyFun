@@ -4,20 +4,25 @@
     "no": "Kort om meg",
     "nn": "Kort om meg"
   },
-  "nghi.about.text.part1": {
-    "en": "As a Full-Stack Developer, I craft seamless, scalable solutions that enhance the way people interact with technology. With expertise across both front-end and back-end, I focus on building intuitive, high-performance systems that streamline workflows and elevate user experiences.",
-    "no": "Som Full-Stack utvikler lager jeg sømløse, skalerbare løsninger som forbedrer hvordan folk interagerer med teknologi. Med ekspertise både på front-end og back-end, fokuserer jeg på å bygge intuitive, høytytende systemer som strømlinjeformer arbeidsprosesser og hever brukeropplevelsen.",
-    "nn": "Som Full-Stack utviklar lagar eg sømlause, skalerbare løysingar som betre korleis folk interagerer med teknologi. Med ekspertise på både front-end og back-end, fokuserer eg på å bygge intuitive, høgtytande system som strøymar arbeidsflytar og hevar brukaropplevinga."
+  "nghi.about.intro": {
+    "en": "I’ve always loved logic games and puzzles, so when I discovered programming at university, it just clicked. It felt like solving the most exciting puzzle, and I haven’t stopped since.",
+    "no": "Jeg har alltid elsket logiske spill og puslespill, så da jeg oppdaget programmering på universitetet, falt alt på plass. Det føltes som å løse det mest spennende puslespillet, og jeg har ikke stoppet siden.",
+    "nn": "Eg har alltid elska logiske spel og puslespel, så då eg oppdaga programmering på universitetet, fall alt på plass. Det kjentes som å løyse det mest spennande puslespelet, og eg har ikkje slutta sidan."
   },
-  "nghi.about.text.part2": {
-    "en": "Driven by a curiosity for new technologies and a commitment to innovation, I thrive on transforming complex challenges into elegant, practical applications that deliver meaningful results. Always learning and adapting, I strive to create solutions that not only meet today’s needs but also anticipate tomorrow’s possibilities.",
-    "no": "Drevet av en nysgjerrighet for ny teknologi og et engasjement for innovasjon, trives jeg med å transformere komplekse utfordringer til elegante, praktiske applikasjoner som gir meningsfulle resultater. Jeg lærer alltid og tilpasser meg, og streber etter å skape løsninger som ikke bare møter dagens behov, men også forutser morgendagens muligheter.",
-    "nn": "Dreven av ei nysgjerrigheit for ny teknologi og eit engasjement for innovasjon, trivst eg med å omforme komplekse utfordringar til elegante, praktiske applikasjonar som gjev meiningsfulle resultat. Eg lærer alltid og tilpassar meg, og strevar etter å skape løysingar som ikkje berre møter dagens behov, men også føreset morgondagens moglegheiter."
+  "nghi.about.reliable": {
+    "en": "I started out as a full-stack developer but focused heavily on learning frontend development in the beginning. I quickly built a reputation for being fast, reliable, and eager to take on challenges, earning trust from my teammates to handle key tasks. My goal has always been to understand every aspect of what goes into building great apps and websites, and I’m constantly expanding my skills to make that happen.",
+    "no": "Jeg startet som fullstack-utvikler, men fokuserte mye på frontend-utvikling i starten. Jeg bygget raskt et rykte for å være rask, pålitelig og ivrig etter å ta på meg utfordringer, og jeg fikk tillit fra kollegene mine til å håndtere viktige oppgaver. Målet mitt har alltid vært å forstå alle aspektene ved det å lage gode apper og nettsider, og jeg jobber hele tiden med å utvide ferdighetene mine for å få det til.",
+    "nn": "Eg starta som fullstack-utviklar, men fokuserte mykje på frontend-utvikling i starten. Eg bygde raskt eit rykte for å vere rask, påliteleg og ivrig etter å ta på meg utfordringar, og eg fekk tillit frå kollegaene mine til å handtere viktige oppgåver. Målet mitt har alltid vore å forstå alle aspekta ved det å lage gode appar og nettsider, og eg jobbar heile tida med å utvide ferdigheitene mine for å få det til."
   },
-  "experience.title": {
-    "en": "Experience",
-    "no": "Erfaring",
-    "nn": "Erfaring"
+  "nghi.about.accessibility": {
+    "en": "I’m especially passionate about creating seamless, responsive, and accessible solutions that work for everyone. Whether it’s solving a tricky technical problem or refining the user experience, I approach each project as an opportunity to learn something new and push myself to create something even better.",
+    "no": "Jeg er spesielt opptatt av å lage sømløse, responsive og tilgjengelige løsninger som fungerer for alle. Enten det handler om å løse et vanskelig teknisk problem eller å finpusse brukeropplevelsen, ser jeg hvert prosjekt som en mulighet til å lære noe nytt og utfordre meg selv til å skape noe enda bedre.",
+    "nn": "Eg er spesielt opptatt av å lage saumlause, responsive og tilgjengelege løysingar som fungerer for alle. Enten det handlar om å løyse eit vanskeleg teknisk problem eller å finpusse brukaropplevinga, ser eg kvart prosjekt som ei moglegheit til å lære noko nytt og utfordre meg sjølv til å skape noko endå betre."
+  },
+  "nghi.experience.title": {
+    "en": "Work experience",
+    "no": "Jobb erfaring",
+    "nn": "Jobb erfaring"
   },
   "nghi.experience.Posten-title": {
     "en": "Full-stack Developer | Posten Norge AS | May 2023 - Present",
@@ -79,10 +84,10 @@
     "no": "Ferdigheter",
     "nn": "Ferdigheiter"
   },
-  "nghi.qualifications.volunteering": {
-    "en": "Volunteering",
-    "no": "Frivillig arbeid",
-    "nn": "Frivillig arbeid"
+  "nghi.qualifications.work": {
+    "en": "Other work",
+    "no": "Annen arbeid",
+    "nn": "Annen arbeid"
   },
   "nghi.qualifications.course": {
     "en": "Course",
@@ -299,32 +304,22 @@
     "no": "Sertifisering i akselerert læringsteknikk for Java Fullstack utvikling.",
     "nn": "Sertifisering i akselerert læringsteknikk for Java Fullstack utvikling."
   },
-  "nghi.skills.developer-title": {
-    "en": "Full Stack Developer | May 2023 - Present",
-    "no": "Full Stack Utvikler | Mai 2023 - Nå",
-    "nn": "Full Stack Utviklar | Mai 2023 - No"
-  },
-  "nghi.skills.developer-description": {
-    "en": "Java, TypeScript, JavaScript, React, HTML, CSS, LESS, Git, WCAG compliance, JUnit, Mockito, SQL.",
-    "no": "Java, TypeScript, JavaScript, React, HTML, CSS, LESS, Git, WCAG-overholdelse, JUnit, Mockito, SQL.",
-    "nn": "Java, TypeScript, JavaScript, React, HTML, CSS, LESS, Git, WCAG-overhaldelse, JUnit, Mockito, SQL."
-  },
-  "nghi.volunteering.DKC-title": {
+  "nghi.other.dance-title": {
     "en": "Vietnamese Cultural Association - Entertainment and Dance Coordinator | 2010 - Present",
     "no": "Det Vietnamesiske Kulturforbundet - Underholdning og dans-ansvarlig | 2010 - Nå",
     "nn": "Det Vietnamesiske Kulturforbundet - Underhaldning og dans-ansvarleg | 2010 - No"
   },
-  "nghi.volunteering.DKC-description": {
+  "nghi.other.dance-description": {
     "en": "Responsible for creating dance performances for children and youth, as well as coordinating diverse entertainment during cultural events. In charge of ensuring that events run smoothly, managing schedules, participants, necessary props, and food distribution.",
     "no": "Har ansvar for å lage danseforestillinger for barn/unge og koordinere variert underholdning under kulturelle begivenheter. Ansvarlig for at event går som de skal, ansvar for timeplan, deltakelse, nødvendige rekvisita, matfordeling m.m.",
     "nn": "Har ansvar for å lage danseframsyningar for barn/unge og koordinere variert underhaldning under kulturelle hendingar. Ansvarleg for at event går som dei skal, ansvar for timeplan, deltaking, nødvendige rekvisita, matfordeling m.m."
   },
-  "nghi.volunteering.FF-title": {
+  "nghi.other.FF-title": {
     "en": "Forskerfabrikken - Course Leader for Thinking Skills Course | 2016 - 2019",
     "no": "Forskerfabrikken - Kursholder for Tenketreningskurs | 2016 - 2019",
     "nn": "Forskerfabrikken - Kursleiar for Tenketreningskurs | 2016 - 2019"
   },
-  "nghi.volunteering.FF-description": {
+  "nghi.other.FF-description": {
     "en": "Led a course for a class of children in grades 2-4, focusing on practical experiments and theoretical learning centered around chemistry and mathematics, with an emphasis on fostering curiosity for research.",
     "no": "Holdt kurs for en klasse med barn i 2.-4. klasse i kurs med forskjellige praktiske eksperimenter og teoretisk læring basert rundt kjemi og matematikk, med fokus på å skape nysgjerrighet til forskning.",
     "nn": "Leidde kurs for ein klasse med barn i 2.-4. klasse i kurs med forskjellige praktiske eksperiment og teoretisk læring basert rundt kjemi og matematikk, med fokus på å skape nysgjerrigheit til forsking."

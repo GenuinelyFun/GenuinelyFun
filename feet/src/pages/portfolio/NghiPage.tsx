@@ -1,11 +1,10 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 import {
+  additionalWork,
   certificates,
   course,
   nghiLinks,
-  skills,
-  volunteering,
 } from '../../utils/nghi-utils';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
@@ -57,9 +56,14 @@ const ArthurPage: FC = () => {
         </div>
       </div>
       <h2>{translate('nghi.about.title')}</h2>
-      <p className={styles.paragraph}>{translate('nghi.about.text.part1')}</p>
-      <p className={styles.paragraph}>{translate('nghi.about.text.part2')}</p>
-      <h3 className={styles.categoryTitle}>{translate('experience.title')}</h3>
+      <p className={styles.paragraph}>{translate('nghi.about.intro')}</p>
+      <p className={styles.paragraph}>{translate('nghi.about.reliable')}</p>
+      <p className={styles.paragraph}>
+        {translate('nghi.about.accessibility')}
+      </p>
+      <h3 className={styles.categoryTitle}>
+        {translate('nghi.experience.title')}
+      </h3>
       <h4 className={styles.categorySubtitle}>
         {translate('nghi.experience.Posten-title')}
       </h4>
@@ -106,20 +110,12 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 2,
           })}
         >
-          {translate('nghi.qualifications.skills')}
+          {translate('nghi.qualifications.work')}
         </button>
         <button
           onClick={() => handleButtonClick(3)}
           className={classNames(styles.button, {
             [styles.activeButton]: visibleContent === 3,
-          })}
-        >
-          {translate('nghi.qualifications.volunteering')}
-        </button>
-        <button
-          onClick={() => handleButtonClick(4)}
-          className={classNames(styles.button, {
-            [styles.activeButton]: visibleContent === 4,
           })}
         >
           {translate('nghi.qualifications.course')}
@@ -141,33 +137,17 @@ const ArthurPage: FC = () => {
       )}
       {visibleContent === 2 && (
         <ul>
-          {skills.map((certificate, index) => (
+          {additionalWork.map((other, index) => (
             <li key={index}>
               <h4 className={styles.categorySubtitle}>
-                {translate(certificate.title)}
+                {translate(other.title)}
               </h4>
-              <p className={styles.paragraph}>
-                {translate(certificate.description)}
-              </p>
+              <p className={styles.paragraph}>{translate(other.description)}</p>
             </li>
           ))}
         </ul>
       )}
       {visibleContent === 3 && (
-        <ul>
-          {volunteering.map((volunteering, index) => (
-            <li key={index}>
-              <h4 className={styles.categorySubtitle}>
-                {translate(volunteering.title)}
-              </h4>
-              <p className={styles.paragraph}>
-                {translate(volunteering.description)}
-              </p>
-            </li>
-          ))}
-        </ul>
-      )}
-      {visibleContent === 4 && (
         <ul>
           {course.map((course, index) => (
             <li key={index}>
