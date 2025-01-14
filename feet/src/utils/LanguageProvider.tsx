@@ -48,7 +48,10 @@ type Languages = Record<string, string>;
 
 type LanguageContextType = {
   t: TFunction<'translation', undefined>;
-  translate: (textKey: TranslateTextKey) => string;
+  translate: (
+    textKey: TranslateTextKey,
+    params?: Record<string, string>,
+  ) => string;
   i18n: i18n;
   onClickLanguageChange: (language: string) => void;
   languages: Languages;
@@ -69,7 +72,10 @@ export const LanguageContextProvider: FC<PropsWithChildren> = ({
     i18n.changeLanguage(language);
   };
 
-  const translate = (key: TranslateTextKey) => {
+  const translate = (
+    key: TranslateTextKey,
+    params?: Record<string, string>,
+  ) => {
     if (!allText.hasOwnProperty(key)) {
       console.error(
         `Error: This textKey ${key} does not exist in translations.`,
@@ -84,6 +90,13 @@ export const LanguageContextProvider: FC<PropsWithChildren> = ({
         `Error: Key ${key} not found in language: ${i18n.language}`,
       );
       return key;
+    }
+
+    if (params) {
+      return result[i18n.language].replace(
+        /{([^\\}]+)}/g,
+        (match, key) => params[key] || match,
+      );
     }
 
     return result[i18n.language];

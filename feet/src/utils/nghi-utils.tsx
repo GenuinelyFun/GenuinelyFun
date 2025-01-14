@@ -119,21 +119,14 @@ export const certificates: Record<string, TranslateTextKey>[] = [
   },
 ];
 
-export const skills: Record<string, TranslateTextKey>[] = [
+export const additionalWork: Record<string, TranslateTextKey>[] = [
   {
-    title: 'nghi.skills.developer-title',
-    description: 'nghi.skills.developer-description',
-  },
-];
-
-export const volunteering: Record<string, TranslateTextKey>[] = [
-  {
-    title: 'nghi.volunteering.DKC-title',
-    description: 'nghi.volunteering.DKC-description',
+    title: 'nghi.other.dance-title',
+    description: 'nghi.other.dance-description',
   },
   {
-    title: 'nghi.volunteering.FF-title',
-    description: 'nghi.volunteering.FF-description',
+    title: 'nghi.other.FF-title',
+    description: 'nghi.other.FF-description',
   },
 ];
 

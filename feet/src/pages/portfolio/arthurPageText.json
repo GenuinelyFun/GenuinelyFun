@@ -1,5 +1,5 @@
 {
-  "about.title": {
+  "arthur.about.title": {
     "en": "Short about me",
     "no": "Kort om meg",
     "nn": "Kort om meg"
@@ -14,7 +14,7 @@
     "no": "Min erfaring med programmering har gitt meg verdifull innsikt i hvordan teknologi kan skape innovative løsninger. Jeg brenner for å utvikle systemer som både er funksjonelle og effektive. Drevet av nysgjerrighet og kontinuerlig læring.",
     "nn": "Mi erfaring med programmering har gitt meg verdifull innsikt i korleis teknologi kan drivast fram av innovative løysingar. Eg har ei sterk interesse for å utvikle system som både er funksjonelle og effektive. Driven av nysgjerrigheit og kontinuerleg læring."
   },
-  "experience.title": {
+  "arthur.experience.title": {
     "en": "Experience",
     "no": "Erfaring",
     "nn": "Erfaring"
@@ -59,7 +59,7 @@
     "no": "Montering av elektriske installasjoner og e-kommunikasjonsanlegg. Utførte konsulenttjenester for Oslo Universitetssykehus (OUS), hvor arbeidsoppgavene inkluderte arbeid i NettDok, der jeg tegnet elektrotegninger for OUS.).",
     "nn": "Montering av elektriske installasjonar og e-kommunikasjonsanlegg. Utførte konsulenttenester for Oslo Universitetssykehus (OUS), der arbeidsoppgåvene inkluderte arbeid i NettDok, der eg teikna elektroteikningar for OUS."
   },
-  "education.title": {
+  "arthur.education.title": {
     "en": "Education",
     "no": "Utdanning",
     "nn": "Utdanning"
@@ -79,27 +79,27 @@
     "no": "Fullførte både videregående skole og læretid samtidig fra 2007 til 2012.",
     "nn": "Fullførte både vidaregåande skule og læretid samtidig frå 2007 til 2012."
   },
-  "qualifications.title": {
+  "arthur.qualifications.title": {
     "en": "Qualifications and activities",
     "no": "Kvalifikasjoner og aktiviteter",
     "nn": "Kvalifikasjonar og aktivitetar"
   },
-  "qualifications.certificate": {
+  "arthur.qualifications.certificate": {
     "en": "Certificates",
     "no": "Sertifikater",
     "nn": "Sertifikat"
   },
-  "qualifications.skills": {
+  "arthur.qualifications.skills": {
     "en": "Skills",
     "no": "Ferdigheter",
     "nn": "Ferdigheiter"
   },
-  "qualifications.volunteering": {
+  "arthur.qualifications.volunteering": {
     "en": "Volunteering",
     "no": "Frivillig arbeid",
     "nn": "Frivillig arbeid"
   },
-  "qualifications.honors": {
+  "arthur.qualifications.honors": {
     "en": "Honors and awards",
     "no": "Utmerkelser og priser",
     "nn": "Utmerkingar og prisar"

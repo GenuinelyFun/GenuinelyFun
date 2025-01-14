@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import classNames from 'classnames';
 import iconUpload from '../../assets/icons/upload.svg';
 import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
@@ -16,7 +17,7 @@ import styles from './ImportForm.module.less';
 
 const FIRE_EXPERT_VERSION = 'MCU 24.5.3.f ';
 
-const ImportForm: FC = () => {
+const ImportForm: FC<{ className?: string }> = ({ className }) => {
   const toast = useToast();
   const { addFiles } = useDataContext();
   const [isDragging, setIsDragging] = useState(false);
@@ -100,7 +101,7 @@ const ImportForm: FC = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={classNames(styles.container, className)}>
       <div
         className={styles.uploadContainer}
         onDrop={handleDrop}

@@ -51,10 +51,12 @@ const ArthurPage: FC = () => {
           </div>
         </div>
       </div>
-      <h2>{translate('about.title')}</h2>
+      <h2>{translate('arthur.about.title')}</h2>
       <p className={styles.paragraph}>{translate('arthur.about.text.part1')}</p>
       <p className={styles.paragraph}>{translate('arthur.about.text.part2')}</p>
-      <h3 className={styles.categoryTitle}>{translate('experience.title')}</h3>
+      <h3 className={styles.categoryTitle}>
+        {translate('arthur.experience.title')}
+      </h3>
       <h4 className={styles.categorySubtitle}>
         {translate('arthur.experience.EDA2-title')}
       </h4>
@@ -79,7 +81,9 @@ const ArthurPage: FC = () => {
       <p className={styles.paragraph}>
         {translate('arthur.experience.Sonnico-description')}
       </p>
-      <h3 className={styles.categoryTitle}>{translate('education.title')}</h3>
+      <h3 className={styles.categoryTitle}>
+        {translate('arthur.education.title')}
+      </h3>
       <h4 className={styles.categorySubtitle}>
         {translate('arthur.education.JessheimVGS-title')}
       </h4>
@@ -88,7 +92,7 @@ const ArthurPage: FC = () => {
         {translate('arthur.education.JessheimVGS-description-extra')}
       </p>
       <h3 className={styles.categoryTitle}>
-        {translate('qualifications.title')}
+        {translate('arthur.qualifications.title')}
       </h3>
       <div className={styles.buttonGroup}>
         <button
@@ -97,7 +101,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 1,
           })}
         >
-          {translate('qualifications.certificate')}
+          {translate('arthur.qualifications.certificate')}
         </button>
         <button
           onClick={() => handleButtonClick(2)}
@@ -105,7 +109,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 2,
           })}
         >
-          {translate('qualifications.skills')}
+          {translate('arthur.qualifications.skills')}
         </button>
         <button
           onClick={() => handleButtonClick(3)}
@@ -113,7 +117,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 3,
           })}
         >
-          {translate('qualifications.volunteering')}
+          {translate('arthur.qualifications.volunteering')}
         </button>
         <button
           onClick={() => handleButtonClick(4)}
@@ -121,7 +125,7 @@ const ArthurPage: FC = () => {
             [styles.activeButton]: visibleContent === 4,
           })}
         >
-          {translate('qualifications.honors')}
+          {translate('arthur.qualifications.honors')}
         </button>
       </div>
       {visibleContent === 1 && (
