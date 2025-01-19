@@ -26,7 +26,7 @@ export const arthurLinks: {
   },
   x: {
     url: 'https://x.com/ThomassenArthur',
-    icon: <LinkIcon src={Xicon} alt="X" />,
+    icon: <LinkIcon src={Xicon} alt="X previously Twitter" />,
     name: 'X',
   },
 };
