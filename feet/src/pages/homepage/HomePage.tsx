@@ -16,13 +16,10 @@ const HomePage: FC = () => {
     <main>
       <section className={styles.heroSection}>
         <h1>
-          {translate('hero.title_part1')} {translate('nghi.firstname')}{' '}
-          {translate('hero.title_part2')} {translate('arthur.firstname')}
-          {translate('hero.title_part3')}
+          {translate('hero.title', {firstname: translate('nghi.firstname'), secondname:translate('arthur.firstname')})}
         </h1>
         <h2>
-          {translate('hero.subtitle_part1')} {translate('genuinelyfun.name')}
-          {translate('hero.subtitle_part2')}
+          {translate('hero.subtitle', {companyName: translate('genuinelyfun.name')})}
         </h2>
       </section>
       <div className={styles.mainSection}>
@@ -35,15 +32,7 @@ const HomePage: FC = () => {
         {isAdvertisementShowing && (
           <Card
             className={styles.mainSectionInfoBox}
-            icon={
-              <img
-                src={toolsicon}
-                alt={translate('infobox.angle-tool-pencil.aria')}
-                className={styles.icon}
-              />
-            }
             iconPosition={IconPosition.LEFT}
-            aria-label={translate('infobox.angle-tool-pencil.aria')}
           >
             <div className={classNames(styles.cardContent, styles.mainContent)}>
               <h2>

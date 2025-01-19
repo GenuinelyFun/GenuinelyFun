@@ -1,33 +1,13 @@
 {
-  "hero.title_part1": {
-    "en": "Hi, we're",
-    "no": "Hei, vi er",
-    "nn": "Hei, vi er"
+  "hero.title": {
+    "en": "Hi, we're {firstname} and {secondname}!",
+    "no": "Hei, vi er {firstname} og {secondname}!",
+    "nn": "Hei, vi er {firstname} og {secondname}!"
   },
-  "hero.title_part2": {
-    "en": "and",
-    "no": "and",
-    "nn": "and"
-  },
-  "hero.title_part3": {
-    "en": "!",
-    "no": "!",
-    "nn": "!"
-  },
-  "hero.subtitle_part1": {
-    "en": "Welcome to",
-    "no": "Velkommen",
-    "nn": "Velkomen"
-  },
-  "hero.subtitle_part2": {
-    "en": ", where we share our favorite coding projects and ideas.",
-    "no": ", hvor vi deler våre favorittprosjekter og idéer innen programmering.",
-    "nn": ", der vi deler våre favorittprosjekt og idear innan programmering."
-  },
-  "infobox.angle-tool-pencil.aria": {
-    "en": "Angle tool and pencil",
-    "no": "Vinkelverktøy og blyant",
-    "nn": "Vinkelverktøy og blyant"
+  "hero.subtitle": {
+    "en": "Welcome to {companyName}, where we share our favorite coding projects and ideas.",
+    "no": "Velkommen til {companyName}, hvor vi deler våre favorittprosjekter og idéer innen programmering.",
+    "nn": "Velkomen til {companyName}, der vi deler våre favorittprosjekt og idear innan programmering."
   },
   "infobox.title.part1": {
     "en": "We make your",
