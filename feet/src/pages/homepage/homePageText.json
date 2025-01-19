@@ -8,45 +8,5 @@
     "en": "Welcome to {companyName}, where we share our favorite coding projects and ideas.",
     "no": "Velkommen til {companyName}, hvor vi deler våre favorittprosjekter og idéer innen programmering.",
     "nn": "Velkomen til {companyName}, der vi deler våre favorittprosjekt og idear innan programmering."
-  },
-  "infobox.title.part1": {
-    "en": "We make your",
-    "no": "Vi gjør",
-    "nn": "Vi gjer"
-  },
-  "infobox.title.part2": {
-    "en": " i",
-    "no": " i",
-    "nn": " i"
-  },
-  "infobox.title.part3": {
-    "en": "dea to reality",
-    "no": "déen din om til virkelighet",
-    "nn": "déen din om til røyndom"
-  },
-  "infobox.description": {
-    "en": "Your digital presence is key to making a great first impression.Whether you need an engaging platform or effective tools to boostproductivity, we deliver modern solutions that stand out and workseamlessly.",
-    "no": "Din digitale tilstedeværelse er nøkkelen til å gjøre et godt førsteinntrykk. Enten du trenger en engasjerende plattform eller effektive verktøy for å øke produktiviteten, leverer vi moderne løsninger som skiller seg ut og fungerer sømløst.",
-    "nn": "Din digitale tilstadeværelse er nøkkelen til å gjere eit godt førsteinntrykk. Enten du treng ei engasjerande plattform eller effektive verktøy for å auke produktiviteten, leverer vi moderne løysingar som skil seg ut og fungerer saumlaust."
-  },
-  "infobox.button": {
-    "en": "Click here, and we'll make it happen",
-    "no": "Trykk her, så skal vi få det til",
-    "nn": "Trykk her, så skal vi få det til"
-  },
-  "about-us.test-image.aria": {
-    "en": "Test image",
-    "no": "Testbilde",
-    "nn": "Testbilete"
-  },
-  "about-us.title": {
-    "en": "About us",
-    "no": "Om oss",
-    "nn": "Om oss"
-  },
-  "about-us.description": {
-    "en": "We create stunning, high-converting websites, then build highly targeted landing pages that drive focused traffic straight to you.After that, we roll up our sleeves and work tirelessly to turn asmany visitors as possible into paying customers. The result? Youenjoy a profitable, high-performing website, raking in revenue andbecoming the talk of your friends and family. It really is that simple!",
-    "no": "Vi lager fantastiske, høy-konverterende nettsider, deretter bygger vi svært målrettede landingssider som driver fokusert trafikk rett til deg. Etter det bretter vi opp ermene og jobber utrettelig for å gjøre så mange besøkende som mulig til betalende kunder. Resultatet? Du får en lønnsom, høytytende nettside som genererer inntekter og blir samtaleemnet blant dine venner og familie. Det er virkelig så enkelt!",
-    "nn": "Vi lagar fantastiske, høg-konverterande nettsider, deretter byggjer vi svært målretta landingssider som driv fokusert trafikk rett til deg. Etter det brettar vi opp ermene og jobbar utrettelig for å gjere så mange besøkande som mogleg til betalande kundar. Resultatet? Du får ei lønsam, høgtytande nettside som genererer inntekter og blir samtaleemnet blant venene og familien din. Det er verkeleg så enkelt!"
   }
 }
