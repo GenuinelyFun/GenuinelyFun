@@ -8,10 +8,10 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
-import { nghiLinks } from '../utils/nghi-utils';
+import {NGHI_FIRSTNAME, nghiLinks} from '../utils/nghi-utils';
 import { routePaths } from '../index';
 import styles from './AuthorCard.module.less';
-import { arthurLinks } from '../utils/arthur-utils';
+import {ARTHUR_FIRSTNAME, arthurLinks} from '../utils/arthur-utils';
 
 const AuthorCard: FC<{
   author: 'arthur' | 'nghi';
@@ -38,7 +38,7 @@ const AuthorCard: FC<{
         <h2>{translate('author-card.about')}</h2>
         <p>
           {translate(`author-card.${author}.title` as TranslateTextKey)}{' '}
-          {translate(`${author}.firstname`)}
+          {author === 'arthur' ? ARTHUR_FIRSTNAME : NGHI_FIRSTNAME}
         </p>
         <p>
           {translate(`author-card.${author}.paragraph` as TranslateTextKey)}

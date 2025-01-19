@@ -11,6 +11,7 @@ import Modal from './Modal';
 import Menu from './Menu';
 
 import styles from './Header.module.less';
+import {COMPANY_NAME} from "../index";
 
 const Header: FC = () => {
   const { isMobile } = useMobileSizes();
@@ -20,7 +21,7 @@ const Header: FC = () => {
       <Link to="/">
         <img
           src={iconGenuinelyFun}
-          alt="Genuinely Fun Icon"
+          alt={COMPANY_NAME + " Icon"}
           className={styles.funIcon}
         />
       </Link>

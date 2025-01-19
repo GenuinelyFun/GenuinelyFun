@@ -12,6 +12,8 @@ import NghiPage from './pages/portfolio/NghiPage';
 import './utils/i18n';
 import './index.less';
 
+export const COMPANY_NAME = 'Genuinely Fun';
+
 export const routePaths = {
   home: '',
   techBestPractice: 'tech-best-practice',

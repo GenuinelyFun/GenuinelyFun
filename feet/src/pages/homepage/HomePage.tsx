@@ -2,6 +2,9 @@ import { FC } from 'react';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import AuthorCard from '../../components/AuthorCard';
 import styles from './HomePage.module.less';
+import {ARTHUR_FIRSTNAME} from "../../utils/arthur-utils";
+import {NGHI_FIRSTNAME} from "../../utils/nghi-utils";
+import {COMPANY_NAME} from "../../index";
 
 const HomePage: FC = () => {
   const { translate } = useLanguageContext();
@@ -9,10 +12,10 @@ const HomePage: FC = () => {
     <main>
       <section className={styles.heroSection}>
         <h1>
-          {translate('hero.title', {firstname: translate('nghi.firstname'), secondname:translate('arthur.firstname')})}
+          {translate('hero.title', {firstname: NGHI_FIRSTNAME, secondname:ARTHUR_FIRSTNAME})}
         </h1>
         <h2>
-          {translate('hero.subtitle', {companyName: translate('genuinelyfun.name')})}
+          {translate('hero.subtitle', {companyName: COMPANY_NAME})}
         </h2>
       </section>
       <div className={styles.mainSection}>

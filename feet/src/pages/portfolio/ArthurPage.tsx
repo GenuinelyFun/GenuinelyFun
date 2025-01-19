@@ -1,11 +1,12 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 import {
-  arthurLinks,
-  certificates,
-  honors,
-  skills,
-  volunteering,
+    ARTHUR_FIRSTNAME, ARTHUR_FULLNAME,
+    arthurLinks,
+    certificates,
+    honors,
+    skills,
+    volunteering,
 } from '../../utils/arthur-utils';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import arthur from '../../assets/images/arthur_1740x1740.jpg';
@@ -25,14 +26,12 @@ const ArthurPage: FC = () => {
       <div className={styles.header}>
         <img
           src={arthur}
-          alt={translate('author-card.arthur.aria')}
+          alt={translate('author-card.aria', {name: ARTHUR_FIRSTNAME})}
           className={styles.profileImage}
         />
         <div className={styles.headerContent}>
           <h1 className={styles.profileText}>
-            {translate('author-card.arthur.title')}{' '}
-            {translate('arthur.firstname')} {translate('arthur.middle_name')}{' '}
-            {translate('arthur.lastname')}
+            {translate('author-card.title', {name:ARTHUR_FULLNAME})}
           </h1>
           <div className={styles.socialMedia}>
             {Object.keys(arthurLinks).map((key) => {

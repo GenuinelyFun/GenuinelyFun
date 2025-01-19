@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import classNames from 'classnames';
 import {
-  additionalWork,
-  certificates,
-  course,
-  nghiLinks,
+    additionalWork,
+    certificates,
+    course, NGHI_FIRSTNAME, NGHI_FULLNAME,
+    nghiLinks,
 } from '../../utils/nghi-utils';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
@@ -27,13 +27,12 @@ const ArthurPage: FC = () => {
       <div className={styles.header}>
         <img
           src={nghi}
-          alt={translate('author-card.nghi.aria')}
+          alt={translate('author-card.aria', {name: NGHI_FIRSTNAME})}
           className={styles.profileImage}
         />
         <div className={styles.headerContent}>
           <h1 className={styles.profileText}>
-            {translate('author-card.nghi.title')} {translate('nghi.firstname')}{' '}
-            {translate('nghi.lastname')}
+            {translate('author-card.title', {name: NGHI_FULLNAME})}
           </h1>
           <div className={styles.socialMedia}>
             {Object.keys(nghiLinks).map((key) => {
