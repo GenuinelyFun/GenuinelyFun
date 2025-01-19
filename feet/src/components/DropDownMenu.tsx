@@ -60,6 +60,7 @@ const DropDownMenu = ({
         id={labelId}
         className={classNames(styles.dropdownButton, buttonClassName)}
         aria-label={buttonAriaLabel}
+        aria-haspopup="true"
       >
         {translate(buttonTextKey)}
         <Arrow
@@ -77,6 +78,7 @@ const DropDownMenu = ({
           styles.dropdownList,
         )}
         aria-labelledby={labelId}
+        aria-expanded={open}
       >
         {listItems.map((item, index) => {
           return (
