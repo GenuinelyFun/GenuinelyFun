@@ -1,13 +1,14 @@
 import React from 'react';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import Card from '../../components/AuthorCard';
+import PageHeading from '../../components/PageHeading';
 import { ArticleWrapper } from './ArticleWrapper';
 
 const TechBestPracticePage = (): JSX.Element => {
   const { translate } = useLanguageContext();
   return (
     <ArticleWrapper>
-      <h1>{translate('main.title')}</h1>
+      <PageHeading>{translate('main.title')}</PageHeading>
       <p>{translate('main.paragraph')}</p>
 
       <h2>{translate('routine.title')}</h2>

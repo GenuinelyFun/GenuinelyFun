@@ -19,12 +19,14 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
           [styles.active]: location.pathname === routePaths.home,
         })}
         to={routePaths.home}
+        state={{ prevPage: location.pathname }}
         onClick={onLinkClick}
       >
         {translate('tab.homepage')}
       </Link>
       <Link
         to={routePaths.feet}
+        state={{ prevPage: location.pathname }}
         className={classNames(styles.menuButton, {
           [styles.active]: location.pathname === routePaths.feet,
         })}
@@ -37,6 +39,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         buttonTextKey={'tab.journal'}
         listItems={[
           <Link
+            state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]:
                 location.pathname === routePaths.techBestPractice,
@@ -53,6 +56,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         buttonTextKey={'tab.portfolio'}
         listItems={[
           <Link
+            state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]: location.pathname === routePaths.arthur,
             })}
@@ -62,6 +66,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             {translate('tab.arthur')}
           </Link>,
           <Link
+            state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]: location.pathname === routePaths.nghi,
             })}

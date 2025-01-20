@@ -5,6 +5,7 @@ import moon from '../../assets/icons/moon.svg';
 import rocket from '../../assets/icons/rocket.svg';
 import astronaut from '../../assets/icons/astronaut_working.svg';
 import GenericButton from '../../components/GenericButton';
+import PageHeading from '../../components/PageHeading';
 import styles from './NotFoundPage.module.less';
 
 const NotFoundPage = (): JSX.Element => {
@@ -14,7 +15,7 @@ const NotFoundPage = (): JSX.Element => {
   return (
     <main className={styles.pagenotfound}>
       <div className={styles.header}>
-        <h1>{translate('title')}</h1>
+        <PageHeading>{translate('title')}</PageHeading>
         <p>{translate('paragraph')}</p>
         <GenericButton className={styles.button} onClick={() => navigate('/')}>
           {translate('button')}

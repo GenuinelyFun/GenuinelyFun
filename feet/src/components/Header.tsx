@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
 import { ReactComponent as BurgerIcon } from '../assets/icons/burger.svg';
 import { useModal } from '../utils/useModal';
@@ -16,9 +16,10 @@ import {COMPANY_NAME} from "../index";
 const Header: FC = () => {
   const { isMobile } = useMobileSizes();
   const menuModal = useModal();
+  const location = useLocation();
   return (
     <header className={styles.header}>
-      <Link to="/">
+      <Link to="/" state={{ prevPage: location.pathname }}>
         <img
           src={iconGenuinelyFun}
           alt={COMPANY_NAME + " Icon"}
