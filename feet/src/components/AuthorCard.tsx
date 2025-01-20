@@ -37,8 +37,9 @@ const AuthorCard: FC<{
       <div className={styles.textContainer}>
         <h2>{translate('author-card.about')}</h2>
         <p>
-          {translate(`author-card.title` as TranslateTextKey)}{' '}
-          {author === 'arthur' ? ARTHUR_FIRSTNAME : NGHI_FIRSTNAME}
+          {translate('author-card.title', {
+            name: author === 'arthur' ? ARTHUR_FIRSTNAME : NGHI_FIRSTNAME,
+          })}
         </p>
         <p>
           {translate(`author-card.${author}.paragraph` as TranslateTextKey)}
