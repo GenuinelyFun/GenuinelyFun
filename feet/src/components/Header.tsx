@@ -4,6 +4,7 @@ import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
 import { ReactComponent as BurgerIcon } from '../assets/icons/burger.svg';
 import { useModal } from '../utils/useModal';
 import { useMobileSizes } from '../utils/useMobileSizes';
+import { COMPANY_NAME } from '../index';
 import GenericButton from './GenericButton';
 import LanguageButton from './LanguageButton';
 import DarkmodeToggle from './DarkmodeToggle';
@@ -11,7 +12,6 @@ import Modal from './Modal';
 import Menu from './Menu';
 
 import styles from './Header.module.less';
-import {COMPANY_NAME} from "../index";
 
 const Header: FC = () => {
   const { isMobile } = useMobileSizes();
@@ -22,7 +22,7 @@ const Header: FC = () => {
       <Link to="/" state={{ prevPage: location.pathname }}>
         <img
           src={iconGenuinelyFun}
-          alt={COMPANY_NAME + " Icon"}
+          alt={COMPANY_NAME + ' Icon'}
           className={styles.funIcon}
         />
       </Link>
