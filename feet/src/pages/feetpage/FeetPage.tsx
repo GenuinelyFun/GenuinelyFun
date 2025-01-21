@@ -21,10 +21,10 @@ const FeetPage: FC = () => {
             <p>{translate('feet-page.description_part2')}</p>
             <ImportForm />
           </div>
-          <aside className={styles.aside}>
+          <div className={styles.aside}>
             <ExportForm />
             <FileList />
-          </aside>
+          </div>
         </div>
       </main>
     </DataProvider>
