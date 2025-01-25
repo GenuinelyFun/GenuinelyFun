@@ -39,6 +39,11 @@
     "no": "Må være JSON filtype, prøv igjen.",
     "nn": "Må vere JSON-filtype, prøv igjen."
   },
+  "upload.success": {
+    "en": "Successfully uploaded.",
+    "no": "Opplasting vellykket.",
+    "nn": "Opplasting vellykka."
+  },
   "upload.error-root": {
     "en": "Invalid JSON format, please make sure it is the correct file and try again.",
     "no": "Ugyldig JSON-format, vennligst sjekk at det er riktig fil og prøv igjen.",

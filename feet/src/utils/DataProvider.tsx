@@ -3,6 +3,11 @@ import { Root } from '../interfaces/jsonDataInterface';
 import { useContextOrThrow } from './context-utils';
 import { useToast } from './useToast';
 
+export const shortenedFileName = (name: string) => {
+  if (name.length <= 22) return name;
+  return name.slice(0, 22) + '...';
+};
+
 type DataContextType = {
   files: { name: string; json: Root }[];
   removeFile: (name: string) => void;
@@ -30,7 +35,12 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
   };
 
   const removeFile = (name: string) => {
-    setFiles(files.filter((file) => file.name !== name));
+    toast({
+      type: 'success',
+      textKey: 'file-list.remove-file.success',
+      textParams: { file: shortenedFileName(name) },
+    });
+    setFiles((prevFiles) => prevFiles.filter((file) => file.name !== name));
   };
 
   return (

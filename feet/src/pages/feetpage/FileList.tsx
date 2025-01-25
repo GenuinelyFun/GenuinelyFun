@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useDataContext } from '../../utils/DataProvider';
+import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { default as FileIcon } from '../../assets/icons/file.svg';
@@ -10,11 +10,6 @@ const FileList = () => {
   const { translate } = useLanguageContext();
   const { files, removeFile } = useDataContext();
   const { theme } = useDarkmodeContext();
-
-  const shortenedFileName = (name: string) => {
-    if (name.length <= 22) return name;
-    return name.slice(0, 22) + '...';
-  };
 
   return (
     <ul
@@ -35,17 +30,20 @@ const FileList = () => {
             })}
           />
           <p>{shortenedFileName(name)}</p>
-          <button onClick={() => removeFile(name)}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              removeFile(name);
+            }}
+          >
             <img
               src={CrossIcon}
               className={classNames({
                 [styles.icon]: theme === Darkmode.Dark,
               })}
-              alt={
-                translate('file-list.remove-file.aria') +
-                ' ' +
-                shortenedFileName(name)
-              }
+              alt={translate('file-list.remove-file.aria', {
+                file: shortenedFileName(name),
+              })}
             />
           </button>
         </li>

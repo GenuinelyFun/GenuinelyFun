@@ -10,8 +10,13 @@
     "nn": "Dokumentfil"
   },
   "file-list.remove-file.aria": {
-    "en": "Remove file",
-    "no": "Fjern fil",
-    "nn": "Fjern fil"
+    "en": "Remove file {file}",
+    "no": "Fjern fil {file}",
+    "nn": "Fjern fil {file}"
+  },
+  "file-list.remove-file.success": {
+    "en": "File {file} removed",
+    "no": "Fil {file} fjernet",
+    "nn": "Fil {file} fjerna"
   }
 }
