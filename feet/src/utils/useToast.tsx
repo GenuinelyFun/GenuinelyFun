@@ -30,29 +30,29 @@ export const useToast = () => {
     ({
       type = 'info',
       textKey,
+      textParams,
       element,
       promise,
     }: {
       type: 'error' | 'success' | 'promise' | 'info';
       textKey?: TranslateTextKey;
+      textParams?: Record<string, string>;
       element?: ReactElement;
       promise?: PromiseProps;
     }) => {
       const content = element
         ? () => element
         : textKey
-          ? translate(textKey)
+          ? translate(textKey, textParams)
           : 'Hot toast burnt';
       switch (type) {
         case 'error':
           hotToast.error(content, {
-            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
             ...darkmodeStyles,
           });
           break;
         case 'success':
           hotToast.success(content, {
-            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
             ...darkmodeStyles,
             duration: 4000,
           });
@@ -60,7 +60,6 @@ export const useToast = () => {
         case 'promise':
           if (promise !== undefined) {
             hotToast.promise(promise.loader, promise.options, {
-              ariaProps: { role: 'alert', 'aria-live': 'assertive' },
               ...darkmodeStyles,
             });
           }
@@ -68,7 +67,6 @@ export const useToast = () => {
         case 'info':
         default:
           hotToast(content, {
-            ariaProps: { role: 'alert', 'aria-live': 'assertive' },
             ...darkmodeStyles,
           });
           break;

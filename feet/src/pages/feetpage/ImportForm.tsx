@@ -85,6 +85,8 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
         await Promise.all<{ name: string; json: Root } | false>(filesArray)
       ).filter((file) => file !== false) as { name: string; json: Root }[],
     );
+
+    toast({ type: 'success', textKey: 'upload.success' });
   };
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {

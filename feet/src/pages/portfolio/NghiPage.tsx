@@ -4,11 +4,14 @@ import {
   additionalWork,
   certificates,
   course,
+  NGHI_FIRSTNAME,
+  NGHI_FULLNAME,
   nghiLinks,
 } from '../../utils/nghi-utils';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
+import PageHeading from '../../components/PageHeading';
 
 import styles from './ArthurNghiPage.module.less';
 
@@ -27,14 +30,13 @@ const ArthurPage: FC = () => {
       <div className={styles.header}>
         <img
           src={nghi}
-          alt={translate('author-card.nghi.aria')}
+          alt={translate('author-card.aria', { name: NGHI_FIRSTNAME })}
           className={styles.profileImage}
         />
         <div className={styles.headerContent}>
-          <h1 className={styles.profileText}>
-            {translate('author-card.nghi.title')} {translate('nghi.firstname')}{' '}
-            {translate('nghi.lastname')}
-          </h1>
+          <PageHeading className={styles.profileText}>
+            {translate('author-card.title', { name: NGHI_FULLNAME })}
+          </PageHeading>
           <div className={styles.socialMedia}>
             {Object.keys(nghiLinks).map((key) => {
               const link = nghiLinks[key];

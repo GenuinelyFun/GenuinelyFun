@@ -20,6 +20,32 @@ import { mapControlGroupsToExcel } from '../../mappers/control-group-report-util
 import { addSheetToWorkbook, feetLanguages } from '../../mappers/utils';
 import styles from './ExportForm.module.less';
 
+const CheckboxWithInfobox: FC<{
+  textKey: string;
+  value: boolean;
+  setValue: () => void;
+  translate: (key: TranslateTextKey) => string;
+  disabled?: boolean;
+}> = ({ textKey, value, setValue, translate, disabled }) => (
+  <li className={styles.checkboxContainer}>
+    <label className={styles.checkbox}>
+      <input
+        type={'checkbox'}
+        checked={value}
+        onChange={setValue}
+        disabled={disabled}
+      />
+      {translate(`export.${textKey}.checkbox.label` as TranslateTextKey)}
+    </label>
+    <InfoBox
+      message={translate(
+        `export.${textKey}.infobox.description` as TranslateTextKey,
+      )}
+      header={translate(`export.${textKey}.infobox.title` as TranslateTextKey)}
+    />
+  </li>
+);
+
 const ExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
@@ -164,34 +190,6 @@ const ExportForm: FC = () => {
     setIoReport(!isAllSelected);
     setControlGroupReport(!isAllSelected);
   };
-
-  const CheckboxWithInfobox: FC<{
-    textKey: string;
-    value: boolean;
-    setValue: () => void;
-    disabled?: boolean;
-  }> = ({ textKey, value, setValue, disabled }) => (
-    <li className={styles.checkboxContainer}>
-      <label className={styles.checkbox}>
-        <input
-          type={'checkbox'}
-          checked={value}
-          onChange={setValue}
-          disabled={disabled}
-        />
-        {translate(`export.${textKey}.checkbox.label` as TranslateTextKey)}
-      </label>
-      <InfoBox
-        message={translate(
-          `export.${textKey}.infobox.description` as TranslateTextKey,
-        )}
-        header={translate(
-          `export.${textKey}.infobox.title` as TranslateTextKey,
-        )}
-      />
-    </li>
-  );
-
   return (
     <form
       className={styles.container}
@@ -199,9 +197,9 @@ const ExportForm: FC = () => {
       role={'form'}
       aria-label={translate(`export.settings.aria`)}
     >
-      <h2>Export settings</h2>
+      <h2>{translate('export.title')}</h2>
       <label className={styles.select}>
-        {translate(`export.title`)}
+        {translate('export.language.select')}
         <select
           onChange={(e) => setSheetLanguage(e.target.value)}
           value={sheetLanguage}
@@ -221,56 +219,66 @@ const ExportForm: FC = () => {
           textKey={'selectall'}
           value={isAllSelected}
           setValue={toggleSelectAll}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'zone'}
           value={zone}
           setValue={() => setZone(!zone)}
           disabled={!isZonesAvailable}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'board'}
           value={ioBoard}
           setValue={() => setIoBoard(!ioBoard)}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
+          translate={translate}
         />
         <CheckboxWithInfobox
           textKey={'controlgroups'}
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
+          translate={translate}
         />
       </ul>
       <label className={styles.checkbox}>
         <input
           type={'checkbox'}
           checked={disclaimer}
-          onChange={() => setDisclaimer(!disclaimer)}
+          onChange={() => {
+            setDisclaimer(!disclaimer);
+          }}
         />
         {translate(`export.disclaimer.checkbox.label` as TranslateTextKey)}
       </label>
       <GenericButton
         className={styles.button}
         disabled={files.length === 0 || isNoneSelected || !disclaimer}
-        role={'submit'}
+        type={'submit'}
       >
         {translate('export.download.button')}
       </GenericButton>

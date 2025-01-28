@@ -5,6 +5,10 @@ import GithubIcon from '../assets/icons/github.svg';
 import LinkedinIcon from '../assets/icons/linkedin.svg';
 import LinkIcon from '../components/LinkIcon';
 
+export const NGHI_FIRSTNAME = 'Nghi';
+export const NGHI_LASTNAME = 'Nguyen';
+export const NGHI_FULLNAME = `${NGHI_FIRSTNAME} ${NGHI_LASTNAME}`;
+
 export const nghiLinks: {
   [key: string]: { url: string; icon: ReactNode; name: string };
 } = {

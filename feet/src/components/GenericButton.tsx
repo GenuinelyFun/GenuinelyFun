@@ -1,8 +1,7 @@
-import * as React from 'react';
 import { ButtonHTMLAttributes, FC } from 'react';
+import { Link, LinkProps, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './GenericButton.module.less';
-import { Link, LinkProps } from 'react-router-dom';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
@@ -21,6 +20,8 @@ const GenericButton: FC<Props> = ({
   as = 'button',
   ...buttonProps
 }) => {
+  const location = useLocation();
+
   if (as === 'a') {
     return (
       <a
@@ -40,6 +41,7 @@ const GenericButton: FC<Props> = ({
   if (as === 'link' && buttonProps.to !== undefined) {
     return (
       <Link
+        state={{ prevPage: location.pathname }}
         className={classNames(styles.button, className, {
           [styles.invert]: invert,
         })}

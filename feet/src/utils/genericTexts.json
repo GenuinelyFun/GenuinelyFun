@@ -34,30 +34,15 @@
     "no": "English",
     "nn": "English"
   },
-  "genuinelyfun.name": {
-    "en": "Genuinely Fun",
-    "no": "Genuinely Fun",
-    "nn": "Genuinely Fun"
-  },
   "genuinelyfun.email": {
     "en": "post@genuinelyfun.com",
     "no": "post@genuinelyfun.com",
     "nn": "post@genuinelyfun.com"
   },
   "genuinelyfun.all_rights_reserved": {
-    "en": "© 2025",
-    "no": "© 2025",
-    "nn": "© 2025 "
-  },
-  "nghi.firstname": {
-    "en": "Nghi",
-    "no": "Nghi",
-    "nn": "Nghi"
-  },
-  "nghi.lastname": {
-    "en": "Nguyen",
-    "no": "Nguyen",
-    "nn": "Nguyen"
+    "en": "© 2025 {company}",
+    "no": "© 2025 {company}",
+    "nn": "© 2025 {company}"
   },
   "nghi.email": {
     "en": "nguyenbdnghi@gmail.com",
@@ -73,21 +58,6 @@
     "en": "https://www.linkedin.com/in/nghi-nguyen-519405197/",
     "no": "https://www.linkedin.com/in/nghi-nguyen-519405197/",
     "nn": "https://www.linkedin.com/in/nghi-nguyen-519405197/"
-  },
-  "arthur.firstname": {
-    "en": "Arthur",
-    "no": "Arthur",
-    "nn": "Arthur"
-  },
-  "arthur.middle_name": {
-    "en": "Leonard",
-    "no": "Leonard",
-    "nn": "Leonard"
-  },
-  "arthur.lastname": {
-    "en": "Thomassen",
-    "no": "Thomassen",
-    "nn": "Thomassen"
   },
   "arthur.email": {
     "en": "arthur.leonard.thomassen@gmail.com",

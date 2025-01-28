@@ -9,9 +9,10 @@ import TechBestPracticePage from './pages/journalpage/TechBestPracticePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
-import TogglePage from './pages/togglePage/TogglePage';
 import './utils/i18n';
 import './index.less';
+
+export const COMPANY_NAME = 'Genuinely Fun';
 
 export const routePaths = {
   home: '',
@@ -19,7 +20,6 @@ export const routePaths = {
   feet: 'feet',
   arthur: 'arthur',
   nghi: 'nghi',
-  toggle: 'toggle',
 };
 
 const router = createBrowserRouter([
@@ -33,7 +33,6 @@ const router = createBrowserRouter([
       { path: routePaths.feet, element: <FeetPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
-      { path: routePaths.toggle, element: <TogglePage /> },
     ],
   },
 ]);

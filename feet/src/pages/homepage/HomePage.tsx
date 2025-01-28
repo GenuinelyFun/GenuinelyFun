@@ -1,29 +1,25 @@
 import { FC } from 'react';
-import classNames from 'classnames';
-import image from '../../assets/icons/image_test_560x560.png';
-import toolsicon from '../../assets/icons/tools.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
-import GenericButton from '../../components/GenericButton';
 import AuthorCard from '../../components/AuthorCard';
-import Card, { IconPosition } from './Card';
+import PageHeading from '../../components/PageHeading';
+import { ARTHUR_FIRSTNAME } from '../../utils/arthur-utils';
+import { NGHI_FIRSTNAME } from '../../utils/nghi-utils';
+import { COMPANY_NAME } from '../../index';
+
 import styles from './HomePage.module.less';
-import { useToggle } from '../togglePage/useToggle';
 
 const HomePage: FC = () => {
   const { translate } = useLanguageContext();
-  const { isAdvertisementShowing, isAboutUsShowing } = useToggle();
   return (
     <main>
       <section className={styles.heroSection}>
-        <h1>
-          {translate('hero.title_part1')} {translate('nghi.firstname')}{' '}
-          {translate('hero.title_part2')} {translate('arthur.firstname')}
-          {translate('hero.title_part3')}
-        </h1>
-        <h2>
-          {translate('hero.subtitle_part1')} {translate('genuinelyfun.name')}
-          {translate('hero.subtitle_part2')}
-        </h2>
+        <PageHeading>
+          {translate('hero.title', {
+            firstname: NGHI_FIRSTNAME,
+            secondname: ARTHUR_FIRSTNAME,
+          })}
+        </PageHeading>
+        <h2>{translate('hero.subtitle', { companyName: COMPANY_NAME })}</h2>
       </section>
       <div className={styles.mainSection}>
         <AuthorCard author={'arthur'} className={styles.mainSection} />
@@ -32,52 +28,6 @@ const HomePage: FC = () => {
           className={styles.mainSection}
           flip={true}
         />
-        {isAdvertisementShowing && (
-          <Card
-            className={styles.mainSectionInfoBox}
-            icon={
-              <img
-                src={toolsicon}
-                alt={translate('infobox.angle-tool-pencil.aria')}
-                className={styles.icon}
-              />
-            }
-            iconPosition={IconPosition.LEFT}
-            aria-label={translate('infobox.angle-tool-pencil.aria')}
-          >
-            <div className={classNames(styles.cardContent, styles.mainContent)}>
-              <h2>
-                {translate('infobox.title.part1')}
-                <span>{translate('infobox.title.part2')}</span>
-                {translate('infobox.title.part3')}
-              </h2>
-              <p>{translate('infobox.description')}</p>
-              <GenericButton
-                onClick={() => console.log('I DO NOTHING YET TODO TODO TODO')}
-                invert={true}
-              >
-                {translate('infobox.button')}
-              </GenericButton>
-            </div>
-          </Card>
-        )}
-        {isAboutUsShowing && (
-          <Card
-            icon={
-              <img
-                src={image}
-                alt={translate('about-us.test-image.aria')}
-                className={styles.genericImage}
-              />
-            }
-            iconPosition={IconPosition.RIGHT}
-          >
-            <div className={styles.cardContent}>
-              <h2>{translate('about-us.title')}</h2>
-              <p>{translate('about-us.description')}</p>
-            </div>
-          </Card>
-        )}
       </div>
     </main>
   );

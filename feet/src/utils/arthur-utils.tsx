@@ -6,6 +6,11 @@ import LinkedinIcon from '../assets/icons/linkedin.svg';
 import Xicon from '../assets/icons/x.svg';
 import LinkIcon from '../components/LinkIcon';
 
+export const ARTHUR_FIRSTNAME = 'Arthur';
+export const ARTHUR_MIDDLE_NAME = 'Leonard';
+export const ARTHUR_LASTNAME = 'Thomassen';
+export const ARTHUR_FULLNAME = `${ARTHUR_FIRSTNAME} ${ARTHUR_MIDDLE_NAME} ${ARTHUR_LASTNAME}`;
+
 export const arthurLinks: {
   [key: string]: { url: string; icon: ReactNode; name: string };
 } = {
@@ -26,7 +31,7 @@ export const arthurLinks: {
   },
   x: {
     url: 'https://x.com/ThomassenArthur',
-    icon: <LinkIcon src={Xicon} alt="X" />,
+    icon: <LinkIcon src={Xicon} alt="X previously Twitter" />,
     name: 'X',
   },
 };

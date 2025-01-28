@@ -8,10 +8,10 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
-import { nghiLinks } from '../utils/nghi-utils';
+import { NGHI_FIRSTNAME, nghiLinks } from '../utils/nghi-utils';
+import { ARTHUR_FIRSTNAME, arthurLinks } from '../utils/arthur-utils';
 import { routePaths } from '../index';
 import styles from './AuthorCard.module.less';
-import { arthurLinks } from '../utils/arthur-utils';
 
 const AuthorCard: FC<{
   author: 'arthur' | 'nghi';
@@ -31,14 +31,15 @@ const AuthorCard: FC<{
     >
       <img
         src={author === 'arthur' ? arthur : nghi}
-        alt={translate(`author-card.${author}.aria` as TranslateTextKey)}
+        alt={translate('author-card.aria', { name: author })}
         className={styles.profileImage}
       />
       <div className={styles.textContainer}>
         <h2>{translate('author-card.about')}</h2>
         <p>
-          {translate(`author-card.${author}.title` as TranslateTextKey)}{' '}
-          {translate(`${author}.firstname`)}
+          {translate('author-card.title', {
+            name: author === 'arthur' ? ARTHUR_FIRSTNAME : NGHI_FIRSTNAME,
+          })}
         </p>
         <p>
           {translate(`author-card.${author}.paragraph` as TranslateTextKey)}
