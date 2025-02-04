@@ -9,7 +9,7 @@ import pageNotFoundText from '../pages/notfoundpage/notFoundPageText.json';
 import feetPageText from '../pages/feetpage/feetPageText.json';
 import importFormText from '../pages/feetpage/importFormText.json';
 import fileListText from '../pages/feetpage/fileListText.json';
-import exportFormText from '../pages/feetpage/exportFormText.json';
+import exportFormText from '../pages/feetpage/export-form/exportFormText.json';
 import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
 import arthurPageText from '../pages/portfolio/arthurPageText.json';
 import nghiPageText from '../pages/portfolio/nghiPageText.json';

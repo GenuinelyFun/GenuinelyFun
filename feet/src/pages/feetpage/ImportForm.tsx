@@ -11,7 +11,7 @@ import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import { useToast } from '../../utils/useToast';
 import { Root } from '../../interfaces/jsonDataInterface';
-import { useDataContext } from '../../utils/DataProvider';
+import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
 import GenericButton from '../../components/GenericButton';
 import styles from './ImportForm.module.less';
 
@@ -82,8 +82,13 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
     });
     addFiles(
       (
-        await Promise.all<{ name: string; json: Root } | false>(filesArray)
-      ).filter((file) => file !== false) as { name: string; json: Root }[],
+        (
+          await Promise.all<{ name: string; json: Root } | false>(filesArray)
+        ).filter((file) => file !== false) as { name: string; json: Root }[]
+      ).map((file) => ({
+        ...file,
+        short: shortenedFileName(file.name),
+      })),
     );
 
     toast({ type: 'success', textKey: 'upload.success' });
