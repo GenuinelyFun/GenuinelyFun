@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
+import { useDataContext } from '../../utils/DataProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
 import { default as FileIcon } from '../../assets/icons/file.svg';
@@ -16,12 +16,8 @@ const FileList = () => {
       className={styles.fileList}
       aria-label={translate('file-list.title.aria')}
     >
-      {files.map(({ name }) => (
-        <li
-          className={styles.fileCard}
-          key={shortenedFileName(name)}
-          aria-label={shortenedFileName(name)}
-        >
+      {files.map(({ name, short }) => (
+        <li className={styles.fileCard} key={short} aria-label={short}>
           <img
             src={FileIcon}
             alt={translate('file-list.document.aria')}
@@ -29,7 +25,7 @@ const FileList = () => {
               [styles.icon]: theme === Darkmode.Dark,
             })}
           />
-          <p>{shortenedFileName(name)}</p>
+          <p>{short}</p>
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -42,7 +38,7 @@ const FileList = () => {
                 [styles.icon]: theme === Darkmode.Dark,
               })}
               alt={translate('file-list.remove-file.aria', {
-                file: shortenedFileName(name),
+                file: short,
               })}
             />
           </button>

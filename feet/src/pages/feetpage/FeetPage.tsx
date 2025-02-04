@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { DataProvider } from '../../utils/DataProvider';
 import { useLanguageContext } from '../../utils/LanguageProvider';
 import PageHeading from '../../components/PageHeading';
-import ExportForm from './ExportForm';
+import ExportForm from './export-form/ExportForm';
 import ImportForm from './ImportForm';
 import FileList from './FileList';
 import styles from './FeetPage.module.less';

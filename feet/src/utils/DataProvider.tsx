@@ -8,10 +8,16 @@ export const shortenedFileName = (name: string) => {
   return name.slice(0, 22) + '...';
 };
 
+export interface File {
+  name: string;
+  json: Root;
+  short: string;
+}
+
 type DataContextType = {
-  files: { name: string; json: Root }[];
+  files: File[];
   removeFile: (name: string) => void;
-  addFiles: (value: { name: string; json: Root }[]) => void;
+  addFiles: (value: File[]) => void;
 };
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -20,9 +26,9 @@ export const useDataContext = (): DataContextType =>
   useContextOrThrow(DataContext);
 
 export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [files, setFiles] = useState<{ name: string; json: Root }[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const toast = useToast();
-  const addFiles = (newFiles: { name: string; json: Root }[]) => {
+  const addFiles = (newFiles: File[]) => {
     const filteredNewFiles = newFiles.filter(({ name }) => {
       const check = files.map((file) => file.name).includes(name);
       if (check) {

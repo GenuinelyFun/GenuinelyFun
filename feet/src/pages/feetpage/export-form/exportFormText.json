@@ -39,6 +39,11 @@
     "no": "beste-filnavnet",
     "nn": "beste-filnamnet"
   },
+  "export.separate.checkbox.label": {
+    "en": "Download each selected panel into separate excel files.",
+    "no": "Last ned hver valgte sentral i separate excel filer.",
+    "nn": "Last ned kvar vald sentral i separate excel filer."
+  },
   "export.disclaimer.checkbox.label": {
     "en": "I understand this is just a tool, and that I must verify all content myself.",
     "no": "Jeg forstår at dette bare er et verktøy, og at jeg må verifisere alt innhold selv.",
@@ -173,6 +178,41 @@
     "en": "This option generates an Excel tab listing all inputs and outputs along with their configuration.",
     "no": "Dette genererer en Excel fane som lister opp alle innganger og utganger sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle inngongar og utgangar saman med deira konfigurasjon."
+  },
+  "export.filter.infobox.title": {
+    "en": "Filter fire panels to export",
+    "no": "Filtrer brannsentraler for å eksportere",
+    "nn": "Filtrer brannsentralar for å eksportere"
+  },
+  "export.filter.infobox.description.1": {
+    "en": "Choose the fire panels you wish to include in the export. Only selected fire panels will be converted to an Excel file.",
+    "no": "Velg brannsentralene du ønsker å inkludere i eksporten. Bare valgte brannsentraler vil bli konvertert til en Excel-fil.",
+    "nn": "Vel brannsentralane du ønskjer å inkludere i eksporten. Berre valde brannsentralar vil bli konvertert til ein Excel-fil."
+  },
+  "export.filter.infobox.description.2": {
+    "en": "This will account for all selected sheets selected above.",
+    "no": "Dette vil ta hensyn til alle valgte ark valgt ovenfor.",
+    "nn": "Dette vil ta omsyn til alle valde ark valt ovanfor."
+  },
+  "export.filter.infobox.description.3": {
+    "en": "If there are no options available here, you likely haven't uploaded any fitting JSON files yet, or it didn't have any fire panel data.",
+    "no": "Hvis det ikke er noen alternativer tilgjengelig her, har du sannsynligvis ikke lastet opp noen passende JSON-filer enda, eller den hadde ikke noe brannsentraldata.",
+    "nn": "Viss det ikkje er nokon alternativ tilgjengeleg her, har du truleg ikkje lasta opp nokon passande JSON-filer enno, eller den hadde ikkje noe brannsentraldata."
+  },
+  "export.filter.infobox.description.4": {
+    "en": "If you select to download in seperate files, each fire panel will be in its own file.",
+    "no": "Hvis du velger å laste ned i separate filer, vil hver brannsentral være i sin egen fil.",
+    "nn": "Viss du vel å lasta ned i separate filer, vil kvar brannsentral vere i si eiga fil."
+  },
+  "export.filter.label": {
+    "en": "Select panels to export",
+    "no": "Velg sentraler for å eksportere",
+    "nn": "Velg sentralar for å eksportere"
+  },
+  "export.filter.empty": {
+    "en": "No panels available",
+    "no": "Ingen sentraler tilgjengelig",
+    "nn": "Ingen sentralar tilgjengeleg"
   },
   "export.controlgroups.checkbox.label": {
     "en": "Control group report",
