@@ -38,8 +38,24 @@ export const arthurLinks: {
 
 export const certificates: Record<string, TranslateTextKey>[] = [
   {
-    title: 'arthur.certificate.FG750-title',
-    description: 'arthur.certificate.FG750-description',
+    title: 'arthur.certificate.fg750-title',
+    description: 'arthur.certificate.fg750-description',
+  },
+  {
+    title: 'arthur.certificate.security-expert-title',
+    description: 'arthur.certificate.security-expert-description',
+  },
+  {
+    title: 'arthur.certificate.ebo-title',
+    description: 'arthur.certificate.ebo-description',
+  },
+  {
+    title: 'arthur.certificate.typescript-essential-title',
+    description: 'arthur.certificate.typescript-essential-description',
+  },
+  {
+    title: 'arthur.certificate.netdok-title',
+    description: 'arthur.certificate.netdok-description',
   },
   {
     title: 'arthur.certificate.EPC-title',
@@ -100,6 +116,30 @@ export const certificates: Record<string, TranslateTextKey>[] = [
   {
     title: 'arthur.certificate.Magnum-title',
     description: 'arthur.certificate.Magnum-description',
+  },
+  {
+    title: 'arthur.certificate.emergency-responder-title',
+    description: 'arthur.certificate.emergency-responder-description',
+  },
+  {
+    title: 'arthur.certificate.dnk-instructor-title',
+    description: 'arthur.certificate.dnk-instructor-description',
+  },
+  {
+    title: 'arthur.certificate.witness-support-title',
+    description: 'arthur.certificate.witness-support-description',
+  },
+  {
+    title: 'arthur.certificate.kfor-title',
+    description: 'arthur.certificate.kfor-description',
+  },
+  {
+    title: 'arthur.certificate.ksor-winter-title',
+    description: 'arthur.certificate.ksor-winter-description',
+  },
+  {
+    title: 'arthur.certificate.ksor-summer-title',
+    description: 'arthur.certificate.ksor-summer-description',
   },
 ];
 

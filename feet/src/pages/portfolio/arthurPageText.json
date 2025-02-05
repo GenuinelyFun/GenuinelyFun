@@ -104,15 +104,55 @@
     "no": "Utmerkelser og priser",
     "nn": "Utmerkingar og prisar"
   },
-  "arthur.certificate.FG750-title": {
+  "arthur.certificate.fg750-title": {
     "en": "FG 750 Automatic Fire Alarm Systems | Kiwa Norge | January 2021",
     "no": "FG 750 Automatiske brannalarmanlegg | Kiwa Norge | Januar 2021",
     "nn": "FG 750 Automatiske brannalarmanlegg | Kiwa Norge | Januar 2021"
   },
-  "arthur.certificate.FG750-description": {
+  "arthur.certificate.fg750-description": {
     "en": "The course provides certification according to FG rules for automatic fire alarm and voice alarm systems. It covers design, installation, commissioning, maintenance, and control of such systems, with specific certification classes for designers, installers, technicians, and controllers.",
     "no": "Kurset gir sertifisering i henhold til FG-regler for automatiske brannalarm- og talevarslingsanlegg. Det dekker prosjektering, installasjon, idriftsetting, vedlikehold, og kontroll av slike anlegg, med spesifikke sertifiseringsklasser for prosjekterende, installatør, tekniker og kontrollør.",
     "nn": "Kurset gir sertifisering i henhold til FG-regler for automatiske brannalarm- og talevarslingsanlegg. Det dekker prosjektering, installasjon, idriftsetting, vedlikehold, og kontroll av slike anlegg, med spesifikke sertifiseringsklasser for prosjekterende, installatør, tekniker og kontrollør."
+  },
+  "arthur.certificate.security-expert-title": {
+    "en": "EcoStruxure Security Expert: Engineering | Schneider Electric | March 2020",
+    "no": "EcoStruxure Security Expert: Engineering | Schneider Electric | Mars 2020",
+    "nn": "EcoStruxure Security Expert: Engineering | Schneider Electric | Mars 2020"
+  },
+  "arthur.certificate.security-expert-description": {
+    "en": "The course provides participants with basic knowledge of architecture, configuration, and programming in the Security Expert security system.",
+    "no": "Kurset gir deltakerne grunnleggende kunnskap om arkitektur, konfigurasjon og programmering i Security Expert sikkerhetssystem.",
+    "nn": "Kurset gir deltakarane grunnleggjande kunnskap om arkitektur, konfigurasjon og programmering i Security Expert tryggleikssystem."
+  },
+  "arthur.certificate.ebo-title": {
+    "en": "EcoStruxure Building Operation: Engineering | Schneider Electric | October 2022",
+    "no": "EcoStruxure Building Operation: Engineering | Schneider Electric | Oktober 2022",
+    "nn": "EcoStruxure Building Operation: Engineering | Schneider Electric | Oktober 2022"
+  },
+  "arthur.certificate.ebo-description": {
+    "en": "Completing the EcoStruxure Building Operation course provides proficiency in programming building systems using Schneider Electric's platform, with a focus on Function Block and Script programming. This training enhances one's ability to design, configure, and manage building management solutions, leading to improved energy efficiency and comfort.",
+    "no": "Gjennomføring av kurset EcoStruxure Building Operation gir kompetanse i programmering av bygningssystemer ved bruk av Schneiders plattform, med fokus på Function Block og Script programmering. Denne opplæringen styrker evnen til å designe, konfigurere og administrere bygningsstyringsløsninger, noe som fører til forbedret energieffektivitet og komfort.",
+    "nn": "Gjennomføring av kurset EcoStruxure Building Operation gir kompetanse i programmering av bygningssystemer ved bruk av Schneiders plattform, med fokus på Function Block og Script programmering. Denne opplæringa styrkar evna til å designe, konfigurere og administrere bygningsstyringsløysingar, noko som fører til forbetra energieffektivitet og komfort."
+  },
+  "arthur.certificate.typescript-essential-title": {
+    "en": "TypeScript Essential | LinkedIn | December 2024",
+    "no": "TypeScript Essential | LinkedIn | Desember 2024",
+    "nn": "TypeScript Essential | LinkedIn | Desember 2024"
+  },
+  "arthur.certificate.typescript-essential-description": {
+    "en": "The course provides a comprehensive introduction to TypeScript, covering the basics of the language, its syntax, and how to use it to build applications.",
+    "no": "Kurset gir en omfattende introduksjon til TypeScript, og dekker grunnleggende om språket, syntaksen og hvordan du bruker det til å bygge applikasjoner.",
+    "nn": "Kurset gir ein omfattande introduksjon til TypeScript, og dekker grunnleggjande om språket, syntaksen og korleis du brukar det til å byggje applikasjonar."
+  },
+  "arthur.certificate.netdok-title": {
+    "en": "haBit ElCad NettDok | haBit Software AS | June 2012",
+    "no": "haBit ElCad NettDok | haBit Software AS | Juni 2012",
+    "nn": "haBit ElCad NettDok | haBit Software AS | Juni 2012"
+  },
+  "arthur.certificate.netdok-description": {
+    "en": "The goal of the course is for participants to be able to use the software and carry out electrical system design using ElCad NettDok. After completing the course, participants should have acquired basic knowledge of the software's structure and functionality and the necessary skills for efficient planning and control of electrical systems.",
+    "no": "Målsetting med kurset er at deltakerne skal kunne bruke programvaren og gjennomføre prosjektering av elektroanlegg ved hjelp av ElCad NettDok. Deltakerne skal etter gjennomført kurs ha tilegnet seg grunnleggende kunnskap om programvarensppbygging og funksjonalitet og nødvendige ferdigheter til effektiv planlegging og kontroll av elektriske anlegg.",
+    "nn": "Målsetting med kurset er at deltakarane skal kunne bruke programvaren og gjennomføre prosjektering av elektroanlegg ved hjelp av ElCad NettDok. Deltakarane skal etter gjennomført kurs ha tileigna seg grunnleggjande kunnskap om programvarens oppbygging og funksjonalitet og naudsynte ferdigheiter til effektiv planlegging og kontroll av elektriske anlegg."
   },
   "arthur.certificate.EPC-title": {
     "en": "Exiway Power Control - EPC | Schneider Electric | August 2022",
@@ -263,6 +303,66 @@
     "en": "Certification for working with Magnum fire alarm systems by Elotec.",
     "no": "Sertifisering for arbeid med Magnum brannalarmsystemer fra Elotec.",
     "nn": "Sertifisering for arbeid med Magnum brannalarmsystem frå Elotec."
+  },
+  "arthur.certificate.ksor-winter-title": {
+    "en": "Qualified Search and Rescue Winter | Red Cross | January 2020",
+    "no": "Kvalifisert Søk og Redning vinter | Røde Kors | Januar 2020",
+    "nn": "Kvalifisert Søk og Redning vinter | Røde Kors | Januar 2020"
+  },
+  "arthur.certificate.ksor-winter-description": {
+    "en": "The course provides participants with the knowledge and skills to conduct search and rescue operations in winter conditions, including avalanche rescue, first aid, and navigation.",
+    "no": "Kurset gir deltakerne kunnskap og ferdigheter til å gjennomføre søk- og redningsoperasjoner under vinterforhold, inkludert skredredning, førstehjelp og navigasjon.",
+    "nn": "Kurset gir deltakarane kunnskap og ferdigheiter til å gjennomføre søk- og redningsoperasjonar under vinterforhold, inkludert skredredning, førstehjelp og navigasjon."
+  },
+  "arthur.certificate.ksor-summer-title": {
+    "en": "Qualified Search and Rescue Summer | Red Cross | June 2019",
+    "no": "Kvalifisert Søk og Redning sommer | Røde Kors | Januar 2019",
+    "nn": "Kvalifisert Søk og Redning sommar | Røde Kors | Januar 2019"
+  },
+  "arthur.certificate.ksor-summer-description": {
+    "en": "The course provides participants with the knowledge and skills to conduct search and rescue operations in summer conditions, including first aid, navigation, and water rescue.",
+    "no": "Kurset gir deltakerne kunnskap og ferdigheter til å gjennomføre søk- og redningsoperasjoner under sommerforhold, inkludert førstehjelp, navigasjon og vannredning.",
+    "nn": "Kurset gir deltakarane kunnskap og ferdigheiter til å gjennomføre søk- og redningsoperasjonar under sommarforhold, inkludert førstehjelp, navigasjon og vatnredning."
+  },
+  "arthur.certificate.kfor-title": {
+    "en": "Qualified First Aid | Red Cross | January 2019",
+    "no": "Kvalifisert Førstehjelp | Røde Kors | Januar 2019",
+    "nn": "Kvalifisert Førstehjelp | Røde Kors | Januar 2019"
+  },
+  "arthur.certificate.kfor-description": {
+    "en": "The course provides participants with the knowledge and skills to provide first aid in various situations, including cardiopulmonary resuscitation (CPR), use of defibrillators, and treatment of injuries.",
+    "no": "Kurset gir deltakerne kunnskap og ferdigheter til å yte førstehjelp i ulike situasjoner, inkludert hjerte-lunge-redning (HLR), bruk av defibrillatorer og behandling av skader.",
+    "nn": "Kurset gir deltakarane kunnskap og ferdigheiter til å yte førstehjelp i ulike situasjonar, inkludert hjarte-lunge-redning (HLR), bruk av defibrillatorar og behandling av skadar."
+  },
+  "arthur.certificate.witness-support-title": {
+    "en": "Witness Support | Red Cross, Domstol, Folkeuniversitetet | October 2020",
+    "no": "Vitnestøtte | Røde Kors, Domstol, Folkeuniversitetet | Oktober 2020",
+    "nn": "Vitnestøtte | Røde Kors, Domstol, Folkeuniversitetet | Oktober 2020"
+  },
+  "arthur.certificate.witness-support-description": {
+    "en": "The course trains participants to provide support to witnesses in court cases. Participants learn how to prepare witnesses for court appearances, provide emotional support, and help witnesses understand the legal process.",
+    "no": "Kurset trener deltakerne til å gi støtte til vitner i rettssaker. Deltakerne lærer hvordan de forbereder vitner til rettsmøter, gir emosjonell støtte og hjelper vitner med å forstå den juridiske prosessen.",
+    "nn": "Kurset trenar deltakarane til å gje støtte til vitne i rettssaker. Deltakarane lærer korleis dei førebur vitne til rettsmøte, gir emosjonell støtte og hjelper vitne med å forstå den juridiske prosessen."
+  },
+  "arthur.certificate.dnk-instructor-title": {
+    "en": "Local Instructor Course in Nødnett | Red Cross | September 2019",
+    "no": "Lokalt instruktørkurs i Nødnett | Røde Kors | September 2019",
+    "nn": "Lokalt instruktørkurs i Nødnett | Røde Kors | September 2019"
+  },
+  "arthur.certificate.dnk-instructor-description": {
+    "en": "The course trains local instructors in the use of the emergency network (Nødnett) for communication during emergencies. Participants learn how to use the network effectively and teach others to communicate efficiently in critical situations.",
+    "no": "Kurset trener lokale instruktører i bruk av nødnettet for kommunikasjon under nødsituasjoner. Deltakerne lærer hvordan de bruker nettverket effektivt og lærer andre å kommunisere effektivt i kritiske situasjoner.",
+    "nn": "Kurset trenar lokale instruktørar i bruk av nødnettet for kommunikasjon under nødsituasjonar. Deltakarane lærer korleis dei brukar nettverket effektivt og lærer andre å kommunisere effektivt i kritiske situasjonar."
+  },
+  "arthur.certificate.emergency-responder-title": {
+    "en": "Emergency Responder | Norwegian Air Ambulance | February 2021",
+    "no": "Akutthjelper | Norsk Luftambulanse | Februar 2021",
+    "nn": "Akutthjelpar | Norsk Luftambulanse | Februar 2021"
+  },
+  "arthur.certificate.emergency-responder-description": {
+    "en": "The course trains local firefighters and volunteers in life-saving first aid to provide immediate assistance in emergencies until professional healthcare personnel arrive. Participants learn essential skills such as maintaining open airways, controlling bleeding, preventing hypothermia, using defibrillators, and performing high-quality cardiopulmonary resuscitation (CPR). This training enables them to act effectively in critical situations, often arriving before ambulances or doctors.",
+    "no": "Kurser trener lokale brannmenn og frivillige i livreddende førstehjelp for å gi umiddelbar assistanse i nødsituasjoner til profesjonelt helsepersonell ankommer. Deltakerne lærer essensielle ferdigheter som å opprettholde åpne luftveier, kontrollere blødning, forebygge hypotermi, bruke defibrillatorer og utføre høykvalitets hjerte-lunge-redning (HLR). Denne opplæringen gjør dem i stand til å handle effektivt i kritiske situasjoner, ofte ankommer før ambulanser eller leger.",
+    "nn": "Kurset trenar lokale brannmenn og frivillige i livreddande førstehjelp for å gi umiddelbar assistanse i nødsituasjonar til profesjonelt helsepersonell kjem. Deltakarane lærer essensielle ferdigheiter som å oppretthalde opne luftvegar, kontrollere bløding, førebyggje hypotermi, bruke defibrillatorar og utføre høgkvalitets hjarte-lunge-redning (HLR). Denne opplæringa gjer dei i stand til å handle effektivt i kritiske situasjonar, ofte kjem dei før ambulansar eller leger."
   },
   "arthur.skills.developer-title": {
     "en": "Full Stack Developer | August 2024 - Present",
