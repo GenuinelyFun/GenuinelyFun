@@ -365,9 +365,9 @@
     "nn": "Kurset trenar lokale brannmenn og frivillige i livreddande førstehjelp for å gi umiddelbar assistanse i nødsituasjonar til profesjonelt helsepersonell kjem. Deltakarane lærer essensielle ferdigheiter som å oppretthalde opne luftvegar, kontrollere bløding, førebyggje hypotermi, bruke defibrillatorar og utføre høgkvalitets hjarte-lunge-redning (HLR). Denne opplæringa gjer dei i stand til å handle effektivt i kritiske situasjonar, ofte kjem dei før ambulansar eller leger."
   },
   "arthur.skills.developer-title": {
-    "en": "Full Stack Developer | August 2024 - Present",
-    "no": "Full Stack Utvikler | August 2024 - Nå",
-    "nn": "Full Stack Utviklar | August 2024 - No"
+    "en": "Front-End Developer | August 2024 - Present",
+    "no": "Front-End Utvikler | August 2024 - Nå",
+    "nn": "Front-End Utviklar | August 2024 - No"
   },
   "arthur.skills.developer-description": {
     "en": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA.",
