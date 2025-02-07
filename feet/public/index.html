@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Cookie Third Party Management testing -->
+    <!-- Cookie Third Party Management -->
     <script>
         window.addEventListener('CookieInformationConsent', function (event) {
             console.log("Running event listener " + event);
@@ -15,6 +15,53 @@
         }, false);
     </script>
     <!-- End cookie banner -->
+    <!-- Google tag with CookieInformation -->
+    <script>
+
+        // Define dataLayer and the gtag function.
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        //Set default consent for specific regions according to your requirements
+
+        gtag('consent', 'default', {
+
+            'ad_storage': 'denied',
+
+            'ad_user_data': 'denied',
+
+            'ad_personalization': 'denied',
+
+            'analytics_storage': 'denied',
+
+            'regions': ['NO', 'SE', 'DK', 'FI']
+
+        });
+
+        // Set default consent for all other regions according to your requirements
+
+        gtag('consent', 'default', {
+
+            'ad_storage': 'granted',
+
+            'ad_user_data': 'granted',
+
+            'ad_personalization': 'granted',
+
+            'analytics_storage': 'granted'
+
+        });
+
+
+    </script>
+
+    <!-- Cookie banner -->
+    <script data-culture="NO" data-gcm-version="false"
+            id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" type="text/javascript"></script>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
         w[l] = w[l] || [];
