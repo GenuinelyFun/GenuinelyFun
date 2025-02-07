@@ -19,7 +19,6 @@
     <script>
 
         // Define dataLayer and the gtag function.
-
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -29,31 +28,10 @@
         //Set default consent for specific regions according to your requirements
 
         gtag('consent', 'default', {
-
             'ad_storage': 'denied',
-
             'ad_user_data': 'denied',
-
             'ad_personalization': 'denied',
-
             'analytics_storage': 'denied',
-
-            'regions': ['NO', 'SE', 'DK', 'FI']
-
-        });
-
-        // Set default consent for all other regions according to your requirements
-
-        gtag('consent', 'default', {
-
-            'ad_storage': 'granted',
-
-            'ad_user_data': 'granted',
-
-            'ad_personalization': 'granted',
-
-            'analytics_storage': 'granted'
-
         });
 
 
