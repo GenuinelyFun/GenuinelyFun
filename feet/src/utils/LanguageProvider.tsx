@@ -1,4 +1,4 @@
-import React, { createContext, FC, PropsWithChildren } from 'react';
+import React, { createContext, FC, PropsWithChildren, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
 
@@ -67,6 +67,10 @@ export const LanguageContextProvider: FC<PropsWithChildren> = ({
   const languages: Languages = { en: 'English', no: 'Norsk', nn: 'Nynorsk' };
 
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.querySelector('html')?.setAttribute('lang', i18n.language);
+  }, [i18n.language]);
 
   const onClickLanguageChange = (language: string) => {
     i18n.changeLanguage(language);
