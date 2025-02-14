@@ -15,7 +15,7 @@ import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
 import GenericButton from '../../components/GenericButton';
 import styles from './ImportForm.module.less';
 
-const FIRE_EXPERT_VERSION = 'MCU 24.5.3.f ';
+const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
 
 const ImportForm: FC<{ className?: string }> = ({ className }) => {
   const toast = useToast();
