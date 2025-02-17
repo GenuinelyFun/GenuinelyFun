@@ -2,5 +2,5 @@
 .idea/
 *.iml
 
-feet/build
-feet/node_modules
+frontend/build
+frontend/node_modules
