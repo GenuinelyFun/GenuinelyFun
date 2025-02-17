@@ -1,8 +1,8 @@
 {
   "feet-page.title": {
-    "en": "Fire Export Export Tool",
-    "no": "Fire Export Eksport Verktøy",
-    "nn": "Fire Export Eksport Verktøy"
+    "en": "Fire Expert Export Tool",
+    "no": "Fire Expert Eksport Verktøy",
+    "nn": "Fire Expert Eksport Verktøy"
   },
   "feet-page.description_part1": {
     "en": "This web-based tool allows you to upload the Fire Expert configuration file for the fire alarm system. Once the file is uploaded, it generates an Excel file containing various lists that technicians typically create during annual inspections. Depending on the size of the system, this process can take anywhere from half an hour to several days. With just a click, these structured lists are now produced instantly, more reliably, and with more detailed information in less time.",
