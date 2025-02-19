@@ -7,11 +7,13 @@ import { NGHI_FIRSTNAME } from '../../utils/nghi-utils';
 import { COMPANY_NAME } from '../../index';
 
 import styles from './HomePage.module.less';
+import {TestApi} from "./TestApi";
 
 const HomePage: FC = () => {
   const { translate } = useLanguageContext();
   return (
     <main>
+    <TestApi/>
       <section className={styles.heroSection}>
         <PageHeading>
           {translate('hero.title', {
