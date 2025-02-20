@@ -34,23 +34,16 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
       >
         {translate('tab.feet')}
       </Link>
-      <DropDownMenu
-        buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
-        buttonTextKey={'tab.journal'}
-        listItems={[
-          <Link
-            state={{ prevPage: location.pathname }}
-            className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]:
-                location.pathname === routePaths.techBestPractice,
-            })}
-            to={routePaths.techBestPractice}
-            onClick={onLinkClick}
-          >
-            {translate('tab.tech-best-practice')}
-          </Link>,
-        ]}
-      />
+      <Link
+        to={routePaths.article}
+        state={{ prevPage: location.pathname }}
+        className={classNames(styles.menuButton, {
+          [styles.active]: location.pathname === routePaths.article,
+        })}
+        onClick={onLinkClick}
+      >
+        {translate('tab.journal')}
+      </Link>
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
         buttonTextKey={'tab.portfolio'}

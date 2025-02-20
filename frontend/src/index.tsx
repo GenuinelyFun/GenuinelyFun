@@ -5,18 +5,20 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import TechBestPracticePage from './pages/journalpage/TechBestPracticePage';
+import ArticlePage from './pages/journalpage/ArticlePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
 import './utils/i18n';
 import './index.less';
+import { journalMetadata } from './utils/journal-utils';
+import { ArticleWrapper } from './pages/journalpage/ArticleWrapper';
 
 export const COMPANY_NAME = 'Genuinely Fun';
 
 export const routePaths = {
   home: '',
-  techBestPractice: 'tech-best-practice',
+  article: 'article/',
   feet: 'feet',
   arthur: 'arthur',
   nghi: 'nghi',
@@ -24,12 +26,24 @@ export const routePaths = {
 
 const router = createBrowserRouter([
   {
-    path: '*',
+    path: '/',
     element: <App />,
     children: [
       { index: true, element: <HomePage /> },
       { path: '*', element: <NotFoundPage /> },
-      { path: routePaths.techBestPractice, element: <TechBestPracticePage /> },
+      {
+        path: routePaths.article,
+        children: [
+          {
+            index: true,
+            element: <ArticlePage />,
+          },
+          ...journalMetadata.map((article) => ({
+            path: article.path,
+            element: <ArticleWrapper article={article} />,
+          })),
+        ],
+      },
       { path: routePaths.feet, element: <FeetPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
