@@ -1,6 +1,12 @@
-import { createContext, FC, PropsWithChildren, useEffect } from 'react';
-import useLocalStorage from 'use-local-storage';
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from 'react';
 import { useContextOrThrow } from './context-utils';
+import { CookieConsents, isCookieSet } from './cookies';
 
 export enum Darkmode {
   Light = 'light',
@@ -20,27 +26,26 @@ export const useDarkmodeContext = (): DarkmodeContextType =>
   useContextOrThrow(DarkmodeContext);
 
 export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [theme, setTheme] = useLocalStorage<Darkmode>(
-    'theme',
-    defaultDark ? Darkmode.Dark : Darkmode.Light,
-  );
+  const localStorageTheme = localStorage.getItem('theme') as Darkmode;
+  const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? Darkmode.Dark
+    : Darkmode.Light;
+  const [theme, setTheme] = useState(localStorageTheme || defaultTheme);
 
   useEffect(() => {
-    if (defaultDark) {
+    if (defaultTheme) {
       setTheme(theme);
       document.documentElement.setAttribute('data-theme', theme);
     }
   }, []);
 
   const toggleTheme = () => {
-    if (theme === Darkmode.Light) {
-      setTheme(Darkmode.Dark);
-      document.documentElement.setAttribute('data-theme', Darkmode.Dark);
-    } else {
-      setTheme(Darkmode.Light);
-      document.documentElement.setAttribute('data-theme', Darkmode.Light);
+    const newTheme = theme === Darkmode.Light ? Darkmode.Dark : Darkmode.Light;
+    setTheme(newTheme);
+    if (isCookieSet(CookieConsents.FUNCTIONAL)) {
+      localStorage.setItem('theme', newTheme);
     }
+    document.documentElement.setAttribute('data-theme', newTheme);
   };
 
   return (
