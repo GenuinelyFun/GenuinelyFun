@@ -1,80 +1,85 @@
 {
-  "main.title": {
-    "en": "The importance of good routines and product knowledge for technicians in fire and security systems",
-    "no": "Viktigheten av gode rutiner og produktkunnskap for teknikere i brann- og sikkerhetsanlegg",
-    "nn": "Viktigheita av gode rutinar og produktkunnskap for teknikarar i brann- og tryggingsanlegg"
+  "tech-best-practice.title": {
+    "en": "Good Routines and Knowledge",
+    "no": "Gode rutiner og kunnskap",
+    "nn": "Gode rutinar og kunnskap"
   },
-  "main.paragraph": {
+  "tech-best-practice.description": {
+    "en": "Quality, knowledge, and good habits are necessary investments that foster security and professionalism, benefiting technicians, companies, and society.",
+    "no": "Kvalitet, kunnskap og gode vaner er nødvendige investeringer som gir trygghet og profesjonalitet, og som gagner teknikere, bedriften og samfunnet.",
+    "nn": "Kvalitet, kunnskap og gode vanar er naudsynte investeringar som gjev tryggleik og profesjonalitet, og som gagnar teknikarar, bedrifta og samfunnet."
+  },
+  "tech-best-practice.1.title": {
+    "en": "Good Routines – A Prerequisite for Safety",
+    "no": "Gode rutiner – en forutsetning for sikkerhet",
+    "nn": "Gode rutinar – ein føresetnad for tryggleik"
+  },
+  "tech-best-practice.1.1": {
     "en": "Quality, knowledge, as well as good routines and habits are not only necessary, but are investments that yield returns in the form of security and professionalism, which ultimately benefit the technicians, the company, and society as a whole.",
     "no": "Kvalitet, kunnskap, gode rutiner og vaner er ikke bare nødvendig, men er investeringer som gir avkastning i form av trygghet og profesjonalitet, noe som gagner både teknikerne, bedriften og samfunnet som helhet.",
     "nn": "Kvalitet, kunnskap, og kontinuerleg læring er ikkje berre nødvendig, men er investeringar som gir avkastning i form av tryggleik og profesjonalitet, noko som gagnar både teknikarane, bedrifta og samfunnet samla sett."
   },
-  "routine.title": {
-    "en": "Good Routines – A Prerequisite for Safety",
-    "no": "Gode rutiner – en forutsetning for sikkerhet",
-    "nn": "Gode rutinar – eit vilkår for tryggleik"
-  },
-  "routine.paragraph.first": {
+  "tech-best-practice.1.2": {
     "en": "Good routines are essential to ensure the technician's workday and minimize the risk of errors. By following clear procedures and checklists, technicians can ensure that all work steps are completed correctly. This reduces the risk of mistakes, such as errors during system disconnection or insufficient testing after the work has been completed.",
     "no": "Gode rutiner er avgjørende for å sikre teknikerens arbeidshverdag og minimere risikoen for feil. Ved å følge tydelige prosedyrer og sjekklister, kan teknikere sikre at alle arbeidssteg blir gjort riktig. Dette reduserer risikoen for feil, som for eksempel feil ved frakobling av systemer, eller mangelfull testing etter utført arbeid.",
     "nn": "Gode rutinar er avgjerande for å sikre teknikarens arbeidshverdag og minimere risikoen for feil. Ved å følgje tydelege prosedyrar og sjekklister, kan teknikarar sikre at alle arbeidssteg vert gjort rett. Dette reduserer risikoen for feil, som til dømes feil ved fråkopling av system eller mangelfull testing etter utført arbeid."
   },
-  "routine.paragraph.second": {
+  "tech-best-practice.1.3": {
     "en": "Although using checklists and following routines can feel time-consuming, it is an investment that ensures quality and safety. Such routines also help the technician be better prepared for tasks, for example when performing an annual inspection. By reviewing configurations and creating checklists for the site in advance, the inspection becomes both more efficient and not least, quality-assured.",
     "no": "Selv om det å bruke sjekklister og følge rutiner kan føles tidkrevende, er det en investering som sikrer kvalitet og sikkerhet. Slike rutiner gjør også at teknikeren er bedre forberedt på oppgavene, for eksempel når de utfører en årlig kontroll. Ved å gå gjennom konfigurasjoner og lage sjekklister for anlegget i forkant, blir både kontrollen mer effektiv og ikke minst kvalitetssikret.",
     "nn": "Sjølv om det å bruke sjekklister og følgje rutinar kan verke tidkrevjande, er det ei investering som sikrar kvalitet og tryggleik. Slike rutinar gjer også at teknikaren er betre førebudd på oppgåvene, til dømes når dei utfører ein årleg kontroll. Ved å gå gjennom konfigurasjonar og lage sjekklister for anlegget i forkant, vert både kontrollen meir effektiv og ikke minst kvalitetssikra."
   },
-  "understanding.title": {
+  "tech-best-practice.2.title": {
     "en": "Understanding the System",
     "no": "Forståelse av anlegget",
     "nn": "Forståing av anlegget"
   },
-  "understanding.paragraph": {
+  "tech-best-practice.2.1": {
     "en": "Every system is unique, with its own structure and requirements. To make informed decisions during the work process, the technician must understand how each system should function and how it interacts with other connected systems. Starting work without sufficient knowledge and understanding can be risky, as it reduces the ability to ensure that the system is functioning correctly. This can lead to critical errors being overlooked, or unintentionally triggering an alarm during testing or operation. Therefore, time spent on training and product understanding is an important investment.",
     "no": "Hvert anlegg er unikt, med sine oppbygginger og krav. For å kunne ta gode beslutninger underveis i arbeidet, må teknikeren forstå hvordan hvert anlegg skal fungere og hvordan det samhandler med andre systemer som er koblet til. Å bare starte arbeidet uten tilstrekkelig kunnskap og forståelse kan være risikabelt, fordi man mister muligheten til å kontrollere at anlegget fungerer som det skal. Dette kan føre til at kritiske feil kan overses, eller at man utilsiktet utløser en alarm under testing eller drift. Derfor er tid brukt på opplæring og produktforståelse en viktig investering.",
     "nn": "Kvart anlegg er unikt, med sine oppbyggingar og krav. For å kunne ta gode avgjerder undervegs i arbeidet, må teknikaren forstå korleis kvart anlegg skal fungere og korleis det samhandlar med andre system som er kopla til. Å berre starte arbeidet utan tilstrekkeleg kunnskap og forståing kan vere risikabelt, fordi ein mistar moglegheita til å kontrollere at anlegget fungerer som det skal. Dette kan føre til at kritiske feil kan verte oversett, eller at ein utilsikta utløyser ein alarm under testing eller drift. Difor er tid brukt på opplæring og produktforståing ei viktig investering."
   },
-  "pitfall.title": {
+  "tech-best-practice.3.title": {
     "en": "Avoid Pitfalls of Assumptions",
     "no": "Unngå fallgruver ved antagelser",
     "nn": "Unngå fallgruver ved antakingar"
   },
-  "pitfall.paragraph": {
+  "tech-best-practice.3.1": {
     "en": "Assumptions can result from the desire to be efficient, which can end up being a pitfall. Even small differences between seemingly similar systems can have major consequences if one assumes they function the same way. This can lead to misprogramming, unnecessary alarms, or worse – a system that does not function as it should in a real incident.",
     "no": "Antagelser kan være et resultat på grunn av ønske om å være effektiv, som ender med å bli en fallgruve. Selv små forskjeller mellom tilsynelatende like systemer kan ha store konsekvenser hvis man antar at de fungerer likt. Dette kan føre til feilprogrammering, unødige alarmer, eller enda verre – et anlegg som ikke fungerer slik det skal i en reel hendelse.",
     "nn": "Antakingar kan vere eit resultat av ønskje om å vere effektiv, som endar opp som ei fallgruve. Sjølv små skilnader mellom tilsynelatande like system kan ha store konsekvensar dersom ein går ut frå at dei fungerer likt. Dette kan føre til feilprogrammering, unødige alarmar, eller endå verre – eit anlegg som ikkje fungerer som det skal i ein reell hending."
   },
-  "efficiency.title": {
+  "tech-best-practice.4.title": {
     "en": "Efficiency Through Knowledge",
     "no": "Effektivitet gjennom Kunnskap",
     "nn": "Effektivitet gjennom Kunnskap"
   },
-  "efficiency.paragraph": {
+  "tech-best-practice.4.1": {
     "en": "Efficiency is important, but never more important than safety. When technicians have solid routines and good product knowledge, it creates a sustainable efficiency. Technicians who build on these good values can work smarter – avoiding spending time correcting errors or dealing with surprises caused by uncertainty or human error. Good routines and knowledge thus become a secure foundation, allowing the work to build on a solid framework and solve tasks in an even better way.",
     "no": "Effektivitet er viktig, men aldri viktigere enn sikkerhet. Når teknikere har solide rutiner og god produktkunnskap, skaper det en bærekraftig effektivitet. Teknikere som bygger på disse gode verdiene, kan jobbe smartere – de slipper å bruke tid på å rette feil eller håndtere overraskelser som skyldes av usikkerhet eller menneskelig feil. Gode rutiner og kunnskap blir dermed et trygt fundament, som lar arbeidet bygge videre på et solid rammeverk og løse oppgavene på en enda bedre måte.",
     "nn": "Effektivitet er viktig, men aldri viktigare enn tryggleik. Når teknikarar har solide rutinar og god produktkunnskap, skapar det ein berekraftig effektivitet. Teknikarar som byggjer på desse gode verdiane, kan jobbe smartare – dei slepp å bruke tid på å rette feil eller handtere overraskingar som kjem av usikkerheit eller menneskelege feil. Gode rutinar og kunnskap blir dermed eit trygt fundament, som lèt arbeidet byggje vidare på eit solid rammeverk og løyse oppgåvene på ein endå betre måte."
   },
-  "learning.title": {
+  "tech-best-practice.5.title": {
     "en": "Continuous Learning and Collaboration",
     "no": "Kontinuerlig læring og samarbeid",
     "nn": "Kontinuerleg læring og samarbeid"
   },
-  "learning.paragraph": {
+  "tech-best-practice.5.1": {
     "en": "In addition to individual product knowledge, collaboration and experience sharing among colleagues is another crucial factor. When technicians share experiences from different systems, they can learn from each other and avoid repeating the same mistakes. The most successful teams are those that have open communication, where there is space to discuss both challenges and successes. By sharing knowledge about how different products or systems work, the team can together build a solid foundation of experience that contributes to safer work practices. Therefore, it is important that technicians have a platform and meeting point where they can share these insights.",
     "no": "I tillegg til individuell produktkunnskap er samarbeid og erfaringsdeling mellom kolleger en annen avgjørende faktor. Når teknikere deler erfaringer fra ulike anlegg, kan de lære av hverandre og unngå å gjøre de samme feilene flere ganger. De mest vellykkede teamene er de som har åpen kommunikasjon, hvor det er rom for å diskutere både utfordringer og suksesser. Ved å dele kunnskap om hvordan ulike produkter eller anlegg fungerer, kan teamet sammen bygge et solid erfaringsgrunnlag som bidrar til tryggere utførelse av arbeidet. Derfor er det viktig at teknikere har en plattform og møtepunkt hvor de kan dele denne innsikten.",
     "nn": "I tillegg til individuell produktkunnskap er samarbeid og erfaringsdeling mellom kollegaer ein annan avgjerande faktor. Når teknikarar deler erfaringar frå ulike anlegg, kan dei lære av kvarandre og unngå å gjere dei same feila fleire gonger. Dei mest vellukka teama er dei som har open kommunikasjon, der det er rom for å diskutere både utfordringar og suksessar. Ved å dele kunnskap om korleis ulike produkt eller anlegg fungerer, kan teamet saman bygge eit solid erfaringsgrunnlag som bidreg til tryggare utføring av arbeidet. Difor er det viktig at teknikarar har ein plattform og møtepunkt der dei kan dele denne innsikta."
   },
-  "summary.title": {
+  "tech-best-practice.6.title": {
     "en": "Summary",
     "no": "Oppsummering",
     "nn": "Oppsummering"
   },
-  "summary.paragraph.first": {
+  "tech-best-practice.6.1": {
     "en": "Technicians working with fire and security systems have a major role in protecting lives and assets. To perform the work with quality and efficiency, good routines and product knowledge are absolutely essential. It is important to take the time for training, follow routines, and continually stay updated on new technology and industry standards. Efficiency comes as a result of security, training, and routines – not the other way around. By prioritizing good practices, technicians can contribute to a safer environment for everyone who relies on the proper functioning of fire and security systems. This is an investment in safety, professionalism, and quality that benefits the technician, the company, and society as a whole.",
     "no": "Teknikere innen brann- og sikkerhetsanlegg har en stor rolle i å beskytte liv og verdier. For å kunne utføre arbeidet med kvalitet og effektivt er gode rutiner og produktkunnskap helt nødvendig. Det er viktig å ta seg tid til opplæring, følge rutiner og stadig holde seg oppdatert på ny teknologi og bransjestandarder. Effektivitet kommer som et resultat av trygghet, opplæring, og rutiner – ikke motsatt. Ved å prioritere gode praksiser kan teknikere bidra til en tryggere hverdag for alle som er avhengige av at brann- og sikkerhetsanleggene fungerer som de skal. Dette er en investering i sikkerhet, profesjonalitet og kvalitet som gagner teknikeren, bedriften og samfunnet som helhet.",
     "nn": "Teknikarar innan brann- og tryggingsanlegg har ei stor rolle i å verne liv og verdiar. For å kunne utføre arbeidet med kvalitet og effektivitet er gode rutinar og produktkunnskap heilt naudsynt. Det er viktig å ta seg tid til opplæring, følgje rutinar og stadig halde seg oppdatert på ny teknologi og bransjestandardar. Effektivitet kjem som eit resultat av tryggleik, opplæring, og rutinar – ikkje motsett. Ved å prioritere gode praksisar kan teknikarar bidra til ein tryggare kvardag for alle som er avhengige av at brann- og tryggingsanlegga fungerer som dei skal. Dette er ei investering i tryggleik, profesjonalitet og kvalitet som gagnar teknikaren, verksemda og samfunnet som heilskap."
   },
-  "summary.paragraph.second": {
+  "tech-best-practice.6.2": {
     "en": "This is an investment in safety, professionalism, and quality that benefits the technician, the company, and society as a whole.",
     "no": "Dette er en investering i sikkerhet, profesjonalitet og kvalitet som gagner teknikeren, bedriften og samfunnet som helhet.",
     "nn": "Dette er ei investering i tryggleik, profesjonalitet og kvalitet som gagnar teknikaren, verksemda og samfunnet som heilskap."

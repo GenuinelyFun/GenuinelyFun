@@ -166,7 +166,6 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
             onChange={onFileSelected}
           />
           <GenericButton
-            className={styles.uploadButton}
             onClick={() => document.getElementById('file-upload')?.click()}
           >
             {translate('upload.button')}

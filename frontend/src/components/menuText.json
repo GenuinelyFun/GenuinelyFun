@@ -4,15 +4,10 @@
     "no": "Hjem",
     "nn": "Heim"
   },
-  "tab.journal": {
-    "en": "Journal",
-    "no": "Journal",
-    "nn": "Journal"
-  },
-  "tab.tech-best-practice": {
-    "en": "Standards",
-    "no": "Standarder",
-    "nn": "Standardar"
+  "tab.article": {
+    "en": "Article",
+    "no": "Artikkel",
+    "nn": "Artikkel"
   },
   "tab.feet": {
     "en": "FEET",

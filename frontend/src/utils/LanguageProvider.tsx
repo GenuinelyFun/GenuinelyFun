@@ -1,7 +1,6 @@
 import React, { createContext, FC, PropsWithChildren, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { i18n, TFunction } from 'i18next';
-
 import authorCardText from '../components/authorCardText.json';
 import darkmodeToggleText from '../components/darkmodeToggleText.json';
 import homePageText from '../pages/homepage/homePageText.json';
@@ -10,13 +9,14 @@ import feetPageText from '../pages/feetpage/feetPageText.json';
 import importFormText from '../pages/feetpage/importFormText.json';
 import fileListText from '../pages/feetpage/fileListText.json';
 import exportFormText from '../pages/feetpage/export-form/exportFormText.json';
-import techBestPracticePageText from '../pages/journalpage/techBestPracticePageText.json';
+import articlePageText from '../pages/articlepage/articlePageText.json';
+import techBestPracticePageText from '../pages/articlepage/techBestPracticePageText.json';
+import reflectiveThinkingPageText from '../pages/articlepage/reflectiveThinkingPageText.json';
 import arthurPageText from '../pages/portfolio/arthurPageText.json';
 import nghiPageText from '../pages/portfolio/nghiPageText.json';
 import footerText from '../components/footerText.json';
 import menuText from '../components/menuText.json';
 import genericText from './genericTexts.json';
-
 import { useContextOrThrow } from './context-utils';
 
 export enum Language {
@@ -35,7 +35,9 @@ const allText = {
   ...importFormText,
   ...fileListText,
   ...exportFormText,
+  ...articlePageText,
   ...techBestPracticePageText,
+  ...reflectiveThinkingPageText,
   ...arthurPageText,
   ...nghiPageText,
   ...footerText,
