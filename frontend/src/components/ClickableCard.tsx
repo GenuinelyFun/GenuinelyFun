@@ -1,16 +1,17 @@
 import { FC } from 'react';
-import { JournalType } from '../utils/journal-utils';
-
-import styles from './ClickableCard.module.less';
 import { Link } from 'react-router-dom';
+import { ArticleType } from '../utils/article-utils';
+
 import {
   TranslateTextKey,
   useLanguageContext,
 } from '../utils/LanguageProvider';
 
+import styles from './ClickableCard.module.less';
+
 const ClickableCard: FC<{
   titleLevel?: 1 | 2 | 3 | 4 | 5;
-  post: JournalType;
+  post: ArticleType;
 }> = ({ titleLevel = 2, post }) => {
   const TitleComponent = `h${titleLevel}` as keyof JSX.IntrinsicElements;
   const { translate } = useLanguageContext();
@@ -23,7 +24,7 @@ const ClickableCard: FC<{
       <p className={styles.text}>
         {translate((post.key + '.description') as TranslateTextKey)}
       </p>
-      <p className={styles.action}>Read more</p>
+      <p className={styles.action}>{translate('article-page.read-more')}</p>
     </Link>
   );
 };

@@ -1,11 +1,11 @@
-export interface JournalType {
+export interface ArticleType {
   path: string;
   key: string;
   textFile: string;
   author: 'arthur' | 'nghi';
 }
 
-export const journalMetadata: JournalType[] = [
+export const articles: ArticleType[] = [
   {
     path: 'tech-best-practice',
     key: 'tech-best-practice',

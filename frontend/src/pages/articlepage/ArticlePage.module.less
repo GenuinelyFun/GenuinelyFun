@@ -1,9 +1,14 @@
 @import '../../utils/variables.less';
 
-.journalPage {
+.articlePage {
   margin: 0 auto;
+  padding: 0 var(--spacing-large);
   max-width: var(--max-width-page);
   width: 100%;
+
+  @media @breakpoint-desktop {
+    width: 100%;
+  }
 }
 
 .cardList {
@@ -13,4 +18,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.cardListItem {
+  width: 100%;
+
+  @media @breakpoint-desktop {
+    width: fit-content;
+  }
 }

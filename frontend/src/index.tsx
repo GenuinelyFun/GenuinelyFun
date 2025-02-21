@@ -11,7 +11,7 @@ import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
 import './utils/i18n';
 import './index.less';
-import { journalMetadata } from './utils/journal-utils';
+import { articles } from './utils/article-utils';
 import { ArticleWrapper } from './pages/articlepage/ArticleWrapper';
 
 export const COMPANY_NAME = 'Genuinely Fun';
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             index: true,
             element: <ArticlePage />,
           },
-          ...journalMetadata.map((article) => ({
+          ...articles.map((article) => ({
             path: article.path,
             element: <ArticleWrapper article={article} />,
           })),

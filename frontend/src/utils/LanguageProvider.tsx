@@ -9,7 +9,7 @@ import feetPageText from '../pages/feetpage/feetPageText.json';
 import importFormText from '../pages/feetpage/importFormText.json';
 import fileListText from '../pages/feetpage/fileListText.json';
 import exportFormText from '../pages/feetpage/export-form/exportFormText.json';
-import journalPageText from '../pages/articlepage/articlePageText.json';
+import articlePageText from '../pages/articlepage/articlePageText.json';
 import techBestPracticePageText from '../pages/articlepage/techBestPracticePageText.json';
 import reflectiveThinkingPageText from '../pages/articlepage/reflectiveThinkingPageText.json';
 import arthurPageText from '../pages/portfolio/arthurPageText.json';
@@ -35,7 +35,7 @@ const allText = {
   ...importFormText,
   ...fileListText,
   ...exportFormText,
-  ...journalPageText,
+  ...articlePageText,
   ...techBestPracticePageText,
   ...reflectiveThinkingPageText,
   ...arthurPageText,

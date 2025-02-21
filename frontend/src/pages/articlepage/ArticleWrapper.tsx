@@ -1,15 +1,18 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import styles from './ArticleWrapper.module.less';
 import {
   TranslateTextKey,
   useLanguageContext,
 } from '../../utils/LanguageProvider';
+import { ArticleType } from '../../utils/article-utils';
 import PageHeading from '../../components/PageHeading';
 import Card from '../../components/AuthorCard';
-import { JournalType } from '../../utils/journal-utils';
 
-export const ArticleWrapper: FC<{ article: JournalType }> = ({ article }) => {
+import styles from './ArticleWrapper.module.less';
+import { routePaths } from '../../index';
+
+export const ArticleWrapper: FC<{ article: ArticleType }> = ({ article }) => {
   const { translate } = useLanguageContext();
   const { key, textFile, author } = article;
 
@@ -22,17 +25,20 @@ export const ArticleWrapper: FC<{ article: JournalType }> = ({ article }) => {
     textKeys,
     (textKey) => textKey.split('.')[1],
   );
+
   return (
     <main className={styles.article}>
       <article>
         <PageHeading>{translate(title!)}</PageHeading>
-
+        <Link to={'/' + routePaths.article} className={styles.backButton}>
+          {translate('article-page.back-button')}
+        </Link>
         {Object.keys(paragraphs).map((number) =>
           paragraphs[number]?.map((textKey) =>
             textKey.includes('title') ? (
-              <h2>{translate(textKey)}</h2>
+              <h2 key={textKey}>{translate(textKey)}</h2>
             ) : (
-              <p>{translate(textKey)}</p>
+              <p key={textKey}>{translate(textKey)}</p>
             ),
           ),
         )}

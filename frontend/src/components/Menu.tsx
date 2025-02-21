@@ -42,7 +42,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         })}
         onClick={onLinkClick}
       >
-        {translate('tab.journal')}
+        {translate('tab.article')}
       </Link>
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}

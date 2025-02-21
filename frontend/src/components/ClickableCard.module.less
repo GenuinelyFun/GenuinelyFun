@@ -1,16 +1,22 @@
+@import '../utils/variables.less';
+
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: var(--spacing-xsmall) var(--spacing-medium) var(--spacing-small)
     var(--spacing-small);
   border-radius: 20px;
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
   background-color: var(--color-gray-dark);
   text-decoration: none;
-  width: 300px;
-  height: 150px;
+  min-height: 170px;
 
   &:hover {
     background-color: var(--color-gray-dark-hover);
+  }
+
+  @media @breakpoint-desktop {
+    width: 300px;
   }
 }
 
@@ -20,13 +26,10 @@
 
 .text {
   margin: var(--spacing-mini) 0 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .action {
-  margin: var(--spacing-mini) 0 0;
+  margin: auto 0 0;
   font-weight: var(--font-weight-bold);
   color: var(--color-green-dark);
 }
