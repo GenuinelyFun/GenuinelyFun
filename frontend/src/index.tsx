@@ -5,14 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import ArticlePage from './pages/journalpage/ArticlePage';
+import ArticlePage from './pages/articlepage/ArticlePage';
 import FeetPage from './pages/feetpage/FeetPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
 import NghiPage from './pages/portfolio/NghiPage';
 import './utils/i18n';
 import './index.less';
 import { journalMetadata } from './utils/journal-utils';
-import { ArticleWrapper } from './pages/journalpage/ArticleWrapper';
+import { ArticleWrapper } from './pages/articlepage/ArticleWrapper';
 
 export const COMPANY_NAME = 'Genuinely Fun';
 
