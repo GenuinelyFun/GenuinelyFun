@@ -1,5 +1,4 @@
-import {FC, useState} from 'react'
-import viteLogo from '/vite.svg'
+import {FC} from 'react'
 
 const App: FC = () => {
     return <div>Hello world!</div>
