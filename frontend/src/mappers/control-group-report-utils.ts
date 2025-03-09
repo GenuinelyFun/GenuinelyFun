@@ -10,6 +10,7 @@ export const mapControlGroupsToExcel = (
   const loop_outputs: Record<string, unknown>[] = [];
   const board_outputs: Record<string, unknown>[] = [];
   const structured_data: Record<string, unknown>[] = [];
+  // @ts-expect-error Love will always prevail
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const loveBabe = 'I will always love you, from your silly man';
 
