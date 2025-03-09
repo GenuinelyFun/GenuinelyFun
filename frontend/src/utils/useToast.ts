@@ -1,23 +1,10 @@
 import { ReactElement, useCallback } from 'react';
 import hotToast, { Renderable, ValueOrFunction } from 'react-hot-toast';
 
-import { useDarkmodeContext } from './DarkmodeProvider.tsx';
+import { useDarkmodeContext } from './darkmode-utils.ts';
 import { TranslateTextKey, useLanguageContext } from './i18n/language-utils.ts';
 
 export const useToast = () => {
-  const { translate } = useLanguageContext();
-  const { theme } = useDarkmodeContext();
-
-  const darkmodeStyles =
-    theme === 'dark'
-      ? {
-          style: {
-            backgroundColor: '#354c61',
-            color: '#ffffff',
-          },
-        }
-      : {};
-
   interface PromiseProps {
     loader: Promise<any>;
     options: {
@@ -26,6 +13,9 @@ export const useToast = () => {
       error: ValueOrFunction<Renderable, any>;
     };
   }
+
+  const { translate } = useLanguageContext();
+  const { theme } = useDarkmodeContext();
 
   return useCallback(
     ({
@@ -41,6 +31,16 @@ export const useToast = () => {
       element?: ReactElement;
       promise?: PromiseProps;
     }) => {
+      const darkmodeStyles =
+        theme === 'dark'
+          ? {
+              style: {
+                backgroundColor: '#354c61',
+                color: '#ffffff',
+              },
+            }
+          : {};
+
       const content = element
         ? () => element
         : textKey
@@ -73,6 +73,6 @@ export const useToast = () => {
           break;
       }
     },
-    [theme]
+    [theme, translate]
   );
 };

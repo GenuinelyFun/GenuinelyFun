@@ -5,7 +5,7 @@ import CrossCircleIcon from '../../assets/icons/CrossCircleIcon';
 import UploadIcon from '../../assets/icons/UploadIcon';
 import GenericButton from '../../components/GenericButton';
 import { Root } from '../../interfaces/jsonDataInterface';
-import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
+import { shortenedFileName, useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import { useToast } from '../../utils/useToast';
 import styles from './ImportForm.module.less';

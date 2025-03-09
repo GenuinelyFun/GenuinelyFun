@@ -1,30 +1,7 @@
-import {
-  createContext,
-  FC,
-  PropsWithChildren,
-  useEffect,
-  useState,
-} from 'react';
+import { FC, PropsWithChildren, useEffect, useState } from 'react';
 
-import { useContextOrThrow } from './context-utils';
 import { CookieConsents, isCookieSet } from './cookies';
-
-export enum Darkmode {
-  Light = 'light',
-  Dark = 'dark',
-}
-
-type DarkmodeContextType = {
-  theme: Darkmode;
-  toggleTheme(): void;
-};
-
-const DarkmodeContext = createContext<DarkmodeContextType | undefined>(
-  undefined
-);
-
-export const useDarkmodeContext = (): DarkmodeContextType =>
-  useContextOrThrow(DarkmodeContext);
+import { Darkmode, DarkmodeContext } from './darkmode-utils.ts';
 
 export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {
   const localStorageTheme = localStorage.getItem('theme') as Darkmode;
@@ -38,7 +15,7 @@ export const DarkmodeProvider: FC<PropsWithChildren> = ({ children }) => {
       setTheme(theme);
       document.documentElement.setAttribute('data-theme', theme);
     }
-  }, []);
+  }, [defaultTheme, theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === Darkmode.Light ? Darkmode.Dark : Darkmode.Light;

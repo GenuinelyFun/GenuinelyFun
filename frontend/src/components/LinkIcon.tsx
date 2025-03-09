@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ElementType, FC } from 'react';
 
-import { Darkmode, useDarkmodeContext } from '../utils/DarkmodeProvider';
+import { Darkmode, useDarkmodeContext } from '../utils/darkmode-utils.ts';
 import styles from './LinkIcon.module.less';
 
 const LinkIcon: FC<{

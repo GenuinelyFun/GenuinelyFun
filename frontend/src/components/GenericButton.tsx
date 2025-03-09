@@ -31,6 +31,7 @@ const GenericButton: FC<Props> = ({
         className={classNames(className, {
           [styles.invert]: invert,
         })}
+        href={buttonProps.href}
         onClick={onClick}
         {...(buttonProps as LinkProps)}
       >

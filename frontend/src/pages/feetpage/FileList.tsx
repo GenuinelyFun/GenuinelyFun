@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import CrossIcon from '../../assets/icons/CrossIcon';
 import FileIcon from '../../assets/icons/FileIcon';
-import { useDataContext } from '../../utils/DataProvider';
+import { useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import styles from './FileList.module.less';
 

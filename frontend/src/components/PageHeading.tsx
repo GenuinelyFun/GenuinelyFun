@@ -20,7 +20,7 @@ const PageHeading: FC<PageHeadingProps> = ({
       ref.current.focus();
     }
     window.history.replaceState({}, '');
-  }, []);
+  }, [location.state?.prevPage]);
 
   return createElement(
     `h${level}`,

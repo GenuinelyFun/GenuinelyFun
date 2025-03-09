@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 
 import nghi from '../../assets/images/nghi_1276x1276.jpg';
 import PageHeading from '../../components/PageHeading';
-import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
+import { Darkmode, useDarkmodeContext } from '../../utils/darkmode-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import {
   additionalWork,

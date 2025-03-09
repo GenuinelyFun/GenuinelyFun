@@ -59,6 +59,7 @@ const DropDownMenu: FC<DropDownMenuProps> = ({
   };
 
   const labelId = useId();
+  const popupId = useId();
 
   return (
     <div className={styles.dropdownContainer}>
@@ -69,6 +70,7 @@ const DropDownMenu: FC<DropDownMenuProps> = ({
         className={classNames(styles.dropdownButton, buttonClassName)}
         aria-label={buttonAriaLabel}
         aria-haspopup="true"
+        aria-controls={popupId}
       >
         {translate(buttonTextKey)}
         <ChevronDownIcon
@@ -86,7 +88,7 @@ const DropDownMenu: FC<DropDownMenuProps> = ({
           styles.dropdownList
         )}
         aria-labelledby={labelId}
-        aria-expanded={open}
+        aria-owns={popupId}
       >
         {listItems.map((item, index) => {
           return (

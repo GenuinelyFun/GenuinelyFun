@@ -18,7 +18,7 @@ import {
   useSheetTranslate,
 } from '../../../mappers/utils';
 import { mapPanelsWithZones } from '../../../mappers/zone-utils.ts';
-import { useDataContext } from '../../../utils/DataProvider';
+import { useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
 import CheckboxWithInfobox from './CheckboxWithInfobox';
