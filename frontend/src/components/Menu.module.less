@@ -1,0 +1,67 @@
+@import "../utils/variables.less";
+
+.menu {
+  display: flex;
+  margin-left: auto;
+  align-self: center;
+  font-size: var(--font-size-medium);
+  margin-right: var(--spacing-medium);
+
+  @media @breakpoint-mobile {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.menuButton {
+  height: 100%;
+  float: left;
+  text-align: center;
+  padding: var(--spacing-xsmall);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  border-bottom: var(--border) transparent;
+  background-color: unset;
+  color: var(--color-black);
+
+  &:hover {
+    border-bottom: var(--border) var(--color-black);
+  }
+}
+
+.active {
+  border-bottom: var(--border) var(--color-black);
+  color: var(--color-black);
+}
+
+.dropdownButton {
+  border-radius: 0;
+  background-color: unset;
+  color: var(--color-black);
+  padding: var(--spacing-xsmall);
+  font-size: var(--font-size-medium);
+  height: 100%;
+
+  &:hover {
+    border-bottom: var(--border) var(--color-black);
+  }
+
+  [data-theme="dark"] & {
+    background-color: unset;
+    color: var(--color-black);
+    fill: transparent;
+  }
+}
+
+.dropdownItem {
+  padding: 0 0 0 var(--spacing-mini);
+  margin: var(--spacing-mini) 0;
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: var(--font-weight-bold);
+
+  &:hover {
+    border-bottom: var(--border) var(--color-black);
+  }
+}

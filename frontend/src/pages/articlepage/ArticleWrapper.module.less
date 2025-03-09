@@ -1,0 +1,26 @@
+@import "../../utils/variables.less";
+
+.article {
+  max-width: var(--max-width-page);
+  margin: var(--page-margin);
+
+  @media @breakpoint-tablet {
+    margin: var(--spacing-medium);
+  }
+
+  h1 {
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.backButton {
+  margin: auto 0 0;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-green-dark);
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: var(--border) var(--color-black);
+  }
+}

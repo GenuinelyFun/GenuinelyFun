@@ -1,0 +1,13 @@
+@import "../../utils/variables.less";
+
+.card {
+  max-width: var(--max-width-page);
+  margin: 0 auto 50px;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-small);
+
+  @media @breakpoint-mobile {
+    flex-direction: column;
+  }
+}

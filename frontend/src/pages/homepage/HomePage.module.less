@@ -1,0 +1,51 @@
+@import "../../utils/variables.less";
+
+.container {
+  max-width: var(--max-width-page);
+  margin: 0 auto var(--spacing-xxlarge);
+}
+
+.heroSection {
+  width: 100%;
+  min-height: 700px;
+  background-color: var(--color-white-paris);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: var(--spacing-small);
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10%;
+  color: var(--color-black);
+
+  & h1 {
+    font-size: var(--font-size-xlarge);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    max-width: var(--max-width-page);
+  }
+
+  @media @breakpoint-tablet {
+    min-height: 300px;
+  }
+
+  @media @breakpoint-mobile {
+    h1 {
+      font-size: var(--font-size-large);
+    }
+    h2 {
+      font-size: var(--font-size-medium);
+    }
+  }
+
+  [data-theme="dark"] & {
+    background-color: var(--color-green-light);
+    color: var(--color-black);
+  }
+}
+
+.mainSection {
+  margin: 70px auto;
+}

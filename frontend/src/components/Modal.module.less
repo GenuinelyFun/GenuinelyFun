@@ -1,0 +1,72 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+
+  [data-theme="dark"] & {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.modal {
+  max-width: 500px;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 8px;
+  padding: var(--spacing-small);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  position: absolute;
+  max-height: 80%;
+  margin: 0 var(--dds-spacing-small-16);
+  background-color: var(--color-gray-dark);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 500px) {
+    align-self: flex-end;
+    max-width: unset;
+    width: 100%;
+    max-height: 80%;
+    overscroll-behavior: contain;
+    padding: 0;
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+.modalContent {
+  margin: var(--spacing-xsmall);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-small);
+  right: var(--spacing-small);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-button-background-hover);
+  }
+}
+
+.crossIcon {
+  width: 30px;
+  height: auto;
+  fill: var(--color-black);
+}

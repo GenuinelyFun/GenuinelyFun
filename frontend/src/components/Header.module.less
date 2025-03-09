@@ -1,0 +1,54 @@
+@import "../utils/variables.less";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.funIcon {
+  width: 80px;
+  height: 80px;
+  margin: var(--spacing-xsmall);
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+  position: relative;
+  margin-right: 10px;
+  width: fit-content;
+
+  @media @breakpoint-mobile {
+    margin-bottom: var(--spacing-large);
+  }
+}
+
+.burger {
+  width: 24px;
+  height: auto;
+
+  & path {
+    stroke: var(--color-black);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sidebarMenu {
+  max-height: unset;
+  height: 100%;
+  max-width: 300px;
+  border-radius: 8px 0 0 8px;
+  right: 0;
+  top: 0;
+  transition: all 1s ease-in;
+  animation: slideInRight 0.4s ease-in-out;
+}

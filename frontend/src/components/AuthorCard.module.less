@@ -1,0 +1,69 @@
+@import "../utils/variables.less";
+
+.card {
+  max-width: var(--max-width-page);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-small);
+  margin: var(--spacing-xxlarge) auto;
+  background-color: var(--color-white-paris);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-gray-blue-dark);
+  }
+
+  @media @breakpoint-tablet {
+    flex-direction: column;
+    max-width: unset;
+  }
+}
+
+.profileImage {
+  width: 200px;
+  border-radius: 50%;
+  margin-right: var(--spacing-medium);
+
+  @media @breakpoint-tablet {
+    align-self: center;
+  }
+}
+
+.flip {
+  flex-direction: row-reverse;
+
+  @media @breakpoint-tablet {
+    flex-direction: column;
+  }
+}
+
+.textContainer {
+  flex-direction: column;
+  margin-bottom: var(--spacing-small);
+
+  p {
+    margin: 0;
+  }
+
+  @media @breakpoint-tablet {
+    max-width: var(--max-width-page);
+  }
+}
+
+.iconRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: var(--spacing-small) 0;
+  gap: var(--spacing-small);
+}
+
+.button {
+  margin: 0;
+  color: var(--color-black);
+  font-weight: var(--font-weight-medium);
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
+}
