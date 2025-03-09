@@ -1,7 +1,8 @@
 import { Panel } from '../interfaces/jsonDataInterface';
+import { sheetValueTypes } from './utils.ts';
 
 export const mapBoardToExcel = (panels: Panel[]) => {
-  const boardExcel: Record<string, unknown>[] = [];
+  const boardExcel: Record<string, sheetValueTypes>[] = [];
   panels.forEach((panel) => {
     panel.input_output_units.forEach((board) => {
       board.clean_contact_inputs?.forEach((item) => {

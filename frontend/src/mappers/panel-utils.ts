@@ -1,10 +1,10 @@
 import { Panel, System } from '../interfaces/jsonDataInterface';
-import { feetLanguages } from './utils.ts';
+import { sheetTranslateType } from './utils.ts';
 
 export const mapPanelToExcel = (
   system: System,
   panel: Panel,
-  sheetTranslate: (key: keyof typeof feetLanguages) => string
+  sheetTranslate: sheetTranslateType
 ) => {
   const serialPort = panel.communication?.serial_port1;
   const delayedAlarmOutputs = panel.delayed_alarm_outputs;

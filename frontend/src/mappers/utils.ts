@@ -1,5 +1,5 @@
 import { Workbook } from 'exceljs';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import { Root } from '../interfaces/jsonDataInterface';
 
@@ -14,34 +14,45 @@ export const feetLanguages: Record<string, string> = {
   es: 'Español',
 };
 
+export type sheetValueTypes =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | number[];
+export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
+
 const fetchTranslations = async (
   language: keyof typeof feetLanguages
 ): Promise<Record<string, string>> =>
   await import(`../feet-translations/translate.en-${language}.json`).then(
-    (t) => t.default
+    (t) => t.default as Record<string, string>
   );
 
 export const sheetTranslateMapper = (
-  sheet: { [key: string]: unknown }[],
-  sheetTranslate: (key: keyof typeof feetLanguages) => string
-): { [key: string]: unknown }[] => {
+  sheet: { [key: string]: sheetValueTypes }[],
+  sheetTranslate: sheetTranslateType
+): { [key: string]: sheetValueTypes }[] => {
   const translatedSheet: {
-    [key: string]: unknown;
+    [key: string]: sheetValueTypes;
   }[] = [];
 
   sheet.forEach((row) => {
-    const translatedRow: { [key: string]: unknown } = {};
+    const translatedRow: { [key: string]: sheetValueTypes } = {};
 
     Object.keys(row).forEach((key) => {
       const value = row[key];
-      if (sheetTranslate(key) !== undefined) {
-        if (sheetTranslate(String(value)) !== undefined) {
-          translatedRow[sheetTranslate(key)] = sheetTranslate(String(value));
+      const translatedKey = sheetTranslate(key);
+      const translatedValue = sheetTranslate(value);
+      if (translatedKey !== undefined && translatedKey !== null) {
+        if (translatedValue !== undefined) {
+          translatedRow[translatedKey.toString()] = translatedValue;
         } else {
-          translatedRow[sheetTranslate(key)] = value;
+          translatedRow[translatedKey.toString()] = value;
         }
-      } else if (sheetTranslate(String(value)) !== undefined) {
-        translatedRow[key] = sheetTranslate(String(value));
+      } else if (sheetTranslate(value) !== undefined) {
+        translatedRow[key] = sheetTranslate(value);
       } else {
         translatedRow[key] = value;
       }
@@ -52,31 +63,37 @@ export const sheetTranslateMapper = (
   return translatedSheet;
 };
 
-export const useSheetTranslate = () => {
+export const useSheetTranslate = (): {
+  sheetTranslate: sheetTranslateType;
+  updateLanguage: (language: keyof typeof feetLanguages) => void;
+} => {
   const [translate, setTranslate] = useState<Record<string, string>>();
 
-  return useCallback(
-    (language: string) => {
-      fetchTranslations(language).then((t) => setTranslate(t));
-      return (key: string): string => {
-        if (translate !== undefined && translate[key] !== undefined) {
-          return translate[key];
-        }
-        return key;
-      };
+  return {
+    sheetTranslate: (key: sheetValueTypes) => {
+      if (
+        translate !== undefined &&
+        key !== undefined &&
+        key !== null &&
+        translate[key.toString()] !== undefined
+      ) {
+        return translate[key.toString()];
+      }
+      return key;
     },
-    [translate]
-  );
+    updateLanguage: (language: string) =>
+      fetchTranslations(language).then((t) => setTranslate(t)),
+  };
 };
 
 export const addSheetToWorkbook = (
   workbook: Workbook,
-  data: { [key: string]: unknown }[],
+  data: { [key: string]: sheetValueTypes }[],
   sheetName: string,
   json: Root,
-  sheetTranslate: (key: keyof typeof feetLanguages) => string
+  sheetTranslate: sheetTranslateType
 ) => {
-  const translatedSheetName = sheetTranslate(sheetName);
+  const translatedSheetName = sheetTranslate(sheetName)!.toString();
   const sheet = workbook.addWorksheet(translatedSheetName);
   const translatedData = sheetTranslateMapper(data, sheetTranslate);
   sheet.addRow([

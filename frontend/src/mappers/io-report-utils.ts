@@ -3,15 +3,15 @@ import {
   Panel,
 } from '../interfaces/jsonDataInterface';
 import { forEachDeviceInLoopControllers } from './loop-utils';
-import { feetLanguages } from './utils.ts';
+import { sheetTranslateType, sheetValueTypes } from './utils.ts';
 
 const isNull = (el: unknown) => el === null || el === '' || el === undefined;
 
 export const mapToIOReportToExcel = (
   panels: Panel[],
-  sheetTranslate: (key: keyof typeof feetLanguages) => string
+  sheetTranslate: sheetTranslateType
 ) => {
-  const IOReport: Record<string, unknown>[] = [];
+  const IOReport: Record<string, sheetValueTypes>[] = [];
   const handleMonitoredAndCleanContactOutputs = (
     output: MonitoredAndCleanContactOutput,
     address: string

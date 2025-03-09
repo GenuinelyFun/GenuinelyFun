@@ -6,18 +6,18 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
 import { Panel } from '../../../interfaces/jsonDataInterface';
-import { mapLoopAddressToExcel } from '../../../mappers/address-report-utils';
-import { mapBoardToExcel } from '../../../mappers/board-utils';
-import { mapControlGroupsToExcel } from '../../../mappers/control-group-report-utils';
-import { mapToIOReportToExcel } from '../../../mappers/io-report-utils';
-import { mapLoopToExcel } from '../../../mappers/loop-utils';
-import { mapPanelToExcel } from '../../../mappers/panel-utils';
+import { mapLoopAddressToExcel } from '../../../mappers/address-report-utils.ts';
+import { mapBoardToExcel } from '../../../mappers/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../../mappers/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../../mappers/io-report-utils.ts';
+import { mapLoopToExcel } from '../../../mappers/loop-utils.ts';
+import { mapPanelToExcel } from '../../../mappers/panel-utils.ts';
 import {
   addSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
 } from '../../../mappers/utils';
-import { mapPanelsWithZones } from '../../../mappers/zone-utils';
+import { mapPanelsWithZones } from '../../../mappers/zone-utils.ts';
 import { useDataContext } from '../../../utils/DataProvider';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
@@ -33,7 +33,7 @@ const ExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
   const { files } = useDataContext();
-  const generateSheetTranslate = useSheetTranslate();
+  const { sheetTranslate, updateLanguage } = useSheetTranslate();
   const [zone, setZone] = useState<boolean>(true);
   const [fireLoop, setFireLoop] = useState<boolean>(true);
   const [ioBoard, setIoBoard] = useState<boolean>(true);
@@ -89,11 +89,9 @@ const ExportForm: FC = () => {
   };
 
   const exportToFiles = (panels: Panel[]) => {
-    const sheetTranslate = generateSheetTranslate(sheetLanguage);
     files.forEach(({ name, json }) => {
       const workbook = new Workbook();
       const zones = json.system.zones;
-
       if (firePanel) {
         addSheetToWorkbook(
           workbook,
@@ -163,6 +161,7 @@ const ExportForm: FC = () => {
           sheetTranslate
         );
       }
+
       let panelSuffix = '';
       if (separateFiles) {
         panelSuffix = `_${panels[0].name}`;
@@ -208,6 +207,7 @@ const ExportForm: FC = () => {
     setIoReport(!isAllSelected);
     setControlGroupReport(!isAllSelected);
   };
+
   return (
     <form
       className={styles.container}
@@ -218,7 +218,10 @@ const ExportForm: FC = () => {
       <label className={classNames(styles.select, styles.formOption)}>
         {translate('export.language.select')}
         <select
-          onChange={(e) => setSheetLanguage(e.target.value)}
+          onChange={(e) => {
+            setSheetLanguage(e.target.value);
+            updateLanguage(e.target.value);
+          }}
           value={sheetLanguage}
         >
           {Object.keys(feetLanguages).map((key) => (

@@ -4,12 +4,12 @@ import {
   LoopController,
   Panel,
 } from '../interfaces/jsonDataInterface';
-import { feetLanguages } from './utils.ts';
+import { sheetTranslateType } from './utils.ts';
 
 export const mapLoopToExcel = (
   loopControllers: LoopController,
   panel_number: number,
-  sheetTranslate: (key: keyof typeof feetLanguages) => string
+  sheetTranslate: sheetTranslateType
 ) => {
   const loopExcel = [];
   for (const loop of loopControllers.loops) {
