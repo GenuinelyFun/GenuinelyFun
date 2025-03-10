@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
 
-  [data-theme='dark'] & {
+  [data-theme="dark"] & {
     background-color: rgba(255, 255, 255, 0.3);
   }
 }
@@ -55,19 +55,18 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  width: 26px;
-  height: 26px;
-  padding: 3px;
-  border-radius: 3px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
 
   &:hover,
   &:focus {
     background-color: var(--color-button-background-hover);
   }
+}
 
-  svg {
-    width: 20px;
-    height: auto;
-    fill: var(--color-black);
-  }
+.crossIcon {
+  width: 30px;
+  height: auto;
+  fill: var(--color-black);
 }

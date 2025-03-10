@@ -1,18 +1,13 @@
-import React, {
-  ChangeEvent,
-  DragEventHandler,
-  FC,
-  useEffect,
-  useState,
-} from 'react';
 import classNames from 'classnames';
-import iconUpload from '../../assets/icons/upload.svg';
-import iconWrongFileType from '../../assets/icons/upload-not-json.svg';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import { useToast } from '../../utils/useToast';
-import { Root } from '../../interfaces/jsonDataInterface';
-import { shortenedFileName, useDataContext } from '../../utils/DataProvider';
+import { ChangeEvent, DragEventHandler, FC, useEffect, useState } from 'react';
+
+import CrossCircleIcon from '../../assets/icons/CrossCircleIcon';
+import UploadIcon from '../../assets/icons/UploadIcon';
 import GenericButton from '../../components/GenericButton';
+import { Root } from '../../interfaces/jsonDataInterface';
+import { shortenedFileName, useDataContext } from '../../utils/data-utils.ts';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
+import { useToast } from '../../utils/useToast';
 import styles from './ImportForm.module.less';
 
 const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
@@ -42,7 +37,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
     setIsDragging(false);
     setIsNotJson(false);
 
-    let filesArray = Array.from(files).map((file) => {
+    const filesArray = Array.from(files).map((file) => {
       if (file === null) {
         toast({ type: 'error', textKey: 'upload.error-general' });
       }
@@ -51,7 +46,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
         fileReader.onload = () => {
           try {
             const json = JSON.parse(
-              fileReader.result?.toString() || '',
+              fileReader.result?.toString() || ''
             ) as Root;
             if (json.system === undefined) {
               toast({
@@ -88,7 +83,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
       ).map((file) => ({
         ...file,
         short: shortenedFileName(file.name),
-      })),
+      }))
     );
 
     toast({ type: 'success', textKey: 'upload.success' });
@@ -135,20 +130,23 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
           }
         }}
       >
-        {isDragging && (
-          <img
-            alt={translate(
-              isNotJson ? 'upload.error-icon.aria' : 'upload.icon.aria',
-            )}
-            src={isNotJson ? iconWrongFileType : iconUpload}
-            className={styles.statusIcon}
-          />
-        )}
+        {isDragging &&
+          (isNotJson ? (
+            <CrossCircleIcon
+              aria-label={translate('upload.error-icon.aria')}
+              className={styles.statusIcon}
+            />
+          ) : (
+            <UploadIcon
+              aria-label={translate('upload.icon.aria')}
+              className={styles.statusIcon}
+            />
+          ))}
         <>
           {isDragging ? (
             <p className={styles.paragraph}>
               {translate(
-                isNotJson ? 'upload.not.json' : 'upload.release.to.upload',
+                isNotJson ? 'upload.not.json' : 'upload.release.to.upload'
               )}
             </p>
           ) : (

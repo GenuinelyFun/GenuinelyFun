@@ -1,9 +1,10 @@
-import { TranslateTextKey } from './LanguageProvider';
-import React, { ReactNode } from 'react';
-import EmailIcon from '../assets/icons/email.png';
-import GithubIcon from '../assets/icons/github.svg';
-import LinkedinIcon from '../assets/icons/linkedin.svg';
+import { ReactNode } from 'react';
+
+import EmailIcon from '../assets/icons/EmailCircleIcon.png';
+import GithubIcon from '../assets/icons/GitHubIcon';
+import LinkedinIcon from '../assets/icons/LinkedInIcon';
 import LinkIcon from '../components/LinkIcon';
+import { TranslateTextKey } from './i18n/language-utils.ts';
 
 export const NGHI_FIRSTNAME = 'Nghi';
 export const NGHI_LASTNAME = 'Nguyen';
@@ -14,17 +15,17 @@ export const nghiLinks: {
 } = {
   email: {
     url: 'mailto:nguyenbdnghi@gmail.com',
-    icon: <LinkIcon src={EmailIcon} alt={'Email'} />,
+    icon: <LinkIcon src={EmailIcon} ariaLabel={'Email'} />,
     name: 'Email',
   },
   github: {
     url: 'https://github.com/NghiNg',
-    icon: <LinkIcon src={GithubIcon} alt="GitHub" />,
+    icon: <LinkIcon icon={GithubIcon} ariaLabel="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
     url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
-    icon: <LinkIcon src={LinkedinIcon} alt="LinkedIn" />,
+    icon: <LinkIcon icon={LinkedinIcon} ariaLabel="LinkedIn" />,
     name: 'LinkedIn',
   },
 };

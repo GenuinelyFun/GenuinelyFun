@@ -1,11 +1,12 @@
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import { articles } from '../../utils/article-utils';
-import PageHeading from '../../components/PageHeading';
-import ClickableCard from '../../components/ClickableCard';
+import { FC } from 'react';
 
+import ClickableCard from '../../components/ClickableCard';
+import PageHeading from '../../components/PageHeading';
+import { articles } from '../../utils/article-utils';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import styles from './ArticlePage.module.less';
 
-const ArticlePage = (): JSX.Element => {
+const ArticlePage: FC = () => {
   const { translate } = useLanguageContext();
 
   return (

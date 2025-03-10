@@ -1,11 +1,11 @@
 import { Panel } from '../interfaces/jsonDataInterface';
-import { feetLanguages, sheetTranslate } from './utils';
+import { sheetTranslateType, sheetValueTypes } from './utils';
 
 export const mapLoopAddressToExcel = (
   panels: Panel[],
-  language: keyof typeof feetLanguages,
+  sheetTranslate: sheetTranslateType
 ) => {
-  const addressExcel: Record<string, any>[] = [];
+  const addressExcel: Record<string, sheetValueTypes>[] = [];
 
   panels.forEach((panel) => {
     panel.loop_controllers.forEach((loop_controller) => {
@@ -17,9 +17,7 @@ export const mapLoopAddressToExcel = (
             Zone: device.zone,
             Description: device.description,
             'Type.title':
-              sheetTranslate(device.type, language) +
-              ', ' +
-              device.protocol_type,
+              sheetTranslate(device.type) + ', ' + device.protocol_type,
           });
         });
       });

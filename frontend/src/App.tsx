@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Header from './components/Header';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
+
 import Footer from './components/Footer';
+import Header from './components/Header';
 import { DarkmodeProvider } from './utils/DarkmodeProvider';
-import { LanguageContextProvider } from './utils/LanguageProvider';
+import { LanguageContextProvider } from './utils/i18n/LanguageProvider';
 
 const App: FC = () => {
   return (

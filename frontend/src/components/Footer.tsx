@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { useLanguageContext } from '../utils/LanguageProvider';
-import { useMobileSizes } from '../utils/useMobileSizes';
-import { NGHI_FIRSTNAME, nghiLinks } from '../utils/nghi-utils';
+
 import { ARTHUR_FIRSTNAME, arthurLinks } from '../utils/arthur-utils';
-import { COMPANY_NAME } from '../index';
+import { useLanguageContext } from '../utils/i18n/language-utils.ts';
+import { NGHI_FIRSTNAME, nghiLinks } from '../utils/nghi-utils';
+import { COMPANY_NAME } from '../utils/route-utils';
+import { useMobileSizes } from '../utils/useMobileSizes';
 import styles from './Footer.module.less';
 
 const Footer: FC = () => {

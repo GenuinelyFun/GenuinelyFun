@@ -1,10 +1,11 @@
-import { TranslateTextKey } from './LanguageProvider';
-import React, { ReactNode } from 'react';
-import EmailIcon from '../assets/icons/email.png';
-import GithubIcon from '../assets/icons/github.svg';
-import LinkedinIcon from '../assets/icons/linkedin.svg';
-import Xicon from '../assets/icons/x.svg';
+import { ReactNode } from 'react';
+
+import EmailIcon from '../assets/icons/EmailCircleIcon.png';
+import GithubIcon from '../assets/icons/GitHubIcon';
+import LinkedinIcon from '../assets/icons/LinkedInIcon';
+import XIcon from '../assets/icons/XIcon.svg';
 import LinkIcon from '../components/LinkIcon';
+import { TranslateTextKey } from './i18n/language-utils.ts';
 
 export const ARTHUR_FIRSTNAME = 'Arthur';
 export const ARTHUR_MIDDLE_NAME = 'Leonard';
@@ -16,22 +17,22 @@ export const arthurLinks: {
 } = {
   email: {
     url: 'mailto:arthur.leonard.thomassen@gmail.com',
-    icon: <LinkIcon src={EmailIcon} alt={'Email'} />,
+    icon: <LinkIcon src={EmailIcon} ariaLabel={'Email'} />,
     name: 'Email',
   },
   github: {
     url: 'https://github.com/Friftycode',
-    icon: <LinkIcon src={GithubIcon} alt="GitHub" />,
+    icon: <LinkIcon icon={GithubIcon} ariaLabel="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
     url: 'https://www.linkedin.com/in/arthur90/',
-    icon: <LinkIcon src={LinkedinIcon} alt="LinkedIn" />,
+    icon: <LinkIcon icon={LinkedinIcon} ariaLabel="LinkedIn" />,
     name: 'LinkedIn',
   },
   x: {
     url: 'https://x.com/ThomassenArthur',
-    icon: <LinkIcon src={Xicon} alt="X previously Twitter" />,
+    icon: <LinkIcon src={XIcon} ariaLabel="X previously Twitter" />,
     name: 'X',
   },
 };

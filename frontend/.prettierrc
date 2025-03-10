@@ -1,0 +1,16 @@
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "endOfLine": "crlf",
+  "trailingComma": "es5",
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.less",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

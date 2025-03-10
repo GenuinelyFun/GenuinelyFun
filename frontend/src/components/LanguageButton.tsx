@@ -1,8 +1,9 @@
 import classNames from 'classnames';
+
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
+} from '../utils/i18n/language-utils.ts';
 import DropDownMenu from './DropDownMenu';
 import styles from './LanguageButton.module.less';
 

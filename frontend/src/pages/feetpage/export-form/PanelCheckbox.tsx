@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import classNames from 'classnames';
+import { FC } from 'react';
+
 import { FilterPanelType } from './ExportForm';
 import styles from './ExportForm.module.less';
 

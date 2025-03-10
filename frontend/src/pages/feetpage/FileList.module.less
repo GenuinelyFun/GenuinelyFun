@@ -1,11 +1,22 @@
-@import '../../utils/variables.less';
+@import "../../utils/variables.less";
 
 .fileList {
   padding: 0;
 }
 
 .icon {
-  filter: invert();
+  width: 24px;
+  height: auto;
+  min-width: 24px;
+  fill: var(--color-white);
+
+  [data-theme="dark"] & {
+    fill: var(--color-black);
+  }
+}
+
+.crossIcon {
+  fill: var(--color-black);
 }
 
 .fileCard {
@@ -35,22 +46,5 @@
     align-items: center;
     justify-content: center;
     margin: 0 var(--spacing-mini) 0 auto;
-
-    & svg {
-      min-width: 18px;
-      width: 18px;
-      height: auto;
-    }
-  }
-
-  & img {
-    width: 24px;
-    height: auto;
-    min-width: 24px;
-    fill: var(--color-white);
-
-    [data-theme='dark'] & {
-      fill: var(--color-black);
-    }
   }
 }

@@ -4,12 +4,12 @@ import {
   LoopController,
   Panel,
 } from '../interfaces/jsonDataInterface';
-import { sheetTranslate } from './utils';
+import { sheetTranslateType } from './utils.ts';
 
 export const mapLoopToExcel = (
   loopControllers: LoopController,
   panel_number: number,
-  language: string,
+  sheetTranslate: sheetTranslateType
 ) => {
   const loopExcel = [];
   for (const loop of loopControllers.loops) {
@@ -54,10 +54,10 @@ export const mapLoopToExcel = (
         'fireLevel.title': alarm_thresholds?.find((el) => el.name === 'Fire')
           ?.value,
         'prealarmLevel.title': alarm_thresholds?.find(
-          (el) => (el.name = 'Prealarm'),
+          (el) => (el.name = 'Prealarm')
         )?.value,
         'Day mode fire level.title': alarm_thresholds?.find(
-          (el) => (el.name = 'Fire, day mode'),
+          (el) => (el.name = 'Fire, day mode')
         )?.value,
         'Day mode prealarm level.title':
           alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode'))
@@ -65,7 +65,7 @@ export const mapLoopToExcel = (
         'InputFunction.title': device.input_function,
         'AlarmMode.title': device.alarm_mode?.join(', '),
         'zoneDisables.title': device.zone_disables
-          ?.map((item) => sheetTranslate(item, language))
+          ?.map((item) => sheetTranslate(item))
           .join(', '),
         'Input delay.title': device.input_delay,
         'Input filter.title': device.input_filter,
@@ -79,7 +79,7 @@ export const mapLoopToExcel = (
           output_control?.control === 'Control groups'
             ? output_control.control_groups.join(', ')
             : ['General control', 'Local control'].includes(
-                  output_control?.control || '',
+                  output_control?.control || ''
                 )
               ? output_control?.control
               : null,
@@ -104,7 +104,7 @@ export const mapLoopToExcel = (
 
 export const forEachDeviceInLoopControllers = (
   panels: Panel[],
-  onDevice: (panel: Panel, loop: Loop, device: Address) => void,
+  onDevice: (panel: Panel, loop: Loop, device: Address) => void
 ) => {
   panels.forEach((panel) => {
     panel.loop_controllers.forEach((loop_controller) => {

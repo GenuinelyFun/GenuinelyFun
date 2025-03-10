@@ -20,12 +20,12 @@ const PageHeading: FC<PageHeadingProps> = ({
       ref.current.focus();
     }
     window.history.replaceState({}, '');
-  }, []);
+  }, [location.state?.prevPage]);
 
   return createElement(
     `h${level}`,
     { ref, className, tabIndex: -1, ...props },
-    children,
+    children
   );
 };
 

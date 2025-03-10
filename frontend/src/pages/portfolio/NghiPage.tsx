@@ -1,5 +1,10 @@
-import { FC, useState } from 'react';
 import classNames from 'classnames';
+import { FC, useState } from 'react';
+
+import nghi from '../../assets/images/nghi_1276x1276.jpg';
+import PageHeading from '../../components/PageHeading';
+import { Darkmode, useDarkmodeContext } from '../../utils/darkmode-utils.ts';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import {
   additionalWork,
   certificates,
@@ -8,11 +13,6 @@ import {
   NGHI_FULLNAME,
   nghiLinks,
 } from '../../utils/nghi-utils';
-import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import nghi from '../../assets/images/nghi_1276x1276.jpg';
-import PageHeading from '../../components/PageHeading';
-
 import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {

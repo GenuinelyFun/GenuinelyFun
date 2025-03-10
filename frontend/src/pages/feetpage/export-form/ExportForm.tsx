@@ -1,28 +1,29 @@
-import { FC, FormEventHandler, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
+import { FC, FormEventHandler, useEffect, useState } from 'react';
 
-import {
-  TranslateTextKey,
-  useLanguageContext,
-} from '../../../utils/LanguageProvider';
-import { useToast } from '../../../utils/useToast';
-import { useDataContext } from '../../../utils/DataProvider';
-import { Panel } from '../../../interfaces/jsonDataInterface';
-import { mapPanelToExcel } from '../../../mappers/panel-utils';
-import { mapPanelsWithZones } from '../../../mappers/zone-utils';
-import { mapLoopToExcel } from '../../../mappers/loop-utils';
-import { mapBoardToExcel } from '../../../mappers/board-utils';
-import { mapLoopAddressToExcel } from '../../../mappers/address-report-utils';
-import { mapToIOReportToExcel } from '../../../mappers/io-report-utils';
-import { mapControlGroupsToExcel } from '../../../mappers/control-group-report-utils';
-import { addSheetToWorkbook, feetLanguages } from '../../../mappers/utils';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
+import { Panel } from '../../../interfaces/jsonDataInterface';
+import { mapLoopAddressToExcel } from '../../../mappers/address-report-utils.ts';
+import { mapBoardToExcel } from '../../../mappers/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../../mappers/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../../mappers/io-report-utils.ts';
+import { mapLoopToExcel } from '../../../mappers/loop-utils.ts';
+import { mapPanelToExcel } from '../../../mappers/panel-utils.ts';
+import {
+  addSheetToWorkbook,
+  feetLanguages,
+  useSheetTranslate,
+} from '../../../mappers/utils';
+import { mapPanelsWithZones } from '../../../mappers/zone-utils.ts';
+import { File, useDataContext } from '../../../utils/data-utils.ts';
+import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
+import { useToast } from '../../../utils/useToast';
 import CheckboxWithInfobox from './CheckboxWithInfobox';
-import PanelCheckbox from './PanelCheckbox';
 import styles from './ExportForm.module.less';
+import PanelCheckbox from './PanelCheckbox';
 
 export interface FilterPanelType {
   [fileName: string]: { [panel: string]: boolean };
@@ -32,7 +33,7 @@ const ExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
   const { files } = useDataContext();
-
+  const { sheetTranslate, updateLanguage } = useSheetTranslate();
   const [zone, setZone] = useState<boolean>(true);
   const [fireLoop, setFireLoop] = useState<boolean>(true);
   const [ioBoard, setIoBoard] = useState<boolean>(true);
@@ -46,11 +47,11 @@ const ExportForm: FC = () => {
   const [sheetLanguage, setSheetLanguage] = useState<
     keyof typeof feetLanguages
   >(i18n.language === 'no' ? 'nb' : 'en');
-
   const isZonesAvailable =
     files.length === 1 ? files[0].json.system.zones !== undefined : true;
 
   useEffect(() => {
+    updateLanguage(sheetLanguage);
     if (!isZonesAvailable) {
       setZone(false);
     }
@@ -59,122 +60,119 @@ const ExportForm: FC = () => {
       files.forEach((file) => {
         paneles[file.short] = file.json.system.panels.reduce(
           (acc, panel) => ({ ...acc, [panel.name]: true }),
-          {},
+          {}
         );
       });
       setFilteredPanels(paneles);
     }
-  }, [files]);
+  }, [files, isZonesAvailable]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (files.length === 0) return;
 
     toast({ type: 'success', textKey: 'export.started' });
-    files.forEach(({ name, json }) => {
-      const panels = json.system.panels.filter((panel) => {
-        if (filteredPanels[name] === undefined) {
+    files.forEach((file) => {
+      const panels = file.json.system.panels.filter((panel) => {
+        if (filteredPanels[file.name] === undefined) {
           return true;
         }
-        return filteredPanels[name][panel.name];
+        return filteredPanels[file.name][panel.name];
       });
       if (separateFiles) {
         panels.forEach((panel) => {
-          exportToFiles([panel]);
+          exportToFiles(file, [panel]);
         });
       } else {
-        exportToFiles(panels);
+        exportToFiles(file, panels);
       }
     });
   };
 
-  const exportToFiles = (panels: Panel[]) => {
-    files.forEach(({ name, json }) => {
-      const workbook = new Workbook();
-      const zones = json.system.zones;
-
-      if (firePanel) {
-        addSheetToWorkbook(
-          workbook,
-          panels.map((panel) =>
-            mapPanelToExcel(json.system, panel, sheetLanguage),
-          ),
-          'Panel',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (zones !== undefined && zone) {
-        addSheetToWorkbook(
-          workbook,
-          mapPanelsWithZones(panels, zones),
-          'Zone',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (fireLoop) {
-        addSheetToWorkbook(
-          workbook,
-          panels.flatMap((panel) =>
-            panel.loop_controllers.flatMap((loop_controller) =>
-              mapLoopToExcel(loop_controller, panel.number, sheetLanguage),
-            ),
-          ),
-          'Loop',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (ioBoard) {
-        addSheetToWorkbook(
-          workbook,
-          mapBoardToExcel(panels),
-          'Board',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (addressReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapLoopAddressToExcel(panels, sheetLanguage),
-          'Address_report',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (ioReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapToIOReportToExcel(panels, sheetLanguage),
-          'IO_report',
-          json,
-          sheetLanguage,
-        );
-      }
-      if (controlGroupReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapControlGroupsToExcel(panels, sheetLanguage),
-          'Control group report',
-          json,
-          sheetLanguage,
-        );
-      }
-      let panelSuffix = '';
-      if (separateFiles) {
-        panelSuffix = `_${panels[0].name}`;
-      }
-      const fileName =
-        name.slice(0, name.indexOf('.json')) + panelSuffix + '.xlsx';
-
-      workbook.xlsx.writeBuffer().then((buffer) => {
-        const blob = new Blob([buffer], {
-          type: 'application/octet-stream',
-        });
-        FileSaver.saveAs(blob, fileName);
+  const exportToFiles = (file: File, panels: Panel[]) => {
+    const { name, json } = file;
+    const workbook = new Workbook();
+    const zones = json.system.zones;
+    if (firePanel) {
+      addSheetToWorkbook(
+        workbook,
+        panels.map((panel) =>
+          mapPanelToExcel(json.system, panel, sheetTranslate)
+        ),
+        'Panel',
+        json,
+        sheetTranslate
+      );
+    }
+    if (zones !== undefined && zone) {
+      addSheetToWorkbook(
+        workbook,
+        mapPanelsWithZones(panels, zones),
+        'Zone',
+        json,
+        sheetTranslate
+      );
+    }
+    if (fireLoop) {
+      addSheetToWorkbook(
+        workbook,
+        panels.flatMap((panel) =>
+          panel.loop_controllers.flatMap((loop_controller) =>
+            mapLoopToExcel(loop_controller, panel.number, sheetTranslate)
+          )
+        ),
+        'Loop',
+        json,
+        sheetTranslate
+      );
+    }
+    if (ioBoard) {
+      addSheetToWorkbook(
+        workbook,
+        mapBoardToExcel(panels),
+        'Board',
+        json,
+        sheetTranslate
+      );
+    }
+    if (addressReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapLoopAddressToExcel(panels, sheetTranslate),
+        'Address_report',
+        json,
+        sheetTranslate
+      );
+    }
+    if (ioReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapToIOReportToExcel(panels, sheetTranslate),
+        'IO_report',
+        json,
+        sheetTranslate
+      );
+    }
+    if (controlGroupReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapControlGroupsToExcel(panels, sheetTranslate),
+        'Control group report',
+        json,
+        sheetTranslate
+      );
+    }
+    let panelSuffix = '';
+    if (separateFiles) {
+      panelSuffix = `_${panels[0].name}`;
+    }
+    const fileName =
+      name.slice(0, name.indexOf('.json')) + panelSuffix + '.xlsx';
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], {
+        type: 'application/octet-stream',
       });
+      FileSaver.saveAs(blob, fileName);
     });
   };
 
@@ -207,18 +205,21 @@ const ExportForm: FC = () => {
     setIoReport(!isAllSelected);
     setControlGroupReport(!isAllSelected);
   };
+
   return (
     <form
       className={styles.container}
       onSubmit={onExportButtonClicked}
-      role={'form'}
       aria-label={translate(`export.settings.aria`)}
     >
       <h2>{translate('export.title')}</h2>
       <label className={classNames(styles.select, styles.formOption)}>
         {translate('export.language.select')}
         <select
-          onChange={(e) => setSheetLanguage(e.target.value)}
+          onChange={(e) => {
+            setSheetLanguage(e.target.value);
+            updateLanguage(e.target.value);
+          }}
           value={sheetLanguage}
         >
           {Object.keys(feetLanguages).map((key) => (
@@ -304,7 +305,7 @@ const ExportForm: FC = () => {
             setSeparateFiles(!separateFiles);
           }}
         />
-        {translate(`export.separate.checkbox.label` as TranslateTextKey)}
+        {translate('export.separate.checkbox.label')}
       </label>
       <label className={styles.checkbox}>
         <input
@@ -314,7 +315,7 @@ const ExportForm: FC = () => {
             setDisclaimer(!disclaimer);
           }}
         />
-        {translate(`export.disclaimer.checkbox.label` as TranslateTextKey)}
+        {translate('export.disclaimer.checkbox.label')}
       </label>
       <GenericButton
         className={styles.button}

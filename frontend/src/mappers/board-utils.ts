@@ -1,7 +1,8 @@
 import { Panel } from '../interfaces/jsonDataInterface';
+import { sheetValueTypes } from './utils.ts';
 
 export const mapBoardToExcel = (panels: Panel[]) => {
-  const boardExcel: Record<string, any>[] = [];
+  const boardExcel: Record<string, sheetValueTypes>[] = [];
   panels.forEach((panel) => {
     panel.input_output_units.forEach((board) => {
       board.clean_contact_inputs?.forEach((item) => {
@@ -50,7 +51,7 @@ export const mapBoardToExcel = (panels: Panel[]) => {
             output_control.control === 'Control Groups'
               ? output_control.control_groups.join(', ')
               : ['General control', 'Local control'].includes(
-                    output_control.control,
+                    output_control.control
                   )
                 ? output_control.control
                 : null,
@@ -78,7 +79,7 @@ export const mapBoardToExcel = (panels: Panel[]) => {
             output_control.control === 'Control Groups'
               ? output_control.control_groups.join(', ')
               : ['General control', 'Local control'].includes(
-                    output_control.control,
+                    output_control.control
                   )
                 ? output_control.control
                 : null,

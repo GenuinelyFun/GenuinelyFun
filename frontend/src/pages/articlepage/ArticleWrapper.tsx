@@ -1,49 +1,54 @@
-import React, { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import AuthorCard from '../../components/AuthorCard';
+import PageHeading from '../../components/PageHeading';
+import { ArticleType } from '../../utils/article-utils';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../../utils/LanguageProvider';
-import { ArticleType } from '../../utils/article-utils';
-import PageHeading from '../../components/PageHeading';
-import Card from '../../components/AuthorCard';
-
+} from '../../utils/i18n/language-utils.ts';
+import { routePaths } from '../../utils/route-utils';
 import styles from './ArticleWrapper.module.less';
-import { routePaths } from '../../index';
 
 export const ArticleWrapper: FC<{ article: ArticleType }> = ({ article }) => {
   const { translate } = useLanguageContext();
   const { key, textFile, author } = article;
+  const [textKeys, setTextKeys] = useState<TranslateTextKey[]>([]);
 
-  const textKeys = Object.keys(
-    require(`./${textFile}PageText.json`),
-  ) as TranslateTextKey[];
+  useEffect(() => {
+    if (textKeys.length === 0) {
+      import(`./${textFile}PageText.json`).then((texts) =>
+        setTextKeys(Object.keys(texts.default) as TranslateTextKey[])
+      );
+    }
+  }, [textFile, textKeys]);
 
   const title = textKeys.find((textKey) => textKey === key + '.title');
+
   const paragraphs = Object.groupBy(
     textKeys,
-    (textKey) => textKey.split('.')[1],
+    (textKey: TranslateTextKey) => textKey.split('.')[1]
   );
 
   return (
     <main className={styles.article}>
       <article>
-        <PageHeading>{translate(title!)}</PageHeading>
+        {title && <PageHeading>{translate(title)}</PageHeading>}
         <Link to={'/' + routePaths.article} className={styles.backButton}>
           {translate('article-page.back-button')}
         </Link>
         {Object.keys(paragraphs).map((number) =>
-          paragraphs[number]?.map((textKey) =>
+          paragraphs[number]?.map((textKey: TranslateTextKey) =>
             textKey.includes('title') ? (
               <h2 key={textKey}>{translate(textKey)}</h2>
             ) : (
               <p key={textKey}>{translate(textKey)}</p>
-            ),
-          ),
+            )
+          )
         )}
 
-        <Card author={author} />
+        <AuthorCard author={author} />
       </article>
     </main>
   );

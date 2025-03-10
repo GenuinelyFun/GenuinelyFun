@@ -1,12 +1,13 @@
 import { FC, useState } from 'react';
-import { ReactComponent as SunIcon } from '../assets/icons/toggle-sun.svg';
-import { ReactComponent as MoonIcon } from '../assets/icons/toggle-moon.svg';
-import { Darkmode, useDarkmodeContext } from '../utils/DarkmodeProvider';
-import styles from './DarkmodeToggle.module.less';
+
+import MoonIcon from '../assets/icons/MoonIcon';
+import SunIcon from '../assets/icons/SunIcon';
+import { Darkmode, useDarkmodeContext } from '../utils/darkmode-utils.ts';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
+} from '../utils/i18n/language-utils.ts';
+import styles from './DarkmodeToggle.module.less';
 
 interface DarkmodeToggleProps {
   className?: string;

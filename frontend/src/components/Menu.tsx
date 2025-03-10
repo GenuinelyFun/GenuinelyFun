@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import { useLanguageContext } from '../utils/LanguageProvider';
-import { routePaths } from '../index';
+import { useLanguageContext } from '../utils/i18n/language-utils.ts';
+import { routePaths } from '../utils/route-utils';
 import DropDownMenu from './DropDownMenu';
-
 import styles from './Menu.module.less';
 
 const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
@@ -49,6 +48,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         buttonTextKey={'tab.portfolio'}
         listItems={[
           <Link
+            key={routePaths.arthur}
             state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]: location.pathname === routePaths.arthur,
@@ -59,6 +59,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             {translate('tab.arthur')}
           </Link>,
           <Link
+            key={routePaths.nghi}
             state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
               [styles.active]: location.pathname === routePaths.nghi,

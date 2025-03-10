@@ -1,4 +1,4 @@
-@import '../../utils/variables.less';
+@import "../../utils/variables.less";
 
 .container {
   max-width: var(--max-width-page);
@@ -60,7 +60,8 @@
     margin-top: var(--spacing-small);
     gap: var(--spacing-small);
 
-    img {
+    img,
+    svg {
       width: 32px;
       height: auto;
     }
@@ -98,7 +99,7 @@
   background-color: var(--color-green);
   color: var(--color-white);
 
-  [data-theme='dark'] & {
+  [data-theme="dark"] & {
     color: var(--color-black);
   }
 }

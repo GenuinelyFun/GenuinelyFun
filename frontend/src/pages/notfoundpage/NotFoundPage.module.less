@@ -1,13 +1,13 @@
-@import '../../utils/variables.less';
+@import "../../utils/variables.less";
 
 .pagenotfound {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    '. header .'
-    'rocket . moon'
-    '. astronaut . ';
+    ". header ."
+    "rocket . moon"
+    ". astronaut . ";
   color: var(--color-black);
   text-align: center;
   margin: 0 auto;
@@ -15,7 +15,7 @@
   position: relative;
   flex-direction: column;
 
-  [data-theme='dark'] & {
+  [data-theme="dark"] & {
     color: var(--color-black);
   }
 
@@ -31,10 +31,10 @@
   @media @breakpoint-tablet {
     grid-template-columns: 1fr;
     grid-template-areas:
-      'header'
-      'moon'
-      'rocket'
-      'astronaut';
+      "header"
+      "moon"
+      "rocket"
+      "astronaut";
   }
 }
 
@@ -51,6 +51,7 @@
 .moon {
   grid-area: moon;
   animation: rotateMoon 20s linear infinite;
+  width: 200px;
 
   @media @breakpoint-tablet {
     width: 150px;
@@ -65,6 +66,7 @@
 .rocket {
   grid-area: rocket;
   animation: rotateRocket 20s linear infinite;
+  width: 200px;
 
   @media @breakpoint-tablet {
     width: 150px;

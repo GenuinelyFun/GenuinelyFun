@@ -1,10 +1,18 @@
-import React, { ReactNode, useEffect, useId, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { ReactComponent as Arrow } from '../assets/icons/chevron-dropdown.svg';
+import React, {
+  FC,
+  ReactNode,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
+
+import ChevronDownIcon from '../assets/icons/ChevronDownIcon';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
+} from '../utils/i18n/language-utils.ts';
 import styles from './DropDownMenu.module.less';
 
 type DropDownMenuProps = {
@@ -15,13 +23,13 @@ type DropDownMenuProps = {
   listItemClassName?: string;
 };
 
-const DropDownMenu = ({
+const DropDownMenu: FC<DropDownMenuProps> = ({
   buttonClassName,
   buttonTextKey,
   buttonAriaLabel,
   listItems,
   listItemClassName,
-}: DropDownMenuProps): JSX.Element => {
+}: DropDownMenuProps) => {
   const [open, setOpen] = useState(false);
   const { translate } = useLanguageContext();
   const dropdownRef = useRef<HTMLButtonElement>(null);
@@ -51,6 +59,7 @@ const DropDownMenu = ({
   };
 
   const labelId = useId();
+  const popupId = useId();
 
   return (
     <div className={styles.dropdownContainer}>
@@ -61,12 +70,13 @@ const DropDownMenu = ({
         className={classNames(styles.dropdownButton, buttonClassName)}
         aria-label={buttonAriaLabel}
         aria-haspopup="true"
+        aria-controls={popupId}
       >
         {translate(buttonTextKey)}
-        <Arrow
+        <ChevronDownIcon
           className={classNames(
             styles.chevron,
-            open ? styles.chevronOpen : styles.chevronClosed,
+            open ? styles.chevronOpen : styles.chevronClosed
           )}
         />
       </button>
@@ -75,10 +85,10 @@ const DropDownMenu = ({
         className={classNames(
           styles.dropdownContent,
           open ? styles.open : styles.hidden,
-          styles.dropdownList,
+          styles.dropdownList
         )}
         aria-labelledby={labelId}
-        aria-expanded={open}
+        aria-owns={popupId}
       >
         {listItems.map((item, index) => {
           return (

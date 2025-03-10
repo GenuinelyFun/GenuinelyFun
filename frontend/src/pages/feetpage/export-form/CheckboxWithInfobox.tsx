@@ -1,11 +1,10 @@
 import { FC } from 'react';
 
+import InfoBox from '../../../components/InfoBox';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../../../utils/LanguageProvider';
-import InfoBox from '../../../components/InfoBox';
-
+} from '../../../utils/i18n/language-utils.ts';
 import styles from './ExportForm.module.less';
 
 const CheckboxWithInfobox: FC<{
@@ -28,10 +27,10 @@ const CheckboxWithInfobox: FC<{
       </label>
       <InfoBox
         message={translate(
-          `export.${textKey}.infobox.description` as TranslateTextKey,
+          `export.${textKey}.infobox.description` as TranslateTextKey
         )}
         header={translate(
-          `export.${textKey}.infobox.title` as TranslateTextKey,
+          `export.${textKey}.infobox.title` as TranslateTextKey
         )}
       />
     </li>

@@ -1,29 +1,7 @@
-import { createContext, FC, PropsWithChildren, useState } from 'react';
-import { Root } from '../interfaces/jsonDataInterface';
-import { useContextOrThrow } from './context-utils';
+import { FC, PropsWithChildren, useState } from 'react';
+
+import { DataContext, File, shortenedFileName } from './data-utils.ts';
 import { useToast } from './useToast';
-
-export const shortenedFileName = (name: string) => {
-  if (name.length <= 22) return name;
-  return name.slice(0, 22) + '...';
-};
-
-export interface File {
-  name: string;
-  json: Root;
-  short: string;
-}
-
-type DataContextType = {
-  files: File[];
-  removeFile: (name: string) => void;
-  addFiles: (value: File[]) => void;
-};
-
-const DataContext = createContext<DataContextType | undefined>(undefined);
-
-export const useDataContext = (): DataContextType =>
-  useContextOrThrow(DataContext);
 
 export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
   const [files, setFiles] = useState<File[]>([]);

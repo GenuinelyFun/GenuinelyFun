@@ -1,24 +1,28 @@
 import classNames from 'classnames';
-import styles from './LinkIcon.module.less';
-import { Darkmode, useDarkmodeContext } from '../utils/DarkmodeProvider';
-import React, { FC, ImgHTMLAttributes } from 'react';
+import { ElementType, FC } from 'react';
 
-const LinkIcon: FC<ImgHTMLAttributes<HTMLImageElement>> = ({
-  src,
-  alt,
-  className,
-}) => {
+import { Darkmode, useDarkmodeContext } from '../utils/darkmode-utils.ts';
+import styles from './LinkIcon.module.less';
+
+const LinkIcon: FC<{
+  icon?: ElementType;
+  src?: string;
+  ariaLabel: string;
+  className?: string;
+}> = ({ icon, src, ariaLabel, className }) => {
   const { theme } = useDarkmodeContext();
+
+  const Icon = icon || 'img';
   return (
-    <img
-      src={src}
-      alt={alt}
+    <Icon
+      {...(icon ? { 'aria-label': ariaLabel } : { alt: ariaLabel })}
+      {...(icon ? {} : { src })}
       className={classNames(
         styles.linkIcon,
         {
           [styles.light]: theme === Darkmode.Light,
         },
-        className,
+        className
       )}
     />
   );

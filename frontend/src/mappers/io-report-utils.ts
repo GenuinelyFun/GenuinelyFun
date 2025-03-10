@@ -3,16 +3,18 @@ import {
   Panel,
 } from '../interfaces/jsonDataInterface';
 import { forEachDeviceInLoopControllers } from './loop-utils';
-import { sheetTranslate } from './utils';
+import { sheetTranslateType, sheetValueTypes } from './utils.ts';
 
-const isNull = (el: any) => el === null || el === '' || el === undefined;
+const isNull = (el: unknown) => el === null || el === '' || el === undefined;
 
-export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
-  const IOReport: Record<string, any>[] = [];
-
+export const mapToIOReportToExcel = (
+  panels: Panel[],
+  sheetTranslate: sheetTranslateType
+) => {
+  const IOReport: Record<string, sheetValueTypes>[] = [];
   const handleMonitoredAndCleanContactOutputs = (
     output: MonitoredAndCleanContactOutput,
-    address: string,
+    address: string
   ) => {
     const { output_control } = output;
     const { output_function } = output_control;
@@ -26,22 +28,20 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
     if (!control_groups || control_groups.length === 0) {
       if (control === 'General control') {
         otherFunctions.push(
-          sheetTranslate('Control groups', language) +
+          sheetTranslate('Control groups') +
             ': ' +
-            sheetTranslate('General control', language),
+            sheetTranslate('General control')
         );
       } else if (control === 'Local control') {
         otherFunctions.push(
-          sheetTranslate('Control groups', language) +
+          sheetTranslate('Control groups') +
             ': ' +
-            sheetTranslate('Local control', language),
+            sheetTranslate('Local control')
         );
       }
     } else {
       otherFunctions.push(
-        sheetTranslate('Control groups', language) +
-          ': ' +
-          control_groups.join(', '),
+        sheetTranslate('Control groups') + ': ' + control_groups.join(', ')
       );
     }
 
@@ -58,7 +58,7 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
   panels.forEach((panel) => {
     panel.input_output_units.forEach((board) => {
       board.clean_contact_inputs?.forEach((input) => {
-        const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Input', language)} ${input.number}`;
+        const address = `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Input')} ${input.number}`;
 
         if (input.function === 'Not in use') {
           return;
@@ -66,15 +66,15 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
         const functions = [];
         if (input.control_group_A)
           functions.push(
-            `${sheetTranslate('Ctrl A.title', language)}: ${input.control_group_A}`,
+            `${sheetTranslate('Ctrl A.title')}: ${input.control_group_A}`
           );
         if (input.control_group_B)
           functions.push(
-            `${sheetTranslate('Ctrl B.title', language)}: ${input.control_group_B}`,
+            `${sheetTranslate('Ctrl B.title')}: ${input.control_group_B}`
           );
         if (input.control_group_B2)
           functions.push(
-            `${sheetTranslate('Ctrl B2.title', language)}: ${input.control_group_B2}`,
+            `${sheetTranslate('Ctrl B2.title')}: ${input.control_group_B2}`
           );
 
         IOReport.push({
@@ -88,18 +88,18 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
       });
 
       board.clean_contact_outputs.forEach((output) => {
-        const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', language)} ${output.number}`;
+        const address = `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output')} ${output.number}`;
         handleMonitoredAndCleanContactOutputs(output, address);
       });
 
       board.monitored_outputs?.forEach((output) => {
-        const address = `${sheetTranslate('Panel', language)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Monitored Output', language)} ${output.number}`;
+        const address = `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Monitored Output')} ${output.number}`;
         handleMonitoredAndCleanContactOutputs(output, address);
       });
     });
   });
 
-  forEachDeviceInLoopControllers(panels, (panel, loop, device) => {
+  forEachDeviceInLoopControllers(panels, (_panel, loop, device) => {
     const {
       control_group_A,
       control_group_B,
@@ -108,38 +108,30 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
     } = device;
     const functions = [];
     if (control_group_A)
-      functions.push(
-        `${sheetTranslate('Ctrl A.title', language)}: ${control_group_A}`,
-      );
+      functions.push(`${sheetTranslate('Ctrl A.title')}: ${control_group_A}`);
     if (control_group_B)
-      functions.push(
-        `${sheetTranslate('Ctrl B.title', language)}: ${control_group_B}`,
-      );
+      functions.push(`${sheetTranslate('Ctrl B.title')}: ${control_group_B}`);
     if (control_group_B2)
-      functions.push(
-        `${sheetTranslate('Ctrl B2.title', language)}: ${control_group_B2}`,
-      );
+      functions.push(`${sheetTranslate('Ctrl B2.title')}: ${control_group_B2}`);
 
     const { control_groups, control } = output_control || {};
     if (!control_groups || control_groups.length === 0) {
       if (control === 'General control') {
         functions.push(
-          sheetTranslate('Control groups', language) +
+          sheetTranslate('Control groups') +
             ': ' +
-            sheetTranslate('General control', language),
+            sheetTranslate('General control')
         );
       } else if (control === 'Local control') {
         functions.push(
-          sheetTranslate('Control groups', language) +
+          sheetTranslate('Control groups') +
             ': ' +
-            sheetTranslate('Local control', language),
+            sheetTranslate('Local control')
         );
       }
     } else {
       functions.push(
-        sheetTranslate('Control groups', language) +
-          ': ' +
-          control_groups.join(', '),
+        sheetTranslate('Control groups') + ': ' + control_groups.join(', ')
       );
     }
 
@@ -163,6 +155,6 @@ export const mapToIOReportToExcel = (panels: Panel[], language: string) => {
           isNull(el['Input Function'])) ||
         el['Input Function'] === 'Manual call point' ||
         el['Output Function'] === 'Manual call point'
-      ),
+      )
   );
 };

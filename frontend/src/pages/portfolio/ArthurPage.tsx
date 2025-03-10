@@ -1,5 +1,8 @@
-import { FC, useState } from 'react';
 import classNames from 'classnames';
+import { FC, useState } from 'react';
+
+import arthur from '../../assets/images/arthur_1740x1740.jpg';
+import PageHeading from '../../components/PageHeading';
 import {
   ARTHUR_FIRSTNAME,
   ARTHUR_FULLNAME,
@@ -9,10 +12,7 @@ import {
   skills,
   volunteering,
 } from '../../utils/arthur-utils';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import PageHeading from '../../components/PageHeading';
-import arthur from '../../assets/images/arthur_1740x1740.jpg';
-
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import styles from './ArthurNghiPage.module.less';
 
 const ArthurPage: FC = () => {

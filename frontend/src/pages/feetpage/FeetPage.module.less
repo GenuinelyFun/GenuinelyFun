@@ -1,4 +1,4 @@
-@import '../../utils/variables.less';
+@import "../../utils/variables.less";
 
 .container {
   max-height: fit-content;
@@ -7,8 +7,8 @@
   grid-template-columns: 1fr var(--max-width-page) 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    '. title .'
-    '. content aside';
+    ". title ."
+    ". content aside";
 
   @media @breakpoint-tablet {
     display: flex;

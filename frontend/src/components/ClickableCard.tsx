@@ -1,12 +1,11 @@
-import { FC } from 'react';
+import { FC, JSX } from 'react';
 import { Link } from 'react-router-dom';
-import { ArticleType } from '../utils/article-utils';
 
+import { ArticleType } from '../utils/article-utils';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
-
+} from '../utils/i18n/language-utils.ts';
 import styles from './ClickableCard.module.less';
 
 const ClickableCard: FC<{

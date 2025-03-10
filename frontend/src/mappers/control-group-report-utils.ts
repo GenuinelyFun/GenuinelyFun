@@ -1,108 +1,87 @@
 import { ControlGroupC, Panel } from '../interfaces/jsonDataInterface';
 import { forEachDeviceInLoopControllers } from './loop-utils';
-import { sheetTranslate } from './utils';
+import { sheetTranslateType, sheetValueTypes } from './utils';
 
 export const mapControlGroupsToExcel = (
   panels: Panel[],
-  sheetLanguage: string,
+  sheetTranslate: sheetTranslateType
 ) => {
-  const inputs: Record<string, any>[] = [];
-  const loop_outputs: Record<string, any>[] = [];
-  const board_outputs: Record<string, any>[] = [];
-  const structured_data: Record<string, any>[] = [];
+  const inputs: Record<string, sheetValueTypes>[] = [];
+  const loop_outputs: Record<string, sheetValueTypes>[] = [];
+  const board_outputs: Record<string, sheetValueTypes>[] = [];
+  const structured_data: Record<string, sheetValueTypes>[] = [];
+  // @ts-expect-error Love will always prevail
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const loveBabe = 'I will always love you, from your silly man';
 
   const mapToControlGroupObject = (
-    groupNumber = null,
-    groupAddress = null,
-    groupDeviceId = null,
-    groupZone = null,
-    groupDescription = null,
-    groupDevice = null,
-    groupProtocol = null,
-    groupsNumber = null,
-    groupsAddress = null,
-    groupsDeviceId = null,
-    groupsZone = null,
-    groupsDescription = null,
-    groupsDevice = null,
-    groupsProtocol = null,
+    groupNumber: sheetValueTypes = null,
+    groupAddress: sheetValueTypes = null,
+    groupDeviceId: sheetValueTypes = null,
+    groupZone: sheetValueTypes = null,
+    groupDescription: sheetValueTypes = null,
+    groupDevice: sheetValueTypes = null,
+    groupProtocol: sheetValueTypes = null,
+    groupsNumber: sheetValueTypes = null,
+    groupsAddress: sheetValueTypes = null,
+    groupsDeviceId: sheetValueTypes = null,
+    groupsZone: sheetValueTypes = null,
+    groupsDescription: sheetValueTypes = null,
+    groupsDevice: sheetValueTypes = null,
+    groupsProtocol: sheetValueTypes = null
   ) => {
     return {
-      [sheetTranslate('Group', sheetLanguage) +
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Number')]: groupNumber,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Address')]: groupAddress,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('DeviceId.title')]:
+        groupDeviceId,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Zone')]: groupZone,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Description.title')]:
+        groupDescription,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Device Type')]:
+        groupDevice,
+      [sheetTranslate('Group') + ' ' + sheetTranslate('Protocol.type.title')]:
+        groupProtocol,
+      [sheetTranslate('Control groups.title') + ' ' + sheetTranslate('Number')]:
+        groupsNumber,
+      [sheetTranslate('Control groups.title') +
       ' ' +
-      sheetTranslate('Number', sheetLanguage)]: groupNumber,
-      [sheetTranslate('Group', sheetLanguage) +
+      sheetTranslate('Address')]: groupsAddress,
+      [sheetTranslate('Control groups.title') +
       ' ' +
-      sheetTranslate('Address', sheetLanguage)]: groupAddress,
-      [sheetTranslate('Group', sheetLanguage) +
+      sheetTranslate('DeviceId.title')]: groupsDeviceId,
+      [sheetTranslate('Control groups.title') + ' ' + sheetTranslate('Zone')]:
+        groupsZone,
+      [sheetTranslate('Control groups.title') +
       ' ' +
-      sheetTranslate('DeviceId.title', sheetLanguage)]: groupDeviceId,
-      [sheetTranslate('Group', sheetLanguage) +
+      sheetTranslate('Description.title')]: groupsDescription,
+      [sheetTranslate('Control groups.title') +
       ' ' +
-      sheetTranslate('Zone', sheetLanguage)]: groupZone,
-      [sheetTranslate('Group', sheetLanguage) +
+      sheetTranslate('Device Type')]: groupsDevice,
+      [sheetTranslate('Control groups.title') +
       ' ' +
-      sheetTranslate('Description.title', sheetLanguage)]: groupDescription,
-      [sheetTranslate('Group', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Device Type', sheetLanguage)]: groupDevice,
-      [sheetTranslate('Group', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Protocol.type.title', sheetLanguage)]: groupProtocol,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Number', sheetLanguage)]: groupsNumber,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Address', sheetLanguage)]: groupsAddress,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('DeviceId.title', sheetLanguage)]: groupsDeviceId,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Zone', sheetLanguage)]: groupsZone,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Description.title', sheetLanguage)]: groupsDescription,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Device Type', sheetLanguage)]: groupsDevice,
-      [sheetTranslate('Control groups.title', sheetLanguage) +
-      ' ' +
-      sheetTranslate('Protocol.type.title', sheetLanguage)]: groupsProtocol,
+      sheetTranslate('Protocol.type.title')]: groupsProtocol,
     };
   };
   panels.forEach((panel) => {
     panel.input_output_units.forEach((board) => {
       board.clean_contact_inputs?.forEach((input) => {
         inputs.push({
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Number', sheetLanguage)]:
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Number')]:
             input.control_group_A ||
             input.control_group_B ||
             input.control_group_B2,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Address', sheetLanguage)]:
-            `${sheetTranslate('Panel', sheetLanguage)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Input', sheetLanguage)} ${input.number}`,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('DeviceId.title', sheetLanguage)]: null,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Zone', sheetLanguage)]: null,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Description.title', sheetLanguage)]:
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Address')]:
+            `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Input')} ${input.number}`,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('DeviceId.title')]:
+            null,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Zone')]: null,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Description.title')]:
             input.description,
-          [sheetTranslate('Group', sheetLanguage) +
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Device Type')]: null,
+          [sheetTranslate('Group') +
           ' ' +
-          sheetTranslate('Device Type', sheetLanguage)]: null,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Protocol.type.title', sheetLanguage)]: null,
+          sheetTranslate('Protocol.type.title')]: null,
         });
       });
 
@@ -113,69 +92,67 @@ export const mapControlGroupsToExcel = (
           if (output_control.control_groups.length > 0) {
             output_control.control_groups.forEach((control) => {
               board_outputs.push({
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Number', sheetLanguage)]: control,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('Number')]: control,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Address', sheetLanguage)]:
-                  `${sheetTranslate('Panel', sheetLanguage)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', sheetLanguage)} ${output.number}`,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('Address')]:
+                  `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output')} ${output.number}`,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('DeviceId.title', sheetLanguage)]: null,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('DeviceId.title')]: null,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Zone', sheetLanguage)]: null,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('Zone')]: null,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Description.title', sheetLanguage)]:
-                  output.description,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('Description.title')]: output.description,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Device Type', sheetLanguage)]: null,
-                [sheetTranslate('Control groups.title', sheetLanguage) +
+                sheetTranslate('Device Type')]: null,
+                [sheetTranslate('Control groups.title') +
                 ' ' +
-                sheetTranslate('Protocol.type.title', sheetLanguage)]: null,
+                sheetTranslate('Protocol.type.title')]: null,
               });
             });
           } else {
             board_outputs.push({
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Number', sheetLanguage)]:
+              sheetTranslate('Number')]:
                 output.output_control.control === 'Local control'
-                  ? sheetTranslate('Control groups', sheetLanguage) +
+                  ? sheetTranslate('Control groups') +
                     ' ' +
-                    sheetTranslate('Local control', sheetLanguage)
-                  : sheetTranslate('Control groups', sheetLanguage) +
+                    sheetTranslate('Local control')
+                  : sheetTranslate('Control groups') +
                     ' ' +
-                    sheetTranslate('General control', sheetLanguage),
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+                    sheetTranslate('General control'),
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Address', sheetLanguage)]:
-                `${sheetTranslate('Panel', sheetLanguage)} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output', sheetLanguage)} ${output.number}`,
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              sheetTranslate('Address')]:
+                `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Output')} ${output.number}`,
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('DeviceId.title', sheetLanguage)]: null,
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              sheetTranslate('DeviceId.title')]: null,
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Zone', sheetLanguage)]: null,
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              sheetTranslate('Zone')]: null,
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Description.title', sheetLanguage)]:
-                output.description,
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              sheetTranslate('Description.title')]: output.description,
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Device Type', sheetLanguage)]: null,
-              [sheetTranslate('Control groups.title', sheetLanguage) +
+              sheetTranslate('Device Type')]: null,
+              [sheetTranslate('Control groups.title') +
               ' ' +
-              sheetTranslate('Protocol.type.title', sheetLanguage)]: null,
+              sheetTranslate('Protocol.type.title')]: null,
             });
           }
         });
     });
   });
-  forEachDeviceInLoopControllers(panels, (panel, loop, device) => {
+  forEachDeviceInLoopControllers(panels, (_panel, loop, device) => {
     const address =
       String(loop.number).padStart(3, '0') +
       '.' +
@@ -192,29 +169,19 @@ export const mapControlGroupsToExcel = (
     if (control_group_ABB2.length > 0) {
       control_group_ABB2.forEach((control_group) => {
         inputs.push({
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Number', sheetLanguage)]: control_group,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Address', sheetLanguage)]: address,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('DeviceId.title', sheetLanguage)]: device.device_id,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Zone', sheetLanguage)]: device.zone,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Description.title', sheetLanguage)]:
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Number')]:
+            control_group,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Address')]: address,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('DeviceId.title')]:
+            device.device_id,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Zone')]: device.zone,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Description.title')]:
             device.description,
-          [sheetTranslate('Group', sheetLanguage) +
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Device Type')]:
+            device.type,
+          [sheetTranslate('Group') +
           ' ' +
-          sheetTranslate('Device Type', sheetLanguage)]: device.type,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Protocol.type.title', sheetLanguage)]:
-            device.protocol_type,
+          sheetTranslate('Protocol.type.title')]: device.protocol_type,
         });
       });
     }
@@ -236,147 +203,123 @@ export const mapControlGroupsToExcel = (
           );
         };
         inputs.push({
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Number', sheetLanguage)]: controlGroupC(),
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Address', sheetLanguage)]: address,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('DeviceId.title', sheetLanguage)]: device.device_id,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Zone', sheetLanguage)]: device.zone,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Description.title', sheetLanguage)]:
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Number')]:
+            controlGroupC(),
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Address')]: address,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('DeviceId.title')]:
+            device.device_id,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Zone')]: device.zone,
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Description.title')]:
             device.description,
-          [sheetTranslate('Group', sheetLanguage) +
+          [sheetTranslate('Group') + ' ' + sheetTranslate('Device Type')]:
+            device.type,
+          [sheetTranslate('Group') +
           ' ' +
-          sheetTranslate('Device Type', sheetLanguage)]: device.type,
-          [sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Protocol.type.title', sheetLanguage)]:
-            device.protocol_type,
+          sheetTranslate('Protocol.type.title')]: device.protocol_type,
         });
       });
     }
     if (control_groups || control) {
       if (control === 'General control' && control_groups?.length === 0) {
         loop_outputs.push({
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Number', sheetLanguage)]:
-            sheetTranslate('Control groups', sheetLanguage) +
+          sheetTranslate('Number')]:
+            sheetTranslate('Control groups') +
             ' ' +
-            sheetTranslate('General control', sheetLanguage),
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('General control'),
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Address', sheetLanguage)]: address,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Address')]: address,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('DeviceId.title', sheetLanguage)]: device.device_id,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('DeviceId.title')]: device.device_id,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Zone', sheetLanguage)]: device.zone,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Zone')]: device.zone,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Description.title', sheetLanguage)]:
-            device.description,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Description.title')]: device.description,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Device Type', sheetLanguage)]: device.type,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Device Type')]: device.type,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Protocol.type.title', sheetLanguage)]:
-            device.protocol_type,
+          sheetTranslate('Protocol.type.title')]: device.protocol_type,
         });
       } else if (control === 'Local control' && control_groups?.length === 0) {
         loop_outputs.push({
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Number', sheetLanguage)]:
-            sheetTranslate('Control groups', sheetLanguage) +
+          sheetTranslate('Number')]:
+            sheetTranslate('Control groups') +
             ' ' +
-            sheetTranslate('Local control', sheetLanguage),
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Local control'),
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Address', sheetLanguage)]: address,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Address')]: address,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('DeviceId.title', sheetLanguage)]: device.device_id,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('DeviceId.title')]: device.device_id,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Zone', sheetLanguage)]: device.zone,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Zone')]: device.zone,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Description.title', sheetLanguage)]:
-            device.description,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Description.title')]: device.description,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Device Type', sheetLanguage)]: device.type,
-          [sheetTranslate('Control groups.title', sheetLanguage) +
+          sheetTranslate('Device Type')]: device.type,
+          [sheetTranslate('Control groups.title') +
           ' ' +
-          sheetTranslate('Protocol.type.title', sheetLanguage)]:
-            device.protocol_type,
+          sheetTranslate('Protocol.type.title')]: device.protocol_type,
         });
       } else if (control_groups !== undefined && control_groups.length > 0) {
         control_groups.forEach((control_group) => {
           loop_outputs.push({
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Number', sheetLanguage)]: control_group,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Number')]: control_group,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Address', sheetLanguage)]: address,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Address')]: address,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('DeviceId.title', sheetLanguage)]: device.device_id,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('DeviceId.title')]: device.device_id,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Zone', sheetLanguage)]: device.zone,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Zone')]: device.zone,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Description.title', sheetLanguage)]:
-              device.description,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Description.title')]: device.description,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Device Type', sheetLanguage)]: device.type,
-            [sheetTranslate('Control groups.title', sheetLanguage) +
+            sheetTranslate('Device Type')]: device.type,
+            [sheetTranslate('Control groups.title') +
             ' ' +
-            sheetTranslate('Protocol.type.title', sheetLanguage)]:
-              device.protocol_type,
+            sheetTranslate('Protocol.type.title')]: device.protocol_type,
           });
         });
       }
     }
   });
   const panel_inputs = inputs.filter((input) =>
-    input[
-      sheetTranslate('Group', sheetLanguage) +
-        ' ' +
-        sheetTranslate('Address', sheetLanguage)
-    ].includes(`${sheetTranslate('Panel', sheetLanguage)}`),
+    String(
+      input[sheetTranslate('Group') + ' ' + sheetTranslate('Address')]
+    ).includes(`${sheetTranslate('Panel')}`)
   );
   const number_inputs = inputs.filter(
     (input) =>
-      !input[
-        sheetTranslate('Group', sheetLanguage) +
-          ' ' +
-          sheetTranslate('Address', sheetLanguage)
-      ].includes(`${sheetTranslate('Panel', sheetLanguage)}`),
+      !String(
+        input[sheetTranslate('Group') + ' ' + sheetTranslate('Address')]
+      ).includes(`${sheetTranslate('Panel')}`)
   );
 
   const controlGroupTitle =
-    sheetTranslate('Group', sheetLanguage) +
-    ' ' +
-    sheetTranslate('Number', sheetLanguage);
+    sheetTranslate('Group') + ' ' + sheetTranslate('Number');
 
   const controlGroupsTitle =
-    sheetTranslate('Control groups.title', sheetLanguage) +
-    ' ' +
-    sheetTranslate('Number', sheetLanguage);
+    sheetTranslate('Control groups.title') + ' ' + sheetTranslate('Number');
 
   const inputsToExcel = panel_inputs.concat(number_inputs).sort((a, b) => {
     if (a[controlGroupTitle] === undefined) {
@@ -388,23 +331,35 @@ export const mapControlGroupsToExcel = (
     return Number(a[controlGroupTitle]) - Number(b[controlGroupTitle]);
   });
   const outputToExcel = board_outputs.concat(loop_outputs).sort((a, b) => {
-    if (!isNaN(a[controlGroupsTitle]) && !isNaN(b[controlGroupsTitle])) {
-      return a[controlGroupsTitle] - b[controlGroupsTitle];
+    if (
+      !isNaN(Number(a[controlGroupsTitle])) &&
+      !isNaN(Number(b[controlGroupsTitle]))
+    ) {
+      return Number(a[controlGroupsTitle]) - Number(b[controlGroupsTitle]);
     }
-    if (isNaN(a[controlGroupsTitle]) && !isNaN(b[controlGroupsTitle])) {
+    if (
+      isNaN(Number(a[controlGroupsTitle])) &&
+      !isNaN(Number(b[controlGroupsTitle]))
+    ) {
       return 1;
     }
-    if (!isNaN(a[controlGroupsTitle]) && isNaN(b[controlGroupsTitle])) {
+    if (
+      !isNaN(Number(a[controlGroupsTitle])) &&
+      isNaN(Number(b[controlGroupsTitle]))
+    ) {
       return -1;
     }
     return String(a[controlGroupsTitle]).localeCompare(
-      String(b[controlGroupsTitle]),
+      String(b[controlGroupsTitle])
     );
   });
 
-  const sortControlGroupC = (c: string) => {
+  const sortControlGroupC = (c?: sheetValueTypes) => {
+    if (c === undefined) {
+      return false;
+    }
     if (String(c).split(' ').length === 2) {
-      return Number(c.split(' ')[0]);
+      return Number(String(c).split(' ')[0]);
     }
     return false;
   };
@@ -423,7 +378,7 @@ export const mapControlGroupsToExcel = (
       }
       if (typeof controlCa === 'number' && typeof controlCb === 'number') {
         if (controlCa - controlCb === 0) {
-          return String(a).localeCompare(b);
+          return String(a).localeCompare(String(b));
         }
         return controlCa - controlCb;
       }
@@ -435,36 +390,36 @@ export const mapControlGroupsToExcel = (
       }
       if (
         (typeof controlCa === 'number' || typeof a === 'number') &&
-        isNaN(b)
+        isNaN(Number(b))
       ) {
         return -1;
       }
       if (
         (typeof controlCb === 'number' || typeof b === 'number') &&
-        isNaN(a)
+        isNaN(Number(a))
       ) {
         return 1;
       }
-      return String(a).localeCompare(b);
+      return String(a).localeCompare(String(b));
     });
   keys.forEach((key) => {
     const inputs = inputsToExcel.filter(
-      (input) => input[controlGroupTitle] === key,
+      (input) => input[controlGroupTitle] === key
     );
     const outputs = outputToExcel.filter(
-      (output) => output[controlGroupsTitle] === key,
+      (output) => output[controlGroupsTitle] === key
     );
     for (let i = 0; i < Math.max(inputs.length, outputs.length); i++) {
       if (inputs[i] !== undefined && outputs[i] !== undefined) {
         structured_data.push(
           mapToControlGroupObject(
             ...Object.values(inputs[i]),
-            ...Object.values(outputs[i]),
-          ),
+            ...Object.values(outputs[i])
+          )
         ); //{ ...inputs[i], ...outputs[i] });
       } else if (inputs[i] !== undefined && outputs[i] === undefined) {
         structured_data.push(
-          mapToControlGroupObject(...Object.values(inputs[i])),
+          mapToControlGroupObject(...Object.values(inputs[i]))
         );
       } else if (inputs[i] === undefined && outputs[i] !== undefined) {
         structured_data.push(
@@ -476,8 +431,8 @@ export const mapControlGroupsToExcel = (
             null,
             null,
             null,
-            ...Object.values(outputs[i]),
-          ),
+            ...Object.values(outputs[i])
+          )
         );
       }
     }

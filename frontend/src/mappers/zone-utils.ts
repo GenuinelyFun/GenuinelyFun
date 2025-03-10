@@ -10,7 +10,7 @@ export const mapZonesToExcel = (zone: Zone, panel: number) => {
 
 export const mapPanelsWithZones = (
   panels: Panel[],
-  zones: Zone[],
+  zones: Zone[]
 ): {
   'Panel Number': number;
   Zone: number;

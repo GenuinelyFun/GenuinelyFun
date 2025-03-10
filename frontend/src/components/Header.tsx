@@ -1,17 +1,17 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
-import { ReactComponent as BurgerIcon } from '../assets/icons/burger.svg';
-import { useModal } from '../utils/useModal';
-import { useMobileSizes } from '../utils/useMobileSizes';
-import { COMPANY_NAME } from '../index';
-import GenericButton from './GenericButton';
-import LanguageButton from './LanguageButton';
-import DarkmodeToggle from './DarkmodeToggle';
-import Modal from './Modal';
-import Menu from './Menu';
 
+import BurgerIcon from '../assets/icons/BurgerIcon';
+import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
+import { COMPANY_NAME } from '../utils/route-utils';
+import { useMobileSizes } from '../utils/useMobileSizes';
+import { useModal } from '../utils/useModal';
+import DarkmodeToggle from './DarkmodeToggle';
+import GenericButton from './GenericButton';
 import styles from './Header.module.less';
+import LanguageButton from './LanguageButton';
+import Menu from './Menu';
+import Modal from './Modal';
 
 const Header: FC = () => {
   const { isMobile } = useMobileSizes();

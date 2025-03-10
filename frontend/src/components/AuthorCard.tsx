@@ -1,16 +1,17 @@
-import React, { FC } from 'react';
-import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
+import { FC } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import arthur from '../assets/images/arthur_1740x1740.jpg';
 import nghi from '../assets/images/nghi_1276x1276.jpg';
 import GenericButton from '../components/GenericButton';
+import { ARTHUR_FIRSTNAME, arthurLinks } from '../utils/arthur-utils';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
+} from '../utils/i18n/language-utils';
 import { NGHI_FIRSTNAME, nghiLinks } from '../utils/nghi-utils';
-import { ARTHUR_FIRSTNAME, arthurLinks } from '../utils/arthur-utils';
-import { routePaths } from '../index';
+import { routePaths } from '../utils/route-utils';
 import styles from './AuthorCard.module.less';
 
 const AuthorCard: FC<{

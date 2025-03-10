@@ -1,4 +1,6 @@
 import { Workbook } from 'exceljs';
+import { useState } from 'react';
+
 import { Root } from '../interfaces/jsonDataInterface';
 
 export const feetLanguages: Record<string, string> = {
@@ -12,29 +14,45 @@ export const feetLanguages: Record<string, string> = {
   es: 'Español',
 };
 
-export const sheetTranslateMapper = (
-  sheet: { [key: string]: any }[],
-  language: keyof typeof feetLanguages,
-): { [key: string]: any }[] => {
-  const translate: Record<string, string> = require(
-    `../feet-translations/translate.en-${language}.json`,
+export type sheetValueTypes =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | number[];
+export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
+
+const fetchTranslations = async (
+  language: keyof typeof feetLanguages
+): Promise<Record<string, string>> =>
+  await import(`../feet-translations/translate.en-${language}.json`).then(
+    (t) => t.default as Record<string, string>
   );
 
-  const translatedSheet: { [key: string]: any }[] = [];
+export const sheetTranslateMapper = (
+  sheet: { [key: string]: sheetValueTypes }[],
+  sheetTranslate: sheetTranslateType
+): { [key: string]: sheetValueTypes }[] => {
+  const translatedSheet: {
+    [key: string]: sheetValueTypes;
+  }[] = [];
 
   sheet.forEach((row) => {
-    const translatedRow: { [key: string]: any } = {};
+    const translatedRow: { [key: string]: sheetValueTypes } = {};
 
     Object.keys(row).forEach((key) => {
       const value = row[key];
-      if (translate[key] !== undefined) {
-        if (translate[value] !== undefined) {
-          translatedRow[translate[key]] = translate[value];
+      const translatedKey = sheetTranslate(key);
+      const translatedValue = sheetTranslate(value);
+      if (translatedKey !== undefined && translatedKey !== null) {
+        if (translatedValue !== undefined) {
+          translatedRow[translatedKey.toString()] = translatedValue;
         } else {
-          translatedRow[translate[key]] = value;
+          translatedRow[translatedKey.toString()] = value;
         }
-      } else if (translate[value] !== undefined) {
-        translatedRow[key] = translate[value];
+      } else if (sheetTranslate(value) !== undefined) {
+        translatedRow[key] = sheetTranslate(value);
       } else {
         translatedRow[key] = value;
       }
@@ -45,31 +63,41 @@ export const sheetTranslateMapper = (
   return translatedSheet;
 };
 
-export const sheetTranslate = (key: string, language: string) => {
-  const translate: Record<string, string> = require(
-    `../feet-translations/translate.en-${language}.json`,
-  );
+export const useSheetTranslate = (): {
+  sheetTranslate: sheetTranslateType;
+  updateLanguage: (language: keyof typeof feetLanguages) => void;
+} => {
+  const [translate, setTranslate] = useState<Record<string, string>>();
 
-  if (translate[key] !== undefined) {
-    return translate[key];
-  }
-  return key;
+  return {
+    sheetTranslate: (key: sheetValueTypes) => {
+      if (
+        translate !== undefined &&
+        key !== undefined &&
+        key !== null &&
+        translate[key.toString()] !== undefined
+      ) {
+        return translate[key.toString()];
+      }
+      return key;
+    },
+    updateLanguage: (language: string) =>
+      fetchTranslations(language).then((t) => setTranslate(t)),
+  };
 };
 
 export const addSheetToWorkbook = (
   workbook: Workbook,
-  data: { [key: string]: any }[],
+  data: { [key: string]: sheetValueTypes }[],
   sheetName: string,
   json: Root,
-  sheetLanguage: keyof typeof feetLanguages,
+  sheetTranslate: sheetTranslateType
 ) => {
-  const translatedSheetName = sheetTranslate(sheetName, sheetLanguage);
+  const translatedSheetName = sheetTranslate(sheetName)!.toString();
   const sheet = workbook.addWorksheet(translatedSheetName);
-  const translatedData = sheetTranslateMapper(data, sheetLanguage);
+  const translatedData = sheetTranslateMapper(data, sheetTranslate);
   sheet.addRow([
-    sheetTranslate('Configuration number', sheetLanguage) +
-      ': ' +
-      json.version.number,
+    sheetTranslate('Configuration number') + ': ' + json.version.number,
   ]);
   sheet.addTable({
     name: translatedSheetName,
@@ -91,7 +119,7 @@ export const addSheetToWorkbook = (
   sheet.columns.forEach((column) => {
     let dataMax = 0;
     column?.eachCell?.({ includeEmpty: true }, function (cell) {
-      let columnLength = cell.value?.toString().length || 0;
+      const columnLength = cell.value?.toString().length || 0;
       if (columnLength > dataMax) {
         dataMax = columnLength;
       }

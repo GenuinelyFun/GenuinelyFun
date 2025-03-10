@@ -1,15 +1,14 @@
 import classNames from 'classnames';
-import { useDataContext } from '../../utils/DataProvider';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import { Darkmode, useDarkmodeContext } from '../../utils/DarkmodeProvider';
-import { default as FileIcon } from '../../assets/icons/file.svg';
-import { default as CrossIcon } from '../../assets/icons/thick-cross.svg';
+
+import CrossIcon from '../../assets/icons/CrossIcon';
+import FileIcon from '../../assets/icons/FileIcon';
+import { useDataContext } from '../../utils/data-utils.ts';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import styles from './FileList.module.less';
 
 const FileList = () => {
   const { translate } = useLanguageContext();
   const { files, removeFile } = useDataContext();
-  const { theme } = useDarkmodeContext();
 
   return (
     <ul
@@ -18,12 +17,9 @@ const FileList = () => {
     >
       {files.map(({ name, short }) => (
         <li className={styles.fileCard} key={short} aria-label={short}>
-          <img
-            src={FileIcon}
-            alt={translate('file-list.document.aria')}
-            className={classNames({
-              [styles.icon]: theme === Darkmode.Dark,
-            })}
+          <FileIcon
+            aria-label={translate('file-list.document.aria')}
+            className={classNames(styles.icon)}
           />
           <p>{short}</p>
           <button
@@ -32,12 +28,9 @@ const FileList = () => {
               removeFile(name);
             }}
           >
-            <img
-              src={CrossIcon}
-              className={classNames({
-                [styles.icon]: theme === Darkmode.Dark,
-              })}
-              alt={translate('file-list.remove-file.aria', {
+            <CrossIcon
+              className={classNames(styles.icon, styles.crossIcon)}
+              aria-label={translate('file-list.remove-file.aria', {
                 file: short,
               })}
             />

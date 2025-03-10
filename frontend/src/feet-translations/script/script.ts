@@ -106,11 +106,11 @@ fs.readFile(
       // Define paths to script files and manual translations
       const inputFilePath = path.join(
         scriptBasePath,
-        `translate.en-${language}.json`,
+        `translate.en-${language}.json`
       ); // Dynamic input file path based on language
       const outputFilePath = path.join(
         translationsBasePath,
-        `translate.en-${language}.json`,
+        `translate.en-${language}.json`
       ); // Dynamic output file path based on language
 
       const manualJson: JsonObject = JSON.parse(manualData);
@@ -125,7 +125,7 @@ fs.readFile(
         });
       } else {
         console.warn(
-          `No manual translations found for language code: ${language}`,
+          `No manual translations found for language code: ${language}`
         );
       }
 
@@ -162,7 +162,7 @@ fs.readFile(
               const existingEntryWithSameCase = uniqueLinesMap[
                 lowerCaseKey
               ].find(
-                (existingLine) => existingLine.match(/^"(.*?)":/)?.[1] === key,
+                (existingLine) => existingLine.match(/^"(.*?)":/)?.[1] === key
               );
 
               // If no existing entry with the same case, we add the new case variant
@@ -206,11 +206,11 @@ ${formattedLines}
             }
 
             console.log(
-              `Flattened JSON (with unique keys) has been written to ${outputFilePath}`,
+              `Flattened JSON (with unique keys) has been written to ${outputFilePath}`
             );
           });
         });
       });
     });
-  },
+  }
 );

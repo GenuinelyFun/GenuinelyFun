@@ -1,14 +1,14 @@
-import React, { ReactNode } from 'react';
-import { ReactComponent as QuestionMarkIcon } from '../assets/icons/question-mark.svg';
+import { FC, ReactNode } from 'react';
+
+import QuestionMarkIcon from '../assets/icons/QuestionMarkIcon';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../utils/LanguageProvider';
+} from '../utils/i18n/language-utils.ts';
 import { useModal } from '../utils/useModal';
-import Modal from './Modal';
 import GenericButton from './GenericButton';
-
 import styles from './InfoBox.module.less';
+import Modal from './Modal';
 
 interface InfoBoxProps {
   message?: string;
@@ -17,7 +17,7 @@ interface InfoBoxProps {
   messageContent?: ReactNode;
 }
 
-const InfoBox: React.FC<InfoBoxProps> = ({
+const InfoBox: FC<InfoBoxProps> = ({
   message,
   header,
   altText,
@@ -32,7 +32,6 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         onClick={modal.openModal}
         className={styles.infoButton}
         aria-label={translate(altText ? altText : 'more-info')}
-        role={'button'}
         type={'button'}
       >
         <QuestionMarkIcon className={styles.icon} />

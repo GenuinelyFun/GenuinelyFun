@@ -1,6 +1,7 @@
+import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import { Link, LinkProps, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
+
 import styles from './GenericButton.module.less';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,6 +31,7 @@ const GenericButton: FC<Props> = ({
         className={classNames(className, {
           [styles.invert]: invert,
         })}
+        href={buttonProps.href}
         onClick={onClick}
         {...(buttonProps as LinkProps)}
       >

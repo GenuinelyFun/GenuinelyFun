@@ -1,14 +1,15 @@
-import React from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLanguageContext } from '../../utils/LanguageProvider';
-import moon from '../../assets/icons/moon.svg';
-import rocket from '../../assets/icons/rocket.svg';
-import astronaut from '../../assets/icons/astronaut_working.svg';
+
+import MoonImage from '../../assets/images/MoonImage.tsx';
+import RocketImage from '../../assets/images/RocketImage.tsx';
+import WorkingAstronautImage from '../../assets/images/WorkingAstronautImage.tsx';
 import GenericButton from '../../components/GenericButton';
 import PageHeading from '../../components/PageHeading';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import styles from './NotFoundPage.module.less';
 
-const NotFoundPage = (): JSX.Element => {
+const NotFoundPage: FC = () => {
   const { translate } = useLanguageContext();
   const navigate = useNavigate();
 
@@ -22,16 +23,14 @@ const NotFoundPage = (): JSX.Element => {
         </GenericButton>
       </div>
 
-      <img src={moon} className={styles.moon} alt={translate('alt.moon')} />
-      <img
-        src={rocket}
+      <MoonImage className={styles.moon} aria-label={translate('alt.moon')} />
+      <RocketImage
         className={styles.rocket}
-        alt={translate('alt.rocket')}
+        aria-label={translate('alt.rocket')}
       />
-      <img
-        src={astronaut}
+      <WorkingAstronautImage
         className={styles.astronaut}
-        alt={translate('alt.astronaut')}
+        aria-label={translate('alt.astronaut')}
       />
     </main>
   );
