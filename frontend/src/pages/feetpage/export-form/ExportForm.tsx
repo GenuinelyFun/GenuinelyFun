@@ -18,7 +18,7 @@ import {
   useSheetTranslate,
 } from '../../../mappers/utils';
 import { mapPanelsWithZones } from '../../../mappers/zone-utils.ts';
-import { useDataContext } from '../../../utils/data-utils.ts';
+import { File, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
 import CheckboxWithInfobox from './CheckboxWithInfobox';
@@ -51,6 +51,7 @@ const ExportForm: FC = () => {
     files.length === 1 ? files[0].json.system.zones !== undefined : true;
 
   useEffect(() => {
+    updateLanguage(sheetLanguage);
     if (!isZonesAvailable) {
       setZone(false);
     }
@@ -71,110 +72,107 @@ const ExportForm: FC = () => {
     if (files.length === 0) return;
 
     toast({ type: 'success', textKey: 'export.started' });
-    files.forEach(({ name, json }) => {
-      const panels = json.system.panels.filter((panel) => {
-        if (filteredPanels[name] === undefined) {
+    files.forEach((file) => {
+      const panels = file.json.system.panels.filter((panel) => {
+        if (filteredPanels[file.name] === undefined) {
           return true;
         }
-        return filteredPanels[name][panel.name];
+        return filteredPanels[file.name][panel.name];
       });
       if (separateFiles) {
         panels.forEach((panel) => {
-          exportToFiles([panel]);
+          exportToFiles(file, [panel]);
         });
       } else {
-        exportToFiles(panels);
+        exportToFiles(file, panels);
       }
     });
   };
 
-  const exportToFiles = (panels: Panel[]) => {
-    files.forEach(({ name, json }) => {
-      const workbook = new Workbook();
-      const zones = json.system.zones;
-      if (firePanel) {
-        addSheetToWorkbook(
-          workbook,
-          panels.map((panel) =>
-            mapPanelToExcel(json.system, panel, sheetTranslate)
-          ),
-          'Panel',
-          json,
-          sheetTranslate
-        );
-      }
-      if (zones !== undefined && zone) {
-        addSheetToWorkbook(
-          workbook,
-          mapPanelsWithZones(panels, zones),
-          'Zone',
-          json,
-          sheetTranslate
-        );
-      }
-      if (fireLoop) {
-        addSheetToWorkbook(
-          workbook,
-          panels.flatMap((panel) =>
-            panel.loop_controllers.flatMap((loop_controller) =>
-              mapLoopToExcel(loop_controller, panel.number, sheetTranslate)
-            )
-          ),
-          'Loop',
-          json,
-          sheetTranslate
-        );
-      }
-      if (ioBoard) {
-        addSheetToWorkbook(
-          workbook,
-          mapBoardToExcel(panels),
-          'Board',
-          json,
-          sheetTranslate
-        );
-      }
-      if (addressReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapLoopAddressToExcel(panels, sheetTranslate),
-          'Address_report',
-          json,
-          sheetTranslate
-        );
-      }
-      if (ioReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapToIOReportToExcel(panels, sheetTranslate),
-          'IO_report',
-          json,
-          sheetTranslate
-        );
-      }
-      if (controlGroupReport) {
-        addSheetToWorkbook(
-          workbook,
-          mapControlGroupsToExcel(panels, sheetTranslate),
-          'Control group report',
-          json,
-          sheetTranslate
-        );
-      }
-
-      let panelSuffix = '';
-      if (separateFiles) {
-        panelSuffix = `_${panels[0].name}`;
-      }
-      const fileName =
-        name.slice(0, name.indexOf('.json')) + panelSuffix + '.xlsx';
-
-      workbook.xlsx.writeBuffer().then((buffer) => {
-        const blob = new Blob([buffer], {
-          type: 'application/octet-stream',
-        });
-        FileSaver.saveAs(blob, fileName);
+  const exportToFiles = (file: File, panels: Panel[]) => {
+    const { name, json } = file;
+    const workbook = new Workbook();
+    const zones = json.system.zones;
+    if (firePanel) {
+      addSheetToWorkbook(
+        workbook,
+        panels.map((panel) =>
+          mapPanelToExcel(json.system, panel, sheetTranslate)
+        ),
+        'Panel',
+        json,
+        sheetTranslate
+      );
+    }
+    if (zones !== undefined && zone) {
+      addSheetToWorkbook(
+        workbook,
+        mapPanelsWithZones(panels, zones),
+        'Zone',
+        json,
+        sheetTranslate
+      );
+    }
+    if (fireLoop) {
+      addSheetToWorkbook(
+        workbook,
+        panels.flatMap((panel) =>
+          panel.loop_controllers.flatMap((loop_controller) =>
+            mapLoopToExcel(loop_controller, panel.number, sheetTranslate)
+          )
+        ),
+        'Loop',
+        json,
+        sheetTranslate
+      );
+    }
+    if (ioBoard) {
+      addSheetToWorkbook(
+        workbook,
+        mapBoardToExcel(panels),
+        'Board',
+        json,
+        sheetTranslate
+      );
+    }
+    if (addressReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapLoopAddressToExcel(panels, sheetTranslate),
+        'Address_report',
+        json,
+        sheetTranslate
+      );
+    }
+    if (ioReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapToIOReportToExcel(panels, sheetTranslate),
+        'IO_report',
+        json,
+        sheetTranslate
+      );
+    }
+    if (controlGroupReport) {
+      addSheetToWorkbook(
+        workbook,
+        mapControlGroupsToExcel(panels, sheetTranslate),
+        'Control group report',
+        json,
+        sheetTranslate
+      );
+    }
+    let panelSuffix = '';
+    if (separateFiles) {
+      panelSuffix = `_${panels[0].name}`;
+    }
+    const fileName =
+      name.slice(0, name.indexOf('.json')) + panelSuffix + '.xlsx';
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], {
+        type: 'application/octet-stream',
       });
+      FileSaver.saveAs(blob, fileName);
     });
   };
 
