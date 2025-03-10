@@ -55,7 +55,7 @@ export const mapPanelToExcel = (
       panel.communication?.system2?.baudrate,
     [sheetTranslate('RS485') + ' ' + sheetTranslate('Enable INFO')]:
       serialPort?.usage,
-    [sheetTranslate('RS485') + ' ' + sheetTranslate('Baudrate')]:
+    [sheetTranslate('RS485') + ' ' + sheetTranslate('Baud rate')]:
       serialPort?.baudrate,
     [sheetTranslate('RS485') + ' ' + sheetTranslate('Monitor INFO')]:
       serialPort?.mode,
