@@ -9,22 +9,26 @@ import { TranslateTextKey } from './i18n/language-utils.ts';
 export const NGHI_FIRSTNAME = 'Nghi';
 export const NGHI_LASTNAME = 'Nguyen';
 export const NGHI_FULLNAME = `${NGHI_FIRSTNAME} ${NGHI_LASTNAME}`;
+export const NGHI_EMAIL = 'nguyenbdnghi@gmail.com';
+export const NGHI_GITHUB = 'https://github.com/NghiNg';
+export const NGHI_LINKEDIN =
+  'https://www.linkedin.com/in/nghi-nguyen-519405197/';
 
 export const nghiLinks: {
   [key: string]: { url: string; icon: ReactNode; name: string };
 } = {
   email: {
-    url: 'mailto:nguyenbdnghi@gmail.com',
+    url: 'mailto:' + NGHI_EMAIL,
     icon: <LinkIcon src={EmailIcon} ariaLabel={'Email'} />,
     name: 'Email',
   },
   github: {
-    url: 'https://github.com/NghiNg',
+    url: NGHI_GITHUB,
     icon: <LinkIcon icon={GithubIcon} ariaLabel="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
-    url: 'https://www.linkedin.com/in/nghi-nguyen-519405197/',
+    url: NGHI_LINKEDIN,
     icon: <LinkIcon icon={LinkedinIcon} ariaLabel="LinkedIn" />,
     name: 'LinkedIn',
   },
