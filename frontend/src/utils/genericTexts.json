@@ -33,50 +33,5 @@
     "en": "English",
     "no": "English",
     "nn": "English"
-  },
-  "genuinelyfun.email": {
-    "en": "post@genuinelyfun.com",
-    "no": "post@genuinelyfun.com",
-    "nn": "post@genuinelyfun.com"
-  },
-  "genuinelyfun.all_rights_reserved": {
-    "en": "© 2025 {company}",
-    "no": "© 2025 {company}",
-    "nn": "© 2025 {company}"
-  },
-  "nghi.email": {
-    "en": "nguyenbdnghi@gmail.com",
-    "no": "nguyenbdnghi@gmail.com",
-    "nn": "nguyenbdnghi@gmail.com"
-  },
-  "nghi.github": {
-    "en": "https://github.com/NghiNg",
-    "no": "https://github.com/NghiNg",
-    "nn": "https://github.com/NghiNg"
-  },
-  "nghi.linkedin": {
-    "en": "https://www.linkedin.com/in/nghi-nguyen-519405197/",
-    "no": "https://www.linkedin.com/in/nghi-nguyen-519405197/",
-    "nn": "https://www.linkedin.com/in/nghi-nguyen-519405197/"
-  },
-  "arthur.email": {
-    "en": "arthur.leonard.thomassen@gmail.com",
-    "no": "arthur.leonard.thomassen@gmail.com",
-    "nn": "arthur.leonard.thomassen@gmail.com"
-  },
-  "arthur.github": {
-    "en": "https://github.com/Friftycode",
-    "no": "https://github.com/Friftycode",
-    "nn": "https://github.com/Friftycode"
-  },
-  "arthur.linkedin": {
-    "en": "https://www.linkedin.com/in/arthur90/",
-    "no": "https://www.linkedin.com/in/arthur90/",
-    "nn": "https://www.linkedin.com/in/arthur90/"
-  },
-  "arthur.x": {
-    "en": "https://x.com/ThomassenArthur",
-    "no": "https://x.com/ThomassenArthur",
-    "nn": "https://x.com/ThomassenArthur"
   }
 }
