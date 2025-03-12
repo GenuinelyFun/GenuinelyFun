@@ -24,16 +24,6 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         {translate('tab.homepage')}
       </Link>
       <Link
-        to={routePaths.feet}
-        state={{ prevPage: location.pathname }}
-        className={classNames(styles.menuButton, {
-          [styles.active]: location.pathname === routePaths.feet,
-        })}
-        onClick={onLinkClick}
-      >
-        {translate('tab.feet')}
-      </Link>
-      <Link
         to={routePaths.article}
         state={{ prevPage: location.pathname }}
         className={classNames(styles.menuButton, {
@@ -41,11 +31,27 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         })}
         onClick={onLinkClick}
       >
-        {translate('tab.article')}
+        {translate('tab.articles')}
       </Link>
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
-        buttonTextKey={'tab.portfolio'}
+        buttonTextKey={'tab.projects'}
+        listItems={[
+          <Link
+            to={routePaths.feet}
+            state={{ prevPage: location.pathname }}
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === routePaths.feet,
+            })}
+            onClick={onLinkClick}
+          >
+            {translate('tab.feet')}
+          </Link>,
+        ]}
+      />
+      <DropDownMenu
+        buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
+        buttonTextKey={'tab.portfolios'}
         listItems={[
           <Link
             key={routePaths.arthur}
