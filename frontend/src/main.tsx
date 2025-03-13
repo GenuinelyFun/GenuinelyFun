@@ -3,7 +3,11 @@ import './utils/i18n.ts';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
 
 import App from './App';
 import ArticlePage from './pages/articlepage/ArticlePage';
@@ -38,6 +42,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: routePaths.feet, element: <FeetPage /> },
+      { path: 'feet', element: <Navigate to={'/' + routePaths.feet} /> }, // Redirect from old path to new path.
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
     ],

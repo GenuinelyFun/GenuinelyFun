@@ -4,20 +4,25 @@
     "no": "Hjem",
     "nn": "Heim"
   },
-  "tab.article": {
-    "en": "Article",
-    "no": "Artikkel",
-    "nn": "Artikkel"
+  "tab.projects": {
+    "en": "Projects",
+    "no": "Prosjekter",
+    "nn": "Prosjekt"
+  },
+  "tab.articles": {
+    "en": "Articles",
+    "no": "Artikler",
+    "nn": "Artiklar"
+  },
+  "tab.portfolios": {
+    "en": "Portfolios",
+    "no": "Porteføljer",
+    "nn": "Porteføljar"
   },
   "tab.feet": {
-    "en": "FEET",
-    "no": "FEET",
-    "nn": "FEET"
-  },
-  "tab.portfolio": {
-    "en": "Portfolio",
-    "no": "Portefølje",
-    "nn": "Portefølje"
+    "en": "Fire Expert",
+    "no": "Fire Expert",
+    "nn": "Fire Expert"
   },
   "tab.arthur": {
     "en": "Arthur",
