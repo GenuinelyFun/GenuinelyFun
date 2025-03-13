@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 interface JsonObject {
-  [key: string]: any;
+  [key: string]: never; // was any before.
 }
 
 function flattenJson(nestedJson: JsonObject): string {

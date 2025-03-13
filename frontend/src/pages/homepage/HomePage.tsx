@@ -3,9 +3,9 @@ import { FC } from 'react';
 import AuthorCard from '../../components/AuthorCard';
 import PageHeading from '../../components/PageHeading';
 import { ARTHUR_FIRSTNAME } from '../../utils/arthur-utils';
+import { COMPANY_NAME } from '../../utils/constants.tsx';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import { NGHI_FIRSTNAME } from '../../utils/nghi-utils';
-import { COMPANY_NAME } from '../../utils/route-utils.ts';
 import styles from './HomePage.module.less';
 
 const HomePage: FC = () => {

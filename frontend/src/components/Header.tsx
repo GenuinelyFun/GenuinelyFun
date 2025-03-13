@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import BurgerIcon from '../assets/icons/BurgerIcon';
 import iconGenuinelyFun from '../assets/icons/icon_genuinely_fun_381x353.png';
-import { COMPANY_NAME } from '../utils/route-utils';
+import { COMPANY_NAME } from '../utils/constants';
 import { useMobileSizes } from '../utils/useMobileSizes';
 import { useModal } from '../utils/useModal';
 import DarkmodeToggle from './DarkmodeToggle';
