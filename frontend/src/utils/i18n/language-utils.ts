@@ -8,10 +8,10 @@ import menuText from '../../components/menuText.json';
 import articlePageText from '../../pages/articlepage/articlePageText.json';
 import reflectiveThinkingPageText from '../../pages/articlepage/reflectiveThinkingPageText.json';
 import techBestPracticePageText from '../../pages/articlepage/techBestPracticePageText.json';
-import exportFormText from '../../pages/feetpage/export-form/exportFormText.json';
+import feetExportFormText from '../../pages/feetpage/export-form/feetExportFormText.json';
+import feetFileListText from '../../pages/feetpage/feetFileListText.json';
+import feetImportFormText from '../../pages/feetpage/feetImportFormText.json';
 import feetPageText from '../../pages/feetpage/feetPageText.json';
-import fileListText from '../../pages/feetpage/fileListText.json';
-import importFormText from '../../pages/feetpage/importFormText.json';
 import homePageText from '../../pages/homepage/homePageText.json';
 import pageNotFoundText from '../../pages/notfoundpage/notFoundPageText.json';
 import arthurPageText from '../../pages/portfolio/arthurPageText.json';
@@ -28,20 +28,20 @@ export enum Language {
 export const translationTexts = {
   ...authorCardText,
   ...darkmodeToggleText,
-  ...genericText,
-  ...homePageText,
-  ...pageNotFoundText,
-  ...feetPageText,
-  ...importFormText,
-  ...fileListText,
-  ...exportFormText,
-  ...articlePageText,
-  ...techBestPracticePageText,
-  ...reflectiveThinkingPageText,
-  ...arthurPageText,
-  ...nghiPageText,
   ...footerText,
   ...menuText,
+  ...articlePageText,
+  ...reflectiveThinkingPageText,
+  ...techBestPracticePageText,
+  ...feetExportFormText,
+  ...feetFileListText,
+  ...feetImportFormText,
+  ...feetPageText,
+  ...homePageText,
+  ...pageNotFoundText,
+  ...arthurPageText,
+  ...nghiPageText,
+  ...genericText,
 };
 
 export type TranslateTextKey = keyof typeof translationTexts;
