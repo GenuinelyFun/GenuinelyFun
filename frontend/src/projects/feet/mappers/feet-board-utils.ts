@@ -1,5 +1,5 @@
-import { Panel } from '../interfaces/jsonDataInterface';
-import { sheetValueTypes } from './utils.ts';
+import { Panel } from '../interfaces/feetJsonDataInterface.ts';
+import { sheetValueTypes } from './feet-utils.ts';
 
 export const mapBoardToExcel = (panels: Panel[]) => {
   const boardExcel: Record<string, sheetValueTypes>[] = [];

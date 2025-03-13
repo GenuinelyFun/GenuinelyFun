@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
-import { FilterPanelType } from './ExportForm';
-import styles from './ExportForm.module.less';
+import styles from './FeetExportForm.module.less';
+import { FilterPanelType } from './FeetExportForm.tsx';
 
 interface Props {
   subValues?: FilterPanelType;
   setSubValues: (value: FilterPanelType) => void;
 }
 
-const PanelCheckbox: FC<Props> = ({ subValues, setSubValues }) => {
+const FeetPanelCheckbox: FC<Props> = ({ subValues, setSubValues }) => {
   if (subValues === undefined) {
     return null;
   }
@@ -50,4 +50,4 @@ const PanelCheckbox: FC<Props> = ({ subValues, setSubValues }) => {
   );
 };
 
-export default PanelCheckbox;
+export default FeetPanelCheckbox;

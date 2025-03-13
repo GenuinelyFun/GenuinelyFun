@@ -1,9 +1,9 @@
 import {
   MonitoredAndCleanContactOutput,
   Panel,
-} from '../interfaces/jsonDataInterface';
-import { forEachDeviceInLoopControllers } from './loop-utils';
-import { sheetTranslateType, sheetValueTypes } from './utils.ts';
+} from '../interfaces/feetJsonDataInterface.ts';
+import { forEachDeviceInLoopControllers } from './feet-loop-utils.ts';
+import { sheetTranslateType, sheetValueTypes } from './feet-utils.ts';
 
 const isNull = (el: unknown) => el === null || el === '' || el === undefined;
 

@@ -1,7 +1,7 @@
 import { Workbook } from 'exceljs';
 import { useState } from 'react';
 
-import { Root } from '../interfaces/jsonDataInterface';
+import { Root } from '../interfaces/feetJsonDataInterface.ts';
 
 export const feetLanguages: Record<string, string> = {
   en: 'English',
@@ -26,7 +26,7 @@ export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
 const fetchTranslations = async (
   language: keyof typeof feetLanguages
 ): Promise<Record<string, string>> =>
-  await import(`../feet-translations/translate.en-${language}.json`).then(
+  await import(`../translations/feet-translate.en-${language}.json`).then(
     (t) => t.default as Record<string, string>
   );
 

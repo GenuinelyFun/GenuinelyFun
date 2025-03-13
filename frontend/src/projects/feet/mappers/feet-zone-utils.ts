@@ -1,4 +1,4 @@
-import { Panel, Zone } from '../interfaces/jsonDataInterface';
+import { Panel, Zone } from '../interfaces/feetJsonDataInterface.ts';
 
 export const mapZonesToExcel = (zone: Zone, panel: number) => {
   return {

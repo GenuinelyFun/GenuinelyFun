@@ -5,9 +5,9 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../../../utils/i18n/language-utils.ts';
-import styles from './ExportForm.module.less';
+import styles from './FeetExportForm.module.less';
 
-const CheckboxWithInfobox: FC<{
+const FeetCheckboxWithInfobox: FC<{
   textKey: string;
   value: boolean;
   setValue: () => void;
@@ -23,18 +23,18 @@ const CheckboxWithInfobox: FC<{
           onChange={setValue}
           disabled={disabled}
         />
-        {translate(`export.${textKey}.checkbox.label` as TranslateTextKey)}
+        {translate(`feet-export.${textKey}.checkbox.label` as TranslateTextKey)}
       </label>
       <InfoBox
         message={translate(
-          `export.${textKey}.infobox.description` as TranslateTextKey
+          `feet-export.${textKey}.infobox.description` as TranslateTextKey
         )}
         header={translate(
-          `export.${textKey}.infobox.title` as TranslateTextKey
+          `feet-export.${textKey}.infobox.title` as TranslateTextKey
         )}
       />
     </li>
   );
 };
 
-export default CheckboxWithInfobox;
+export default FeetCheckboxWithInfobox;
