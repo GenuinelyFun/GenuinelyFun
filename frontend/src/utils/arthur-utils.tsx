@@ -12,9 +12,9 @@ export const ARTHUR_MIDDLE_NAME = 'Leonard';
 export const ARTHUR_LASTNAME = 'Thomassen';
 export const ARTHUR_FULLNAME = `${ARTHUR_FIRSTNAME} ${ARTHUR_MIDDLE_NAME} ${ARTHUR_LASTNAME}`;
 export const ARTHUR_EMAIL = 'alt.post.inbox+genuinelyfun@gmail.com';
-export const ARTHUR_GITHUB = 'https://github.com/Friftycode';
-export const ARTHUR_LINKEDIN = 'https://www.linkedin.com/in/arthur90/';
-export const ARTHUR_X = 'https://x.com/ThomassenArthur';
+export const ARTHUR_GITHUB_URL = 'https://github.com/Friftycode';
+export const ARTHUR_LINKEDIN_URL = 'https://www.linkedin.com/in/arthur90/';
+export const ARTHUR_X_URL = 'https://x.com/ThomassenArthur';
 
 export const arthurLinks: {
   [key: string]: { url: string; icon: ReactNode; name: string };
@@ -25,17 +25,17 @@ export const arthurLinks: {
     name: 'Email',
   },
   github: {
-    url: ARTHUR_GITHUB,
+    url: ARTHUR_GITHUB_URL,
     icon: <LinkIcon icon={GithubIcon} ariaLabel="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
-    url: ARTHUR_LINKEDIN,
+    url: ARTHUR_LINKEDIN_URL,
     icon: <LinkIcon icon={LinkedinIcon} ariaLabel="LinkedIn" />,
     name: 'LinkedIn',
   },
   x: {
-    url: ARTHUR_X,
+    url: ARTHUR_X_URL,
     icon: <LinkIcon src={XIcon} ariaLabel="X previously Twitter" />,
     name: 'X',
   },

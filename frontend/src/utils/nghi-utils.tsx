@@ -10,8 +10,8 @@ export const NGHI_FIRSTNAME = 'Nghi';
 export const NGHI_LASTNAME = 'Nguyen';
 export const NGHI_FULLNAME = `${NGHI_FIRSTNAME} ${NGHI_LASTNAME}`;
 export const NGHI_EMAIL = 'nguyenbdnghi@gmail.com';
-export const NGHI_GITHUB = 'https://github.com/NghiNg';
-export const NGHI_LINKEDIN =
+export const NGHI_GITHUB_URL = 'https://github.com/NghiNg';
+export const NGHI_LINKEDIN_URL =
   'https://www.linkedin.com/in/nghi-nguyen-519405197/';
 
 export const nghiLinks: {
@@ -23,12 +23,12 @@ export const nghiLinks: {
     name: 'Email',
   },
   github: {
-    url: NGHI_GITHUB,
+    url: NGHI_GITHUB_URL,
     icon: <LinkIcon icon={GithubIcon} ariaLabel="GitHub" />,
     name: 'GitHub',
   },
   linkedin: {
-    url: NGHI_LINKEDIN,
+    url: NGHI_LINKEDIN_URL,
     icon: <LinkIcon icon={LinkedinIcon} ariaLabel="LinkedIn" />,
     name: 'LinkedIn',
   },
