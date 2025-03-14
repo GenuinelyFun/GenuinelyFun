@@ -38,6 +38,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         buttonTextKey={'tab.projects'}
         listItems={[
           <Link
+            key={routePaths.feet}
             to={routePaths.feet}
             state={{ prevPage: location.pathname }}
             className={classNames(styles.menuButton, styles.dropdownItem, {
