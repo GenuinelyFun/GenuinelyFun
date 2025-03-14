@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
-import styles from '../../pages/feetpage/export-form/FeetExportForm.module.less';
-import { FilterPanelType } from '../../pages/feetpage/export-form/FeetExportForm.tsx';
+import styles from './FeetExportForm.module.less';
+import { FilterPanelType } from './FeetExportForm.tsx';
 
 interface Props {
   subValues?: FilterPanelType;

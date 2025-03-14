@@ -18,12 +18,12 @@ import {
   useSheetTranslate,
 } from '../../../projects/feet/mappers/utils.ts';
 import { mapPanelsWithZones } from '../../../projects/feet/mappers/zone-utils.ts';
-import CheckboxWithInfobox from '../../../projects/utils/CheckboxWithInfobox.tsx';
-import PanelCheckbox from '../../../projects/utils/PanelCheckbox.tsx';
 import { File, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
+import CheckboxWithInfobox from './CheckboxWithInfobox.tsx';
 import styles from './FeetExportForm.module.less';
+import PanelCheckbox from './PanelCheckbox.tsx';
 
 export interface FilterPanelType {
   [fileName: string]: { [panel: string]: boolean };
