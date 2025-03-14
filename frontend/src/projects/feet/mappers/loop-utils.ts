@@ -4,7 +4,7 @@ import {
   LoopController,
   Panel,
 } from '../interfaces/feetJsonDataInterface.ts';
-import { sheetTranslateType } from './feet-utils.ts';
+import { sheetTranslateType } from './utils.ts';
 
 export const mapLoopToExcel = (
   loopControllers: LoopController,

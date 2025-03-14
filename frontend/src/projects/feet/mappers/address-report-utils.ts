@@ -1,5 +1,5 @@
 import { Panel } from '../interfaces/feetJsonDataInterface.ts';
-import { sheetTranslateType, sheetValueTypes } from './feet-utils.ts';
+import { sheetTranslateType, sheetValueTypes } from './utils.ts';
 
 export const mapLoopAddressToExcel = (
   panels: Panel[],

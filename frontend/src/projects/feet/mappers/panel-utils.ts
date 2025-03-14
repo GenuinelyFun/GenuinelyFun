@@ -1,5 +1,5 @@
 import { Panel, System } from '../interfaces/feetJsonDataInterface.ts';
-import { sheetTranslateType } from './feet-utils.ts';
+import { sheetTranslateType } from './utils.ts';
 
 export const mapPanelToExcel = (
   system: System,

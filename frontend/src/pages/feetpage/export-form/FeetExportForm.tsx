@@ -6,24 +6,24 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
 import { Panel } from '../../../projects/feet/interfaces/feetJsonDataInterface.ts';
-import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/feet-address-report-utils.ts';
-import { mapBoardToExcel } from '../../../projects/feet/mappers/feet-board-utils.ts';
-import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/feet-control-group-report-utils.ts';
-import { mapToIOReportToExcel } from '../../../projects/feet/mappers/feet-io-report-utils.ts';
-import { mapLoopToExcel } from '../../../projects/feet/mappers/feet-loop-utils.ts';
-import { mapPanelToExcel } from '../../../projects/feet/mappers/feet-panel-utils.ts';
+import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/address-report-utils.ts';
+import { mapBoardToExcel } from '../../../projects/feet/mappers/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../../projects/feet/mappers/io-report-utils.ts';
+import { mapLoopToExcel } from '../../../projects/feet/mappers/loop-utils.ts';
+import { mapPanelToExcel } from '../../../projects/feet/mappers/panel-utils.ts';
 import {
   addSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
-} from '../../../projects/feet/mappers/feet-utils.ts';
-import { mapPanelsWithZones } from '../../../projects/feet/mappers/feet-zone-utils.ts';
+} from '../../../projects/feet/mappers/utils.ts';
+import { mapPanelsWithZones } from '../../../projects/feet/mappers/zone-utils.ts';
+import CheckboxWithInfobox from '../../../projects/utils/CheckboxWithInfobox.tsx';
+import PanelCheckbox from '../../../projects/utils/PanelCheckbox.tsx';
 import { File, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
-import FeetCheckboxWithInfobox from './FeetCheckboxWithInfobox.tsx';
 import styles from './FeetExportForm.module.less';
-import FeetPanelCheckbox from './FeetPanelCheckbox.tsx';
 
 export interface FilterPanelType {
   [fileName: string]: { [panel: string]: boolean };
@@ -233,43 +233,43 @@ const FeetExportForm: FC = () => {
         {translate('feet-export.settings.sheet-list')}
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'selectall'}
           value={isAllSelected}
           setValue={toggleSelectAll}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'zone'}
           value={zone}
           setValue={() => setZone(!zone)}
           disabled={!isZonesAvailable}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'board'}
           value={ioBoard}
           setValue={() => setIoBoard(!ioBoard)}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'controlgroups'}
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
         />
-        <FeetCheckboxWithInfobox
+        <CheckboxWithInfobox
           textKey={'panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
@@ -294,7 +294,7 @@ const FeetExportForm: FC = () => {
           {translate('feet-export.filter.empty')}
         </p>
       ) : (
-        <FeetPanelCheckbox
+        <PanelCheckbox
           setSubValues={setFilteredPanels}
           subValues={filteredPanels}
         />
