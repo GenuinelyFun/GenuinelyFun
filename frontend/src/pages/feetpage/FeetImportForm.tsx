@@ -4,15 +4,15 @@ import { ChangeEvent, DragEventHandler, FC, useEffect, useState } from 'react';
 import CrossCircleIcon from '../../assets/icons/CrossCircleIcon';
 import UploadIcon from '../../assets/icons/UploadIcon';
 import GenericButton from '../../components/GenericButton';
-import { Root } from '../../interfaces/jsonDataInterface';
+import { Root } from '../../projects/feet/interfaces/feetJsonDataInterface.ts';
 import { shortenedFileName, useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import { useToast } from '../../utils/useToast';
-import styles from './ImportForm.module.less';
+import styles from './FeetImportForm.module.less';
 
 const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
 
-const ImportForm: FC<{ className?: string }> = ({ className }) => {
+const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
   const toast = useToast();
   const { addFiles } = useDataContext();
   const [isDragging, setIsDragging] = useState(false);
@@ -39,7 +39,10 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
 
     const filesArray = Array.from(files).map((file) => {
       if (file === null) {
-        toast({ type: 'error', textKey: 'upload.error-general' });
+        toast({
+          type: 'error',
+          textKey: 'feet-import.upload.error-general',
+        });
       }
       const fileReader = new FileReader();
       return new Promise<{ name: string; json: Root } | false>((resolve) => {
@@ -51,7 +54,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
             if (json.system === undefined) {
               toast({
                 type: 'error',
-                textKey: 'upload.error-root',
+                textKey: 'feet-import.upload.error-root',
               });
               resolve(false);
             } else {
@@ -64,7 +67,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
             if (error instanceof SyntaxError) {
               setIsNotJson(true);
               toast({
-                textKey: 'upload.error-json',
+                textKey: 'feet-import.upload.error-json',
                 type: 'error',
               });
               resolve(false);
@@ -86,7 +89,7 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
       }))
     );
 
-    toast({ type: 'success', textKey: 'upload.success' });
+    toast({ type: 'success', textKey: 'feet-import.upload.success' });
   };
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
@@ -133,12 +136,12 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
         {isDragging &&
           (isNotJson ? (
             <CrossCircleIcon
-              aria-label={translate('upload.error-icon.aria')}
+              aria-label={translate('feet-import.upload.error-icon.aria')}
               className={styles.statusIcon}
             />
           ) : (
             <UploadIcon
-              aria-label={translate('upload.icon.aria')}
+              aria-label={translate('feet-import.upload.icon.aria')}
               className={styles.statusIcon}
             />
           ))}
@@ -146,13 +149,17 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
           {isDragging ? (
             <p className={styles.paragraph}>
               {translate(
-                isNotJson ? 'upload.not.json' : 'upload.release.to.upload'
+                isNotJson
+                  ? 'feet-import.upload.not.json'
+                  : 'feet-import.upload.release.to.upload'
               )}
             </p>
           ) : (
             <p className={styles.textWithOr}>
-              <span>{translate('upload.description')}</span>
-              <span className={styles.paragraph}>{translate('upload.or')}</span>
+              <span>{translate('feet-import.upload.description')}</span>
+              <span className={styles.paragraph}>
+                {translate('feet-import.upload.or')}
+              </span>
             </p>
           )}
           <input
@@ -166,13 +173,13 @@ const ImportForm: FC<{ className?: string }> = ({ className }) => {
           <GenericButton
             onClick={() => document.getElementById('file-upload')?.click()}
           >
-            {translate('upload.button')}
+            {translate('feet-import.upload.button')}
           </GenericButton>
         </>
       </div>
-      <p>{translate('supported-version') + FIRE_EXPERT_VERSION}</p>
+      <p>{translate('feet-import.supported-version') + FIRE_EXPERT_VERSION}</p>
     </section>
   );
 };
 
-export default ImportForm;
+export default FeetImportForm;

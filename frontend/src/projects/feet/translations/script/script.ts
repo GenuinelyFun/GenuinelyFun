@@ -106,11 +106,11 @@ fs.readFile(
       // Define paths to script files and manual translations
       const inputFilePath = path.join(
         scriptBasePath,
-        `translate.en-${language}.json`
+        `feet-translate.en-${language}.json`
       ); // Dynamic input file path based on language
       const outputFilePath = path.join(
         translationsBasePath,
-        `translate.en-${language}.json`
+        `feet-translate.en-${language}.json`
       ); // Dynamic output file path based on language
 
       const manualJson: JsonObject = JSON.parse(manualData);

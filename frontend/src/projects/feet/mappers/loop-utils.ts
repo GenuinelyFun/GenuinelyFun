@@ -3,7 +3,7 @@ import {
   Loop,
   LoopController,
   Panel,
-} from '../interfaces/jsonDataInterface';
+} from '../interfaces/feetJsonDataInterface.ts';
 import { sheetTranslateType } from './utils.ts';
 
 export const mapLoopToExcel = (

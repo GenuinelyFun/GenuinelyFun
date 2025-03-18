@@ -1,20 +1,20 @@
 {
-  "file-list.title.aria": {
+  "feet-file-list.title.aria": {
     "en": "uploaded JSON files",
     "no": "opplastede JSON-filer",
     "nn": "opplasta JSON-filer"
   },
-  "file-list.document.aria": {
+  "feet-file-list.document.aria": {
     "en": "Document file",
     "no": "Dokumentfil",
     "nn": "Dokumentfil"
   },
-  "file-list.remove-file.aria": {
+  "feet-file-list.remove-file.aria": {
     "en": "Remove file {file}",
     "no": "Fjern fil {file}",
     "nn": "Fjern fil {file}"
   },
-  "file-list.remove-file.success": {
+  "feet-file-list.remove-file.success": {
     "en": "File {file} removed",
     "no": "Fil {file} fjernet",
     "nn": "Fil {file} fjerna"

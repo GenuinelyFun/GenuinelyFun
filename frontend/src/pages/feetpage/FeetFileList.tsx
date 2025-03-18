@@ -4,21 +4,21 @@ import CrossIcon from '../../assets/icons/CrossIcon';
 import FileIcon from '../../assets/icons/FileIcon';
 import { useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
-import styles from './FileList.module.less';
+import styles from './FeetFileList.module.less';
 
-const FileList = () => {
+const FeetFileList = () => {
   const { translate } = useLanguageContext();
   const { files, removeFile } = useDataContext();
 
   return (
     <ul
       className={styles.fileList}
-      aria-label={translate('file-list.title.aria')}
+      aria-label={translate('feet-file-list.title.aria')}
     >
       {files.map(({ name, short }) => (
         <li className={styles.fileCard} key={short} aria-label={short}>
           <FileIcon
-            aria-label={translate('file-list.document.aria')}
+            aria-label={translate('feet-file-list.document.aria')}
             className={classNames(styles.icon)}
           />
           <p>{short}</p>
@@ -30,7 +30,7 @@ const FileList = () => {
           >
             <CrossIcon
               className={classNames(styles.icon, styles.crossIcon)}
-              aria-label={translate('file-list.remove-file.aria', {
+              aria-label={translate('feet-file-list.remove-file.aria', {
                 file: short,
               })}
             />
@@ -41,4 +41,4 @@ const FileList = () => {
   );
 };
 
-export default FileList;
+export default FeetFileList;

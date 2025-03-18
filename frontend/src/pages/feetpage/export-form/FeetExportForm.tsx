@@ -5,31 +5,31 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
-import { Panel } from '../../../interfaces/jsonDataInterface';
-import { mapLoopAddressToExcel } from '../../../mappers/address-report-utils.ts';
-import { mapBoardToExcel } from '../../../mappers/board-utils.ts';
-import { mapControlGroupsToExcel } from '../../../mappers/control-group-report-utils.ts';
-import { mapToIOReportToExcel } from '../../../mappers/io-report-utils.ts';
-import { mapLoopToExcel } from '../../../mappers/loop-utils.ts';
-import { mapPanelToExcel } from '../../../mappers/panel-utils.ts';
+import { Panel } from '../../../projects/feet/interfaces/feetJsonDataInterface.ts';
+import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/address-report-utils.ts';
+import { mapBoardToExcel } from '../../../projects/feet/mappers/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../../projects/feet/mappers/io-report-utils.ts';
+import { mapLoopToExcel } from '../../../projects/feet/mappers/loop-utils.ts';
+import { mapPanelToExcel } from '../../../projects/feet/mappers/panel-utils.ts';
 import {
   addSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
-} from '../../../mappers/utils';
-import { mapPanelsWithZones } from '../../../mappers/zone-utils.ts';
+} from '../../../projects/feet/mappers/utils.ts';
+import { mapPanelsWithZones } from '../../../projects/feet/mappers/zone-utils.ts';
 import { File, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
-import CheckboxWithInfobox from './CheckboxWithInfobox';
-import styles from './ExportForm.module.less';
-import PanelCheckbox from './PanelCheckbox';
+import CheckboxWithInfobox from './CheckboxWithInfobox.tsx';
+import styles from './FeetExportForm.module.less';
+import PanelCheckbox from './PanelCheckbox.tsx';
 
 export interface FilterPanelType {
   [fileName: string]: { [panel: string]: boolean };
 }
 
-const ExportForm: FC = () => {
+const FeetExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
   const { files } = useDataContext();
@@ -71,7 +71,7 @@ const ExportForm: FC = () => {
     e.preventDefault();
     if (files.length === 0) return;
 
-    toast({ type: 'success', textKey: 'export.started' });
+    toast({ type: 'success', textKey: 'feet-export.started' });
     files.forEach((file) => {
       const panels = file.json.system.panels.filter((panel) => {
         if (filteredPanels[file.name] === undefined) {
@@ -210,11 +210,11 @@ const ExportForm: FC = () => {
     <form
       className={styles.container}
       onSubmit={onExportButtonClicked}
-      aria-label={translate(`export.settings.aria`)}
+      aria-label={translate(`feet-export.settings.aria`)}
     >
-      <h2>{translate('export.title')}</h2>
+      <h2>{translate('feet-export.title')}</h2>
       <label className={classNames(styles.select, styles.formOption)}>
-        {translate('export.language.select')}
+        {translate('feet-export.language.select')}
         <select
           onChange={(e) => {
             setSheetLanguage(e.target.value);
@@ -230,7 +230,7 @@ const ExportForm: FC = () => {
         </select>
       </label>
       <label id={'sheet-checkbox-list'} className={styles.listLabel}>
-        {translate('export.settings.sheet-list')}
+        {translate('feet-export.settings.sheet-list')}
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
         <CheckboxWithInfobox
@@ -276,21 +276,23 @@ const ExportForm: FC = () => {
         />
       </ul>
       <label id={'panels-checkbox-list'} className={styles.listLabel}>
-        {translate('export.filter.label')}
+        {translate('feet-export.filter.label')}
         <InfoBox
           messageContent={
             <>
-              <p>{translate('export.filter.infobox.description.1')}</p>
-              <p>{translate('export.filter.infobox.description.2')}</p>
-              <p>{translate('export.filter.infobox.description.3')}</p>
-              <p>{translate('export.filter.infobox.description.4')}</p>
+              <p>{translate('feet-export.filter.infobox.description.1')}</p>
+              <p>{translate('feet-export.filter.infobox.description.2')}</p>
+              <p>{translate('feet-export.filter.infobox.description.3')}</p>
+              <p>{translate('feet-export.filter.infobox.description.4')}</p>
             </>
           }
-          header={translate('export.filter.infobox.title')}
+          header={translate('feet-export.filter.infobox.title')}
         />
       </label>
       {files.length === 0 ? (
-        <p className={styles.emptyPanels}>{translate('export.filter.empty')}</p>
+        <p className={styles.emptyPanels}>
+          {translate('feet-export.filter.empty')}
+        </p>
       ) : (
         <PanelCheckbox
           setSubValues={setFilteredPanels}
@@ -305,7 +307,7 @@ const ExportForm: FC = () => {
             setSeparateFiles(!separateFiles);
           }}
         />
-        {translate('export.separate.checkbox.label')}
+        {translate('feet-export.separate.checkbox.label')}
       </label>
       <label className={styles.checkbox}>
         <input
@@ -315,17 +317,17 @@ const ExportForm: FC = () => {
             setDisclaimer(!disclaimer);
           }}
         />
-        {translate('export.disclaimer.checkbox.label')}
+        {translate('feet-export.disclaimer.checkbox.label')}
       </label>
       <GenericButton
         className={styles.button}
         disabled={files.length === 0 || isNoneSelected || !disclaimer}
         type={'submit'}
       >
-        {translate('export.download.button')}
+        {translate('feet-export.download.button')}
       </GenericButton>
     </form>
   );
 };
 
-export default ExportForm;
+export default FeetExportForm;

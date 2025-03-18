@@ -1,4 +1,4 @@
-import { Panel, System } from '../interfaces/jsonDataInterface';
+import { Panel, System } from '../interfaces/feetJsonDataInterface.ts';
 import { sheetTranslateType } from './utils.ts';
 
 export const mapPanelToExcel = (

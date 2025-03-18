@@ -10,7 +10,7 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
     const filteredNewFiles = newFiles.filter(({ name }) => {
       const check = files.map((file) => file.name).includes(name);
       if (check) {
-        toast({ type: 'info', textKey: 'upload.duplicate' });
+        toast({ type: 'info', textKey: 'feet-import.upload.duplicate' });
       }
       return !check;
     });
@@ -21,7 +21,7 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
   const removeFile = (name: string) => {
     toast({
       type: 'success',
-      textKey: 'file-list.remove-file.success',
+      textKey: 'feet-file-list.remove-file.success',
       textParams: { file: shortenedFileName(name) },
     });
     setFiles((prevFiles) => prevFiles.filter((file) => file.name !== name));
