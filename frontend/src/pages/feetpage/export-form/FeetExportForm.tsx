@@ -5,7 +5,7 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
-import { Panel } from '../../../projects/feet/interfaces/feetJsonDataInterface.ts';
+import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
 import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/address-report-utils.ts';
 import { mapBoardToExcel } from '../../../projects/feet/mappers/board-utils.ts';
 import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/control-group-report-utils.ts';

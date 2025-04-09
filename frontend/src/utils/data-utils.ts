@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { Root } from '../projects/feet/interfaces/feetJsonDataInterface.ts';
+import { Root } from '../projects/feet/feetJsonDataInterface.ts';
 import { useContextOrThrow } from './context-utils.ts';
 
 export const shortenedFileName = (name: string) => {
