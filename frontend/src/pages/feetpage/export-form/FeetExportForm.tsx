@@ -59,13 +59,13 @@ const FeetExportForm: FC = () => {
       const paneles: FilterPanelType = {};
       files.forEach((file) => {
         paneles[file.short] = file.json.system.panels.reduce(
-          (acc, panel) => ({ ...acc, [panel.name]: true }),
+          (acc, panel: Panel) => ({ ...acc, [panel.name]: true }),
           {}
         );
       });
       setFilteredPanels(paneles);
     }
-  }, [files, isZonesAvailable]);
+  }, [files, isZonesAvailable, sheetLanguage, updateLanguage]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();

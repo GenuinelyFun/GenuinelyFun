@@ -6,11 +6,11 @@ import { TranslateTextKey, useLanguageContext } from './i18n/language-utils.ts';
 
 export const useToast = () => {
   interface PromiseProps {
-    loader: Promise<any>;
+    loader: Promise<unknown>;
     options: {
       loading: Renderable;
       success: ValueOrFunction<Renderable, unknown>;
-      error: ValueOrFunction<Renderable, any>;
+      error: ValueOrFunction<Renderable, unknown>;
     };
   }
 
