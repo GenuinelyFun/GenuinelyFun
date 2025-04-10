@@ -1,7 +1,7 @@
 import { Workbook } from 'exceljs';
 import { useState } from 'react';
 
-import { Root } from '../interfaces/feetJsonDataInterface.ts';
+import { Root } from '../feetJsonDataInterface.ts';
 
 export const feetLanguages: Record<string, string> = {
   en: 'English',

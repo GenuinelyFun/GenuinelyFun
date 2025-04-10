@@ -1,7 +1,7 @@
 import {
   MonitoredAndCleanContactOutput,
   Panel,
-} from '../interfaces/feetJsonDataInterface.ts';
+} from '../feetJsonDataInterface.ts';
 import { forEachDeviceInLoopControllers } from './loop-utils.ts';
 import { sheetTranslateType, sheetValueTypes } from './utils.ts';
 

@@ -1,4 +1,4 @@
-import { ControlGroupC, Panel } from '../interfaces/feetJsonDataInterface.ts';
+import { ControlGroupC, Panel } from '../feetJsonDataInterface.ts';
 import { forEachDeviceInLoopControllers } from './loop-utils.ts';
 import { sheetTranslateType, sheetValueTypes } from './utils.ts';
 

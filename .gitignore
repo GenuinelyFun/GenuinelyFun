@@ -1,6 +1,8 @@
 
 .idea/
 *.iml
+.husky/
+node_modules/
 
 crafrontend/build
 crafrontend/node_modules

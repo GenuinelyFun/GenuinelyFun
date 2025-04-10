@@ -4,7 +4,7 @@ import { ChangeEvent, DragEventHandler, FC, useEffect, useState } from 'react';
 import CrossCircleIcon from '../../assets/icons/CrossCircleIcon';
 import UploadIcon from '../../assets/icons/UploadIcon';
 import GenericButton from '../../components/GenericButton';
-import { Root } from '../../projects/feet/interfaces/feetJsonDataInterface.ts';
+import { Root } from '../../projects/feet/feetJsonDataInterface.ts';
 import { shortenedFileName, useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import { useToast } from '../../utils/useToast';

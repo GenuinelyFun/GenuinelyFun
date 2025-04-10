@@ -5,7 +5,7 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
-import { Panel } from '../../../projects/feet/interfaces/feetJsonDataInterface.ts';
+import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
 import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/address-report-utils.ts';
 import { mapBoardToExcel } from '../../../projects/feet/mappers/board-utils.ts';
 import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/control-group-report-utils.ts';
@@ -59,13 +59,13 @@ const FeetExportForm: FC = () => {
       const paneles: FilterPanelType = {};
       files.forEach((file) => {
         paneles[file.short] = file.json.system.panels.reduce(
-          (acc, panel) => ({ ...acc, [panel.name]: true }),
+          (acc, panel: Panel) => ({ ...acc, [panel.name]: true }),
           {}
         );
       });
       setFilteredPanels(paneles);
     }
-  }, [files, isZonesAvailable]);
+  }, [files, isZonesAvailable, sheetLanguage, updateLanguage]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
