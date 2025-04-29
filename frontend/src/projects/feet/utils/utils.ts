@@ -21,6 +21,7 @@ export type sheetValueTypes =
   | undefined
   | null
   | number[];
+
 export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
 
 const fetchTranslations = async (

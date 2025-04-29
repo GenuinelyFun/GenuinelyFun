@@ -1,5 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 interface JsonObject {
   [key: string]: never; // was any before.
@@ -106,7 +111,7 @@ fs.readFile(
       // Define paths to script files and manual translations
       const inputFilePath = path.join(
         scriptBasePath,
-        `feet-translate.en-${language}.json`
+        `translate.en-${language}.json`
       ); // Dynamic input file path based on language
       const outputFilePath = path.join(
         translationsBasePath,
