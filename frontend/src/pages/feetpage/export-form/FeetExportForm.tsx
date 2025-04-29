@@ -59,7 +59,10 @@ const FeetExportForm: FC = () => {
       const paneles: FilterPanelType = {};
       files.forEach((file) => {
         paneles[file.short] = file.json.system.panels.reduce(
-          (acc, panel: Panel) => ({ ...acc, [panel.name]: true }),
+          (acc, panel: Panel) => ({
+            ...acc,
+            [`${panel.number}. ${panel.name}`]: true,
+          }),
           {}
         );
       });
