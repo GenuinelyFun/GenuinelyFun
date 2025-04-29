@@ -64,6 +64,21 @@
     "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da.",
     "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då."
   },
+  "feet-export.summary.checkbox.label": {
+    "en": "Summary",
+    "no": "Sammendrag",
+    "nn": "Sammendrag"
+  },
+  "feet-export.summary.infobox.title": {
+    "en": "Summary",
+    "no": "Sammendrag",
+    "nn": "Sammendrag"
+  },
+  "feet-export.summary.infobox.description": {
+    "en": "This option generates a summary page listing different types of products within each panel.",
+    "no": "Dette genererer en sammendragsfane som lister opp forskjellige typer produkter innen hver sentral.",
+    "nn": "Dette genererer ein sammendragsfane som listar opp forskjellige typar produkt innan kvar sentral."
+  },
   "feet-export.panel.checkbox.label": {
     "en": "Panel",
     "no": "Sentral",

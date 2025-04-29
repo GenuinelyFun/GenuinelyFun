@@ -21,6 +21,7 @@ export type sheetValueTypes =
   | undefined
   | null
   | number[];
+
 export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
 
 const fetchTranslations = async (
@@ -86,6 +87,48 @@ export const useSheetTranslate = (): {
   };
 };
 
+const getTableHeaders = (
+  data: { [key: string]: sheetValueTypes }[]
+): { name: string; key: string; filterButton: boolean }[] => {
+  const headers: { name: string; key: string; filterButton: boolean }[] = [];
+  data.forEach((item) =>
+    Object.keys(item).forEach((key) => {
+      if (headers.find((item) => item.key === key) === undefined) {
+        headers.push({
+          name: key,
+          key: key,
+          filterButton: true,
+        });
+      }
+    })
+  );
+  return headers;
+};
+
+const getTableRows = (
+  data: { [key: string]: sheetValueTypes }[],
+  headers: {
+    name: string;
+    key: string;
+    filterButton: boolean;
+  }[]
+): sheetValueTypes[][] => {
+  const rows: sheetValueTypes[][] = [];
+  data.forEach((row) => {
+    const newRow: sheetValueTypes[] = [];
+    headers.forEach((column) => {
+      if (row[column.key] !== undefined) {
+        newRow.push(row[column.key]);
+      } else {
+        newRow.push(null);
+      }
+    });
+    rows.push(newRow);
+  });
+
+  return rows;
+};
+
 export const addSheetToWorkbook = (
   workbook: Workbook,
   data: { [key: string]: sheetValueTypes }[],
@@ -99,18 +142,14 @@ export const addSheetToWorkbook = (
   sheet.addRow([
     sheetTranslate('Configuration number') + ': ' + json.version.number,
   ]);
+
+  const columns = getTableHeaders(translatedData);
   sheet.addTable({
     name: translatedSheetName,
     ref: 'A2',
     headerRow: true,
-    columns: Object.keys(translatedData[0]).map((key) => {
-      return {
-        name: key,
-        key: key,
-        filterButton: true,
-      };
-    }),
-    rows: translatedData.map((row) => Object.values(row)),
+    columns: columns,
+    rows: getTableRows(translatedData, columns),
     style: {
       theme: 'TableStyleLight1',
       showRowStripes: true,

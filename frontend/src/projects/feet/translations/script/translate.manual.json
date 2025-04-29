@@ -1,6 +1,7 @@
 {
   "translate.manual.en-da": {
     "Configuration number": "Konfigurationsnummer",
+    "Summary": "Resumé",
     "Control group report": "Kontrolgruppe_rapport",
     "IO_report": "IO_rapport",
     "Address_report": "Adresse_rapport",
@@ -574,6 +575,7 @@
   },
   "translate.manual.en-en": {
     "Configuration number": "Configuration number",
+    "Summary": "Summary",
     "Control group report": "Control_group_report",
     "IO_report": "IO_report",
     "Address_report": "Address_report",
@@ -1142,6 +1144,7 @@
   },
   "translate.manual.en-es": {
     "Configuration number": "Número de configuración",
+    "Summary": "Resumen",
     "Control group report": "Grupo_de_control_informe",
     "IO_report": "IO_informe",
     "Address_report": "Informe_de_direcciones",
@@ -1715,6 +1718,7 @@
   },
   "translate.manual.en-fi": {
     "Configuration number": "Konfiguraation numero",
+    "Summary": "Yhteenveto",
     "Control group report": "Ohjausryhmä_raportti",
     "IO_report": "IO_raportti",
     "Address_report": "Osoiteraportti",
@@ -2288,6 +2292,7 @@
   },
   "translate.manual.en-it": {
     "Configuration number": "Numero di configurazione",
+    "Summary": "Riepilogo",
     "Control group report": "Gruppo_di_controllo_rapporto",
     "IO_report": "IO_rapporto",
     "Address_report": "Rapporto_indirizzo",
@@ -2859,6 +2864,7 @@
   },
   "translate.manual.en-nb": {
     "Configuration number": "Konfigurasjonsnummer",
+    "Summary": "Sammendrag",
     "Control group report": "Kontrollgruppe_rapport",
     "IO_report": "IO_rapport",
     "Address_report": "Adresse_rapport",
@@ -3432,6 +3438,7 @@
   },
   "translate.manual.en-ru": {
     "Configuration number": "Номер конфигурации",
+    "Summary": "Резюме",
     "Control group report": "Группа_управления_отчет",
     "IO_report": "IO_отчет",
     "Address_report": "Отчет_об_адресе",
@@ -4004,6 +4011,7 @@
   },
   "translate.manual.en-sv": {
     "Configuration number": "Konfigurationsnummer",
+    "Summary": "Sammanfattning",
     "Control group report": "Kontrollgrupp_rapport",
     "IO_report": "IO_rapport",
     "Address_report": "Adressrapport",

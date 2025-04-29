@@ -6,18 +6,19 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
 import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
-import { mapLoopAddressToExcel } from '../../../projects/feet/mappers/address-report-utils.ts';
-import { mapBoardToExcel } from '../../../projects/feet/mappers/board-utils.ts';
-import { mapControlGroupsToExcel } from '../../../projects/feet/mappers/control-group-report-utils.ts';
-import { mapToIOReportToExcel } from '../../../projects/feet/mappers/io-report-utils.ts';
-import { mapLoopToExcel } from '../../../projects/feet/mappers/loop-utils.ts';
-import { mapPanelToExcel } from '../../../projects/feet/mappers/panel-utils.ts';
+import { mapLoopAddressToExcel } from '../../../projects/feet/utils/address-report-utils.ts';
+import { mapBoardToExcel } from '../../../projects/feet/utils/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../../projects/feet/utils/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../../projects/feet/utils/io-report-utils.ts';
+import { mapLoopToExcel } from '../../../projects/feet/utils/loop-utils.ts';
+import { mapPanelToExcel } from '../../../projects/feet/utils/panel-utils.ts';
+import { mapSummaryToExcel } from '../../../projects/feet/utils/summary-utils.ts';
 import {
   addSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
-} from '../../../projects/feet/mappers/utils.ts';
-import { mapPanelsWithZones } from '../../../projects/feet/mappers/zone-utils.ts';
+} from '../../../projects/feet/utils/utils.ts';
+import { mapPanelsWithZones } from '../../../projects/feet/utils/zone-utils.ts';
 import { File, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
@@ -34,6 +35,7 @@ const FeetExportForm: FC = () => {
   const { translate, i18n } = useLanguageContext();
   const { files } = useDataContext();
   const { sheetTranslate, updateLanguage } = useSheetTranslate();
+  const [summary, setSummary] = useState<boolean>(true);
   const [zone, setZone] = useState<boolean>(true);
   const [fireLoop, setFireLoop] = useState<boolean>(true);
   const [ioBoard, setIoBoard] = useState<boolean>(true);
@@ -65,7 +67,7 @@ const FeetExportForm: FC = () => {
       });
       setFilteredPanels(paneles);
     }
-  }, [files, isZonesAvailable, sheetLanguage, updateLanguage]);
+  }, [files, isZonesAvailable, sheetLanguage]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -93,6 +95,15 @@ const FeetExportForm: FC = () => {
     const { name, json } = file;
     const workbook = new Workbook();
     const zones = json.system.zones;
+    if (summary) {
+      addSheetToWorkbook(
+        workbook,
+        mapSummaryToExcel(panels, sheetTranslate),
+        'Summary',
+        json,
+        sheetTranslate
+      );
+    }
     if (firePanel) {
       addSheetToWorkbook(
         workbook,
@@ -177,6 +188,7 @@ const FeetExportForm: FC = () => {
   };
 
   const isAllSelected =
+    summary &&
     firePanel &&
     (isZonesAvailable ? zone : true) &&
     fireLoop &&
@@ -186,6 +198,7 @@ const FeetExportForm: FC = () => {
     controlGroupReport;
 
   const isNoneSelected =
+    !summary &&
     !firePanel &&
     !zone &&
     !fireLoop &&
@@ -199,6 +212,7 @@ const FeetExportForm: FC = () => {
     if (isZonesAvailable) {
       setZone(!isAllSelected);
     }
+    setSummary(!isAllSelected);
     setFireLoop(!isAllSelected);
     setIoBoard(!isAllSelected);
     setAddressReport(!isAllSelected);
@@ -239,6 +253,16 @@ const FeetExportForm: FC = () => {
           setValue={toggleSelectAll}
         />
         <CheckboxWithInfobox
+          textKey={'summary'}
+          value={summary}
+          setValue={() => setSummary(!summary)}
+        />
+        <CheckboxWithInfobox
+          textKey={'panel'}
+          value={firePanel}
+          setValue={() => setFirePanel(!firePanel)}
+        />
+        <CheckboxWithInfobox
           textKey={'zone'}
           value={zone}
           setValue={() => setZone(!zone)}
@@ -268,11 +292,6 @@ const FeetExportForm: FC = () => {
           textKey={'controlgroups'}
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
-        />
-        <CheckboxWithInfobox
-          textKey={'panel'}
-          value={firePanel}
-          setValue={() => setFirePanel(!firePanel)}
         />
       </ul>
       <label id={'panels-checkbox-list'} className={styles.listLabel}>

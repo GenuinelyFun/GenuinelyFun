@@ -32,6 +32,9 @@ const CheckboxWithInfobox: FC<{
         header={translate(
           `feet-export.${textKey}.infobox.title` as TranslateTextKey
         )}
+        ariaAbout={translate(
+          `feet-export.${textKey}.infobox.title` as TranslateTextKey
+        )}
       />
     </li>
   );
