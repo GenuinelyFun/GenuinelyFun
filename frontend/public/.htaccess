@@ -1,0 +1,14 @@
+<FilesMatch "(\.env|config\.php|\.env\.keys)$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/backend/bridge/ [NC]
+RewriteRule .* - [L]
+
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

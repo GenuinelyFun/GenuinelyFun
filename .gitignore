@@ -1,11 +1,9 @@
-
 .idea/
 *.iml
+config.php
 .husky/
 node_modules/
 
-crafrontend/build
-crafrontend/node_modules
-
+backend/node_modules
 frontend/build
 frontend/node_modules
