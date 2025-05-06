@@ -10,6 +10,7 @@ import uploadBoxText from '../../components/uploadBoxText.json';
 import articlePageText from '../../pages/articlepage/articlePageText.json';
 import reflectiveThinkingPageText from '../../pages/articlepage/reflectiveThinkingPageText.json';
 import techBestPracticePageText from '../../pages/articlepage/techBestPracticePageText.json';
+import fsText from '../../pages/fireAndSecurity/fireAndSecurityText.json';
 import feetExportFormText from '../../pages/feetpage/feetExportFormText.json';
 import fweetExportFormText from '../../pages/fweetpage/fweetExportFormText.json';
 import homePageText from '../../pages/homepage/homePageText.json';
@@ -41,6 +42,7 @@ export const translationTexts = {
   ...fweetExportFormText,
   ...importExportPageText,
   ...homePageText,
+  ...fsText,
   ...pageNotFoundText,
   ...arthurPageText,
   ...nghiPageText,

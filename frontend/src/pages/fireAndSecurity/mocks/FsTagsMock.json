@@ -1,0 +1,402 @@
+[
+  {
+    "id": "1",
+    "title": "Feilsøking"
+  },
+  {
+    "id": "2",
+    "title": "Programmer"
+  },
+  {
+    "id": "3",
+    "title": "System Koder"
+  },
+  {
+    "id": "4",
+    "title": "Tekniske Spesifikasjoner"
+  },
+  {
+    "id": "5",
+    "title": "Versjon"
+  },
+  {
+    "id": "6",
+    "title": "Veiledning"
+  },
+  {
+    "id": "7",
+    "title": "Strømforsynere"
+  },
+  {
+    "id": "100",
+    "title": "3-PM-IO"
+  },
+  {
+    "id": "101",
+    "title": "Salwico CS3004"
+  },
+  {
+    "id": "102",
+    "title": "DualGuard"
+  },
+  {
+    "id": "103",
+    "title": "EPC"
+  },
+  {
+    "id": "104",
+    "title": "Esgraf"
+  },
+  {
+    "id": "105",
+    "title": "Esmikko"
+  },
+  {
+    "id": "106",
+    "title": "FDP"
+  },
+  {
+    "id": "107",
+    "title": "FMP"
+  },
+  {
+    "id": "108",
+    "title": "FX"
+  },
+  {
+    "id": "109",
+    "title": "LP-Star"
+  },
+  {
+    "id": "110",
+    "title": "MPOX"
+  },
+  {
+    "id": "111",
+    "title": "Nøkkelsafe"
+  },
+  {
+    "id": "112",
+    "title": "Prodex"
+  },
+  {
+    "id": "113",
+    "title": "Wcomm"
+  },
+  {
+    "id": "114",
+    "title": "Wormald"
+  },
+  {
+    "id": "115",
+    "title": "Xtrails"
+  },
+  {
+    "id": "116",
+    "title": "ZB-S"
+  },
+  {
+    "id": "117",
+    "title": "MCOX"
+  },
+  {
+    "id": "118",
+    "title": "AutroSafe 4"
+  },
+  {
+    "id": "119",
+    "title": "WAS-2000"
+  },
+  {
+    "id": "120",
+    "title": "AutroClient"
+  },
+  {
+    "id": "121",
+    "title": "BS-60"
+  },
+  {
+    "id": "122",
+    "title": "AutroSafe 3"
+  },
+  {
+    "id": "123",
+    "title": "AutroSense"
+  },
+  {
+    "id": "124",
+    "title": "Autroprime"
+  },
+  {
+    "id": "125",
+    "title": "BS-100"
+  },
+  {
+    "id": "126",
+    "title": "MX 1000"
+  },
+  {
+    "id": "127",
+    "title": "MX-5000"
+  },
+  {
+    "id": "128",
+    "title": "SP-C"
+  },
+  {
+    "id": "129",
+    "title": "ESA"
+  },
+  {
+    "id": "130",
+    "title": "Fire Graphics"
+  },
+  {
+    "id": "131",
+    "title": "Security Expert"
+  },
+  {
+    "id": "132",
+    "title": "Enterprise Server"
+  },
+  {
+    "id": "133",
+    "title": "Windows"
+  },
+  {
+    "id": "134",
+    "title": "FMPX"
+  },
+  {
+    "id": "135",
+    "title": "Brannvesen"
+  },
+  {
+    "id": "136",
+    "title": "FMP2"
+  },
+  {
+    "id": "137",
+    "title": " AS-P-NL"
+  },
+  {
+    "id": "138",
+    "title": "SpaceLogic Server"
+  },
+  {
+    "id": "139",
+    "title": "System Sensor"
+  },
+  {
+    "id": "140",
+    "title": "Analoge verdier"
+  },
+  {
+    "id": "141",
+    "title": "WebStation Client"
+  },
+  {
+    "id": "142",
+    "title": "ASD"
+  },
+  {
+    "id": "143",
+    "title": "License Administrator"
+  },
+  {
+    "id": "144",
+    "title": "FireWin Explorer"
+  },
+  {
+    "id": "145",
+    "title": "Delta DA OP"
+  },
+  {
+    "id": "146",
+    "title": "Microsoft Word"
+  },
+  {
+    "id": "147",
+    "title": "Apollo XP95"
+  },
+  {
+    "id": "148",
+    "title": "Apollo Intellia"
+  },
+  {
+    "id": "149",
+    "title": "Apollo Discovery"
+  },
+  {
+    "id": "150",
+    "title": "SX-2000"
+  },
+  {
+    "id": "151",
+    "title": "VX-3000"
+  },
+  {
+    "id": "152",
+    "title": "CPS"
+  },
+  {
+    "id": "153",
+    "title": "CLS"
+  },
+  {
+    "id": "154",
+    "title": "Salwico CS4000"
+  },
+  {
+    "id": "155",
+    "title": "AS-P"
+  },
+  {
+    "id": "156",
+    "title": "Sykesignal"
+  },
+  {
+    "id": "157",
+    "title": "Workstation"
+  },
+  {
+    "id": "158",
+    "title": "BACnet"
+  },
+  {
+    "id": "159",
+    "title": "Codis"
+  },
+  {
+    "id": "160",
+    "title": "SG-13"
+  },
+  {
+    "id": "161",
+    "title": "Esser"
+  },
+  {
+    "id": "162",
+    "title": "ADA Power"
+  },
+  {
+    "id": "200",
+    "title": "110-sentral"
+  },
+  {
+    "id": "201",
+    "title": "AddSecure"
+  },
+  {
+    "id": "202",
+    "title": "Aritech"
+  },
+  {
+    "id": "203",
+    "title": "Autronica"
+  },
+  {
+    "id": "204",
+    "title": "Beghelli"
+  },
+  {
+    "id": "205",
+    "title": "EATON"
+  },
+  {
+    "id": "206",
+    "title": "Elotec"
+  },
+  {
+    "id": "207",
+    "title": "Gylling"
+  },
+  {
+    "id": "208",
+    "title": "Hedengren"
+  },
+  {
+    "id": "209",
+    "title": "Honeywell Eltek"
+  },
+  {
+    "id": "210",
+    "title": "INOTEC NSE"
+  },
+  {
+    "id": "211",
+    "title": "Jablotron"
+  },
+  {
+    "id": "212",
+    "title": "Kentec"
+  },
+  {
+    "id": "213",
+    "title": "Keylink"
+  },
+  {
+    "id": "214",
+    "title": "Norik"
+  },
+  {
+    "id": "215",
+    "title": "Panasonic"
+  },
+  {
+    "id": "216",
+    "title": "Schneider Electric"
+  },
+  {
+    "id": "217",
+    "title": "SG Safety"
+  },
+  {
+    "id": "218",
+    "title": "SIEMENS"
+  },
+  {
+    "id": "219",
+    "title": "TOA Scandec"
+  },
+  {
+    "id": "220",
+    "title": "Teletec"
+  },
+  {
+    "id": "221",
+    "title": "Tyco"
+  },
+  {
+    "id": "222",
+    "title": "Concilium"
+  },
+  {
+    "id": "223",
+    "title": "Moxa"
+  },
+  {
+    "id": "224",
+    "title": "SafetyGuide"
+  },
+  {
+    "id": "225",
+    "title": "Securiton"
+  },
+  {
+    "id": "226",
+    "title": "Powernet"
+  },
+  {
+    "id": "300",
+    "title": "EcoStruxure Building Operation\t"
+  },
+  {
+    "id": "301",
+    "title": "EcoStruxure Fire Operation\t"
+  },
+  {
+    "id": "302",
+    "title": "EcoStruxure Security Expert\t"
+  }
+]

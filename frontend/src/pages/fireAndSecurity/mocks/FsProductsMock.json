@@ -1,0 +1,2072 @@
+[
+  {
+    "id": "3",
+    "title": "EPC standard IP adresse",
+    "description": "192.168.5.26 | http://192.168.5.26/",
+    "image": ""
+  },
+  {
+    "id": "4",
+    "title": "EPC vises ikke i nettleseren på PC",
+    "description": "- Kontroller nettverket: Ping EPCs IP-adresse og sørg for at PC-en er på samme nettverk. - Bruk riktig URL: Skriv inn EPCs IP med http:// (f.eks. http://192.168.5.26/). - Tøm cache/cookies: Tøm nettleserens cache eller bruk inkognitomodus for å unngå lagrede data. - Kontroller nettleserkompatibilitet: Prøv en annen nettleser hvis problemet vedvarer. - Start EPC på nytt: Slå enheten av og på for å løse midlertidige feil. - Deaktiver utvidelser: Deaktiver nettleserutvidelser som kan forstyrre tilkoblingen. - Sjekk brannmur: Sørg for at ingen brannmur eller sikkerhetsprogramvare blokkerer tilgangen.",
+    "image": ""
+  },
+  {
+    "id": "5",
+    "title": "EPC MLD31 Enhetstilkoblingsproblemer",
+    "description": "Den sentrale enheten kan ofte miste kontakten med MLD31-enheten. Under \"detekter moduler,\" sjekk om du kan finne MLD31-enheten. Den dukker ofte opp igjen etter at du har fullført disse trinnene.",
+    "image": ""
+  },
+  {
+    "id": "30",
+    "title": "FDP Maks antall sløyfer",
+    "description": "Maksimalt antall adresserbare sløyfer som kan kobles til én FDP er 8 sløyfer (4 sløyfekort, hvor hvert kort har 2 sløyfer).",
+    "image": ""
+  },
+  {
+    "id": "32",
+    "title": "FDP Sløyfe protokoll",
+    "description": "System Sensor, Apollo (XP95, Discovery and Intellia) and Impressia.",
+    "image": ""
+  },
+  {
+    "id": "33",
+    "title": "FDP Maks antall IO kort",
+    "description": "Maksimalt antall IO-kort som kan kobles til én FDP er totalt 4 (IOC og OCA).",
+    "image": ""
+  },
+  {
+    "id": "34",
+    "title": "FDP221 Batteri type",
+    "description": "2x 12V 12Ah.",
+    "image": ""
+  },
+  {
+    "id": "35",
+    "title": "FDP292 Batteri type",
+    "description": "4x 12V 18Ah.",
+    "image": ""
+  },
+  {
+    "id": "36",
+    "title": "FDP252 Batteri type",
+    "description": "2x 12V 18Ah.",
+    "image": ""
+  },
+  {
+    "id": "37",
+    "title": "FDP/FX sløyfebrudd, men ingen faktisk brudd",
+    "description": "Sjekk etter et faktisk sløyfebrudd ved å koble fra retursløyfen og måle spenningen: • Korrekt spenning på returledningen: Dette indikerer at det ikke er et sløyfebrudd. Problemet skyldes sannsynligvis én eller flere ISOLED-komponenter i sløyfen som ikke fungerer. Prøv å bytte forsynings- og returledningene på sløyfekortet. Hvis dette ikke løser problemet, er ytterligere feilsøking av sløyfen nødvendig. • Lav eller ingen sløyfespenning på returledningen: Dette tyder på et sløyfebrudd som må feilsøkes. Kontroller at ISOLED-komponentene ikke har forårsaket et brudd i sløyfen.",
+    "image": ""
+  },
+  {
+    "id": "38",
+    "title": "Esgraf Cannot Find Esgraf Configuration Server",
+    "description": "Cannot find Esgraf Configuration Server. If Esgraf system is missing or needs to be retrieved: - Import Esgraf Configuration Server - In \"Configuration server address localhost:\" window, enter \"127.0.0.1\" and click \"Get info\" - The Esgraf system should appear in the list below, select correct system and click \"Select\" - If still not working, verify ODBC setup",
+    "image": ""
+  },
+  {
+    "id": "39",
+    "title": "Esgraf update with new addresses",
+    "description": "- Perform backup of SQL database, Esmi folder and Config2Esmikko folder - Place updated FX configuration file in Config2Esmikko folder - Open Config2Esmikko program - Select project file when prompted - Verify correct Instance, Database, config file, and presence of loops under centrals - Click \"Update server data\" button at bottom right - Select options \"Remove previously created loops before update\" and \"Remove previously created groups before update\" - Click \"Start server data update\" button at bottom center - Confirm when prompted - Verify detector count is correct, confirm if correct - Verify zone count is correct, confirm if correct - Update complete when green text shows \"Server data update successful\" - System -> Enter edit mode - System -> Enter offline mode - Functions -> Select system to update -> Configurations -> Update element data - System -> Exit edit mode",
+    "image": ""
+  },
+  {
+    "id": "40",
+    "title": "FX/FDP MCOX kan ikke hente/sende konfigurasjon",
+    "description": "Kan ikke hente konfigurasjon • Koble konfigurasjonskabelen til RS232-inngangen midt på kortet ved LED-indikatorene. • Sett jumperen til \"config\" og trykk på \"CPU RESET\"-knappen midt på MCO-kortet. • Koble fra RS485-kablene fra MCO-kortet. • Åpne MCO v3.6.2. • I MCO-programmet velg: Tools -> Receive -> velg riktig COM-port og 9600 baud rate. • Overvåk programmet mens konfigurasjonen hentes – ingen feilmeldinger skal vises. • Koble RS485-kablene til MCO-kortet igjen. Kan ikke sende konfigurasjon • Koble konfigurasjonskabelen til RS232-inngangen midt på kortet ved LED-indikatorene. • Sett jumperen til \"config\" og trykk på \"CPU RESET\"-knappen midt på MCO-kortet. • Koble fra RS485-kablene fra MCO-kortet. • Åpne MCO v3.6.2 og åpne konfigurasjonsfilen fra skrivebordet. • I MCO-programmet velg: Tools -> Send -> velg riktig COM-port og 9600 baud rate. • Overvåk programmet mens konfigurasjonen sendes – ingen feilmeldinger skal vises. • Koble RS485-kablene til MCO-kortet igjen.4o",
+    "image": ""
+  },
+  {
+    "id": "41",
+    "title": "FX/FDP MPOX-kortproblemer",
+    "description": "LED 5 blinker jevnt: • Tilkoblingsfeil mellom FMP og brannsentral, eller kabelbrudd.",
+    "image": ""
+  },
+  {
+    "id": "42",
+    "title": "FX Cannot Find FX COM device on PC",
+    "description": "PC cannot connect to central unit. PC cannot find FX COM device: - Restart PC and perform ghost.reset/cold-reset of fire alarm central - Device Manager -> View -> Show hidden devices -> Uninstall \"StruxtureWare\" devices (if you have EBO programs on the same PC, they conflict with fire alarm programs) - Reinstall driver for FX programs",
+    "image": ""
+  },
+  {
+    "id": "43",
+    "title": "Esmikko4ServerN0 Service Won't Start",
+    "description": "Esmikko4ServerN0 service won't start: - Check database connection in Esmikko Server Configuration Tool - Try with or without Trusted Connection",
+    "image": ""
+  },
+  {
+    "id": "44",
+    "title": "Brukernivå AutroSafe 4",
+    "description": "1234 (fungerer 3 ganger, konfig må lastes inn på nytt for å resette)",
+    "image": ""
+  },
+  {
+    "id": "45",
+    "title": "WAS-2000",
+    "description": "9999",
+    "image": ""
+  },
+  {
+    "id": "46",
+    "title": "AutroClient configuration",
+    "description": "9999",
+    "image": ""
+  },
+  {
+    "id": "47",
+    "title": "AutroClient control",
+    "description": "1234",
+    "image": ""
+  },
+  {
+    "id": "48",
+    "title": "BS-60",
+    "description": "18080",
+    "image": ""
+  },
+  {
+    "id": "49",
+    "title": "AutroSafe Aksessnivå 3",
+    "description": "9999",
+    "image": ""
+  },
+  {
+    "id": "50",
+    "title": "AutroClient passord",
+    "description": "primePRIME (kan være individuelt)",
+    "image": ""
+  },
+  {
+    "id": "51",
+    "title": "Service kode",
+    "description": "123",
+    "image": ""
+  },
+  {
+    "id": "52",
+    "title": "AutroSense",
+    "description": "102",
+    "image": ""
+  },
+  {
+    "id": "53",
+    "title": "AutroClient brukernavn",
+    "description": "prime-176 (kan være individuelt)",
+    "image": ""
+  },
+  {
+    "id": "54",
+    "title": "Autroprime IP-adresse",
+    "description": "10.64.62.176 10.64.63.170:10002 10.64.62.178",
+    "image": ""
+  },
+  {
+    "id": "55",
+    "title": "Aksessnivå 3 BS-100",
+    "description": "↓ ← ← →",
+    "image": ""
+  },
+  {
+    "id": "56",
+    "title": "WAS-2000 service",
+    "description": "service utility",
+    "image": ""
+  },
+  {
+    "id": "57",
+    "title": "Esgraf administrator",
+    "description": "Brukernavn: Ecsadmin. Passord: esgraf.",
+    "image": ""
+  },
+  {
+    "id": "58",
+    "title": "Tyco Minerva MX 1000",
+    "description": "10000",
+    "image": ""
+  },
+  {
+    "id": "60",
+    "title": "MX-5000",
+    "description": "7654",
+    "image": ""
+  },
+  {
+    "id": "61",
+    "title": "Xtrails - Dst",
+    "description": "1413",
+    "image": ""
+  },
+  {
+    "id": "62",
+    "title": "Xtrails - User",
+    "description": "1111",
+    "image": ""
+  },
+  {
+    "id": "63",
+    "title": "Xtrails - Vlf",
+    "description": "7274",
+    "image": ""
+  },
+  {
+    "id": "64",
+    "title": "Xtrails - Adm",
+    "description": "1413",
+    "image": ""
+  },
+  {
+    "id": "65",
+    "title": "Panasonic - Kode",
+    "description": "2222",
+    "image": ""
+  },
+  {
+    "id": "66",
+    "title": "Wormald - Brukerkode:",
+    "description": "99",
+    "image": ""
+  },
+  {
+    "id": "67",
+    "title": "SIEMENS - Aksessnivå 2.1:",
+    "description": "111",
+    "image": ""
+  },
+  {
+    "id": "68",
+    "title": "SIEMENS - Installatørkode:",
+    "description": "9898",
+    "image": ""
+  },
+  {
+    "id": "69",
+    "title": "SIEMENS - Aksessnivå 3:",
+    "description": "333",
+    "image": ""
+  },
+  {
+    "id": "70",
+    "title": "SIEMENS - Aksessnivå 2:",
+    "description": "4233",
+    "image": ""
+  },
+  {
+    "id": "71",
+    "title": "SIEMENS - Aksessnivå 2.2:",
+    "description": "222                        ",
+    "image": ""
+  },
+  {
+    "id": "72",
+    "title": "SIEMENS - Konfig kode:",
+    "description": "8642",
+    "image": ""
+  },
+  {
+    "id": "73",
+    "title": "SP-C Controller: Setting Controller to a Known IP Address",
+    "description": "If the IP is unknown: 1. Disconnect 12V DC power. 2. Link Reader 1 D0 and Reader 1 L1 and power up. Use IP: 192.168.111.222 to change settings.",
+    "image": ""
+  },
+  {
+    "id": "74",
+    "title": "FDP NTP Server",
+    "description": "no.pool.ntp.org",
+    "image": ""
+  },
+  {
+    "id": "75",
+    "title": "SP-C Controller: Defaulting the Controller",
+    "description": "Factory reset all settings. Reset IP to 192.168.1.2. 1. Disconnect 12V DC power. 2. Link Reader 2 D0 and Reader 2 L1. Remove link after startup.",
+    "image": ""
+  },
+  {
+    "id": "76",
+    "title": "SP-C Controller: Temporarily “Defaulting” IP Address",
+    "description": "Temporarily set the IP address to: IP: 192.168.111.222 Gateway: 192.168.111.254 Net Mask: 255.255.255.0 DHCP: Disabled",
+    "image": ""
+  },
+  {
+    "id": "77",
+    "title": "SP-C Controller: Restart Controller",
+    "description": "Three methods: 1. Cycle power 2. Use the web interface 3. Use keypad [Menu][4][2][2]",
+    "image": ""
+  },
+  {
+    "id": "78",
+    "title": "SP-C Controller: End of Line (EOL)",
+    "description": "Insert 330 Ohm EOL resistor between NA and NB terminals of the first and last modules on the RS-485 network.",
+    "image": ""
+  },
+  {
+    "id": "81",
+    "title": "SP-C Controller: Password",
+    "description": "Username: admin Password: admin or blank",
+    "image": ""
+  },
+  {
+    "id": "83",
+    "title": "SP-C Controller: Server and Controller Communication Requirements",
+    "description": "Server must have the correct IP, port settings (21000/21001 for controller, 22000 for Event Server), controller serial number, and matching encryption settings.",
+    "image": ""
+  },
+  {
+    "id": "86",
+    "title": "SP-C Controller: Bringing the Controller Online",
+    "description": "Set the appropriate IP address, subnet mask, and gateway. Change the default IP (192.168.1.2) to suit your network. Consult with a network administrator.",
+    "image": ""
+  },
+  {
+    "id": "88",
+    "title": "SP-C Controller: Wiring Diagram",
+    "description": "Recommended specs:\r\n- Belden 9842 or equivalent\r\n- 24AWG twisted pair (120ohm impedance)\r\n- Max length: 900m (3000ft)\r\n- CAT5e/CAT6 supported (100m max).",
+    "image": ""
+  },
+  {
+    "id": "90",
+    "title": "Fire Graphics kommunikasjon baud rate til FDP",
+    "description": "9600",
+    "image": ""
+  },
+  {
+    "id": "92",
+    "title": "SP-C Controller: Ethernet 10/100 Network Interface",
+    "description": "Connect to an Ethernet hub/switch (<100m segment). Temporary direct connections for onsite programming can be done via the computer Ethernet port.",
+    "image": ""
+  },
+  {
+    "id": "94",
+    "title": "Enterprise Server HTPPS port",
+    "description": "443",
+    "image": ""
+  },
+  {
+    "id": "95",
+    "title": "SP-C Controller: Input Wiring",
+    "description": "Wire inputs 1-8 as shown in the manual. Green LEDs indicate functionality when using the default 1K, 1K EOL resistors.",
+    "image": ""
+  },
+  {
+    "id": "98",
+    "title": "Enterprise Server SAML Authenticator port",
+    "description": "9615",
+    "image": ""
+  },
+  {
+    "id": "112",
+    "title": "AS-P-NL Reset button: Reset IP to DHCP",
+    "description": "Hold 10 to 20 seconds",
+    "image": ""
+  },
+  {
+    "id": "116",
+    "title": "Enterprise Server License Server address",
+    "description": "@localhost",
+    "image": ""
+  },
+  {
+    "id": "117",
+    "title": "Fire Graphics Workstation user: admin",
+    "description": "Brukernavn: admin. Passord: ?5910fire. IP: 192.168.1.99",
+    "image": ""
+  },
+  {
+    "id": "119",
+    "title": "WebStation Client",
+    "description": "Site personnel's Web operator interface for the customer.",
+    "image": ""
+  },
+  {
+    "id": "120",
+    "title": "FMP brannsentral kompatiblitet",
+    "description": "MINI, ESA, FX, FDP",
+    "image": ""
+  },
+  {
+    "id": "127",
+    "title": "WorkStation Client",
+    "description": "Engineers' and site personnel's operator interface to configure.",
+    "image": ""
+  },
+  {
+    "id": "128",
+    "title": "FX LB2-32",
+    "description": "Panel LED Board 2: 32 LED indications",
+    "image": ""
+  },
+  {
+    "id": "129",
+    "title": "AS-P-NL Reset button: Device Firmware Upgrade (DFU)",
+    "description": "Press 3 times in 3 seconds",
+    "image": ""
+  },
+  {
+    "id": "131",
+    "title": "Fire Graphics Workstation user: manager",
+    "description": "Brukernavn: superuser. Passord: !5910fire. IP: 192.168.1.99",
+    "image": ""
+  },
+  {
+    "id": "134",
+    "title": "FMP konfigurasjonsprogram",
+    "description": "WinFMPX",
+    "image": ""
+  },
+  {
+    "id": "136",
+    "title": "SpaceLogic Server",
+    "description": "Main interface to the site hardware.",
+    "image": ""
+  },
+  {
+    "id": "138",
+    "title": "License Administrator",
+    "description": "Add and manage licenses.",
+    "image": ""
+  },
+  {
+    "id": "140",
+    "title": "EBO AS-P-NL Reset button: Erase database",
+    "description": "Hold 30 to 40 seconds",
+    "image": ""
+  },
+  {
+    "id": "141",
+    "title": "Enterprise Server GraphDB",
+    "description": "7200",
+    "image": ""
+  },
+  {
+    "id": "145",
+    "title": "EBO AS-P-NL Reset button: Reset to factory condition",
+    "description": "Hold 20 to 30 seconds",
+    "image": ""
+  },
+  {
+    "id": "148",
+    "title": "FMP kommunikasjonsprotokoll",
+    "description": "RS485",
+    "image": ""
+  },
+  {
+    "id": "149",
+    "title": "EBO AS-P-NL Reset button: Warm start",
+    "description": "Hold less than 5 seconds",
+    "image": ""
+  },
+  {
+    "id": "151",
+    "title": "BACnet",
+    "description": "Building Automation and Control networks",
+    "image": ""
+  },
+  {
+    "id": "160",
+    "title": "Enterprise Server",
+    "description": "Single point of entry to the system.",
+    "image": ""
+  },
+  {
+    "id": "161",
+    "title": "WorkStation Editors",
+    "description": "Editors for graphics and programming.",
+    "image": ""
+  },
+  {
+    "id": "162",
+    "title": "Codis RS232/RS485 til COM-Port",
+    "description": "Communication adapter. Modemadapter, Esmi, Konventionell, Codis, protokollomvandlare RS232 -\r\nRS485 9600 Baud. FFS00398002",
+    "image": ""
+  },
+  {
+    "id": "163",
+    "title": "EBO AS-P-NL Reset button: Cold start",
+    "description": "Hold 5 to 10 seconds",
+    "image": ""
+  },
+  {
+    "id": "164",
+    "title": "License Server",
+    "description": "Determines what functions are available in the system.",
+    "image": ""
+  },
+  {
+    "id": "165",
+    "title": "Fire Graphics Workstation user: superuser",
+    "description": "Brukernavn: manager. Passord: manager. IP: 192.168.1.99",
+    "image": ""
+  },
+  {
+    "id": "166",
+    "title": "Enterprise Server HTTP port",
+    "description": "80",
+    "image": ""
+  },
+  {
+    "id": "170",
+    "title": "Device Administrator",
+    "description": "Setup and upgrade SpaceLogic servers.",
+    "image": ""
+  },
+  {
+    "id": "171",
+    "title": "Fire Graphics kommunikasjon protokoll til FDP",
+    "description": "RS485",
+    "image": ""
+  },
+  {
+    "id": "172",
+    "title": "FMP maks antall paneler i serie",
+    "description": "16 stk",
+    "image": ""
+  },
+  {
+    "id": "173",
+    "title": "Enterprise Central",
+    "description": "Support for large and regional Enterprise Server deployment.",
+    "image": ""
+  },
+  {
+    "id": "174",
+    "title": "Enterprise Server TCP port",
+    "description": "4444",
+    "image": ""
+  },
+  {
+    "id": "176",
+    "title": "REPX and REPX-OB",
+    "description": "Protocol repeater",
+    "image": ""
+  },
+  {
+    "id": "177",
+    "title": "LB80",
+    "description": "Zone LED Board: 80 LED indications",
+    "image": ""
+  },
+  {
+    "id": "178",
+    "title": "Fire Graphics Workstation user: viewer",
+    "description": "Brukernavn: viewer. Passord: viewer. IP: 192.168.1.99",
+    "image": ""
+  },
+  {
+    "id": "181",
+    "title": "ALC",
+    "description": "Apollo Loop Controller",
+    "image": ""
+  },
+  {
+    "id": "184",
+    "title": "Høyeste kompatible versjon av FDP med FX",
+    "description": "FDP: MCU 24.5.3.f  and FX3Net: FX 53.00",
+    "image": ""
+  },
+  {
+    "id": "185",
+    "title": "FXNet - WinFXNet eller WinFX3Net",
+    "description": "v10 - v29.99",
+    "image": ""
+  },
+  {
+    "id": "186",
+    "title": "FDP første versjon som ikke lenger er kompatibel med FX",
+    "description": "MCU 24.11.6.g",
+    "image": ""
+  },
+  {
+    "id": "187",
+    "title": "FX3Net - WinFX3Net",
+    "description": "v30 - oppover",
+    "image": ""
+  },
+  {
+    "id": "188",
+    "title": "FDP - Fire Expert",
+    "description": "v18 - oppover",
+    "image": ""
+  },
+  {
+    "id": "189",
+    "title": "FX - WinFX32",
+    "description": "v0 - v9.99",
+    "image": ""
+  },
+  {
+    "id": "190",
+    "title": "FDP oppstartsproblem",
+    "description": "Hvis FDP-brannpanelet henger under oppstart:\n• Bytt ut SD-kortet med et nytt.\n• Oppdater fastvaren på MCU-kortet. Hvis fastvareversjonen er for lav, må du kanskje oppdatere trinnvis (f.eks. hvis kortet er på v20, oppdater til v21, deretter v22, og så videre).\n• Send JSON-konfigurasjonsfilen på nytt.",
+    "image": ""
+  },
+  {
+    "id": "191",
+    "title": "Linjedetektor master",
+    "description": "Passord: 0042",
+    "image": ""
+  },
+  {
+    "id": "192",
+    "title": "Moxa Nport standard passord",
+    "description": "Passord: moxa",
+    "image": ""
+  },
+  {
+    "id": "193",
+    "title": "EPC sentral display passord:",
+    "description": "Passord: tec",
+    "image": ""
+  },
+  {
+    "id": "194",
+    "title": "Fire Graphics viewer:",
+    "description": "Brukernavn:\n  viewer Passord: viewer",
+    "image": ""
+  },
+  {
+    "id": "195",
+    "title": "Utskrift kode",
+    "description": "Passord: 9302",
+    "image": ""
+  },
+  {
+    "id": "196",
+    "title": "Utskrift kode:",
+    "description": "9301",
+    "image": ""
+  },
+  {
+    "id": "197",
+    "title": "AS-P default password",
+    "description": "Standard passord: admin",
+    "image": ""
+  },
+  {
+    "id": "198",
+    "title": "Linjedetektor vanlig:",
+    "description": "1234",
+    "image": ""
+  },
+  {
+    "id": "199",
+    "title": "EPC web",
+    "description": "Brukernavn: user\nPassord: not",
+    "image": ""
+  },
+  {
+    "id": "200",
+    "title": "ASD installatør:",
+    "description": "expand++",
+    "image": ""
+  },
+  {
+    "id": "201",
+    "title": "FX/FDP Aksessnivå 3",
+    "description": "5910",
+    "image": ""
+  },
+  {
+    "id": "202",
+    "title": "Xtrails VSC (Icam) nivå 3",
+    "description": "Passord: 693",
+    "image": ""
+  },
+  {
+    "id": "203",
+    "title": "ASD Passord",
+    "description": "config++",
+    "image": ""
+  },
+  {
+    "id": "204",
+    "title": "Fire Graphics superuser",
+    "description": "Brukernavn:\r\n  superuser Passord: !5910fire",
+    "image": ""
+  },
+  {
+    "id": "205",
+    "title": "Fire Graphics manager",
+    "description": "Brukernavn:\n  manager Passord: manager",
+    "image": ""
+  },
+  {
+    "id": "206",
+    "title": "ASD 1 og 2 passord",
+    "description": "Passord: 510",
+    "image": ""
+  },
+  {
+    "id": "207",
+    "title": "Fire Graphics admin:",
+    "description": "Brukernavn:\n  admin Passord: ?5910fire",
+    "image": ""
+  },
+  {
+    "id": "208",
+    "title": "AS-P standard IP",
+    "description": "192.168.1.99",
+    "image": ""
+  },
+  {
+    "id": "209",
+    "title": "FX/FDP Aksessnivå 4",
+    "description": "6010",
+    "image": ""
+  },
+  {
+    "id": "210",
+    "title": "Xtrails VSC (Icam) nivå 2",
+    "description": "Passord: 260",
+    "image": ""
+  },
+  {
+    "id": "211",
+    "title": "ZB-S CEAG web-modul",
+    "description": "Brukernavn:\n  Admin Passord: ceag",
+    "image": ""
+  },
+  {
+    "id": "212",
+    "title": "LP-Star",
+    "description": "123123 (benytt ugleknapper)",
+    "image": ""
+  },
+  {
+    "id": "213",
+    "title": "DualGuard",
+    "description": "Brukernavn: Admin Passord: EATON",
+    "image": ""
+  },
+  {
+    "id": "214",
+    "title": "SX-2000",
+    "description": "Brukernavn: Superuser Passord: Superuser",
+    "image": ""
+  },
+  {
+    "id": "215",
+    "title": "VX-3000",
+    "description": "Brukernavn: administrator Passord: administrator",
+    "image": ""
+  },
+  {
+    "id": "216",
+    "title": "Prodex nivå kode",
+    "description": "Passord: 12345",
+    "image": ""
+  },
+  {
+    "id": "217",
+    "title": "Prodex test kode",
+    "description": "Passord: 11111",
+    "image": ""
+  },
+  {
+    "id": "218",
+    "title": "INOTEC NSE alternativ kode",
+    "description": "Passord: 9752",
+    "image": ""
+  },
+  {
+    "id": "219",
+    "title": "CPS standard kode",
+    "description": "Passord: 0000",
+    "image": ""
+  },
+  {
+    "id": "220",
+    "title": "Alternativ kode",
+    "description": "9730",
+    "image": ""
+  },
+  {
+    "id": "221",
+    "title": "Concilium nivå 3",
+    "description": "Passord: 3333\r\nAll Level 2 permissions. Load or copy configuration from/to USB memory. Apply configuration changes (requires system restart).",
+    "image": ""
+  },
+  {
+    "id": "223",
+    "title": "Aksessnivå 3",
+    "description": "Passord: 5555",
+    "image": ""
+  },
+  {
+    "id": "224",
+    "title": "FireWin Explorer Clear Eeprom",
+    "description": "Passord: 00ff",
+    "image": ""
+  },
+  {
+    "id": "225",
+    "title": "Delta DA OP skjult meny",
+    "description": "MENY - 6 - 00 - □ - 5 - □ - 5 - *",
+    "image": ""
+  },
+  {
+    "id": "226",
+    "title": "FireWin Explorer system reset",
+    "description": "Passord: 9515",
+    "image": ""
+  },
+  {
+    "id": "227",
+    "title": "Bruker kode",
+    "description": "Passord: 00FF",
+    "image": ""
+  },
+  {
+    "id": "228",
+    "title": "Honeywell Eltek Microsoft Word",
+    "description": "Passord: mette",
+    "image": ""
+  },
+  {
+    "id": "229",
+    "title": "Delta DA OP meny 6",
+    "description": "Passord: 9515",
+    "image": ""
+  },
+  {
+    "id": "233",
+    "title": "Elotec aksessnivå 2",
+    "description": "Passord: ↑ ↓ ↑ ↓ ↑",
+    "image": ""
+  },
+  {
+    "id": "234",
+    "title": "Elotec aksessnivå 3",
+    "description": "Passord: ↑ ↑ ↓ →↑\r\nPassord: 9898",
+    "image": ""
+  },
+  {
+    "id": "235",
+    "title": "FDP252 Kabinett",
+    "description": "Mellomstort kabinett med 5 valgfrie kortplasser.",
+    "image": ""
+  },
+  {
+    "id": "236",
+    "title": "FDP292 Kabinett",
+    "description": "Største kabinett med 9 valgfrie kortplasser.",
+    "image": ""
+  },
+  {
+    "id": "238",
+    "title": "FDP221 Kabinett",
+    "description": "Minste kabinett med 2 valgfrie kortplasser.",
+    "image": ""
+  },
+  {
+    "id": "240",
+    "title": "Norik website URL",
+    "description": "https://www.norik.no",
+    "image": ""
+  },
+  {
+    "id": "241",
+    "title": "Norik Website URL Log In",
+    "description": "https://www.norik.no/norikweb/innlogging.aspx",
+    "image": ""
+  },
+  {
+    "id": "242",
+    "title": "Nøkkelsafe gir ikke riktig signal/alarm ved åpning.",
+    "description": "- Kontroller mulige skjøter (alarmsender, brannalarmsentral, koblingsbokser).\r\n- Det kan ha vært bytte av alarmsender tidligere, kontroll at riktig parr er brukt.",
+    "image": ""
+  },
+  {
+    "id": "244",
+    "title": "SpaceLogic Server AS-P: Change network address",
+    "description": " Use Device Administrator.",
+    "image": ""
+  },
+  {
+    "id": "247",
+    "title": "EPC kode sentral",
+    "description": "Passord: tec",
+    "image": ""
+  },
+  {
+    "id": "248",
+    "title": "EPC plassering av konfigurasjonsfiler lokalt på PC fra nødlyssentralen for videre konfigurering",
+    "description": "C:\\Users\\\"your user\"\\AppData\\Roaming\\Multicontrol\\ZFS",
+    "image": ""
+  },
+  {
+    "id": "249",
+    "title": "EPC sett utført service dato",
+    "description": "EPC sentral > main menu > installation > service > legg inn dato og lagre.",
+    "image": ""
+  },
+  {
+    "id": "250",
+    "title": "EPC sett dato og klokkeslett",
+    "description": "EPC sentral > main menu > date/time > legg inn dato og klokkeslett etterfulgt med main menu > installation > service > legg inn dato og lagre.",
+    "image": ""
+  },
+  {
+    "id": "251",
+    "title": "EPC batteri asymetri feil",
+    "description": "1: Kontroller at alle batteriene er friske.\n2: Kontroller at alle ledningene er korrekt tilkoblet batteribank.\n3: Kontroller at sentralen lader batteriene korrekt.\n4. Send inn konfigurasjon til sentralen på Hvis FDP-brannpanelet henger under oppstart:\n5. Oppdater nødlyssentralen.\n",
+    "image": ""
+  },
+  {
+    "id": "252",
+    "title": "EPC ingen funksjon i kretsen i nettstrømdrift",
+    "description": "Strømkabel ikke tilkoblet. Kontroller strømforsyningen.\r\nRød LED-feil (MLD). Defekt modul. Bytt ut modulen.",
+    "image": ""
+  },
+  {
+    "id": "254",
+    "title": "EPC ladeproblem",
+    "description": "Batteri ikke tilkoblet. Koble til batteriet riktig.",
+    "image": ""
+  },
+  {
+    "id": "257",
+    "title": "EPC kretsfeil",
+    "description": "Viser 'MLD begrenset'. Defekt sikring. Bytt ut sikringen.",
+    "image": ""
+  },
+  {
+    "id": "258",
+    "title": "EPC enhetssvikt",
+    "description": "Viser 'Hovedfeil'. Problem med hovedsikring. Kontroller og bytt ut sikringen.",
+    "image": ""
+  },
+  {
+    "id": "259",
+    "title": "EPC batterienhet fungerer ikke",
+    "description": "Viser 'Test av sentralenhet'. Defekt batteri. Bytt ut batteriet. Defekt batteri. Bytt ut batteriet.",
+    "image": ""
+  },
+  {
+    "id": "301",
+    "title": "DualGuard IGBT feil",
+    "description": "IGBT fault på en SKU: SKU modulen er defekt, sentralen klarer ikke å veksle mellom AC og DC.",
+    "image": ""
+  },
+  {
+    "id": "302",
+    "title": "ZB-S kvitter service melding",
+    "description": "ZB-S display enhet > menu > basic setting > service info > nøyaktig, press alle fire pilene samtidig > bekreft med \"Ok\"",
+    "image": ""
+  },
+  {
+    "id": "303",
+    "title": "ZB-S fjern FT/BT overdue",
+    "description": "ZB-S display enhet > menu > basic setting > service info > nøyaktig, press knappene \"Esc\" og \"pil venstre\" samtidig.",
+    "image": ""
+  },
+  {
+    "id": "304",
+    "title": "DualGuard koble til med PC",
+    "description": "- Koble til med ethernet kabel fra PC til ACU-modulen på ytterste ethernet port (ofte ledig).\r\n- IP-adresse på PC: 192.168.1.1\r\n- Adresse du skriver i nettleser: https://192.168.1.150/webvisu.htm\r\n- Standard passord: Brukernavn=Admin Passord=EATON",
+    "image": ""
+  },
+  {
+    "id": "305",
+    "title": "DualGuard standard IP adresse",
+    "description": "192.168.1.150 | https://192.168.1.150/webvisu.htm",
+    "image": ""
+  },
+  {
+    "id": "306",
+    "title": "DualGuard tilkoble fasevakt 3-PM-IO",
+    "description": "ACU RS485 Bus: A og B >>> 3-PM-IO IN\r\nACU RS485 Bus: 24 + >>> 3-PM-IO 24: +\r\nACU RS485 Bus: 24 - >>> 3-PM-IO 24: -",
+    "image": ""
+  },
+  {
+    "id": "313",
+    "title": "Windows program, ett program kjører (er plassert) utenfor skjermen",
+    "description": "Bruk \"alt\" + \"space\"",
+    "image": ""
+  },
+  {
+    "id": "314",
+    "title": "Schneider Electric Apollo - Analoge verdier",
+    "description": "Detektor bør byttes fra >28",
+    "image": ""
+  },
+  {
+    "id": "315",
+    "title": "Schneider Electric System Sensor - Analoge verdier",
+    "description": "Detektor bør byttes fra >1100",
+    "image": ""
+  },
+  {
+    "id": "316",
+    "title": "Schneider Electric System Sensor Optisk detektor 2251E – t.o.m 2000 - Analoge verdier",
+    "description": "Tilstand Verdi\nRen 750-900\nSmussalarm 1570\nForvarsel 1880\nBrann 2400\nSkiftes ved 1200-1300",
+    "image": ""
+  },
+  {
+    "id": "317",
+    "title": "Schneider Electric System Sensor Optisk detektor 2251EM – mellom 2000-2005 uke 43 - Analoge verdier",
+    "description": "Tilstand Verdi\nRen 750-900\nSmussalarm 1570\nForvarsel 1880\nBrann 2400\nSkiftes ved 1100-1300",
+    "image": ""
+  },
+  {
+    "id": "318",
+    "title": "Schneider Electric System Sensor Optisk detektor 2251EM – etter 2005 uke 44 - Analoge verdier",
+    "description": "Tilstand Verdi\nRen 750-900\nSmussalarm 1570\nForvarsel 1880\nBrann 2400\nSkiftes ved 1200-1300\n\nKompensering Verdi\n0 % 800\n10% 850\n20% 900\n30% 950\n40% 1000\n50% 1050\n60% 1100\n70% 1150\n80% 1200\n90% 1250\n100% 1300",
+    "image": ""
+  },
+  {
+    "id": "319",
+    "title": "Schneider Electric System Sensor Optisk detektor 2251E – f.o.m 2010 - Analoge verdier",
+    "description": "Tilstand Verdi\nRen 750-900\nSmussalarm 1570\nForvarsel 1880\nBrann 2400\nSkiftes ved 1200-1300\n\nKompensering Verdi\n0 % 800\n10% 850\n20% 900\n30% 950\n40% 1000\n50% 1050\n60% 1100\n70% 1150\n80% 1200\n90% 1250\n100% 1300",
+    "image": ""
+  },
+  {
+    "id": "320",
+    "title": "Schneider Electric System Sensor Ione detektor 1251E - Analoge verdier",
+    "description": "Tilstand Verdi\nRen 850-950\nSmussalarm 1300\nForvarsel 1500\nBrann 1750\nSkiftes ved 1150",
+    "image": ""
+  },
+  {
+    "id": "321",
+    "title": "Schneider Electric System Sensor Linjedetektor 6500 (S) - Analoge verdier",
+    "description": "Kompensering Verdi\n0 % 810\n10% 870\n20% 945\n30% 1005\n40% 1080\n50% 1155\n60% 1215\n70% 1290\n80% 1365\n90% 1425\n100% 1500",
+    "image": ""
+  },
+  {
+    "id": "322",
+    "title": "Schneider Electric System Sensor Laserdetektor 7251 - Analoge verdier",
+    "description": "Kompensering Verdi\nBrannnivå 1 0,02% / ft 900\nBrannnivå 2 0,03% / ft 1400\nBrannnivå 3 0,05% / ft 1800\nBrannnivå 4 0,10% / ft 2000\nBrannnivå 5 0,20% / ft 2200\nBrannnivå 6 0,50% / ft 2400\nBrannnivå 7 1,00% / ft 2600\nBrannnivå 8 1,50% / ft 2800\nBrannnivå 9 2,00% / ft 3000\nFeil på enhet 150\nFull kompensering oppnådd 300",
+    "image": ""
+  },
+  {
+    "id": "323",
+    "title": "Schneider Electric System Sensor Laserdetektor LZR 1 - Analoge verdier",
+    "description": "Tilstand Verdi M\n0% ren detektor 200-300\n15% 400\n30% 500\n40% 600\n50% 700\n60% 800\n70% 900\n80% 1000\n90% 1100\n100% smusslarm 1200\nSkiftes ved 1000-1100\n\nAngitt sensitivitet Verdi\nL1 B.E.L. + 60\nL2 B.E.L. + 280\nL3 B.E.L. + 490\nL4 B.E.L. + 710\nL5 B.E.L. + 920\nL6 B.E.L. + 1140\nL7 B.E.L. + 1350\nL8 B.E.L. + 1570\nL9 B.E.L. + 1780\nL10 B.E.L. + 2000",
+    "image": ""
+  },
+  {
+    "id": "324",
+    "title": "Schneider Electric System Sensor med Advanced protocol (AP) Optisk detektor 22051E, Kombidetektorer 22051TE, 22051TLE, 22051CTLE,\nLinjedetektor 6500 (S) - Analoge verdier",
+    "description": "Kompensering Verdi\n0% 50\n10% 49\n20% 48\n30% 47\n40% 46\n50% 45\n60% 44\n70% 43\n80% 42\n90% 41\n100% 40",
+    "image": ""
+  },
+  {
+    "id": "325",
+    "title": "Schneider Electric System Sensor tabell - Analoge verdier",
+    "description": "Type Normal Brann\nIone 910 1750 x(us) = o/3* (1750 - 910) + 910 x(us) = o * 280 + 910\nOptisk 840 2400 x(us) = o/3* (2400 - 840) + 840 x(us) = o * 520 + 840\nVarme 1050 2100 x(us) = (t-25) / (60 - 25) * (2100 - 1050) + 1050 x(us) = (t-25) * 30 + 1050",
+    "image": ""
+  },
+  {
+    "id": "326",
+    "title": "Schneider Electric Apollo XP95 - Analoge verdier",
+    "description": "Tilstand Verdi\r\nFeil 7\r\nNormal 18-32\r\nSmussalarm 35\r\nForvarsel 45\r\nBrann 55\r\nSkiftes ved 30-34",
+    "image": ""
+  },
+  {
+    "id": "327",
+    "title": "Schneider Electric Apollo Intellia og Discovery - Analoge verdier",
+    "description": "Analogverdi\r\nTilstand Verdi\r\nFeil 7\r\nNormal 18-32\r\nSmussalarm 35\r\nForvarsel 45\r\nBrann 55\r\nSkiftes ved 4-5 / 30-31\r\n\r\nDriftsverdi (kompensering)\r\nTilstand Verdi\r\nRen detektor 16\r\nNormal 15-4 eller 17-31\r\nSmussalarm 3 eller 32",
+    "image": ""
+  },
+  {
+    "id": "328",
+    "title": "Schneider Electric Apollo EDI adresserbar linjedetektor (5-50m / 50-100m) - Analoge verdier",
+    "description": "Tabell 1\r\nTilstand Analogverdi\r\nMicroprocessor fault 0\r\nSensor fault 1\r\nPrism (refl ector) targeting\r\nmode 2\r\nAlignment mode 3\r\nGeneral fault warning 4\r\nSignal High’ fault 5\r\nContamination compensation limit reached 6\r\nAlignment drift negative 20\r\nDetector normal 25\r\nAlignment drift positive 30\r\nContamination compensation level low (40%) 32\r\nContamination compensation level medium (60%) 33\r\nContamination compensation level high (80%) 34\r\nPre–Alarm values (see Table\r\n5 below) 45-54\r\nAlarm 64\r\n\r\nTabell 2\r\nActual obscuration at set\r\nobscuration level of\r\nAnalogverdi\r\nreturnet 25% 35% 50%\r\n45 16 23 23\r\n46 16 26 34\r\n47 17 27 35\r\n48 18 28 36\r\n49 19 29 38\r\n50 20 30 40\r\n51 21 31 42\r\n52 22 32 44\r\n53 23 33 46\r\n54 24 34 48",
+    "image": ""
+  },
+  {
+    "id": "329",
+    "title": "System Sensor - Adresse adresseenheter (detektor, manuell melder osv.)",
+    "description": "For å kunne adressere eks; 107 så kan ikke nr 10-15 brukes på venstre hjul på FX-LC. For å få adresse 107 så skal\nhjulene settes i 0-7. Da er det viktig at adresse 7 som også da vil ha samme innstilling på hjulene ikke har samme sløyfekomponent.\nDetektorer kan adresseres fra 0 til 99 og I/O, M.M og summere kan adresseres fra 0 til 159.",
+    "image": ""
+  },
+  {
+    "id": "330",
+    "title": "MPOX til sykesignal - pagenumber",
+    "description": "9999",
+    "image": ""
+  },
+  {
+    "id": "331",
+    "title": "MPOX til sykesignal - kommunikasjonsoppsett",
+    "description": "Baudrate: 9600\r\nDatabit: 8\r\nStopbit: 1\r\nParity: No parity\r\nHeartbeat: ON (MPOX leverer heartbeat)\r\nPage nummer: 9999\r\nNOTAT: Selv om RS485 på FX og MPOX blir satt til 1200, vil alltid RS232 være 9600 ut fra MPOX kortet.",
+    "image": ""
+  },
+  {
+    "id": "332",
+    "title": "MPOX til AddSecure - kommunikasjonsoppsett",
+    "description": "Husk å bestille skruplint ESPA kort for å montere i AddSecure senderen.\r\n\r\n## Brannsentral oppsett\r\nRS485: aktivert\r\nBaudrate: 9600\r\nOvervåking: På eller av (valgfritt)\r\n\r\n## AddSecure oppsett\r\nEP (Espa Protocol):\tMå være satt til E\r\nBaudrate: 9600\r\nDatabit: 8\r\nStopbit: 1\r\nParity: No parity\r\nEH (Espa Heartbeat): 60s\r\n\r\n## MPOX oppsett\r\nHex-hjul: 9\r\nA DIP-switch - bruk de med \"*\", ved 2stk må du velge\r\n- A1 ON* = Alltid SONE & ADR før tekst\r\n- A3 ON* = Sender all tekst fra brannalarmsentral\r\n- A4 ON* = Sender kommunikasjonsfeil til brannalarmsentral ved brudd mot ESPA\r\n- A5 OFF* = Ascom tegnsett 2\r\n- A6 OFF* = Normaltilstand\r\n- A7 OFF* = Normaltilstand\r\n- A8 OFF* = Normaltilstand\r\nB DIP-switch - bruk de med \"*\", ved 2stk må du velge\r\n- B1 OFF* = MS Windows codepage 1252\r\n- B2 OFF* = Ikke i bruk\r\n- B3 OFF* = Used with FX/FDP system\r\n- B3 ON* = Used with ESA/MESA system\r\n- B4 OFF* = OUT \"B\" port is not in use\r\n- B4 ON* = OUT \"B\" port is used with INFO-protocol (FMP)\r\n- B5 OFF* = Ikke i bruk\r\n- B6 OFF* = IN \"A\" port baud rate 1200\r\n- B6 ON* = IN \"A\" port baud rate 9600\r\n- B7 OFF* = OUT \"B\" port baud rate 1200\r\n- B7 ON* = OUT \"B\" port baud rate 9600\r\n- B8 OFF* = To be \"OFF\"! Only for service purposes.",
+    "image": ""
+  },
+  {
+    "id": "333",
+    "title": "FX/FDP til MPOX - kommunikasjonsoppsett",
+    "description": "Baud rate: 9600\r\nProtokoll: INFO\r\nINFO overvåket: OFF",
+    "image": ""
+  },
+  {
+    "id": "334",
+    "title": "FX til MPOX - oppkobling/kabling",
+    "description": "RS232 AddSecure >>> RS232 FX MPOX\nTXD: Blå/hvit >>> RXD: Blå/hvit\nRXD: Brun/hvit >>> RXD: Blå/hvit\nRTS: Grønn/hvit\t >>> GND: Grønn/hvit\n---------------------------------------------------------------------------------------\nRS485 FX MPOX >>> RS485 FX MCNet\nT/R+: Blå/hvit >>> +: Blå/hvit\nT/R-: Brun/hvit >>> -: Brun/hvit\nGND: Grønn/hvit >>> GND: Grønn/hvit\n\n24 V DC kobles til MPOX kortet.\n24 V DC må kobles på både PI 1 og PI 2.",
+    "image": ""
+  },
+  {
+    "id": "335",
+    "title": "FX/FDP brannsentral melder INFO feil",
+    "description": "Ved INFO feil på brannsentralen, kan det hende at alle LED diodene på MPOX kortet også lyser fast. Ta strømmen (nett og batteri) på hele sentralen som har MPOX kortet og sett strømmen på igjen etter 1 m.",
+    "image": ""
+  },
+  {
+    "id": "336",
+    "title": "MPOX DIP-switch",
+    "description": "1.4.1.A DIP-switch - bruk de med \"*\", ved 2stk må du velge\r\nA1 OFF = Normaltilstand\r\nA1 ON* = Alltid SONE & ADR før tekst\r\n\r\nA2 OFF = Sender IKKE feilalarm til personsøker\r\nA2 ON = Sender feilalarm til personsøker\r\n\r\nA3 OFF = Sender tekst etter søketegn\r\nA3 ON* = Sender all tekst fra brannalarmsentral\r\n\r\nA4 OFF = Sender IKKE kommunikasjonsfeil til brannalarmsentral ved brudd mot ESPA\r\nA4 ON* = Sender kommunikasjonsfeil til brannalarmsentral ved brudd mot ESPA\r\n\r\nA5 OFF* = Ascom tegnsett 2\r\nA5 ON = Ascom tegnsett 1 (U910 characters)\r\n\r\nA6 OFF* = Normaltilstand\r\nA6 ON = Sender til personsøker-ID = 999\r\n\r\nA7 OFF* = Normaltilstand\r\nA7 ON = Sender til personsøker-ID = 9999\r\n\r\nA8 OFF* = Normaltilstand\r\nA8 ON = Sender en melding til innstilt ID (Sw A6-A7) med teksten \"TESTLARM\"\r\n\r\n1.4.2.B DIP-switch - bruk de med \"*\", ved 2stk må du velge\r\nB1 OFF* = MS Windows codepage 1252\r\nB1 ON = MS-DOS codepage 850 (Multilingual Latin 1)\r\n\r\nB2 OFF* = Ikke i bruk\r\nB2 ON = Ikke i bruk\r\n\r\nB3 OFF* = Used with FX/FDP system\r\nB3 ON* = Used with ESA/MESA system\r\n\r\nB4 OFF* = OUT \"B\" port is not in use\r\nB4 ON* = OUT \"B\" port is used with INFO-protocol (FMP)\r\n\r\nB5 OFF* = Ikke i bruk\r\nB5 ON = Ikke i bruk\r\n\r\nB6 OFF* = IN \"A\" port baud rate 1200\r\nB6 ON* = IN \"A\" port baud rate 9600\r\n\r\nB7 OFF* = OUT \"B\" port baud rate 1200\r\nB7 ON* = OUT \"B\" port baud rate 9600\r\n\r\nB8 OFF* = To be \"OFF\"! Only for service purposes.\r\nB8 ON = (Ingen spesifisert funksjon / anbefales ikke brukt)",
+    "image": ""
+  },
+  {
+    "id": "337",
+    "title": "MPOX LED-indikering",
+    "description": "LED‐indikering i normaltilstand\r\n(OBS! Ved systemfeil lyser alle LED‐indikeringer fast!)\r\n\r\nLED 1: Kontinuerlig: Ukvittert alarm i minne\r\nLED 1: Blinkende: Ikke i bruk\r\n\r\nLED 2: Kontinuerlig: Ukvittert polling\r\nLED 2: Blinkende: Ikke i bruk\r\n\r\nLED 3: Kontinuerlig: Ikke i bruk\r\nLED 3: Blinkende: Ikke i bruk\r\n\r\nLED 4: Kontinuerlig: Brudd i kommunikasjon mot brannalarmsentral\r\nLED 4: Blinkende: (ikke oppgitt / ikke i bruk i tabellen)\r\n\r\nLED 5: Kontinuerlig: Brudd mot OUT‐port\r\nLED 5: Blinkende: Switch B4=ON\r\n\r\nLED 6: Kontinuerlig: Brudd mot eksternt system\r\nLED 6: Blinkende: Ikke i bruk\r\n\r\nLED‐indikering i oppstartsfase (10 sekunder)\r\n\r\nLED 1: Kontinuerlig: Display‐HW installert\r\nLED 1: Slukket: Display‐HW ikke installert\r\n\r\nLED 2: Kontinuerlig: Isolert port installert\r\nLED 2: Slukket: Isolert port ikke installert\r\n\r\nLED 3: Kontinuerlig: Ikke i bruk\r\nLED 3: Slukket: Ikke i bruk\r\n\r\nLED 4: Kontinuerlig: Ikke i bruk\r\nLED 4: Slukket: Ikke i bruk\r\n\r\nLED 5: Kontinuerlig: Ikke i bruk\r\nLED 5: Slukket: Ikke i bruk\r\n\r\nLED 6: Kontinuerlig: MCOX HW installert\r\nLED 6: Slukket: MCOX HW ikke installert",
+    "image": ""
+  },
+  {
+    "id": "338",
+    "title": "MPOX teknisk data",
+    "description": "Dimensjoner (B x H x D): 379 x 231 x 54 mm\r\nVekt: 2,1 kg\r\nFarge: Blå (NCS S 4020-R80B)\r\nArbeidstemperatur: +5°C … +40°C\r\nFuktighet: Maks. RH 95%\r\nDriftsspenning: 19 … 30 V DC\r\nStrømforbruk: 50 mA\r\nMaks kabellengde RS485: 1000 m\r\nMaks kabellengde RS232: 15 m\r\nSerielle kommunikasjonsporter:\r\n- Inngang: RS485 eller RS232\r\n- Utgang: RS485\r\n- Isolert: RS232\r\nIP-klassifisering: IP30",
+    "image": ""
+  },
+  {
+    "id": "339",
+    "title": "MPOX HEX-hjul",
+    "description": "1.6 Driftsmoduser (tilkobling av ekstern utrustning)\r\nHex switch 1’s\r\n\r\n0\r\nSystem: ascom-tateco, Bosch, STT-Condigi mm (ESPA 4.4.4-format)\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 1\r\n\r\n1\r\nSystem: ascom-tateco, Bosch, STT-Condigi mm (ESPA 4.4.4-format)\r\nBaud: 1200\r\nParitet: jevn\r\nDatabiter: 7\r\nStoppbiter: 2\r\n\r\n2\r\nSystem: STT (Svenske trygghetstelefoner)\r\nBaud: 1200\r\nParitet: jevn\r\nDatabiter: 7\r\nStoppbiter: 2\r\n\r\n3\r\nSystem: GoGool/T1-protokoll for SMS-funksjon\r\nBaud: 9600\r\nParitet: jevn\r\nDatabiter: 8\r\nStoppbiter: 1\r\n\r\n4\r\nSystem: CareTech 4000\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 2\r\n\r\n5\r\nSystem: CareTech 5000\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 2\r\n\r\n6\r\nSystem: CSDL (Siemens) MPOX emulerer Siemens brannalarmsentral\r\nBaud: 1200\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 1\r\n\r\n7\r\nSystem: SCADA, utvidet ESPA-protokoll for modus 0 og 1 (ESPA 4.4.4-format)\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 1\r\n\r\n8\r\nSystem: Skriver, alarmutskrifter\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 1\r\n\r\n9\r\nSystem: SafeTel (ESPA 4.4.4-format)\r\nBaud: 9600\r\nParitet: no\r\nDatabiter: 8\r\nStoppbiter: 1",
+    "image": ""
+  },
+  {
+    "id": "349",
+    "title": "FMP2 bytte fra FMP",
+    "description": "Ved overgang fra FMP til FMP2 bør man ta hensyn til at FMP2 trekker betydelig mer strøm. FMP opererer med 20–28 VDC og et strømforbruk på 25 mA, mens FMP2 krever 19–30 VDC og har et forbruk på 56 mA i standby og 75 mA ved alarm. Dette medfører at strømforsyning og kabling må dimensjoneres for å tåle den økte belastningen.\r\n\r\nParameter | FMP | FMP2\r\n---------------------------------------\r\nDriftspenning | 20–28 VDC | 19–30 VDC\r\nStandby current | 25 mA | 56 mA\r\nAlarm current | – | 75 mA\r\n",
+    "image": ""
+  },
+  {
+    "id": "351",
+    "title": "Wcomm ESA brannsentral",
+    "description": "Wcomm kommandoer - ESA sentraler\r\nWcomm kommando: ?? - Kommandoliste\r\nWcomm kommando: ??rtx - Enter to RTX debugger\r\nWcomm kommando: start - Re-start ESA\r\nWcomm kommando: debug - Debug info ON/OFF\r\nWcomm kommando: config - Enter to configuration\r\nWcomm kommando: eraseX - Blank EEPROM or file\r\nWcomm kommando: testf - Systemfault 200 (test)\r\nWcomm kommando: dumpa - Dump points as ASCII file\r\nWcomm kommando: dumpe - Dump points to EEPROMfile\r\nWcomm kommando: loopx - Only for LOOP.EXE\r\nWcomm kommando: tdet - Point to test: l aaa\r\nWcomm kommando: unit - Unit data: l aaa\r\nWcomm kommando: dadd - Drive LED/OUTPUT:l aaa d(0/1)\r\nWcomm kommando: fsizeX - Echo file size,1=P,2=T,3=A\r\nWcomm kommando: setth - Set levels l aaa A P M\r\nWcomm kommando: info - resume Info at service port\r\nWcomm kommando: preXX - print last XX events blank=all\r\nWcomm kommando: prd - print disablements\r\nWcomm kommando: prs - print system description\r\nWcomm kommando: rana - Valure Req l aaa; No par ->stop\r\nWcomm kommando: pool - Show det_pool memory statics\r\nWcomm kommando: maxp - Size of allocation pool",
+    "image": ""
+  },
+  {
+    "id": "352",
+    "title": "Wcomm FX brannsentral",
+    "description": "Wcomm kommandoer - FX sentraler\r\nWcomm kommando FX: ? - Kommandoliste\r\nWcomm kommando FX: debug - Debug info ON/OFF\r\nWcomm kommando FX: Online - skriver nåtids hendelser fra sentral (husk\" capture to file\")\r\nWcomm kommando FX: Ver - skriver software informasjon fra sentral\r\nWcomm kommando FX: Reset - omstart av sentral\r\nWcomm kommando FX: Config - sette sentral i konfigurasjons modus\r\nWcomm kommando FX: Info - aktiverer info protokoll på service port\r\nWcomm kommando FX: dumpf - dumper informasjon til flash minnet for nedlasting med winFX3net programmet (det samme som easyconfig i servit)\r\nWcomm kommando FX: erasef - sletter flash minnet sentral (Konfigurasjon blir slettet)\r\nWcomm kommando FX: al l a d - tenner diode på sløyfe adresse\r\n l = sløyfe nummer\r\n a = enhets adresse\r\n d = 0 slukke /1 tenne led\r\n Eks; adresse 01.10 = al 1 10 1\r\n \r\nWcomm kommando FX: ao l a d - aktivere utgang på sløyfe enhet\r\n l = sløyfe nummer\r\n a = enhets adresse\r\n d = 0 deaktiver utgang/1 aktiver utgang\r\n Eks; adresse 01.10 = ao 1 10 1\r\n \r\nWcomm kommando FX: at l a - sette alarm test (kun for alc)\r\n l = sløyfe nummer\r\n a = adresse\r\n d = 0 deaktiver/1aktiver\r\n Eks; adresse 01.10 = at 1 10 1\r\n \r\nWcomm kommando FX: sa l a t - simulere alarm\r\n l = sløyfe nummer.\r\n a = adresse\r\n 0 = aktiver alarm\r\n Eks; adresse 01.10 = sa 1 10 0\r\n \r\nWcomm kommando FX: stat 1 - skrive sløyfe statistikk\r\n stat sløyfenummer. \r\n Eks; Sløyfestatistikk for sløyfe 01 = stat 1\r\n \r\nWcomm kommando FX: Ad l (a) - skriv adressedata (tekst, følsomhet, dato, drift..)\r\n l = sløyfe\r\n a = adresse\r\n Eks; sløyfe 1 = ad 1 \r\n Eks; adresse 01.10 = ad 1 10\r\n \r\nWcomm kommando FX: li l m - skriv adresser med isoled (slc sløyfe)\r\n l = sløyfe nummer\r\n m = 0 - aktive/1 - alle\r\n Eks; sløyfe 01 = li 1 1\r\n \r\nWcomm kommando FX: prog - sett sentral i oppdaterings modus\r\nWcomm kommando FX: Ids - skriver sentralnummer tilknyttet sentral og synlighet i nettverk\r\nWcomm kommando FX: rms - sletter lagret synlighets tabell fra sentral i nettverk\r\nWcomm kommando FX: dc - frakobler fx kommunikasjon mot sentraler i nettverk\r\nWcomm kommando FX: ec - tilkobler all fx kommunikasjon i nettverk\r\nWcomm kommando FX: crashinfo - skriver enkel info om siste systemfeil\r\nWcomm kommando FX: getcrashlog - skriver all info om siste systemfeil (husk capture to file\")\r\n?? Utvikler kommandoer skal ikke benyttes.\r\n",
+    "image": ""
+  },
+  {
+    "id": "353",
+    "title": "FMP informasjonspanel teknisk data",
+    "description": "Tekniske data\r\nIP klasse IP41\r\nOmgivelsestemperatur +5...+40 °C\r\nFuktighet 95% RH\r\nMål 350x185x65 mm\r\nVekt 2 kg\r\nFarge Hvit\r\nDriftspenning 20-28 VDC\r\nStrømforbruk 25 mA\r\nSeriekommunikasjonsport RS 485\r\nMAks antall i nettverk: Maks 16stk enheter på RS485 (DAP2, FMP, FMPX, FMP2, REPX, REPX-OB, MCOX, MCOX-OB, ZLPX, ZLPX-IC unit)\r\nMaksimal RS485 kabellengde: 1000 m",
+    "image": "public_html/fs_products_img/schneider-electric_fmp.jpg"
+  },
+  {
+    "id": "354",
+    "title": "FMP informasjonspanel instillinger",
+    "description": "Innstillinger\r\nBruk Instillning=forbindelse\r\nInfotablå uten nøkkel INFO ON\r\nBrannmannstablå med INFO OFF\r\nnøkkel\r\nOUT-port i bruk J1/1+ J2\r\nR +og- i OUT-port J1/2 + J7/A\r\n(4-trådanslutning)\r\nR +og- i IN-port J1/3 + J7/B\r\n(4-trådstilkobling)\r\nOBS! J1/4 må være åpen.",
+    "image": ""
+  },
+  {
+    "id": "355",
+    "title": "FMP informasjonspanel oppkobling",
+    "description": "24 V + og - : Strømforsyning\r\nT/R + og - IN: Seriekommunikkasjon fra\r\nBrannmannspanel eller foregående FMP\r\nT/R + og - out: Seriekommunikkasjon til\r\nNeste FMP\r\nR+ og - : 4-trådsforbibdelse i IN eller OUTPort.\r\n",
+    "image": ""
+  },
+  {
+    "id": "356",
+    "title": "FMP2 informasjonspanel teknisk data",
+    "description": "Dimensjoner (B x H x D): 379 x 233 x 54 mm\r\nVekt: 2,35 kg\r\nFarge: Blå\r\n(NCS S 4020-R80B)\r\nDriftstemperatur: +5°C … +40°C\r\nLuftfuktighet: maks. 95 % relativ fuktighet (RH)\r\nDriftsspenning: 19 …30 VDC\r\nStandby-strøm: 56 mA\r\nStrøm i alarmtilstand: 75 mA\r\nSerielle kommunikasjonsporter:\r\n– Inngang: RS485 Info-protokoll\r\n– Utgang: RS485 Info-protokoll\r\n– Service: RS232 eller USB\r\nMaksimal RS485 kabellengde: 1000 m\r\nMaksimal RS232 kabellengde: 15 m\r\nIP-klassifisering: IP30\r\nMAks antall i nettverk: Maks 16stk enheter på RS485 (DAP2, FMP, FMPX, FMP2, REPX, REPX-OB, MCOX, MCOX-OB, ZLPX, ZLPX-IC unit)",
+    "image": ""
+  },
+  {
+    "id": "357",
+    "title": "FMP2 informasjonspanel instillinger\t",
+    "description": "A1 - OFF - FX-panelfeil indikeres\r\nA1 - ON - FX-panelfeil indikeres ikke\r\nA2 - OFF - Stillemodus og tilbakestilling er i bruk\r\nA2 - ON - Stillemodus og tilbakestilling sperret. FMP2 kan håndtere egne feil\r\nA3 - OFF - FX-paneltilkobling\r\nA3 - ON - ESA/MESA-paneltilkobling (meldingssett F eller eldre)\r\nA4 - OFF - FMP2-applikasjon\r\nA4 - ON - DAP2-applikasjon\r\nB1 - OFF - «Brannruting aktivert»-LED lyser når ruteren er aktivert\r\nB1 - ON - «Brannruting aktivert»-LED lyser når ruteren er aktivert og FMP2 viser brann\r\nB2 - OFF - UT «B»-port ikke i bruk\r\nB2 - ON - UT «B»-port i bruk\r\nB3 - OFF - INN «A»-port baudrate 1200\r\nB3 - ON - INN «A»-port baudrate 9600\r\nB4 - OFF - UT «B»-port baudrate 1200\r\nB4 - ON - UT «B»-port baudrate 9600\r\nC1 - OFF - Normal bruk\r\nC1 - ON - Konfigurasjonsmodus\r\nC2 - OFF - Normal versjon\r\nC2 - ON - NL/BE-versjon\r\nC3 - OFF - Normal bruk\r\nC3 - ON - Programoppdatering\r\nC4 - OFF - DAP2-forvarselindikasjon av\r\nC4 - ON - DAP2-forvarselindikasjon på",
+    "image": ""
+  },
+  {
+    "id": "358",
+    "title": "FMPX informasjonspanel instillinger",
+    "description": "A dip switch\r\nA1 – OFF – FX_sentral, feil indikert\r\nA1 – ON – FX_sentral, feil blir ikke indikert\r\nA2 – OFF – Stopp og tilbakestilling i bruk\r\nA2 – ON – Stopp og tilbakestilling frakoblet. FMPX egne feilmeldinger kan håndteres\r\nA3 – OFF – Tilkoblet en FX sentral\r\nA3 – ON – Tilkoblet ESA/MESA system (meldingsformat F eller eldre)\r\nA4 – OFF – FMPX applikasjon\r\nA4 – ON – DAPX applikasjon\r\nA5 – OFF – \"Alarmoverføring aktivert\" LED PÅ når overføring er aktivert\r\nA5 – ON – \"Alarmoverføring aktivert\" LED PÅ når overføring er aktivert og DAPX viser brann\r\nA6 – OFF – Ikke i bruk\r\nA6 – ON – Ikke i bruk\r\nA7 – OFF – Ikke i bruk\r\nA7 – ON – Ikke i bruk\r\nA8 – OFF – Skal stå \"OFF\"! Kun for bruk ved service\r\nA8 – ON – (Ikke spesifisert)\r\n\r\nB dip switch\r\nB1 – OFF – Ikke i bruk\r\nB1 – ON – Ikke i bruk\r\nB2 – OFF – Ikke i bruk\r\nB2 – ON – (Ikke spesifisert)\r\nB3 – OFF – OUT \"B\" port ikke i bruk\r\nB3 – ON – OUT \"B\" port i bruk\r\nB4 – OFF – Ikke i bruk\r\nB4 – ON – (Ikke spesifisert)\r\nB5 – OFF – Ikke i bruk\r\nB5 – ON – (Ikke spesifisert)\r\nB6 – OFF – IN \"A\" port baud rate 1200\r\nB6 – ON – IN \"A\" port baud rate 9600\r\nB7 – OFF – OUT \"B\" port baud rate 1200\r\nB7 – ON – OUT \"B\" port baud rate 9600\r\nB8 – OFF – Skal stå \"OFF\"! Kun for bruk ved service\r\nB8 – ON – (Ikke spesifisert)",
+    "image": ""
+  },
+  {
+    "id": "359",
+    "title": "FMPX informasjonspanel LED indikering",
+    "description": "LED-indikatorer i normal bruk\r\nLED 1 - Fast - Feil i konfigurasjonsfil\r\nLED 1 - Blinker - Konfigureringsmodus\r\nLED 2 - Fast - Ikke i bruk\r\nLED 2 - Blinker - Ikke i bruk\r\nLED 3 - Fast - Strømforsyning inngang 1 eller 2 feil\r\nLED 3 - Blinker - NA\r\nLED 4 - Fast - IN “A” kommunikasjonsfeil\r\nLED 4 - Blinker - IN “A” HW feil\r\nLED 5 - Fast - OUT “B” kommunikasjonsfeil\r\nLED 5 - Blinker - OUT “B” HW feil\r\nLED 6 - Fast - Ikke i bruk\r\nLED 6 - Blinker - Ikke i bruk\r\nNB! I systemfeil er alle LED tent fast\r\n\r\nLED-indikasjoner under oppstart (10 sekunder)\r\nLED 1 - Fast - Display HW installert\r\nLED 1 - Av - Display HW ikke installert\r\nLED 2 - Fast - Isolert port installert\r\nLED 2 - Av - Isolert port ikke installert\r\nLED 3 - Fast - NA\r\nLED 3 - Av - NA\r\nLED 4 - Fast - NA\r\nLED 4 - Av - NA\r\nLED 5 - Fast - MCO HW installert\r\nLED 5 - Av - MCO HW ikke installert",
+    "image": ""
+  },
+  {
+    "id": "360",
+    "title": "FMPX informasjonspanel teknisk data",
+    "description": "Dimensjoner (B x H x D) 379 x 231 x 54 mm\r\nVekt 2,3 kg\r\nFarge Blå (NCS S 4020-R80B)\r\nArbeidstemperatur +5°C … +40°C\r\nFuktighet max. RH 95%\r\nDriftsspenning 19 ...30 VDC\r\nForbruk standby 40 mA\r\nForbruk i alarm 75 mA\r\nSerie kommunikasjons porter Inn: RS485 or RS232\r\nUt: RS485\r\nIP klassifisering IP30\r\nMaksimal RS485 kabellengde: 1000 m\r\nMaksimal RS232 kabellengde: 15 m",
+    "image": ""
+  },
+  {
+    "id": "361",
+    "title": "EPC teknisk data",
+    "description": "Nominell spenning: 230V AC fase til nøytral\r\nNominell strøm: (**)\r\nNominell frekvens: 50Hz\r\nAntall faser: 3\r\nHovedsikring: 3x20A\r\nUtgangsspenning (AC-drift): 230V\r\nUtgangsstrøm (AC-drift): (**)\r\nUtgangsspenning (DC-drift): 216V\r\nUtgangsstrøm: (**)\r\nDriftstid: 1t / 3t / 8t DC-drift\r\nMinste spenning etter drift: 185V / 185V / 185V\r\nBatteritype: Pb\r\nAntall celler: 108\r\nBatterikapasitet: 0gIV 12V opptil 260 Ah (**)\r\nLadestrøm: Versjon med 1x MCHG: maks. 2.5A opptil 10x MCHG (**)\r\nFlytladespenning: 2.275V per celle*\r\nBoostladespenning: 2.35V per celle*\r\nDybdeutladning 1: 1.71V per celle*\r\nDybdeutladning 2: 1.53V per celle*\r\nAntall elektriske kretser: Maks. 96 / Maks. 48x MLD (**)\r\nDriftsmodus: Vedlikeholdt eller ikke-vedlikeholdt belysning i omkoblingsdrift\r\nLadekurve: IUP(TS)\r\nKurvebytte: Automatisk\r\nNettovervåking: Fase til N\r\nAktivering: < 85% Unom\r\nKapasitetstest: Programmerbar (årlig) eller manuelt\r\nKapslingsdimensjoner (Elektronikkabinett): (**)\r\nKapslingsdimensjoner (Batterikabinett): (**)\r\nBeskyttelsestype: IP 20\r\nBeskyttelsesnivå: I\r\nKabelinngang: Ovenfra\r\nAnbefalt kabeltverrsnitt (Strømkabler): 2.5 - 16mm²\r\nAnbefalt kabeltverrsnitt (Potensialfrie signalkabler): 0.25 - 2.5mm²\r\nAnbefalt kabeltverrsnitt (Elektriske kretser): 1.5 - 2.5mm²\r\nAnbefalt kabeltverrsnitt (Batterikabler +/-): 2.5 - opptil 50mm² (**)\r\nAnbefalt kabeltverrsnitt (Symmetri): 2.5 - opptil 50mm² (**)\r\nHovedsikring F1 (L1: L2\r\nBatterisikringer F2: F4 (B+\r\nBatterisikring F3 (Sym): Innozed D01 keramikk, (**)\r\nInterne sikringer L/B+ (F19/F18): Keramiske sikringer 5 x 20mm 1AT/3.15AT\r\nKretsmoduler MLD32 L(+) og N(-): Keramiske sikringer 5 x 20mm 5AT",
+    "image": ""
+  },
+  {
+    "id": "362",
+    "title": "3-PM-IO fasevakt teknisk data",
+    "description": "maksimal kabel lengde: 1200 m\r\nende motstand: 120 Ω\r\nmontering: DIN skinne feste\r\ndimensjoner (B x H x D):: 107 x 90 x 58 mm\r\nIP-grad: IP20\r\nomgivelsestemperatur: -10°C…+40°C",
+    "image": ""
+  },
+  {
+    "id": "363",
+    "title": "Concilium nivå 2",
+    "description": "Passord: 2222\r\nMute (acknowledge) alarms, faults, and pre-alarms. Reset alarms, faults, and pre-alarms. Disable or test detectors and zones. Calibrate detectors.",
+    "image": ""
+  },
+  {
+    "id": "364",
+    "title": "Concilium nivå 4",
+    "description": "Passord: 4444\t\r\nAll Level 3 permissions. Disable all outputs. Update firmware. Access advanced service options.",
+    "image": ""
+  },
+  {
+    "id": "365",
+    "title": "Codis",
+    "description": "Produktområde: Esmi brannalarmsentraler​\r\nType produkt eller komponent: Adapter​\r\nForpakningsinformasjon:\r\nForpakningstype 1: PCE​\r\nAntall i forpakning 1: 1​\r\nForpakning 1 høyde: 21,2 cm​\r\nForpakning 1 bredde: 16 cm​\r\nForpakning 1 dybde: 5,4 cm​\r\nForpakning 1 vekt: 400 g​\r\nLogistikkinformasjon:\r\nOpprinnelsesland: Latvia (LV)\r\nKommunikasjon: RS232/RS485 til COM-Port",
+    "image": ""
+  },
+  {
+    "id": "366",
+    "title": "SG-13 installasjonsveiledning Schneider Electric Apollo Intellia EDI",
+    "description": "** Motstandere **\r\nR1 overvåkingsmotstand = 20kΩ\r\nR2 alarmmotstand = 1kΩ\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul brannalarmanlegg **\r\n3stk innganger\r\n- Frakoble sprinkleranlegget: sonefrakoblingsinngang\r\n- Sprinkler utløst varsling: brannalarminngang\r\n- Feil på strømforsyner til SG-13: feilalarminngang",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_se_edi.jpg"
+  },
+  {
+    "id": "367",
+    "title": "SG-13 installasjonsveiledning Schneider Electric System Sensor LC",
+    "description": "** Motstandere **\r\nR2 overvåkingsmotstand = 47kΩ\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul brannalarmanlegg **\r\n3stk innganger\r\n- Frakoble sprinkleranlegget: sonefrakoblingsinngang\r\n- Sprinkler utløst varsling: brannalarminngang\r\n- Feil på strømforsyner til SG-13: feilalarminngang",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_se_lc.jpg"
+  },
+  {
+    "id": "368",
+    "title": "SG-13 installasjonsveiledning Schneider Electric System Sensor SLC",
+    "description": "** Motstandere **\r\nR2 overvåkingststand = 47kΩ\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul brannalarmanlegg **\r\n3stk innganger\r\n- Frakoble sprinkleranlegget: sonefrakoblingsinngang\r\n- Sprinkler utløst varsling: brannalarminngang\r\n- Feil på strømforsyner til SG-13: feilalarminngang",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_se_slc.jpg"
+  },
+  {
+    "id": "369",
+    "title": "SG-13 installasjonsveiledning Honeywell Eltek Esser",
+    "description": "** Motstandere **\r\nR1 overvåkingsmotstand = 10kΩ\r\nR2 alarmmotstand = 1kΩ\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul 4Z2R 808623 **\r\n- Adressen settes opp til «Sprinkler Guard Spezialized (4Z2R)\r\n- Inngang 1 vil bli konvensjonell inngang\r\n- Inngang 2 vil bli Teknisk alarm",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_hls_esser.jpg"
+  },
+  {
+    "id": "370",
+    "title": "SG-13 installasjonsveiledning Autronica",
+    "description": "** Motstandere **\r\nMotstand = 910Ω\r\nMotstand = 2kΩ\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul BN-303 (eller BN-304) **\r\n1stk inngang",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_afs.jpg"
+  },
+  {
+    "id": "371",
+    "title": "SG-13 installasjonsveiledning Hedengren",
+    "description": "** Motstandere **\r\nR1 overvåkingsmotstand = 10kΩ\r\nR2 alarmmotstand = 470Ω\r\nSprinklerkurs R1 endemotstand = 470Ω\r\nSprinklerkurs C1 kondensator = 10μF\r\n\r\n** Strømforsyning **\r\nBehov for 24VDC inn, som har batteribackup. Bør også melde feilsignal til brannalarmanlegget.\r\n\r\n** IO-modul CHQ-DIM2 modul **\r\n2stk innganger\r\n",
+    "image": "public_html/fs_products_img/sg-13_installasjonsveiledning_hs.jpg"
+  },
+  {
+    "id": "372",
+    "title": "ADA Power teknisk data",
+    "description": "Inngangsspenning: 90...264 VAC\r\nFrekvens: 45...65 Hz\r\nInngangssikring: T3.15A høy brytekapasitet\r\nLadespenning (50% last): 27,4 V\r\nUtgangsjustering (brukerjusterbar): 21...29 V\r\nKortslutningsstrømbegrensning, batterisikring: T3.15A\r\nBatteri: 2x 12V 7Ah",
+    "image": ""
+  },
+  {
+    "id": "373",
+    "title": "﻿ESA/FX - Feilmelding - Power supply feil 01 / PS Batterifeil",
+    "description": "Lav batterispenning < 23,5 V\r\nSkift batterier",
+    "image": ""
+  },
+  {
+    "id": "374",
+    "title": "ESA/FX - Feilmelding - Power supply feil 02 / PS Batterifeil",
+    "description": "Batterikrets brutt, defekt sikring eller løs ledning\r\nKontroller kobling og at sikringer er hele. Alternativt er batteriene flate og må byttes.",
+    "image": ""
+  },
+  {
+    "id": "375",
+    "title": "ESA/FX - Feilmelding - Power supply feil 03 / PS Batterifeil",
+    "description": "Lav batterikapasitet\r\nSkift batterier",
+    "image": ""
+  },
+  {
+    "id": "376",
+    "title": "ESA/FX - Feilmelding - Power supply feil 04 / PS Ladefeil",
+    "description": "Batterispenning for høy p.g.a. defekt lader / regulator\r\nBytt strømforsyning",
+    "image": ""
+  },
+  {
+    "id": "377",
+    "title": "ESA/FX - Feilmelding - Power supply feil 05 / PS Batterifeil",
+    "description": "Batterispenning øker ikke ved hurtiglading etter 72t\r\nSkift batterier",
+    "image": ""
+  },
+  {
+    "id": "378",
+    "title": "ESA/FX - Feilmelding - Power supply feil 06 / PS Ladefeil",
+    "description": "Nettspenning tilstede, men sentralen får ikke spenning fra lader\r\nBytt strømforsyning",
+    "image": ""
+  },
+  {
+    "id": "379",
+    "title": "ESA/FX - Feilmelding - Power supply feil 07 / PS Ladefeil",
+    "description": "Ladetestkrets ikke i orden\r\nBytt strømforsyning",
+    "image": ""
+  },
+  {
+    "id": "380",
+    "title": "ESA/FX - Feilmelding - Power supply feil 08 / PS Ladefeil",
+    "description": "Ladekrets mellom batteri og lader er kortsluttet\r\nBytt strømforsyning",
+    "image": ""
+  },
+  {
+    "id": "381",
+    "title": "ESA/FX - Feilmelding - Power supply feil 09 / PS Nettfeil",
+    "description": "Nettavbrudd i over en halv time. Dette er kun en indikasjon for å melde om strømbrudd.\r\nTilbakestill",
+    "image": ""
+  },
+  {
+    "id": "382",
+    "title": "ESA/FX - Feilmelding - Service 00: Anytype config, not found",
+    "description": "En adresse er programmert til \"Alle typer detektor\", men blir ikke funnet.\r\nMerk: Denne beskjeden vises kun en gang, og forsvinner ved tilbakestilling.\r\nKontroller konfigurasjon\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "383",
+    "title": "ESA/FX - Feilmelding - Service 01: Address found, no config",
+    "description": "En adresserbar enhet er funnet, men finnes ikke i\r\nkonfigurasjonen.\r\nMerk: Denne beskjeden vises kun en gang, og forsvinner ved tilbakestilling.\r\nKontroller konfigurasjon\r\nDersom feilen oppstår sammen med 'Service 02' tyder dette på at et punkt er feiladressert.\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "384",
+    "title": "ESA/FX - Feilmelding - Service 02: Configured, not found",
+    "description": "En adresserbar enhet er konfigurert, men ikke funnet. Installer enheten eller oppdater konfigurasjonen.\r\nSentralen får ikke kontakt med enheten. Kontroller om den er på plass, får spenning og er adressert rett.\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "385",
+    "title": "ESA/FX - Feilmelding - Service 03: Configured not same as found",
+    "description": "The configured type and found type of the device are not the same.\r\nInstall the correct type of addressable device, or change the configuration.\r\nKontroller konfigurasjon og detektortype/modul\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "386",
+    "title": "ESA/FX - Feilmelding - Service 05: Address not set (zero)",
+    "description": "Et punkt er uadressert. Lokaliser punktet og sett rett adresse.\r\nHvis man nylig har skiftet en enhet bør man kontrollere om denne er adressert.\r\nFår man en adressefeil 52 eller service 02, er det sannsynligvis på det punktet den uadresserte enheten finnes.\r\nDersom man ikke finner enheten kan man med PC- software aktivere lysdioden på enheten for å lettere lokalisere den.\r\nA, D",
+    "image": ""
+  },
+  {
+    "id": "387",
+    "title": "ESA/FX - Feilmelding - Adressefeil 06: Unknown type of device",
+    "description": "Unknown type of device installed in the addressable loop. The address is not polled anymore.\r\nSentralen kjenner ikke igjen enhetstypen. Kontroller punktet.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "388",
+    "title": "ESA/FX - Feilmelding - Adressefeil 07: Device removed on loop disab.",
+    "description": "En enhet er fjernet fra sløyfen under en sløyfeutkobling. Feilen detekteres når sløyfen startes igjen.\r\nStart sentralen på nytt for å tømme sløyfedatabasen på hovedkortet.\r\nA, D",
+    "image": ""
+  },
+  {
+    "id": "389",
+    "title": "ESA/FX - Feilmelding - Adressefeil 08: Device type changed",
+    "description": "En enhet er byttet til en annen type under en sløyfeutkobling. Feilen detekteres når sløyfen startes igjen.\r\nStart sentralen på nytt for å tømme sløyfedatabasen på hovedkortet.\r\nA, D",
+    "image": ""
+  },
+  {
+    "id": "390",
+    "title": "ESA/FX - Feilmelding - Adressefeil 09: New address in the loop",
+    "description": "New addresses identified after fire detection panel\r\nstartup.\r\nNote: This message shows only one time and goes out of the display after you reset the fault/maintece warning.\r\nKontroller konfigurasjon\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "391",
+    "title": "ESA/FX - Feilmelding - Service 11: Remote LED config, not supported",
+    "description": "Siren control (separate remote LED control) is configured for an SLC addressable detector (500 series), but the addressable detector does not support this feature.\r\nKontroller konfigurasjon\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "392",
+    "title": "ESA/FX - Feilmelding - Adressefeil 13: Double address (ALC2)",
+    "description": "Two or more ALC addressable detectors or devices are set to have the same address.\r\nOmadresser Ã©n av punktene.\r\nDersom feilen oppstår sammen med 'Service 02' er det trolig på den adressen feilen ligger.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "393",
+    "title": "ESA/FX - Feilmelding - Service 14: Bad scan response of device",
+    "description": "The fire detection panel received an incomplete response from an ALC addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "394",
+    "title": "ESA/FX - Feilmelding - Service 15: Comm. error: frame ID vs mem. ID",
+    "description": "The type ID is not compatible with the memory ID of an ALC addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "395",
+    "title": "ESA/FX - Feilmelding - Service 16: Protocol family vs config.",
+    "description": "The family of an ALC addressable device does not match the configuration (S90/XP95/Discovery).\r\nKontroller konfigurasjonen\r\nA, C",
+    "image": ""
+  },
+  {
+    "id": "396",
+    "title": "ESA/FX - Feilmelding - Adressefeil 17: Double address (SLC)",
+    "description": "FAULT 17: Double address (SLC)\r\nOmadresser Ã©n av punktene.\r\nDersom feilen oppstår sammen med 'Adressefeil 53' er det trolig på den adressen feilen ligger.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "397",
+    "title": "ESA/FX - Feilmelding - Adressefeil 18: Double address (SLC)",
+    "description": "Two or more Ap200 or Clip (SLC) addressable detectors\r\nor devices are set to have the same address.\r\nOmadresser Ã©n av punktene.\r\nDersom feilen oppstår sammen med 'Adressefeil 53' er det trolig på den adressen feilen ligger.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "398",
+    "title": "ESA/FX - Feilmelding - Service 19: SLC module subaddress overlap",
+    "description": "The subaddress of an Ap multimodule overlaps with the subaddress of another addressable device.\r\nEM211 og EM 221 krever hhv. 2 og 3 adresser etter hverandre. Flere adresser må frigis.\r\nA, C, D",
+    "image": ""
+  },
+  {
+    "id": "399",
+    "title": "ESA/FX - Feilmelding - Adressefeil 20: SLC device internal error",
+    "description": "An internal error in an Ap (SLC) addressable device.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "400",
+    "title": "ESA/FX - Feilmelding - Service 21: Device detached and attached",
+    "description": "An Ap (SLC) addressable device is disconnected and connected to the addressable loop (powered up).\r\nTilbakestill\r\nB",
+    "image": ""
+  },
+  {
+    "id": "401",
+    "title": "ESA/FX - Feilmelding - Adressefeil 22: Multimod. subaddr too high",
+    "description": "A subaddress of a multimodule is out of the address range. The maximum number of subaddresses is 159.\r\nEM211 og EM 221 krever hhv. 2 og 3 adresser etter hverandre. Den valgte adressen må vÃ¦re lavere. Siste adresse må ikke vÃ¦re høyere enn 159.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "402",
+    "title": "ESA/FX - Feilmelding - Adressefeil 51: Too low analog value",
+    "description": "The value received from an analog detector is too low or the detector has an internal fault.\r\nThe value limit depends on the type, family/series and manufacturer of the addressable detector.\r\nSkift detektor\r\nB",
+    "image": ""
+  },
+  {
+    "id": "403",
+    "title": "ESA/FX - Feilmelding - Adressefeil 52: No/invalid reply from address",
+    "description": "A bad or an incomplete reply from an address.\r\nSentralen får ikke kontakt med punktet. Kontroller om det er på plass, får spenning og er adressert rett.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "404",
+    "title": "ESA/FX - Feilmelding - Adressefeil 53: Double address",
+    "description": "Two or more addresses are set to have the same address.\r\nOmadresser Ã©n av punktene.\r\nDersom feilen oppstår sammen med 'Service 02' er det trolig på den adressen feilen ligger.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "405",
+    "title": "ESA/FX - Feilmelding - Adressefeil 54: Break in module input",
+    "description": "A break in the input circuit of an input module.\r\nKontroller at modulen har kontakt med endemotstand.\r\nHvis denne feilen oppstår på en manuell melder (Apollo), kontroller at DIP 8 er satt NED til 1, og at frittstående DIP 10 står til ALC.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "406",
+    "title": "ESA/FX - Feilmelding - Adressefeil 55: Break in module output",
+    "description": "A break in the output circuit of an output module.\r\nKontroller at modulen har kontakt med endemotstand.\r\nHvis denne feilen oppstår på en manuell melder (Apollo), kontroller at DIP 8 er satt NED til 1, og at frittstående DIP 10 står til ALC.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "407",
+    "title": "ESA/FX - Feilmelding - Adressefeil 56: Short circuit in mod. output",
+    "description": "A short circuit in the output circuit of an output module.\r\nKontroller oppkoblingen. Sørg for at det ikke er noen kortslutning, samt at alarmmotstand er koblet i serie med den overvåkede bryterfunksjonen.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "408",
+    "title": "ESA/FX - Feilmelding - Adressefeil 57: Fault input activated",
+    "description": "An input unit is configured as a \"fault input\".\r\nIf the input activates, the fire detection panel indicates this fault.\r\nBrannsentralen overvåker status på et eksternt system. Eksempelvis på sprinkleranlegg. Det eksterne systemet melder feil og må kontrolleres.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "409",
+    "title": "ESA/FX - Feilmelding - Adressefeil 58: Zone disabl. time exceeded",
+    "description": "An input module is configured as a \"zone disablement device\" and the maximum disablement time has been exceeded (default time is 12 hours).\r\nDette er kun en indikasjon på at maksimal utkoblingstid er overskridet på en sone. Kan tilbakestilles.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "410",
+    "title": "ESA/FX - Feilmelding - Service 59: Maint. input activated",
+    "description": "An input module is configured as \"maintece input\". If the input activates, the fire detection panel indicates this maintece warning.\r\nBrannsentralen overvåker status på et eksternt system. Eksempelvis på sprinkleranlegg. Det eksterne systemet melder behov for vedlikehold og må kontrolleres.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "411",
+    "title": "ESA/FX - Feilmelding - Service 60: Contaminated detector",
+    "description": "A dirty smoke detector. Smoke detectors have a drift\r\ncompensation algorithm. When the smoke sensor reading goes above the configured limit level, the fire detection panel gives a maintece warning. This maintece warning cannot be reset unless the smoke sensor reading drops below the limit level.\r\nTo look for contaminated smoke detectors, make sure that you are on access level 3. Open the menu, go to \"report dirty detectors\" and push the Disable/Enable soft key. The fire detection panel gives a maintece warning if a sensor reading is near or above the configured limit level (and the filter timeout has not expired).\r\nSkift detektor\r\nB, E",
+    "image": ""
+  },
+  {
+    "id": "412",
+    "title": "ESA/FX - Feilmelding - Service 61: 6 months to CO cell expiration",
+    "description": "The COPTIR sensor cell life expires in six months.\r\nSkift 4-kriteriedetektor innen 6 mnd.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "413",
+    "title": "ESA/FX - Feilmelding - Adressefeil 62: Conv.subloop break/shortc.",
+    "description": "A break or short circuit in the conventional subloop of a conventional zone module.\r\nBrudd eller kortslutning i sløyfe under konvensjonell sløyfemodul.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "414",
+    "title": "ESA/FX - Feilmelding - Adressefeil 63: Invalid response from device",
+    "description": "Invalid response from an addressable device. The set limit value for this fault warning depends on the type, family/series and manufacturer of the addressable device.\r\nSpecial conditions: an unstable reading from an Ap (SLC) addressable device, or an SLC beam detector 6500 is in alignment mode.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "415",
+    "title": "ESA/FX - Feilmelding - Adressefeil 64: Device type changed",
+    "description": "An addressable device was replaced during normal operation. The device type or family does not match the configuration.\r\nKonfigurasjon og ny enhet stemmer ikke overens. Skift detektortype eller oppdater konfigurasjon.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "416",
+    "title": "ESA/FX - Feilmelding - Adressefeil 65: Remote LED config, not supported",
+    "description": "An addressable device with a separate remote LED control feature was replaced with an addressable device that does not support this feature. This is usually indicated with fault 64.\r\nKonfigurasjon og ny enhet stemmer ikke overens. Skift detektortype eller oppdater konfigurasjon.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "417",
+    "title": "ESA/FX - Feilmelding - Adressefeil 66: Extinguisher input activated",
+    "description": "Input configured as \"fault in extinguisher\". If the input\r\nactivates, the fire alarm panel indicates this fault.\r\nBrannsentralen overvåker status på et eksternt\r\nslukkeanlegg. Eksempelvis på sprinkleranlegg. Det eksterne systemet melder feil og må kontrolleres.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "418",
+    "title": "ESA/FX - Feilmelding - Service 67: Infrared saturation on det.",
+    "description": "The infrared sensor in a COPTIR/PTIR detector has reached its saturation point.\r\nSkift detektor\r\nB, E",
+    "image": ""
+  },
+  {
+    "id": "419",
+    "title": "ESA/FX - Feilmelding - Service 68: 80% drift limit reached",
+    "description": "80% of the drift limit value reached. Can be indicated after a user activates the \"report dirty detectors\" function.\r\nSkift detektor innen kort tid\r\nB, E",
+    "image": ""
+  },
+  {
+    "id": "420",
+    "title": "ESA/FX - Feilmelding - Service 69: 99% drift limit reached",
+    "description": "99% of the drift limit value reached.\r\nSkift detektor\r\nB, E",
+    "image": ""
+  },
+  {
+    "id": "421",
+    "title": "ESA/FX - Feilmelding - Adressefeil 70: Unknown fault from device",
+    "description": "An unknown fault in an addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "422",
+    "title": "ESA/FX - Feilmelding - Adressefeil 71: Device mem. write failed",
+    "description": "Could not write into the memory of an addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "423",
+    "title": "ESA/FX - Feilmelding - Adressefeil 72: Device mem. read failed",
+    "description": "Could not read from the memory of an addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "424",
+    "title": "ESA/FX - Feilmelding - Adressefeil 73: Device comm. Trouble",
+    "description": "Failed to communicate with an addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "425",
+    "title": "ESA/FX - Feilmelding - Adressefeil 74: Device self test failed",
+    "description": "The internal test of an addressable device failed.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "426",
+    "title": "ESA/FX - Feilmelding - Adressefeil 75: Beam sensor CPU fault",
+    "description": "A CPU fault in a beam detector.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "427",
+    "title": "ESA/FX - Feilmelding - Adressefeil 76: Beam sensor align targeting",
+    "description": "A beam detector has an alignment fault.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "428",
+    "title": "ESA/FX - Feilmelding - Adressefeil 77: Beam sensor general fault",
+    "description": "A beam detector has a general fault.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "429",
+    "title": "ESA/FX - Feilmelding - Adressefeil 78: Beam sensor signal too high",
+    "description": "The signal of a beam detector is too strong.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "430",
+    "title": "ESA/FX - Feilmelding - Adressefeil 79: Detector CO cell expiration",
+    "description": "The cell life of a sensor in a COPTIR detector has expired.\r\nSkift detektor\r\nB",
+    "image": ""
+  },
+  {
+    "id": "431",
+    "title": "ESA/FX - Feilmelding - Adressefeil 80: ALC SW not compatible",
+    "description": "The software of the ALC board is not compatible for the desired sounder mode.\r\nOppdater software på sentral eller skift sirenetype\r\nA",
+    "image": ""
+  },
+  {
+    "id": "432",
+    "title": "ESA/FX - Feilmelding - Adressefeil 81: Router fault input activated",
+    "description": "The input module configured as \"fire router fault\". If the input activates, the fire alarm panel indicates this fault.\r\nBrannsentralen overvåker status på ekstern alarmoverføring. Det eksterne systemet melder feil og må kontrolleres.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "433",
+    "title": "ESA/FX - Feilmelding - Adressefeil 82: VoiceEvac fault input act.",
+    "description": "The input module configured as \"fault in voice evacuation system\". If the input activates, the fire alarm panel indicates this fault.\r\nBrannsentralen overvåker status på ekstern talevarsling. Det eksterne systemet melder feil og må kontrolleres.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "434",
+    "title": "ESA/FX - Feilmelding - Adressefeil 84: Output mod. power failure",
+    "description": "A power supply failure in the monitored output circuit of an output module.\r\nKontroller strømforsyning til klokkekursmodul\r\nB",
+    "image": ""
+  },
+  {
+    "id": "435",
+    "title": "ESA/FX - Feilmelding - Adressefeil 85: Not Esmi device",
+    "description": "The OEM code of an addressable device is incompatible: not an Esmi code.\r\n\r\nA, B",
+    "image": ""
+  },
+  {
+    "id": "436",
+    "title": "ESA/FX - Feilmelding - Adressefeil 86: Output control failure",
+    "description": "The control of the output of a device did not work\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "437",
+    "title": "ESA/FX - Feilmelding - Adressefeil 87: Device SW not compatible",
+    "description": "The software version of the addressable device is incompatible.\r\nOppdater software på sentral eller skift enhetstype\r\nA, B",
+    "image": ""
+  },
+  {
+    "id": "438",
+    "title": "ESA/FX - Feilmelding - Service 88: Isolator disappeared",
+    "description": "An addressable device with a short circuit isolator was\r\nreplaced with an addressable device without a shortcircuit isolator.\r\nStart sentralen på nytt for å tømme sløyfedatabasen på\r\nhovedkortet, eller skift til en enhet med isolator.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "439",
+    "title": "ESA/FX - Feilmelding - Service 89: Isolator appeared",
+    "description": "An addressable device without a short circuit isolator was replaced with an addressable device with a shortcircuit isolator.\r\nStart sentralen på nytt for å tømme sløyfedatabasen på hovedkortet, eller skift til en enhet uten isolator.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "440",
+    "title": "ESA/FX - Feilmelding - Adressefeil 90: Unacceptable device (family)",
+    "description": "The addressable device is not a part of the Intellia family. Can only be used with a special configuration license.\r\nKontroller konfigurasjonen\r\nA",
+    "image": ""
+  },
+  {
+    "id": "441",
+    "title": "ESA/FX - Feilmelding - Adressefeil 92: Break in CLC input",
+    "description": "Break in the input line of the CLC unit.\r\nBrudd i konvensjonell sløyfe. Lokaliser og utbedre bruddet.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "442",
+    "title": "ESA/FX - Feilmelding - Adressefeil 93: Short circuit in CLC input",
+    "description": "A short circuit in the input line of the CLC unit.\r\nKortslutning i konvensjonell sløyfe. Lokaliser og utbedre kortslutningen.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "443",
+    "title": "ESA/FX - Feilmelding - Adressefeil 94: Voltage problem in CLC input",
+    "description": "A voltage problem in the input line of the CLC unit.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "444",
+    "title": "ESA/FX - Feilmelding - Adressefeil 95: VoiceEvac mute input timeout",
+    "description": "The maximum time for muting the voice evacuation has expired.\r\nDette er kun en indikasjon på at maksimal utkoblingstid av alarmorganer ved talevarsling er overskridet. Kan tilbakestilles.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "445",
+    "title": "ESA/FX - Feilmelding - Adressefeil 96: Unit memory checksum",
+    "description": "The memory checksum of an addressable device is incomplete.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nA, B",
+    "image": ""
+  },
+  {
+    "id": "446",
+    "title": "ESA/FX - Feilmelding - Adressefeil 97: Beam sensor signal blocked",
+    "description": "The signal of a beam detector is blocked. The receiver does not receive signals.\r\nFjern blokkering. Foreta ny kalibrering av linjedetektor om nødvendig.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "447",
+    "title": "ESA/FX - Feilmelding - Service 98: Simulated maint/serv command",
+    "description": "A maintece command has activated a simulated maintece warning.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "448",
+    "title": "ESA/FX - Feilmelding - Adressefeil 99: Simulated fault/serv command",
+    "description": "A maintece command has activated a simulated fault.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "449",
+    "title": "ESA/FX - Feilmelding - Adressefeil 100: Beam sensor local test fail",
+    "description": "A locally activated test alarm of a beam detector has failed.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "450",
+    "title": "ESA/FX - Feilmelding - Adressefeil 101: Beam sensor remote test fail",
+    "description": "A remotely activated test alarm of a beam detector has\r\nfailed.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "451",
+    "title": "ESA/FX - Feilmelding - Adressefeil 102: Memory fault in unit",
+    "description": "A memory fault in an addressable device.\r\nDefekt enhet eller støyproblematikk.\r\nDersom det gjelder kun ett punkt kan man forsøke å bytte enheten. Dersom det påvirker flere punkter eller et bytte ikke hjelper må man feilsøke med hensyn til støy.\r\nB",
+    "image": ""
+  },
+  {
+    "id": "452",
+    "title": "ESA/FX - Feilmelding - Adressefeil 103: Sounder fault in unit",
+    "description": "The sounder of an addressable device does not work correctly.\r\nSkift enhet\r\nB",
+    "image": ""
+  },
+  {
+    "id": "453",
+    "title": "ESA/FX - Feilmelding - Adressefeil 104: Beacon fault in unit",
+    "description": "A beacon does not work correctly.\r\nSkift enhet\r\nB",
+    "image": ""
+  },
+  {
+    "id": "454",
+    "title": "ESA/FX - Feilmelding - Adressefeil 105: Sounder and beacon fault in unit",
+    "description": "Sounder and beacon failure.\r\nSkift enhet\r\nB",
+    "image": ""
+  },
+  {
+    "id": "455",
+    "title": "ESA/FX - Feilmelding - Adressefeil 106: fault in unit",
+    "description": "An internal fault in a sounder beacon.\r\nSkift enhet\r\nB",
+    "image": ""
+  },
+  {
+    "id": "456",
+    "title": "ESA/FX - Feilmelding - Adressefeil 110: Battery missing",
+    "description": "A battery is missing from an XPander series ALC addressable detector.\r\nKontroller batterier\r\nB",
+    "image": ""
+  },
+  {
+    "id": "457",
+    "title": "ESA/FX - Feilmelding - Adressefeil 111: Unit fault",
+    "description": "An internal fault in an XPander series ALC addressable device.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "458",
+    "title": "ESA/FX - Feilmelding - Adressefeil 112: Head missing",
+    "description": "The detector head of an XPander series ALC addressable detector has been removed from the detector base.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "459",
+    "title": "ESA/FX - Feilmelding - Adressefeil 113: Sounder missing",
+    "description": "The sounder of an XPander series ALC addressable detector has been removed from the detector base.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "460",
+    "title": "ESA/FX - Feilmelding - Adressefeil 114: Tamper",
+    "description": "A tamper fault in an XPander series ALC addressable detector.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "461",
+    "title": "ESA/FX - Feilmelding - Adressefeil 115: Signal strength",
+    "description": "The signal strength of an XPander series ALC addressable detector is too low.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "462",
+    "title": "ESA/FX - Feilmelding - Adressefeil 117: Battery fault",
+    "description": "The battery power of an XPander series ALC addressable detector is too low.\r\n\r\nB",
+    "image": ""
+  },
+  {
+    "id": "463",
+    "title": "ESA/FX - Feilmelding - Adressefeil 118: CO element fault",
+    "description": "A carbon monoxide element fault in a detector.\r\nSkift detektor\r\nB",
+    "image": ""
+  },
+  {
+    "id": "464",
+    "title": "ESA/FX - Feilmelding - Adressefeil 119: Heat element fault",
+    "description": "A heat element fault in a detector.\r\nSkift detektor\r\nB",
+    "image": ""
+  },
+  {
+    "id": "465",
+    "title": "ESA/FX - Feilmelding - Adressefeil in INFO-port RS485 comm.",
+    "description": "When acknowledge bit not received after 10 retries of some message\r\nor external system will send \"EXTERNAL FAULT\" message",
+    "image": ""
+  },
+  {
+    "id": "466",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 0",
+    "description": "MCO/Repeater reports that outport of the unit has communication\r\nfault\r\nKontroller forbindelse mellom enheter på INFO-linjen, for eksempel mellom to FMP.",
+    "image": ""
+  },
+  {
+    "id": "467",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 1",
+    "description": "MCO/Repeater reports that external port of the unit has communication fault.\r\nKontroller forbindelse mellom MPOX og eksternt utstyr, for eksempel alarmsender.",
+    "image": ""
+  },
+  {
+    "id": "468",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 2",
+    "description": "MCO reports that control logic part of unit has recognized problems",
+    "image": ""
+  },
+  {
+    "id": "469",
+    "title": "ESA/FX - Feilmelding - INFO RS485 device fault 3",
+    "description": "When transmitting does not success for some reason.\r\nMonitored internal by SW.\r\nNOTE! configuration bit \"not monitored\" does not prevent this fault.",
+    "image": ""
+  },
+  {
+    "id": "470",
+    "title": "ESA/FX - Feilmelding - INFO RS485 device fault 4",
+    "description": "When receiver gets whole time a lot of rubbish, not real Info frames.\r\nMonitored internal by SW.\r\nNOTE! configuration bit \"not monitored\" does not prevent this fault.",
+    "image": ""
+  },
+  {
+    "id": "471",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 5",
+    "description": "IC unit reports about power input 1 fault\r\nKontroller spenningstilførsel på ekstern enhet (eksempelvis FMP)",
+    "image": ""
+  },
+  {
+    "id": "472",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 6",
+    "description": "IC unit reports about power input 2 fault\r\nKontroller spenningstilførsel på ekstern enhet (eksempelvis FMP)",
+    "image": ""
+  },
+  {
+    "id": "473",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 7",
+    "description": "IC unit reports about fault in the configuration files of IC",
+    "image": ""
+  },
+  {
+    "id": "474",
+    "title": "ESA/FX - Feilmelding - INFO RS485 external device fault 255",
+    "description": "IC unit reports about fault which is unknown for FX",
+    "image": ""
+  },
+  {
+    "id": "475",
+    "title": "FDP jordfeilsøking",
+    "description": "Kort fortalt\tEn jordfeil forårsakes av lekkasjestrøm på anlegget og kan i ytterste konsekvens sette hele eller deler av anlegget ut av spill. Rask utbedring er derfor kritisk.\r\n\r\nUtbedringsansvarlig\tFeilen bør utbedres av Schneider Electric Norges serviceingeniører eller en sertifisert partner, ettersom utbedringen krever arbeid både i sentralen og på andre deler av anlegget.\r\n\r\nFeilmelding\tVisning av \"Jordfeil +\" eller \"Jordfeil –\" indikerer hvilken pol som lekker mot jord. Feilmeldingen vises dersom motstanden mellom jord og pol er under 20 kΩ, eller spenningen mellom kabinett og minus er utenfor området 7,8–19,6 V.\r\n\r\nMåling: Motstand mellom jord og pol\tNormal verdi: >20 kΩ. En lavere motstand (<20 kΩ) indikerer lekkasjestrøm og en potensiell jordfeil.\r\n\r\nMåling: Spenning mellom kabinett og minus\tNormal verdi: Rundt 14 V. Hvis spenningen er utenfor området 7,8–19,6 V, kan det tyde på at feilen fortsatt er tilstede.\r\n\r\nMåling: Tilbakestilling av feil\tEtter tilbakestilling skal feilen ikke komme tilbake eller inntreffe sporadisk. Oppstår feilen umiddelbart etter tilbakestilling, indikerer dette en kontinuerlig feil.\r\n\r\nMåling: Kommunikasjon mellom enheter\tStabil kommunikasjon er normalt. Jordfeil på to forskjellige sløyfer kan føre til kommunikasjonsfeil og i verste fall resultere i en kortslutning.\r\n\r\nSteg 2: Koble ut deler av anlegget\tKoble ut alle enheter som får strøm fra sentralen (for eksempel sløyfer, brannklokker, 24 V til brannmannspaneler) ved å nappe ut de grønne pluggene.\r\n\r\nSteg 3: Tilbakestill systemet\tEtter at enhetene er koblet ut, tilbakestill systemet. Dersom feilen umiddelbart kommer tilbake, ligger feilen i sentralen (gå til steg 4a). Kommer den ikke tilbake, er feilen trolig ute på anlegget (gå til steg 4b).\r\n\r\nSteg 4a: Videre lokalisering – Sentralen\tI sentralen: Kontroller at alle kretskortenes festeskruer sitter skikkelig, da dårlig jordforbindelse kan være årsaken. Fjern alle kort unntatt hovedkort, displaykort og strømforsyning for å sjekke om et defekt kort er årsaken. Monter kortene ett om gangen – feilen gjenoppstår ved tilkobling av det defekte kortet. Merk: Ikke fjern eller legg til kort i et spenningssatt anlegg!\r\n\r\nSteg 4b: Videre lokalisering – Ute på anlegget\tUte på anlegget: Mens sentralen er oppe, sett inn de grønne pluggene én etter én med ca. 10 sekunders intervall. Når feilen kommer tilbake, er den knyttet til den sist tilkoblede grenen. Bruk halveringsmetoden ved å dele en sløyfe i to for å innsnevre søket ytterligere, og undersøk koblinger, kabler og enheter for å lokalisere det defekte punktet.",
+    "image": ""
+  },
+  {
+    "id": "476",
+    "title": "FDP sløyfebrudd",
+    "description": "Kort fortalt\tEt brudd i en detektorsløyfe gjør sentralen særlig sårbar for andre feil. Rask utbedring er derfor kritisk.\r\n\r\nUtbedringsansvarlig\tFeilen krever arbeid på brannsløyfene og i sentralen, og bør rettes av Schneider Electric Norges serviceingeniører eller en sertifisert partner.\r\n\r\nFeilmelding\tVisning av «Brudd i sløyfe 01» (eller tilsvarende) indikerer at ingen spenning kan måles på sløyferetur. Ved kortslutning vil de to nærmeste isolasjonsleddene utløses for å bryte sløyfen og beskytte anlegget.\r\n\r\nSteg 1: Tilbakestill feilen\tTilbakestill systemet. Hvis feilen kommer tilbake umiddelbart, er det en kontinuerlig feil. Kommer den ikke tilbake, kan det tyde på at feilen allerede er utbedret eller opptrer sporadisk.\r\n\r\nSteg 1.1: Kontroller om det er et fysisk brudd, eller om det er sløyfekortet eller sentralen som er årsaken. Noen ganger, kan Schneider Electric brannsentraler melde sløyfebrudd selv om det ikke er det. Om det viser seg at det ikke er brudd, men sentralen melder det alikevell, kan det skyldes dårlig ISO-ledd eller produkter på sløyfen.\r\n\r\nSteg 2: Differensier feiltype\tAvgjør om feilen skyldes et enkelt brudd i sløyfen eller en kortslutning. Manglende kommunikasjon med enheter (Service 02 eller Adressefeil 52) kan tyde på at to brudd har oppstått, ofte på grunn av kortslutning.\r\n\r\nSteg 3a: Lokaliser kortslutning\tVed mistanke om kortslutning utløses de to nærmeste isolasjonsleddene (indikert med gul lysdiode) i manuelle meldere, adressemoduler eller sokkelsummere. Inspiser området mellom de utløste isolasjonsleddene nøye for å finne og utbedre kortslutningen.\r\n\r\nSteg 3b: Lokaliser sløyfebrudd\tVed et enkelt brudd forsyner returpunktet den andre halvdelen av sløyfen med 24 V, slik at man ikke mister full kommunikasjon. Koble fra sløyfens retur i sentralen; hvis du for eksempel mister kommunikasjonen med adresser 7–10 på en 10-adressesløyfe, ligger bruddet mellom adresse 6 og 7.\r\n\r\nVidere oppfølging\tVed fortsatt problemer, kontakt Schneider Electrics kundesenter: Telefon: +47 23 19 12 00, E-post: kundesenter.no@schneider-electric.no.",
+    "image": ""
+  },
+  {
+    "id": "477",
+    "title": "AutroSafe 4 maksimal kapasitet",
+    "description": "Panel per system: 64\r\nDeteksjonssløyfer per sentral: 6\r\nSløyfeenheter per sløyfe: 127*\r\nSløyfeenheter per PowerLoop: 15*\r\nEnheter per AutroFieldBus: 31\r\nAlarmorganer per sløyfe: 40*\r\nSløyfeenheter per panel, ref. EN 54: 512\r\nEthernet-porter: 2\r\nRS232/RS422/RS485: 1\r\nAutroFieldBus-grensesnitt: 1\r\nUSB-port: 1",
+    "image": ""
+  },
+  {
+    "id": "478",
+    "title": "BSS-310A Kraftforsyningsmodul",
+    "description": "Skruterminal nr. Signal\r\n1 +24 V inngang\r\n2 +24 V inngang\r\n3 0 V inngang\r\n4 0 V inngang\r\n5 Chassis (GND)\r\n6 Chassis (GND)\r\n7 Ikke i bruk\r\n8 Ikke i bruk\r\n9 Ikke i bruk\r\n10 Ikke i bruk",
+    "image": "public_html/fs_products_img/BSS-310A_kobling.jpg"
+  },
+  {
+    "id": "479",
+    "title": "BSS-311 Redundant strømovervåkningsmodul",
+    "description": "Skruterminal nr. Signal\r\n1 +24 V inngang (kilde 1)\r\n2 +24 V inngang (kilde 2)\r\n3 0 V inngang-1 (kilde 1)\r\n4 0 V inngang-2 (kilde 2)\r\n5 Chassis (GND)\r\n6 Feilutgang (24V=Normal, 0V=feil på\r\nspenningstilførsel)\r\n7 +24 V utgang\r\n8 +24 V utgang\r\n9 0 V utgang\r\n10 0 V utgang",
+    "image": "public_html/fs_products_img/BSS-311_kobling.jpg"
+  },
+  {
+    "id": "480",
+    "title": "BSD-310/-311 Sløyfedrivermodul",
+    "description": "Skruterminal nr. Signal\r\n1 +24 V utgang\r\n2 0 V utgang\r\n3 Skjerm\r\n4 +24 V inngang\r\n5 0 V inngang\r\n6 Skjerm\r\n7 F/S +\r\n8 F/S -\r\n9 Chassis\r\n10 Chassis",
+    "image": ""
+  },
+  {
+    "id": "481",
+    "title": "BS-100 - BSD-330 Sløyfedriver",
+    "description": "Skruterminal nr. Signal\r\n1 +24 V utgang\r\n2 +24 V inngang\r\n3 0 V utgang\r\n4 0 V inngang\r\n5 Utgangskontroll (100 mA)\r\n6 GND",
+    "image": ""
+  },
+  {
+    "id": "482",
+    "title": "BNB-331 Konvensjonell sløyfetilpasningsenhet",
+    "description": "Skruterminal nr. Signal\r\n1 Alarm ut 1\r\n2 Alarm t 2\r\n3 Fault ut 1\r\n4 Fault ut 2\r\n5 Konvensjonell sløyfe +\r\n6 Konvensjonell sløyfe -\r\n7 PSU-feil inn\r\n8 PSU-feil 0 V\r\n9 Al_Com-sløyfe inn +\r\n10 Al_Com-sløyfe inn -\r\n11 Al_Com-sløyfe ut +\r\n12 Al_Com-sløyfe ut -\r\n13 24 V A\r\n14 0 V A\r\n15 24 V B\r\n16 0 V B",
+    "image": ""
+  },
+  {
+    "id": "483",
+    "title": "BSB-310A Utgangsmodul, overvåket",
+    "description": "Skruterminal nr. Signal\r\n1 Utgang 1 - 0 V\r\n2 Utgang 1 + (+24 V)\r\n3 Utgang 2 - 0 V\r\n4 Utgang 2 + (+24 V)\r\n5 Utgang 3 - 0 V\r\n6 Utgang 3 + (+24 V)\r\n7 Utgang 4 - 0 V (FWRE)\r\n8 Utgang 4 + (+24 V) (FWRE)\r\n9 Driftsspenning 24 V\r\n10 Driftsspenning 0 V",
+    "image": ""
+  },
+  {
+    "id": "484",
+    "title": "BSJ-310 Utgangsmodul",
+    "description": "Skruterminal nr. Signal\r\n1 Utgang 1 -\r\n2 Utgang 2 -\r\n3 Utgang 3 -\r\n4 Utgang 4 -\r\n5 Utgang 5 -\r\n6 Utgang 6 -\r\n7 Utgang 7 -\r\n8 Utgang 8 -\r\n9 24 V utgang\r\n10 Chassis/GND",
+    "image": ""
+  },
+  {
+    "id": "485",
+    "title": "BSE-310 Inngangsmodul, overvåket",
+    "description": "Skruterminal nr. Signal\r\n1 Inngang 1 +\r\n2 Inngang 1 -\r\n3 Inngang 2 +\r\n4 Inngang 2 -\r\n5 Inngang 3 +\r\n6 Inngang 3 -\r\n7 Inngang 4 +\r\n8 Inngang 4 -\r\n9 Ikke i bruk\r\n10 Ikke i bruk",
+    "image": "public_html/fs_products_img/BSE-310_kobling.jpg"
+  },
+  {
+    "id": "486",
+    "title": "BSE-320 Inngangsmodul",
+    "description": "Skruterminal nr. Signal\r\n1 Inngang 1\r\n2 Inngang 2\r\n3 Inngang 3\r\n4 Inngang 4\r\n5 Inngang 5\r\n6 Inngang 6\r\n7 Inngang 7\r\n8 Inngang 8\r\n9 Ikke i bruk\r\n10 Inn +24 V (felles)",
+    "image": "public_html/fs_products_img/BSE-320_kobling.jpg"
+  },
+  {
+    "id": "487",
+    "title": "BWA-100 Sokkel - konvensjonelt",
+    "description": "1 FELLES - INN/UT\r\n2 + INN\r\n3 + UT\r\n4 ALARMIND.",
+    "image": "public_html/fs_products_img/BWA-100-Sokkel_konvensjonelt.jpg"
+  },
+  {
+    "id": "488",
+    "title": "BWA-40A/1 Sokkel",
+    "description": "1 + INN\r\n2 + UT\r\n3 - INN\r\n4 - UT",
+    "image": "public_html/fs_products_img/BWA-40A-1_Sokkel_kobling.jpg"
+  },
+  {
+    "id": "489",
+    "title": "BWA-100 Sokkel - AutroSafe 4 og Autroprime",
+    "description": "1 - INN\r\n2 - UT\r\n3 + FELLES\r\n4 - LED",
+    "image": "public_html/fs_products_img/BWA-100_Sokkel_AutroSafe-4_Autroprime_kobling.jpg"
+  },
+  {
+    "id": "490",
+    "title": "BN-303/-304/-305 Funksjonskonfigurering",
+    "description": "FUNK. S1.1 S1.2 S1.3 S1.4 303 304 305\r\nA OFF OFF OFF OFF Y Y Y\r\nB ON OFF OFF OFF Y Y Y\r\nC OFF ON OFF OFF Y Y Y\r\nD ON ON OFF OFF Y Y Y\r\nE OFF OFF ON OFF Y Y Y\r\nF ON OFF ON OFF Y Y Y\r\nG OFF ON ON OFF Y Y\r\nH ON ON ON OFF Y Y\r\nI OFF OFF OFF ON Y Y\r\nJ ON OFF OFF ON Y Y\r\nK OFF ON OFF ON Y Y\r\nL ON ON OFF ON Y\r\nM OFF OFF ON ON Y\r\nN ON OFF ON ON Y\r\nO OFF ON ON ON Y\r\nP ON ON ON ON\r\n\r\nFUNK. S1.5 S1.6 Beskrivelse\r\nInn A OFF OFF NO - 910Ω\r\nInn B OFF ON NC - 910Ω\r\nInn C ON OFF NO - 0Ω\r\nInn D ON ON NC - 0Ω\r\nFUNK. S1.7\r\nRelé = NO OFF\r\nRelé = NC ON\r\n\r\nFUNKSJON (slik oppfører reléet seg når spenning slås av). S1.8\r\nRelé blir værende i nåværende status OFF\r\nRelé skifter til normal stilling som valgt av DIP 1.7 ON\r\n",
+    "image": ""
+  },
+  {
+    "id": "491",
+    "title": "BN-307 Overvåket FAD kontrollenhet",
+    "description": "Skruterminal Funksjon\r\n1 AL_Com Inn (+)\r\n2 AL_Com Inn (-)\r\n3 AL_Com Ut (+)\r\n4 AL_Com Ut (-)\r\n5 24V spenningsinngang (+)\r\n6 0V spenningsinngang (-)\r\n7 FAD-utgang (+)\r\n8 FAD-utgang (-)\r\n\r\nLED-tilkoblinger\r\nJ2.1 LED1 + (LED-aktivering)\r\nJ2.2 LED1 - (LED-aktivering)\r\nJ2.3 LED2 + (LED-feil)\r\nJ2.4 LED2 - (LED-feil)",
+    "image": "public_html/fs_products_img/BN-307_Overvåket_FAD_kontrollenhet_kobling.jpg"
+  },
+  {
+    "id": "492",
+    "title": "AutroSafe 4 kabellengde",
+    "description": "Kabeltverrsnitt - Vekttall 1-300 - Vekttall 301-450 - Vekttall 451-600\r\nMaks kabelresistans 30 Ω 20 Ω 20 Ω\r\n0,75 mm2 - 1100 m - 660 m - 430 m\r\n1 mm2 - 1470 m - 880 m - 580 m\r\n1,5mm2 - 2200 m - 1320 m - 870 m\r\n2 mm2 - 2940 m - 1760 m - 1160 m\r\n2,5 mm2 - 3670 m - 2200 m - 1450 m",
+    "image": ""
+  },
+  {
+    "id": "493",
+    "title": "Autroprime kabellengde",
+    "description": "Kabeltverrsnitt - Vekttall - 1-300: 100 mA - Vekttall 301-450: 150 mA - Vekttall 451-600: 200 mA - Vekttall 601-750: 250 mA\r\nMaks kabelresistans - 105 Ω - 58 Ω - 35 Ω - 21 Ω\r\n0,5 mm2 - 1500 m - 829 m - 500 m - 300 m\r\n0,75 mm2 - 2250 m - 1243 m - 750 m - 450 m\r\n1,0 mm2 - 3000 m - 1657 m - 1000 m - 600 m\r\n1,5 mm2 - 4500 m - 2486 m - 1500 m - 900 m\r\n2,5 mm2 - 7500 m - 4143 m - 2500 m - 1500 m",
+    "image": ""
+  },
+  {
+    "id": "494",
+    "title": "BBL-100",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nBBL-1001 - Lysindikator - n/a - IP32C - 0,3mA - 5,35mA",
+    "image": ""
+  },
+  {
+    "id": "495",
+    "title": "BBR-130",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nBBR-130 - Sokkelsirene - 90 IP32C - 0,26mA - 4,3mA",
+    "image": ""
+  },
+  {
+    "id": "496",
+    "title": "BBR-230",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nBBR-230 - Sirene - 100 - IP32C - 0,33mA - 5mA ",
+    "image": ""
+  },
+  {
+    "id": "497",
+    "title": "BBQ-130",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nBBQ-130 - Sokkelsirene/lysindikator - 90 - IP21C - 0,26mA - 8,56mA ",
+    "image": ""
+  },
+  {
+    "id": "498",
+    "title": "BBQ-230",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nBBQ-230 - Sirene/lysindikator - 100 - IP32C - 0,33mA - 9 mA",
+    "image": ""
+  },
+  {
+    "id": "499",
+    "title": "Solista LX1",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nSolista LX1 - Lysgiver vegg - W-2.4 - IP33C - 10mA - 25mA  ",
+    "image": ""
+  },
+  {
+    "id": "500",
+    "title": "Solista LX",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nSolista LX - Lysgiver tak - C-3 - IP33C - 10mA - 25mA  ",
+    "image": ""
+  },
+  {
+    "id": "501",
+    "title": "Symphoni LX2",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nSymphoni LX2 - Sokkel m/lys - W-2.4 - IP21C - 15mA - 30mA  ",
+    "image": ""
+  },
+  {
+    "id": "502",
+    "title": "Symphoni LX1",
+    "description": "Navn - Beskr. - dBA/1m - IPgrad - Strømtrekk [normal - alarm]\r\nSymphoni LX1 - Komplett lyd-/lysgiver - W-2.4 - IP21C - 18mA - 28mA  ",
+    "image": ""
+  },
+  {
+    "id": "503",
+    "title": "Autronica Lounge Light/Easy Light - Lysdiodestatus",
+    "description": "LED lader\r\nPå: Ladestrøm OK\r\nAv: Tomt batteri/batteri ikke tilkoblet.\r\nBlinker 1 g/sek: Dårlig ladestrøm.\r\nBlinker 2 g/sek: Driftstidstest av batteriet pågår.\r\n\r\nLED lampefeil\r\nPå: Defekt lyskilde.\r\nAv: Lyskilde OK.\r\n\r\nLED feil\r\nPå: Mikroprosessorfeil.\r\nAv: Elektronisk krets OK.\r\nBlinker: Dårlig batteri.\r\n\r\nAlle lysdiodene blinker 1 g/sek: Starter 24 timer før\r\nautomatisk funksjonstest eller driftstest.\r\nAlle lysdioder Av: I nøddrift.",
+    "image": ""
+  },
+  {
+    "id": "504",
+    "title": "Elotec  Aspect GRIZZLE aspirasjonsdetektor AE2010G teknisk data",
+    "description": "Drift sspenning 230 VAC, 50 Hz\r\nStrømtrekk 500 mA maks.\r\nKapslingsgrad IP44\r\nDrift stemperatur -30 °C ti l +55 °C\r\nVift e 450 Pa radialvift e\r\nMål (B x H x D) 272 x 530 x 143 mm",
+    "image": ""
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Leverandør",
+    "id": "1",
+    "background_color": "#B3617B",
+    "font_color": "#FFFFFF"
+  },
+  {
+    "title": "Produkter",
+    "id": "2",
+    "background_color": "#5C9A95",
+    "font_color": "#FFFFFF"
+  },
+  {
+    "title": "Informasjonsteknologi",
+    "id": "3",
+    "background_color": "#2C5093",
+    "font_color": "#FFFFFF"
+  },
+  {
+    "title": "Leverandør kategori",
+    "id": "4",
+    "background_color": "#5E503F",
+    "font_color": "#FFFFFF"
+  }
+]

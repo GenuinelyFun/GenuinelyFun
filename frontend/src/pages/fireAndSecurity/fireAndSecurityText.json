@@ -1,0 +1,67 @@
+{
+  "fs.table-header.id": {
+    "en": "ID",
+    "no": "ID",
+    "nn": "ID"
+  },
+  "fs.table-header.product-id": {
+    "en": "Product ID",
+    "no": "Produkt-ID",
+    "nn": "Produkt-ID"
+  },
+  "fs.table-header.tag-id": {
+    "en": "Tag ID",
+    "no": "Tag-ID",
+    "nn": "Tag-ID"
+  },
+  "fs.table-header.category-id": {
+    "en": "Category ID",
+    "no": "Kategori-ID",
+    "nn": "Kategori-ID"
+  },
+  "fs.tags": {
+    "en": "Tags",
+    "no": "Tagger",
+    "nn": "Taggar"
+  },
+  "fs.categories": {
+    "en": "Categories",
+    "no": "Kategorier",
+    "nn": "Kategorier"
+  },
+  "fs.table-header.title": {
+    "en": "Title",
+    "no": "Tittel",
+    "nn": "Tittel"
+  },
+  "fs.table-header.description": {
+    "en": "Description",
+    "no": "Beskrivelse",
+    "nn": "Beskrivelse"
+  },
+  "fs.table-header.image": {
+    "en": "Image",
+    "no": "Bilde",
+    "nn": "Bilde"
+  },
+  "fs.table-header.background-color": {
+    "en": "Background color",
+    "no": "Bakgrunnsfarge",
+    "nn": "Bakgrunnsfarge"
+  },
+  "fs.table-header.font-color": {
+    "en": "Text color",
+    "no": "Tekstfarge",
+    "nn": "Tekstfarge"
+  },
+  "fs.empty-table": {
+    "en": "No products found with the current filters.",
+    "no": "Ingen produkter funnet med de nåværende filtrene.",
+    "nn": "Ingen produkter funnet med de nåværende filtrene."
+  },
+  "fs.search": {
+    "en": "Search",
+    "no": "Søk",
+    "nn": "Søk"
+  }
+}

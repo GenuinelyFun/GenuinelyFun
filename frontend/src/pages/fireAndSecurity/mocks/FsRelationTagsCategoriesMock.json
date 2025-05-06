@@ -1,0 +1,502 @@
+[
+  {
+    "tag_id": "200",
+    "id": "1",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "201",
+    "id": "2",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "202",
+    "id": "3",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "203",
+    "id": "4",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "204",
+    "id": "5",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "205",
+    "id": "6",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "206",
+    "id": "7",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "207",
+    "id": "8",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "208",
+    "id": "9",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "209",
+    "id": "10",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "210",
+    "id": "11",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "211",
+    "id": "12",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "212",
+    "id": "13",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "213",
+    "id": "14",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "214",
+    "id": "15",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "215",
+    "id": "16",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "216",
+    "id": "17",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "217",
+    "id": "18",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "218",
+    "id": "19",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "219",
+    "id": "20",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "220",
+    "id": "21",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "221",
+    "id": "22",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "222",
+    "id": "23",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "223",
+    "id": "24",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "224",
+    "id": "25",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "225",
+    "id": "26",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "226",
+    "id": "27",
+    "category_id": "1"
+  },
+  {
+    "tag_id": "1",
+    "id": "96",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "2",
+    "id": "97",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "3",
+    "id": "98",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "4",
+    "id": "99",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "5",
+    "id": "100",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "6",
+    "id": "101",
+    "category_id": "3"
+  },
+  {
+    "tag_id": "7",
+    "id": "102",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "100",
+    "id": "103",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "101",
+    "id": "104",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "102",
+    "id": "105",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "103",
+    "id": "106",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "104",
+    "id": "107",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "105",
+    "id": "108",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "106",
+    "id": "109",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "107",
+    "id": "110",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "108",
+    "id": "111",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "109",
+    "id": "112",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "110",
+    "id": "113",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "111",
+    "id": "114",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "112",
+    "id": "115",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "113",
+    "id": "116",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "114",
+    "id": "117",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "115",
+    "id": "118",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "116",
+    "id": "119",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "117",
+    "id": "120",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "118",
+    "id": "121",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "119",
+    "id": "122",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "120",
+    "id": "123",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "121",
+    "id": "124",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "122",
+    "id": "125",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "123",
+    "id": "126",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "124",
+    "id": "127",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "125",
+    "id": "128",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "126",
+    "id": "129",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "127",
+    "id": "130",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "128",
+    "id": "131",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "129",
+    "id": "132",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "130",
+    "id": "133",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "131",
+    "id": "134",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "132",
+    "id": "135",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "133",
+    "id": "136",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "134",
+    "id": "137",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "135",
+    "id": "138",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "136",
+    "id": "139",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "137",
+    "id": "140",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "138",
+    "id": "141",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "139",
+    "id": "142",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "140",
+    "id": "143",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "141",
+    "id": "144",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "142",
+    "id": "145",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "143",
+    "id": "146",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "144",
+    "id": "147",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "145",
+    "id": "148",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "146",
+    "id": "149",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "147",
+    "id": "150",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "148",
+    "id": "151",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "149",
+    "id": "152",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "150",
+    "id": "153",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "151",
+    "id": "154",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "152",
+    "id": "155",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "153",
+    "id": "156",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "154",
+    "id": "157",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "155",
+    "id": "158",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "156",
+    "id": "159",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "157",
+    "id": "160",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "158",
+    "id": "161",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "159",
+    "id": "162",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "160",
+    "id": "163",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "161",
+    "id": "164",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "162",
+    "id": "165",
+    "category_id": "2"
+  },
+  {
+    "tag_id": "300",
+    "id": "171",
+    "category_id": "4"
+  },
+  {
+    "tag_id": "301",
+    "id": "172",
+    "category_id": "4"
+  },
+  {
+    "tag_id": "302",
+    "id": "173",
+    "category_id": "4"
+  }
+]

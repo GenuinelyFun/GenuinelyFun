@@ -1,5 +1,5 @@
 import './index.less';
-import './utils/i18n.ts';
+import './utils/i18n';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -12,6 +12,8 @@ import {
 import App from './App';
 import ArticlePage from './pages/articlepage/ArticlePage';
 import { ArticleWrapper } from './pages/articlepage/ArticleWrapper.tsx';
+import DataChangeDatabase from './pages/backendtest/DataChangeDatabase';
+import FireAndSecurity from './pages/fireAndSecurity/FireAndSecurity.tsx';
 import HomePage from './pages/homepage/HomePage';
 import ImportExportPage from './pages/ImportExportPage.tsx';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
@@ -57,6 +59,8 @@ const router = createBrowserRouter([
       },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
+      { path: routePaths.datachange, element: <DataChangeDatabase /> },
+      { path: routePaths.firesecurity, element: <FireAndSecurity /> },
     ],
   },
 ]);
