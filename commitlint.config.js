@@ -3,6 +3,6 @@ module.exports = {
   "scope-enum": [
     2,
     "always",
-    ["feet", "fweet", "portfolio", "articles", "homepage"],
+    ["feet", "fweet", "portfolio", "articles", "homepage", "database"],
   ],
 };
