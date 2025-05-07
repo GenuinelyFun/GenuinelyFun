@@ -13,13 +13,6 @@
   }
 }
 
-.cell {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--spacing-mini);
-}
-
 .filters {
   margin: var(--spacing-large) 0;
   display: flex;
@@ -30,5 +23,35 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-mini);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xsmall);
+  align-items: center;
+  height: 100%;
+
+  button, svg {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+.actionButton {
+  background-color: transparent;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+
+  path {
+    stroke: white;
+  }
+}
+
+.tableForm {
+  textarea {
+    width: 100%;
   }
 }

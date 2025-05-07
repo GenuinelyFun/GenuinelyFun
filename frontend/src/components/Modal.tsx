@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import ReactModal from 'react-modal';
 
-import CrossIcon from '../assets/icons/CrossIcon.tsx';
+import CrossHollowIcon from '../assets/icons/CrossHollowIcon.tsx';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
 import styles from './Modal.module.less';
 
@@ -41,7 +41,7 @@ const Modal: FC<Props> = ({
         onClick={onClose}
         aria-label={crossAriaLabel || translate('modal.close.aria')}
       >
-        <CrossIcon className={styles.crossIcon} />
+        <CrossHollowIcon className={styles.CrossHollowIcon} />
       </button>
       <div className={styles.modalContent}>{children}</div>
     </ReactModal>

@@ -157,7 +157,7 @@ const EverythingTable = () => {
                   </td>
                   <td>{it.title}</td>
                   <td>{it.description}</td>
-                  {it.image && <td>{it.image}</td>}
+                  <td>{it.image}</td>
                 </tr>
               ))}
             </tbody>

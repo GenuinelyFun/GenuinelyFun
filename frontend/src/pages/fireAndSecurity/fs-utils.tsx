@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import { buildURL } from '../../utils/fetch.ts';
 import categoryMock from './mocks/FsCategoriesMock.json';
 import productsMock from './mocks/FsProductsMock.json';
@@ -11,7 +9,7 @@ export interface FsItem {
   productId: number;
   title: string;
   description: string;
-  image?: ReactNode;
+  image?: string;
   tags: ({
     category?: FsCategory;
   } & FsTag)[];
@@ -21,7 +19,7 @@ export interface FsProduct {
   id: number;
   title: string;
   description: string;
-  image?: ReactNode;
+  image?: string;
 }
 
 export interface FsTag {
@@ -60,9 +58,7 @@ const mapToFsProduct = (product: Record<string, string>): FsProduct => ({
   id: Number(product.id),
   title: product.title,
   description: product.description,
-  image: product.image ? (
-    <img src={product.image} alt={product.title} />
-  ) : undefined,
+  image: product.image,
 });
 
 const mapToFsTag = (tag: Record<string, string>): FsTag => ({

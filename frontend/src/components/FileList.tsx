@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
-import CrossIcon from '../assets/icons/CrossIcon';
+import CrossHollowIcon from '../assets/icons/CrossHollowIcon.tsx';
 import FileIcon from '../assets/icons/FileIcon';
 import { ImportExportPageType, useDataContext } from '../utils/data-utils.ts';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
@@ -54,7 +54,7 @@ const FileList: FC<{ fileType: ImportExportPageType }> = ({ fileType }) => {
               removeFile(name);
             }}
           >
-            <CrossIcon
+            <CrossHollowIcon
               className={classNames(styles.icon, styles.crossIcon)}
               aria-label={translate('file-list.remove-file.aria', {
                 file: short,

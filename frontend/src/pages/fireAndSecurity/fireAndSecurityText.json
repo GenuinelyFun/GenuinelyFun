@@ -39,6 +39,21 @@
     "no": "Beskrivelse",
     "nn": "Beskrivelse"
   },
+  "fs.edit": {
+    "en": "Edit",
+    "no": "Rediger",
+    "nn": "Rediger"
+  },
+  "fs.delete": {
+    "en": "Delete",
+    "no": "Slett",
+    "nn": "Slett"
+  },
+  "fs.table-header.actions": {
+    "en": "Actions",
+    "no": "Handlinger",
+    "nn": "Handlingar"
+  },
   "fs.table-header.image": {
     "en": "Image",
     "no": "Bilde",
