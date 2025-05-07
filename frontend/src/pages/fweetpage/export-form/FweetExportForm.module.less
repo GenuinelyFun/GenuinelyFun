@@ -18,6 +18,23 @@
   font-weight: var(--font-weight-bold);
 }
 
+.checkboxContainer {
+  display: flex;
+}
+
+.checkbox {
+  & input {
+    align-self: center;
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  & label {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
 .select {
   display: flex;
   flex-direction: column;

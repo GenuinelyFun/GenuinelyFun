@@ -13,6 +13,7 @@ import App from './App';
 import ArticlePage from './pages/articlepage/ArticlePage';
 import { ArticleWrapper } from './pages/articlepage/ArticleWrapper.tsx';
 import FeetPage from './pages/feetpage/FeetPage';
+import FweetPage from './pages/fweetpage/FweetPage.tsx';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import ArthurPage from './pages/portfolio/ArthurPage';
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       },
       { path: routePaths.feet, element: <FeetPage /> },
       { path: 'feet', element: <Navigate to={'/' + routePaths.feet} /> }, // Redirect from old path to new path.
+      { path: routePaths.fweet, element: <FweetPage /> },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
     ],

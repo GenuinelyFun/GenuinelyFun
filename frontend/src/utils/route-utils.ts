@@ -1,7 +1,8 @@
 export const routePaths = {
   home: '',
   article: 'article/',
-  feet: 'fireexpert',
+  feet: 'fire-expert',
+  fweet: 'firewin',
   arthur: 'arthur',
   nghi: 'nghi',
 };

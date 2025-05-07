@@ -12,6 +12,10 @@ import feetExportFormText from '../../pages/feetpage/export-form/feetExportFormT
 import feetFileListText from '../../pages/feetpage/feetFileListText.json';
 import feetImportFormText from '../../pages/feetpage/feetImportFormText.json';
 import feetPageText from '../../pages/feetpage/feetPageText.json';
+import fweetExportFormText from '../../pages/fweetpage/export-form/fweetExportFormText.json';
+import fweetFileListText from '../../pages/fweetpage/fweetFileListText.json';
+import fweetImportFormText from '../../pages/fweetpage/fweetImportFormText.json';
+import fweetPageText from '../../pages/fweetpage/fweetPageText.json';
 import homePageText from '../../pages/homepage/homePageText.json';
 import pageNotFoundText from '../../pages/notfoundpage/notFoundPageText.json';
 import arthurPageText from '../../pages/portfolio/arthurPageText.json';
@@ -37,6 +41,10 @@ export const translationTexts = {
   ...feetFileListText,
   ...feetImportFormText,
   ...feetPageText,
+  ...fweetExportFormText,
+  ...fweetFileListText,
+  ...fweetImportFormText,
+  ...fweetPageText,
   ...homePageText,
   ...pageNotFoundText,
   ...arthurPageText,

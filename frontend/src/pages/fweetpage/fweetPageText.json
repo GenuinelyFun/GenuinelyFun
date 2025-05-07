@@ -1,0 +1,17 @@
+{
+  "fweet.page.title": {
+    "en": "FireWin Explorer Export Tool",
+    "no": "FireWin Explorer Eksport Verktøy",
+    "nn": "FireWin Explorer Eksport Verktøy"
+  },
+  "fweet.page.description.1": {
+    "en": "This web-based tool allows you to upload the FireWin Explorer configuration file for the fire alarm system. Once the file is uploaded, it generates an Excel file containing various lists that technicians typically create during annual inspections. Depending on the size of the system, this process can take anywhere from half an hour to several days. With just a click, these structured lists are now produced instantly, more reliably, and with more detailed information in less time.",
+    "no": "Dette web-baserte verktøyet lar deg laste opp FireWin Explorer konfigurasjonsfilen for brannalarmanlegget. Når filen er lastet opp, genereres en Excel-fil som inneholder ulike lister teknikere vanligvis lager under årskontroller. Avhengig av anleggets størrelse kan denne prosessen ta alt fra en halvtime til flere dager. Nå, med kun ett klikk, produseres disse strukturerte listene umiddelbart – mer pålitelig og med mer informasjon på kortere tid.",
+    "nn": "Dette nettbaserte verktøyet lar deg laste opp FireWin Explorer konfigurasjonsfila for brannalarmanlegget. Når fila er lasta opp, blir det generert ei Excel-fil som inneheld ulike lister som teknikarar vanlegvis lagar under årskontrollar. Avhengig av storleiken på anlegget kan denne prosessen ta alt frå ein halvtime til fleire dagar. No, med berre eitt klikk, blir desse strukturerte listene produserte umiddelbart – meir påliteleg og med meir informasjon på kortare tid."
+  },
+  "fweet.page.description.2": {
+    "en": "And don’t worry—we never save your uploaded .fepx file or the generated Excel file. They remain your little secret. All the magic happens in your browser, so you can even use this tool offline!",
+    "no": "Og forresten, vi lagrer verken .fepx filen du laster opp eller Excel-filen. De forblir din lille hemmelighet. All magien skjer i nettleseren din – du kan til og med gjøre det uten internett!",
+    "nn": "Og forresten, vi lagrar verken .fepx fila du lastar opp eller Excel-fila. Dei forblir din vesle løyndom. All magien skjer i nettlesaren din – du kan til og med gjere det utan internett!"
+  }
+}

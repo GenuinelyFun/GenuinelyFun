@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import InfoBox from '../../../components/InfoBox.tsx';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../../../utils/i18n/language-utils.ts';
-import styles from './FeetExportForm.module.less';
+} from '../utils/i18n/language-utils.ts';
+import styles from './CheckboxWithInfobox.module.less';
+import InfoBox from './InfoBox.tsx';
 
 const CheckboxWithInfobox: FC<{
   textKey: string;

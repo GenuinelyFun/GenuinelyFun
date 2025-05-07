@@ -1,0 +1,22 @@
+{
+  "fweet.file-list.title.aria": {
+    "en": "uploaded .fepx files",
+    "no": "opplastede .fepx filer",
+    "nn": "opplasta .fepx filer"
+  },
+  "fweet.file-list.document.aria": {
+    "en": "Document file",
+    "no": "Dokumentfil",
+    "nn": "Dokumentfil"
+  },
+  "fweet.file-list.remove-file.aria": {
+    "en": "Remove file {file}",
+    "no": "Fjern fil {file}",
+    "nn": "Fjern fil {file}"
+  },
+  "fweet.file-list.remove-file.success": {
+    "en": "File {file} removed",
+    "no": "Fil {file} fjernet",
+    "nn": "Fil {file} fjerna"
+  }
+}

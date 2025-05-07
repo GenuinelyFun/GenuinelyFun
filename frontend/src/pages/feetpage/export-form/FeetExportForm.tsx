@@ -3,6 +3,7 @@ import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useEffect, useState } from 'react';
 
+import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
 import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
@@ -19,10 +20,9 @@ import {
   useSheetTranslate,
 } from '../../../projects/feet/utils/utils.ts';
 import { mapPanelsWithZones } from '../../../projects/feet/utils/zone-utils.ts';
-import { File, useDataContext } from '../../../utils/data-utils.ts';
+import { FeetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
-import CheckboxWithInfobox from './CheckboxWithInfobox.tsx';
 import styles from './FeetExportForm.module.less';
 import PanelCheckbox from './PanelCheckbox.tsx';
 
@@ -33,7 +33,7 @@ export interface FilterPanelType {
 const FeetExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
-  const { files } = useDataContext();
+  const { feetFiles } = useDataContext();
   const { sheetTranslate, updateLanguage } = useSheetTranslate();
   const [summary, setSummary] = useState<boolean>(true);
   const [zone, setZone] = useState<boolean>(true);
@@ -50,16 +50,18 @@ const FeetExportForm: FC = () => {
     keyof typeof feetLanguages
   >(i18n.language === 'no' ? 'nb' : 'en');
   const isZonesAvailable =
-    files.length === 1 ? files[0].json.system.zones !== undefined : true;
+    feetFiles.length === 1
+      ? feetFiles[0].json.system.zones !== undefined
+      : true;
 
   useEffect(() => {
     updateLanguage(sheetLanguage);
     if (!isZonesAvailable) {
       setZone(false);
     }
-    if (files.length !== 0) {
+    if (feetFiles.length !== 0) {
       const paneles: FilterPanelType = {};
-      files.forEach((file) => {
+      feetFiles.forEach((file) => {
         paneles[file.short] = file.json.system.panels.reduce(
           (acc, panel: Panel) => ({
             ...acc,
@@ -70,14 +72,14 @@ const FeetExportForm: FC = () => {
       });
       setFilteredPanels(paneles);
     }
-  }, [files, isZonesAvailable, sheetLanguage]);
+  }, [feetFiles, isZonesAvailable, sheetLanguage]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (files.length === 0) return;
+    if (feetFiles.length === 0) return;
 
     toast({ type: 'success', textKey: 'feet-export.started' });
-    files.forEach((file) => {
+    feetFiles.forEach((file) => {
       const panels = file.json.system.panels.filter((panel) => {
         if (filteredPanels[file.name] === undefined) {
           return true;
@@ -94,7 +96,7 @@ const FeetExportForm: FC = () => {
     });
   };
 
-  const exportToFiles = (file: File, panels: Panel[]) => {
+  const exportToFiles = (file: FeetFile, panels: Panel[]) => {
     const { name, json } = file;
     const workbook = new Workbook();
     const zones = json.system.zones;
@@ -311,7 +313,7 @@ const FeetExportForm: FC = () => {
           header={translate('feet-export.filter.infobox.title')}
         />
       </label>
-      {files.length === 0 ? (
+      {feetFiles.length === 0 ? (
         <p className={styles.emptyPanels}>
           {translate('feet-export.filter.empty')}
         </p>
@@ -343,7 +345,7 @@ const FeetExportForm: FC = () => {
       </label>
       <GenericButton
         className={styles.button}
-        disabled={files.length === 0 || isNoneSelected || !disclaimer}
+        disabled={feetFiles.length === 0 || isNoneSelected || !disclaimer}
         type={'submit'}
       >
         {translate('feet-export.download.button')}

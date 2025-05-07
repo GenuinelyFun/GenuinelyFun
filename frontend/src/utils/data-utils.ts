@@ -8,17 +8,35 @@ export const shortenedFileName = (name: string) => {
   return name.slice(0, 22) + '...';
 };
 
-export interface File {
+export interface FeetFile {
   name: string;
   json: Root;
   short: string;
 }
 
+export interface FweetFile {
+  name: string;
+  fepx: Record<string, unknown>; //TODO Nghi: Fepx type does not exist yet.
+  short: string;
+}
+
+type File = FweetFile | FeetFile;
+
+export function isFeetFile(file: File): file is FeetFile {
+  return (file as FeetFile).json !== undefined;
+}
+
+export function isFweetFile(file: File): file is FweetFile {
+  return (file as FweetFile).fepx !== undefined;
+}
+
 type DataContextType = {
-  files: File[];
+  feetFiles: FeetFile[];
+  fweetFiles: FweetFile[];
   removeFile: (name: string) => void;
   addFiles: (value: File[]) => void;
 };
+
 export const DataContext = createContext<DataContextType | undefined>(
   undefined
 );

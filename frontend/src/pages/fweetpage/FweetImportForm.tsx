@@ -1,26 +1,25 @@
 import classNames from 'classnames';
+import { type JSZipObject } from 'jszip';
 import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
 
 import CrossCircleIcon from '../../assets/icons/CrossCircleIcon';
 import UploadIcon from '../../assets/icons/UploadIcon';
 import GenericButton from '../../components/GenericButton';
-import { Root } from '../../projects/feet/feetJsonDataInterface.ts';
 import { shortenedFileName, useDataContext } from '../../utils/data-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
 import { useNoDropZone } from '../../utils/useNoDropZone.ts';
 import { useToast } from '../../utils/useToast';
-import styles from './FeetImportForm.module.less';
+import styles from './fweetImportForm.module.less';
 
-const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
+const FIREWIN_EXPLORER_VERSION = 'v4.15';
 
-const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
+const FweetImportForm: FC<{ className?: string }> = ({ className }) => {
   useNoDropZone();
   const toast = useToast();
   const { addFiles } = useDataContext();
   const [isDragging, setIsDragging] = useState(false);
   const [isNotJson, setIsNotJson] = useState(false);
   const { translate } = useLanguageContext();
-
   const handleUploadedFiles = async (files: FileList) => {
     setIsDragging(false);
     setIsNotJson(false);
@@ -29,33 +28,33 @@ const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
       if (file === null) {
         toast({
           type: 'error',
-          textKey: 'feet-import.upload.error-general',
+          textKey: 'fweet.upload.error-general',
         });
       }
       const fileReader = new FileReader();
-      return new Promise<{ name: string; json: Root } | false>((resolve) => {
+      return new Promise<
+        { name: string; fepx: Record<string, unknown> } | false
+      >((resolve) => {
         fileReader.onload = () => {
           try {
-            const json = JSON.parse(
-              fileReader.result?.toString() || ''
-            ) as Root;
+            const json = JSON.parse(fileReader.result?.toString() || '');
             if (json.system === undefined) {
               toast({
                 type: 'error',
-                textKey: 'feet-import.upload.error-root',
+                textKey: 'fweet.upload.error-root',
               });
               resolve(false);
             } else {
               return resolve({
                 name: file.name,
-                json: JSON.parse(fileReader.result?.toString() || '') as Root,
+                fepx: JSON.parse(fileReader.result?.toString() || ''),
               });
             }
           } catch (error) {
             if (error instanceof SyntaxError) {
               setIsNotJson(true);
               toast({
-                textKey: 'feet-import.upload.error-json',
+                textKey: 'fweet.upload.error-fepx',
                 type: 'error',
               });
               resolve(false);
@@ -69,15 +68,20 @@ const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
     addFiles(
       (
         (
-          await Promise.all<{ name: string; json: Root } | false>(filesArray)
-        ).filter((file) => file !== false) as { name: string; json: Root }[]
+          await Promise.all<
+            { name: string; fepx: Record<string, unknown> } | false
+          >(filesArray)
+        ).filter((file) => file !== false) as {
+          name: string;
+          fepx: Record<string, unknown>;
+        }[]
       ).map((file) => ({
         ...file,
         short: shortenedFileName(file.name),
       }))
     );
 
-    toast({ type: 'success', textKey: 'feet-import.upload.success' });
+    toast({ type: 'success', textKey: 'fweet.upload.success' });
   };
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
@@ -124,12 +128,12 @@ const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
         {isDragging &&
           (isNotJson ? (
             <CrossCircleIcon
-              aria-label={translate('feet-import.upload.error-icon.aria')}
+              aria-label={translate('fweet.upload.error-icon.aria')}
               className={styles.statusIcon}
             />
           ) : (
             <UploadIcon
-              aria-label={translate('feet-import.upload.icon.aria')}
+              aria-label={translate('fweet.upload.icon.aria')}
               className={styles.statusIcon}
             />
           ))}
@@ -138,15 +142,15 @@ const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
             <p className={styles.paragraph}>
               {translate(
                 isNotJson
-                  ? 'feet-import.upload.not.json'
-                  : 'feet-import.upload.release.to.upload'
+                  ? 'fweet.upload.not.fepx'
+                  : 'fweet.upload.release.to.upload'
               )}
             </p>
           ) : (
             <p className={styles.textWithOr}>
-              <span>{translate('feet-import.upload.description')}</span>
+              <span>{translate('fweet.upload.description')}</span>
               <span className={styles.paragraph}>
-                {translate('feet-import.upload.or')}
+                {translate('fweet.upload.or')}
               </span>
             </p>
           )}
@@ -161,13 +165,31 @@ const FeetImportForm: FC<{ className?: string }> = ({ className }) => {
           <GenericButton
             onClick={() => document.getElementById('file-upload')?.click()}
           >
-            {translate('feet-import.upload.button')}
+            {translate('fweet.upload.button')}
           </GenericButton>
         </>
       </div>
-      <p>{translate('feet-import.supported-version') + FIRE_EXPERT_VERSION}</p>
+      <p>{translate('fweet.supported-version') + FIREWIN_EXPLORER_VERSION}</p>
     </section>
   );
 };
 
-export default FeetImportForm;
+export default FweetImportForm;
+
+// @ts-expect-error wip
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const tryToReadDatabaseFile = async (databaseFile: JSZipObject) => {
+  return await databaseFile.async('string');
+};
+
+// @ts-expect-error wip
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const hexToReadableAscii = (hexString: string): string => {
+  let asciiString = '';
+  for (let i = 0; i < hexString.length; i += 2) {
+    const hexPair = hexString.substr(i, 2);
+    const asciiChar = String.fromCharCode(parseInt(hexPair, 16));
+    asciiString += asciiChar;
+  }
+  return asciiString;
+};
