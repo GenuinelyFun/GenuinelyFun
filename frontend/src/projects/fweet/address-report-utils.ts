@@ -6,7 +6,7 @@ import { AddrUnitType } from './verify-utils.ts';
 
 export const addressReportMapper = (db: Database, toast: Toast) => {
   const addressesIds = db.exec(
-    'SELECT Id, CircuitId, UnitNo, Name, Type FROM AddrUnit'
+    'SELECT Id, CircuitNo, UnitNo, Name, Type, Description FROM AddrUnit'
   );
 
   if (addressesIds.length === 0) {
@@ -15,21 +15,23 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
   }
 
   return addressesIds[0].values.map((row) => {
+    const [id, circuitNo, unitNo, name, type, description] = row;
     const result: { [key: string]: sheetValueTypes } = {};
-    if (!row[1] || !row[2]) {
+    if (!circuitNo || !unitNo) {
       result['Address'] = 'n/a';
     } else {
       result['Address'] =
-        `${row[1].toString().padStart(3, '0')}.${row[2].toString().padStart(3, '0')}`;
+        `${circuitNo.toString().padStart(3, '0')}.${unitNo.toString().padStart(3, '0')}`;
     }
-    result['Zone'] = getZoneId(db, row[0] as number);
-    result['Name'] = row[3] as string;
-    result['Type'] = AddrUnitType[row[4] as keyof typeof AddrUnitType];
+    result['Zone'] = getZoneId(db, id as number);
+    result['Name'] = name as string;
+    result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
+    result['Description'] = description as string;
     return result;
   });
 };
 
-const getZoneId = (db: Database, addrUnitId: number): string => {
+export const getZoneId = (db: Database, addrUnitId: number): string => {
   const stmt = db.exec('SELECT SoneId FROM Cause WHERE InId = ?', [addrUnitId]);
   if (stmt.length === 0) {
     return 'n/a';
