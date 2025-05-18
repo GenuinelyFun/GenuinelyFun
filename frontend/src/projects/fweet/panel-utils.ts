@@ -14,7 +14,26 @@ export const panelMapper = (
 const mapPanel = (columns: string[], row: sheetValueTypes[]) => {
   const result: { [key: string]: sheetValueTypes } = {};
   columns.forEach((column, index) => {
-    result[column] = row[index] === null ? 'n/a' : row[index];
+    if (column === 'Type' && row[index] !== null && row[index] !== undefined) {
+      result[column] =
+        PanelType[row[index].toString() as keyof typeof PanelType];
+    } else {
+      result[column] = row[index] === null ? 'n/a' : row[index];
+    }
   });
   return result;
 };
+
+enum PanelType {
+  DELOP = 'Delta DA OP',
+  DEDAP = 'Delta Da Quad+',
+  DEDAE = 'Delta DA Esser',
+  DEDAM = 'Delta DA EL Specter',
+  DEDAI = 'Delta DA Quad',
+  DEREP = 'DELTA Repeater',
+  PANEL = 'Anx 95e',
+  ANX95 = 'Anx 95',
+  ANX90 = 'Anx 90',
+  DEDAS = 'Delta DA/E/Q Slave Panel',
+  DELDA = 'Delta DA',
+}
