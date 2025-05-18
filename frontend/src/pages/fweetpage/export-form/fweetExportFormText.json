@@ -124,6 +124,21 @@
     "no": "Kort",
     "nn": "Kort"
   },
+  "fweet.export.groups.checkbox.label": {
+    "en": "Output groups",
+    "no": "Utgangsgrupper",
+    "nn": "Utgangsgrupper"
+  },
+  "fweet.export.groups.infobox.title": {
+    "en": "Output groups",
+    "no": "Utgangsgrupper",
+    "nn": "Utgangsgrupper"
+  },
+  "fweet.export.groups.infobox.description": {
+    "en": "This option generates an Excel tab listing all output groups along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle utgangsgrupper sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle utgangsgrupper saman med deira konfigurasjon."
+  },
   "fweet.export.board.missing-json": {
     "en": "It appears there are no IO boards in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes IO board and try again.",
     "no": "Det ser ut til at det ikke er noen IO kort i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder IO kort og prøv igjen.",

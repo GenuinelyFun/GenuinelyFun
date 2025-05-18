@@ -263,6 +263,8 @@ export enum CircuitType {
   EXT = 'Extinguishing (1) Anx 95E',
 }
 
+export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
+
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');
   const columns = panels.getColumnNames();
@@ -333,6 +335,25 @@ export const verifyCircuit = (db: Database, toast: Toast): boolean => {
       type: 'error',
       textKey: 'fweet.dataformat.error',
       textParams: { data: 'circuit' },
+    });
+    return false;
+  }
+  return true;
+};
+
+export const verifyAlZone = (db: Database, toast: Toast): boolean => {
+  const alZones = db.prepare('SELECT * FROM AlZone');
+  const columns = alZones.getColumnNames();
+  if (
+    columns.length !== ALZONE_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => ALZONE_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    toast({
+      type: 'error',
+      textKey: 'fweet.dataformat.error',
+      textParams: { data: 'alzone' },
     });
     return false;
   }
