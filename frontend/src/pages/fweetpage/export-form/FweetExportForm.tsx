@@ -71,6 +71,13 @@ const FweetExportForm: FC = () => {
       FileSaver.saveAs(blob, fileName);
     });
   };
+  const isAllSelected = firePanel && fireLoop && logbook;
+
+  const toggleSelectAll = () => {
+    setFirePanel(!isAllSelected);
+    setFireLoop(!isAllSelected);
+    setLogbook(!isAllSelected);
+  };
 
   return (
     <form
@@ -83,6 +90,11 @@ const FweetExportForm: FC = () => {
         {translate('fweet.export.settings.sheet-list')}
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
+        <CheckboxWithInfobox
+          textKey={'fweet.export.selectall'}
+          value={isAllSelected}
+          setValue={toggleSelectAll}
+        />
         <CheckboxWithInfobox
           textKey={'fweet.export.panel'}
           value={firePanel}
