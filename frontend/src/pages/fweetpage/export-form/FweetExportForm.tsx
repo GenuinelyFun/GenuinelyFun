@@ -6,12 +6,14 @@ import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import LineBreak from '../../../components/LineBreak.tsx';
 import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
+import { addressReportMapper } from '../../../projects/fweet/address-report-utils.ts';
+import { getSiteName } from '../../../projects/fweet/database-utils.ts';
 import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
 import {
+  verifyAddrUnit,
   verifyLogbook,
-  verifyLoops,
   verifyPanels,
 } from '../../../projects/fweet/verify-utils.ts';
 import { FweetFile, useDataContext } from '../../../utils/data-utils.ts';
@@ -32,6 +34,7 @@ const FweetExportForm: FC = () => {
   const [firePanel, setFirePanel] = useState<boolean>(true);
   const [fireLoop, setFireLoop] = useState<boolean>(true);
   const [logbook, setLogbook] = useState<boolean>(true);
+  const [addressReport, setAddressReport] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -46,12 +49,13 @@ const FweetExportForm: FC = () => {
   const exportToFiles = (file: FweetFile) => {
     const { name, fepx } = file;
     const workbook = new Workbook();
+    const siteName = getSiteName(fepx, toast);
 
     if (firePanel && verifyPanels(fepx, toast)) {
-      addFweetSheetToWorkbook(workbook, panelMapper(fepx), 'Panel', 'idkyet');
+      addFweetSheetToWorkbook(workbook, panelMapper(fepx), 'Panel', siteName);
     }
-    if (fireLoop && verifyLoops(fepx, toast)) {
-      addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', 'idkyet');
+    if (fireLoop && verifyAddrUnit(fepx, toast)) {
+      addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', siteName);
     }
     if (logbook && verifyLogbook(fepx, toast)) {
       logbookMapper(fepx);
@@ -59,7 +63,15 @@ const FweetExportForm: FC = () => {
         workbook,
         logbookMapper(fepx),
         'Logbook',
-        'idkyet'
+        siteName
+      );
+    }
+    if (addressReport && verifyAddrUnit(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        addressReportMapper(fepx, toast),
+        'Address_report',
+        siteName
       );
     }
 
@@ -71,12 +83,13 @@ const FweetExportForm: FC = () => {
       FileSaver.saveAs(blob, fileName);
     });
   };
-  const isAllSelected = firePanel && fireLoop && logbook;
+  const isAllSelected = firePanel && fireLoop && logbook && addressReport;
 
   const toggleSelectAll = () => {
     setFirePanel(!isAllSelected);
     setFireLoop(!isAllSelected);
     setLogbook(!isAllSelected);
+    setAddressReport(!isAllSelected);
   };
 
   return (
@@ -109,6 +122,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.logbook'}
           value={logbook}
           setValue={() => setLogbook(!logbook)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.address'}
+          value={addressReport}
+          setValue={() => setAddressReport(!addressReport)}
         />
       </ul>
       <LineBreak />

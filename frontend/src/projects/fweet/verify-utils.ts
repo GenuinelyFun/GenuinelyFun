@@ -35,7 +35,7 @@ export enum TABLENAMES {
   Zone = 'Zone',
 }
 
-export enum LoopType {
+export enum AddrUnitType {
   ESGEN = 'Not defined type',
   IQSSMO = 'IQ8Quad Smoke detector (O/So)',
   IQFO2T = 'IQ8Quad Multi Sensor (O2T/F)',
@@ -213,7 +213,7 @@ export const verifyPanels = (db: Database, toast: Toast): boolean => {
   return true;
 };
 
-export const verifyLoops = (db: Database, toast: Toast): boolean => {
+export const verifyAddrUnit = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM AddrUnit');
   const columns = panels.getColumnNames();
   if (
@@ -235,7 +235,6 @@ export const verifyLoops = (db: Database, toast: Toast): boolean => {
 export const verifyLogbook = (db: Database, toast: Toast): boolean => {
   const logbooks = db.prepare('SELECT * FROM Logbook');
   const columns = logbooks.getColumnNames();
-  console.log(columns);
   if (
     columns.length !== LOGBOOK_COLUMNS.length ||
     Object.values(columns)

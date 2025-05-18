@@ -1,7 +1,7 @@
 import { Database } from 'sql.js';
 
 import { sheetValueTypes } from '../feet/utils/utils.ts';
-import { LoopType } from './verify-utils.ts';
+import { AddrUnitType } from './verify-utils.ts';
 
 export const loopMapper = (
   db: Database
@@ -16,7 +16,8 @@ const mapLoop = (columns: string[], row: sheetValueTypes[]) => {
   const result: { [key: string]: sheetValueTypes } = {};
   columns.forEach((column, index) => {
     if (column === 'Type' && row[index] !== null && row[index] !== undefined) {
-      result[column] = LoopType[row[index].toString() as keyof typeof LoopType];
+      result[column] =
+        AddrUnitType[row[index].toString() as keyof typeof AddrUnitType];
     } else {
       result[column] = row[index] === null ? 'n/a' : row[index];
     }
