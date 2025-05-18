@@ -9,6 +9,7 @@ import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
 import { addressReportMapper } from '../../../projects/fweet/address-report-utils.ts';
 import { boardMapper } from '../../../projects/fweet/board-utils.ts';
 import { getSiteName } from '../../../projects/fweet/database-utils.ts';
+import { ioReportMapper } from '../../../projects/fweet/io-report-utils.ts';
 import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { groupMapper } from '../../../projects/fweet/output-groups-utils.ts';
@@ -41,6 +42,7 @@ const FweetExportForm: FC = () => {
   const [addressReport, setAddressReport] = useState<boolean>(true);
   const [ioBoard, setIoBoard] = useState<boolean>(true);
   const [outputGroups, setOutputGroups] = useState<boolean>(true);
+  const [ioReport, setIoReport] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -96,6 +98,14 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (ioReport && verifyCircuit(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        ioReportMapper(fepx, toast),
+        'IO_report',
+        siteName
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -111,7 +121,8 @@ const FweetExportForm: FC = () => {
     logbook &&
     addressReport &&
     ioBoard &&
-    outputGroups;
+    outputGroups &&
+    ioReport;
 
   const toggleSelectAll = () => {
     setFirePanel(!isAllSelected);
@@ -120,6 +131,7 @@ const FweetExportForm: FC = () => {
     setAddressReport(!isAllSelected);
     setIoBoard(!isAllSelected);
     setOutputGroups(!isAllSelected);
+    setIoReport(!isAllSelected);
   };
 
   return (
@@ -167,6 +179,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.groups'}
           value={outputGroups}
           setValue={() => setOutputGroups(!outputGroups)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.io'}
+          value={ioReport}
+          setValue={() => setIoReport(!ioReport)}
         />
       </ul>
       <LineBreak />
