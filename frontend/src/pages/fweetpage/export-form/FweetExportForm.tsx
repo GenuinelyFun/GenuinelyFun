@@ -7,12 +7,14 @@ import GenericButton from '../../../components/GenericButton';
 import LineBreak from '../../../components/LineBreak.tsx';
 import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
 import { addressReportMapper } from '../../../projects/fweet/address-report-utils.ts';
+import { boardMapper } from '../../../projects/fweet/board-utils.ts';
 import { getSiteName } from '../../../projects/fweet/database-utils.ts';
 import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
 import {
   verifyAddrUnit,
+  verifyCircuit,
   verifyLogbook,
   verifyPanels,
 } from '../../../projects/fweet/verify-utils.ts';
@@ -35,6 +37,7 @@ const FweetExportForm: FC = () => {
   const [fireLoop, setFireLoop] = useState<boolean>(true);
   const [logbook, setLogbook] = useState<boolean>(true);
   const [addressReport, setAddressReport] = useState<boolean>(true);
+  const [ioBoard, setIoBoard] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -74,6 +77,14 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (ioBoard && verifyCircuit(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        boardMapper(fepx, toast),
+        'Board',
+        siteName
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -90,6 +101,7 @@ const FweetExportForm: FC = () => {
     setFireLoop(!isAllSelected);
     setLogbook(!isAllSelected);
     setAddressReport(!isAllSelected);
+    setIoBoard(!isAllSelected);
   };
 
   return (
@@ -127,6 +139,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.board'}
+          value={ioBoard}
+          setValue={() => setIoBoard(!ioBoard)}
         />
       </ul>
       <LineBreak />

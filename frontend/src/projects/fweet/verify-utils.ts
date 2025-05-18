@@ -194,6 +194,75 @@ export const LOGBOOK_COLUMNS = [
   'UserName',
 ];
 
+export const CIRCUIT_COLUMNS = [
+  'Id',
+  'Number',
+  'PanelId',
+  'Type',
+  'OutputType',
+  'Name',
+  'TBNumber',
+  'Delayed',
+  'Delay',
+  'AbsDelay',
+  'NoHotelDelay',
+  'MaxAlarms',
+  'MaxLeds',
+  'OCLimit',
+  'Description',
+  'Priority',
+  'Led',
+  'Mp3Num',
+  'ActivateZones',
+  'ActivatePreSel',
+  'VCUSwitchOut',
+  'DelayOptions',
+  'ModbusCoil',
+  'NightIsolation',
+  'FaultLed',
+  'EvacuateLed',
+  'SectionSynch',
+  'SectionState',
+  'ButtonItemId',
+  'Options',
+];
+
+export enum CircuitType {
+  NU = 'Not in use (0)',
+  FAN = 'Fan (1) Anx 95/Delta',
+  DOOR = 'Door Magnets (2)',
+  FIRE = 'Alarm Transmitter (3)',
+  FAULTSO = 'Fault Device (4)',
+  FIRESO = 'Alarm Device (5)',
+  FAULT = 'Fault (6)',
+  PREAL = 'Pre-alarm (9)',
+  ISOLATE = 'Loop/Detector Isolation',
+  FIREMC = 'Manuall Call Points (11)',
+  '2DET' = 'Double Knock (12)',
+  PREALSO = 'Pre-alarm Device (13)',
+  ATSD = 'New Circuit',
+  ATSDTEST = 'New Circuit',
+  PULS = 'Single Pulse (0.8s) (14)',
+  ANY = 'Any disconnect (15)',
+  MAINS = 'Mains Off (16)',
+  COM = 'Network Communication Fau',
+  EXTD = 'Extinguishing (22)',
+  ATISOLAT = 'Alarm Transmitter Isolate',
+  ABDL = 'Fire Door Control (FDC) (',
+  ISOLOUTP = 'Output isolated (25)',
+  FIRE1 = 'Fire1 (27)',
+  FIRE2 = 'Fire2 (28)',
+  FIRE3 = 'Fire3 (29)',
+  FIRE5 = 'Fire5.1 Device (30)',
+  FIRE51 = 'Fire5.2 Device (31)',
+  FIRE52 = 'Fire5.3 Device (32)',
+  MBC = 'Modbus Controlled Output',
+  LOGOUT = 'Logical Output (38)',
+  CONFIRM = 'Alarm Confirmation (39)',
+  FAULTPU = 'Fault Paulse (40)',
+  EXT = 'Extinguishing (1) Anx 95E',
+}
+
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');
   const columns = panels.getColumnNames();
@@ -245,6 +314,25 @@ export const verifyLogbook = (db: Database, toast: Toast): boolean => {
       type: 'error',
       textKey: 'fweet.dataformat.error',
       textParams: { data: 'logbook' },
+    });
+    return false;
+  }
+  return true;
+};
+
+export const verifyCircuit = (db: Database, toast: Toast): boolean => {
+  const circuits = db.prepare('SELECT * FROM Circuit');
+  const columns = circuits.getColumnNames();
+  if (
+    columns.length !== CIRCUIT_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => CIRCUIT_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    toast({
+      type: 'error',
+      textKey: 'fweet.dataformat.error',
+      textParams: { data: 'circuit' },
     });
     return false;
   }
