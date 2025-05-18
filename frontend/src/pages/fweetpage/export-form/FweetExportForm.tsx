@@ -1,14 +1,16 @@
 import { Workbook } from 'exceljs';
-import fweetFilesaver from 'file-saver';
+import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useState } from 'react';
 
 import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import LineBreak from '../../../components/LineBreak.tsx';
 import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
+import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
 import {
+  verifyLogbook,
   verifyLoops,
   verifyPanels,
 } from '../../../projects/fweet/verify-utils.ts';
@@ -29,6 +31,7 @@ const FweetExportForm: FC = () => {
 
   const [firePanel, setFirePanel] = useState<boolean>(true);
   const [fireLoop, setFireLoop] = useState<boolean>(true);
+  const [logbook, setLogbook] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -50,13 +53,22 @@ const FweetExportForm: FC = () => {
     if (fireLoop && verifyLoops(fepx, toast)) {
       addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', 'idkyet');
     }
+    if (logbook && verifyLogbook(fepx, toast)) {
+      logbookMapper(fepx);
+      addFweetSheetToWorkbook(
+        workbook,
+        logbookMapper(fepx),
+        'Logbook',
+        'idkyet'
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
       const blob = new Blob([buffer], {
         type: 'application/octet-stream',
       });
-      fweetFilesaver.saveAs(blob, fileName);
+      FileSaver.saveAs(blob, fileName);
     });
   };
 
@@ -72,14 +84,19 @@ const FweetExportForm: FC = () => {
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
         <CheckboxWithInfobox
-          textKey={'panel'}
+          textKey={'fweet.export.panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
         />
         <CheckboxWithInfobox
-          textKey={'loop'}
+          textKey={'fweet.export.loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.logbook'}
+          value={logbook}
+          setValue={() => setLogbook(!logbook)}
         />
       </ul>
       <LineBreak />

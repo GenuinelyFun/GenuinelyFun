@@ -199,6 +199,21 @@
     "no": "Dette genererer en Excel fane som lister opp alle kontrollgrupper sammen med de tilknyttede enhetene som aktiverer dem.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle kontrollgrupper saman med dei tilknytte einingane som aktiverer dei."
   },
+  "fweet.export.logbook.checkbox.label": {
+    "en": "Logbook",
+    "no": "Loggbok",
+    "nn": "Loggbok"
+  },
+  "fweet.export.logbook.infobox.title": {
+    "en": "Logbook",
+    "no": "Loggbok",
+    "nn": "Loggbok"
+  },
+  "fweet.export.logbook.infobox.description": {
+    "en": "This option generates an Excel tab that lists all logbook entries.",
+    "no": "Dette genererer en Excel fane som lister opp alle loggbokoppføringer.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle loggbokoppføringar."
+  },
   "fweet.export.download.button": {
     "en": "Download Excel sheet",
     "no": "Last ned Excel filen",

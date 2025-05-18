@@ -213,6 +213,7 @@ export const addFweetSheetToWorkbook = (
     },
   });
   sheet.columns.forEach((column) => {
+    const LOGBOOK_MAX_WIDTH = 55;
     let dataMax = 0;
     column?.eachCell?.({ includeEmpty: true }, function (cell) {
       const columnLength = cell.value?.toString().length || 0;
@@ -220,7 +221,11 @@ export const addFweetSheetToWorkbook = (
         dataMax = columnLength;
       }
     });
-    column.width = dataMax < 10 ? 10 : dataMax;
+    if (sheetName === 'Logbook') {
+      column.width = dataMax > LOGBOOK_MAX_WIDTH ? LOGBOOK_MAX_WIDTH : dataMax;
+    } else {
+      column.width = dataMax < 10 ? 10 : dataMax;
+    }
   });
   sheet.eachRow({ includeEmpty: true }, function (row) {
     row.eachCell({ includeEmpty: true }, function (cell) {

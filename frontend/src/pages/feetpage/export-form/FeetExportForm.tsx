@@ -253,48 +253,48 @@ const FeetExportForm: FC = () => {
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
         <CheckboxWithInfobox
-          textKey={'selectall'}
+          textKey={'feet-export.selectall'}
           value={isAllSelected}
           setValue={toggleSelectAll}
         />
         <CheckboxWithInfobox
-          textKey={'summary'}
+          textKey={'feet-export.summary'}
           value={summary}
           setValue={() => setSummary(!summary)}
         />
         <CheckboxWithInfobox
-          textKey={'panel'}
+          textKey={'feet-export.panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
         />
         <CheckboxWithInfobox
-          textKey={'zone'}
+          textKey={'feet-export.zone'}
           value={zone}
           setValue={() => setZone(!zone)}
           disabled={!isZonesAvailable}
         />
         <CheckboxWithInfobox
-          textKey={'loop'}
+          textKey={'feet-export.loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
         />
         <CheckboxWithInfobox
-          textKey={'board'}
+          textKey={'feet-export.board'}
           value={ioBoard}
           setValue={() => setIoBoard(!ioBoard)}
         />
         <CheckboxWithInfobox
-          textKey={'address'}
+          textKey={'feet-export.address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
         />
         <CheckboxWithInfobox
-          textKey={'io'}
+          textKey={'feet-export.io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
         />
         <CheckboxWithInfobox
-          textKey={'controlgroups'}
+          textKey={'feet-export.controlgroups'}
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
         />

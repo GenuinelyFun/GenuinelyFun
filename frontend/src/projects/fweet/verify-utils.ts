@@ -2,6 +2,39 @@ import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
 
+export enum TABLENAMES {
+  AddEEprom = 'AddEEprom',
+  AddrUnit = 'AddrUnit',
+  AlZone = 'AlZone',
+  AssignedLed = 'AssignedLed',
+  Cause = 'Cause',
+  Circuit = 'Circuit',
+  DetToAlZone = 'DetToAlZone',
+  Effect = 'Effect',
+  IoCircuit = 'IoCircuit',
+  IQ8Setup = 'IQ8Setup',
+  Led = 'Led',
+  LogBook = 'LogBook',
+  Mp3Files = 'Mp3Files',
+  Mp3Lib = 'Mp3Lib',
+  Pager = 'Pager',
+  Panel = 'Panel',
+  PartList = 'PartList',
+  PropAnx = 'PropAnx',
+  PropDa = 'PropDa',
+  PropIts = 'PropIts',
+  PropOp = 'PropOp',
+  PropRep = 'PropRep',
+  Site = 'Site',
+  SMS = 'SMS',
+  sqlite_master = 'sqlite_master',
+  sqlite_sequence = 'sqlite_sequence',
+  tmpLogicTable = 'tmpLogicTable',
+  VcuMessage = 'VcuMessage',
+  VcuProperties = 'VcuProperties',
+  Zone = 'Zone',
+}
+
 export enum LoopType {
   ESGEN = 'Not defined type',
   IQSSMO = 'IQ8Quad Smoke detector (O/So)',
@@ -153,6 +186,14 @@ export const PANEL_COLUMNS = [
   'First',
 ];
 
+export const LOGBOOK_COLUMNS = [
+  'Id',
+  'Date',
+  'Heading',
+  'Description',
+  'UserName',
+];
+
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');
   const columns = panels.getColumnNames();
@@ -185,6 +226,26 @@ export const verifyLoops = (db: Database, toast: Toast): boolean => {
       type: 'error',
       textKey: 'fweet.dataformat.error',
       textParams: { data: 'loop' },
+    });
+    return false;
+  }
+  return true;
+};
+
+export const verifyLogbook = (db: Database, toast: Toast): boolean => {
+  const logbooks = db.prepare('SELECT * FROM Logbook');
+  const columns = logbooks.getColumnNames();
+  console.log(columns);
+  if (
+    columns.length !== LOGBOOK_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => LOGBOOK_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    toast({
+      type: 'error',
+      textKey: 'fweet.dataformat.error',
+      textParams: { data: 'logbook' },
     });
     return false;
   }
