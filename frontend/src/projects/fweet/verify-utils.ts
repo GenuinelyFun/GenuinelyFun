@@ -227,7 +227,7 @@ export const CIRCUIT_COLUMNS = [
   'Options',
 ];
 
-export enum CircuitType {
+export enum CircuitOutputType {
   NU = 'Not in use (0)',
   FAN = 'Fan (1) Anx 95/Delta',
   DOOR = 'Door Magnets (2)',
@@ -261,6 +261,24 @@ export enum CircuitType {
   CONFIRM = 'Alarm Confirmation (39)',
   FAULTPU = 'Fault Paulse (40)',
   EXT = 'Extinguishing (1) Anx 95E',
+}
+
+export enum CircuitType {
+  CONVLOOP = 'Fire Detection Line',
+  ALOUTPUT = 'Not Monitored Output',
+  BURGLER = 'Bulgar Detection Line',
+  RILINE = 'Battery RI Monitor Line',
+  TECHNIC = 'Technical Detection Line',
+  GASLINE = 'Gas Detection Line',
+  EXTDEV = 'External Device Line',
+  EXTING = 'Extinguishing Detection Line',
+  EXTDEV2 = 'Additional External Device Line',
+  NU = 'Not In Use',
+  IODIN = 'Digital Input',
+  REDUND = 'Loop Communication Control Line',
+  EXTEMLI = 'Emergency Light Sytem Monitoring',
+  ANLOOPTR = 'Addressable Loop',
+  SOOUTPUT = 'Monitored Output',
 }
 
 export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
