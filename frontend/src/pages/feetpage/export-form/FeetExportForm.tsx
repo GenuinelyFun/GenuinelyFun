@@ -6,6 +6,7 @@ import { FC, FormEventHandler, useEffect, useState } from 'react';
 import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
+import LineBreak from '../../../components/LineBreak.tsx';
 import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
 import { mapLoopAddressToExcel } from '../../../projects/feet/utils/address-report-utils.ts';
 import { mapBoardToExcel } from '../../../projects/feet/utils/board-utils.ts';
@@ -333,6 +334,7 @@ const FeetExportForm: FC = () => {
         />
         {translate('feet-export.separate.checkbox.label')}
       </label>
+      <LineBreak />
       <label className={styles.checkbox}>
         <input
           type={'checkbox'}
