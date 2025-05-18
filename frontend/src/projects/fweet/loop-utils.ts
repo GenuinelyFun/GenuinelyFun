@@ -1,23 +1,22 @@
 import { Database } from 'sql.js';
 
 import { sheetValueTypes } from '../feet/utils/utils.ts';
-import { PanelType } from './verify-utils.ts';
+import { LoopType } from './verify-utils.ts';
 
-export const panelMapper = (
+export const loopMapper = (
   db: Database
 ): { [p: string]: sheetValueTypes }[] => {
-  const results = db.exec('SELECT * FROM Panel');
+  const results = db.exec('SELECT * FROM AddrUnit');
   return results[0].values.map((row) => {
-    return mapPanel(results[0].columns, row as sheetValueTypes[]);
+    return mapLoop(results[0].columns, row as sheetValueTypes[]);
   });
 };
 
-const mapPanel = (columns: string[], row: sheetValueTypes[]) => {
+const mapLoop = (columns: string[], row: sheetValueTypes[]) => {
   const result: { [key: string]: sheetValueTypes } = {};
   columns.forEach((column, index) => {
     if (column === 'Type' && row[index] !== null && row[index] !== undefined) {
-      result[column] =
-        PanelType[row[index].toString() as keyof typeof PanelType];
+      result[column] = LoopType[row[index].toString() as keyof typeof LoopType];
     } else {
       result[column] = row[index] === null ? 'n/a' : row[index];
     }

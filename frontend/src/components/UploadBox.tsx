@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import JSZip from 'jszip';
 import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
+import initSqlJs from 'sql.js';
 
 import CrossCircleIcon from '../assets/icons/CrossCircleIcon.tsx';
 import UploadIcon from '../assets/icons/UploadIcon.tsx';
@@ -11,7 +12,6 @@ import {
   shortenedFileName,
   useDataContext,
 } from '../utils/data-utils.ts';
-import { IAmTryingOutSomeStuffOkaaaay } from '../utils/database-utils.ts';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
 import { useNoDropZone } from '../utils/useNoDropZone.ts';
 import { useToast } from '../utils/useToast.ts';
@@ -107,7 +107,13 @@ const UploadBox: FC<Props> = ({
 
                 const dbFile = await databaseFile
                   .async('uint8array')
-                  .then(async (file) => IAmTryingOutSomeStuffOkaaaay(file));
+                  .then(async (file) => {
+                    const SQL = await initSqlJs({
+                      locateFile: (file) => `https://sql.js.org/dist/${file}`,
+                    });
+
+                    return new SQL.Database(file);
+                  });
 
                 return resolve({
                   name: file.name,

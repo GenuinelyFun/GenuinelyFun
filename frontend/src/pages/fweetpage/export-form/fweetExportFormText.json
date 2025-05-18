@@ -203,5 +203,10 @@
     "en": "Download Excel sheet",
     "no": "Last ned Excel filen",
     "nn": "Last ned Excel-fila"
+  },
+  "fweet.dataformat.error": {
+    "en": "Something went wrong with formatting {data} data. It will be skipped.",
+    "no": "Noe gikk galt med formatering av {data}data. Det vil bli hoppet over.",
+    "nn": "Noko gjekk gale med formatering av {data}data. Det vil bli hoppa over."
   }
 }

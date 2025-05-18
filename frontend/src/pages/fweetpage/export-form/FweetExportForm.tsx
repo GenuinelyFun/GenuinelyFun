@@ -6,7 +6,12 @@ import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import LineBreak from '../../../components/LineBreak.tsx';
 import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
+import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
+import {
+  verifyLoops,
+  verifyPanels,
+} from '../../../projects/fweet/verify-utils.ts';
 import { FweetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
@@ -23,6 +28,7 @@ const FweetExportForm: FC = () => {
   const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const [firePanel, setFirePanel] = useState<boolean>(true);
+  const [fireLoop, setFireLoop] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -35,16 +41,14 @@ const FweetExportForm: FC = () => {
   };
 
   const exportToFiles = (file: FweetFile) => {
-    const { name } = file;
+    const { name, fepx } = file;
     const workbook = new Workbook();
 
-    if (firePanel) {
-      addFweetSheetToWorkbook(
-        workbook,
-        panelMapper(file.fepx),
-        'Panel',
-        'idkyet'
-      );
+    if (firePanel && verifyPanels(fepx, toast)) {
+      addFweetSheetToWorkbook(workbook, panelMapper(fepx), 'Panel', 'idkyet');
+    }
+    if (fireLoop && verifyLoops(fepx, toast)) {
+      addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', 'idkyet');
     }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
@@ -71,6 +75,11 @@ const FweetExportForm: FC = () => {
           textKey={'panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
+        />
+        <CheckboxWithInfobox
+          textKey={'loop'}
+          value={fireLoop}
+          setValue={() => setFireLoop(!fireLoop)}
         />
       </ul>
       <LineBreak />
