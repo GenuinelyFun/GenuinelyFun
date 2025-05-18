@@ -129,7 +129,7 @@ const getTableRows = (
   return rows;
 };
 
-export const addSheetToWorkbook = (
+export const addFeetSheetToWorkbook = (
   workbook: Workbook,
   data: { [key: string]: sheetValueTypes }[],
   sheetName: string,
@@ -183,6 +183,46 @@ export const addSheetToWorkbook = (
         }
       });
     }
+    row.eachCell({ includeEmpty: true }, function (cell) {
+      cell.alignment = {
+        horizontal: 'left',
+      };
+    });
+  });
+};
+
+export const addFweetSheetToWorkbook = (
+  workbook: Workbook,
+  data: { [key: string]: sheetValueTypes }[],
+  sheetName: string,
+  siteName: string
+) => {
+  const sheet = workbook.addWorksheet(sheetName);
+  sheet.addRow(['Sitename: ' + siteName]);
+
+  const columns = getTableHeaders(data);
+  sheet.addTable({
+    name: sheetName,
+    ref: 'A2',
+    headerRow: true,
+    columns: columns,
+    rows: getTableRows(data, columns),
+    style: {
+      theme: 'TableStyleLight1',
+      showRowStripes: true,
+    },
+  });
+  sheet.columns.forEach((column) => {
+    let dataMax = 0;
+    column?.eachCell?.({ includeEmpty: true }, function (cell) {
+      const columnLength = cell.value?.toString().length || 0;
+      if (columnLength > dataMax) {
+        dataMax = columnLength;
+      }
+    });
+    column.width = dataMax < 10 ? 10 : dataMax;
+  });
+  sheet.eachRow({ includeEmpty: true }, function (row) {
     row.eachCell({ includeEmpty: true }, function (cell) {
       cell.alignment = {
         horizontal: 'left',

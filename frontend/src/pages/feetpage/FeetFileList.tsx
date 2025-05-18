@@ -8,14 +8,14 @@ import styles from './FeetFileList.module.less';
 
 const FeetFileList = () => {
   const { translate } = useLanguageContext();
-  const { files, removeFile } = useDataContext();
+  const { feetFiles, removeFile } = useDataContext();
 
   return (
     <ul
       className={styles.fileList}
       aria-label={translate('feet-file-list.title.aria')}
     >
-      {files.map(({ name, short }) => (
+      {feetFiles.map(({ name, short }) => (
         <li className={styles.fileCard} key={short} aria-label={short}>
           <FileIcon
             aria-label={translate('feet-file-list.document.aria')}

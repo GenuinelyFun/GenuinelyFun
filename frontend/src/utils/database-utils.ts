@@ -1,3 +1,60 @@
+import initSqlJs, { Database } from 'sql.js';
+
+export const PANEL_COLUMNS = [
+  'Id',
+  'Number',
+  'SlaveOn',
+  'FirstMaster',
+  'SlaveLevel',
+  'Type',
+  'Name',
+  'SerialNumber',
+  'SwVersion',
+  'Language',
+  'Country',
+  'LastDownload',
+  'EepromSize',
+  'Description',
+  'ExpCard',
+  'Its2Card',
+  'MimicPanel',
+  'SmsSiteText',
+  'SmsScaAdress',
+  'SmsPinCode',
+  'SmsCard',
+  'SmsHBFreq',
+  'SmsHBStartDay',
+  'First',
+];
+
+export const PANEL_COLUMN_AMOUNT = 24;
+
+export const IAmTryingOutSomeStuffOkaaaay = async (
+  dbFile: Uint8Array<ArrayBufferLike>
+): Promise<Database> => {
+  const SQL = await initSqlJs({
+    locateFile: (file) => `https://sql.js.org/dist/${file}`,
+  });
+
+  const db = new SQL.Database(dbFile);
+  const stmt = db.prepare('SELECT * FROM Panel');
+  //const result = stmt.getAsObject();
+  const columns = stmt.getColumnNames();
+  if (columns.length !== PANEL_COLUMN_AMOUNT) {
+    console.error(
+      `Expected ${PANEL_COLUMN_AMOUNT} columns, but got ${columns.length}`
+    );
+  } else if (
+    Object.values(columns)
+      .map((column) => PANEL_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    console.error(
+      `Expected columns ${PANEL_COLUMNS}, but got ${Object.values(columns)}`
+    );
+  }
+  return db;
+};
 /*import initSqlJs, { Database } from 'sql.js';
 // This function takes a File (an uploaded .sdb file) and returns a Promise
 // that resolves to a JSON string representing the contents of the database.
@@ -11,7 +68,7 @@ export async function convertSdbToJson(file: File): Promise<string> {
       } else {
         reject(new Error('Failed to read file.'));
       }
-    };
+    };        
     reader.onerror = () => reject(new Error('Error reading file.'));
     // Read the file as an ArrayBuffer (this is key for binary files)
     reader.readAsArrayBuffer(file);
@@ -55,6 +112,7 @@ export async function convertSdbToJson(file: File): Promise<string> {
   return jsonStr;
 }*/
 
+/*
 //TODO NGHI this is from the heet branch, no idea what we're doing here.
 
 export function extractAndFormatSQL(input: string): string {
@@ -125,3 +183,6 @@ export function extractAndFormatSQL(input: string): string {
   // 7. Return it with a code fence if you like:
   return '```sql\n' + combinedSQL + '\n```';
 }
+
+
+ */

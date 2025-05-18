@@ -5,16 +5,15 @@ import authorCardText from '../../components/authorCardText.json';
 import darkmodeToggleText from '../../components/darkmodeToggleText.json';
 import footerText from '../../components/footerText.json';
 import menuText from '../../components/menuText.json';
+import uploadBoxText from '../../components/uploadBoxText.json';
 import articlePageText from '../../pages/articlepage/articlePageText.json';
 import reflectiveThinkingPageText from '../../pages/articlepage/reflectiveThinkingPageText.json';
 import techBestPracticePageText from '../../pages/articlepage/techBestPracticePageText.json';
 import feetExportFormText from '../../pages/feetpage/export-form/feetExportFormText.json';
 import feetFileListText from '../../pages/feetpage/feetFileListText.json';
-import feetImportFormText from '../../pages/feetpage/feetImportFormText.json';
 import feetPageText from '../../pages/feetpage/feetPageText.json';
 import fweetExportFormText from '../../pages/fweetpage/export-form/fweetExportFormText.json';
 import fweetFileListText from '../../pages/fweetpage/fweetFileListText.json';
-import fweetImportFormText from '../../pages/fweetpage/fweetImportFormText.json';
 import fweetPageText from '../../pages/fweetpage/fweetPageText.json';
 import homePageText from '../../pages/homepage/homePageText.json';
 import pageNotFoundText from '../../pages/notfoundpage/notFoundPageText.json';
@@ -39,17 +38,16 @@ export const translationTexts = {
   ...techBestPracticePageText,
   ...feetExportFormText,
   ...feetFileListText,
-  ...feetImportFormText,
   ...feetPageText,
   ...fweetExportFormText,
   ...fweetFileListText,
-  ...fweetImportFormText,
   ...fweetPageText,
   ...homePageText,
   ...pageNotFoundText,
   ...arthurPageText,
   ...nghiPageText,
   ...genericText,
+  ...uploadBoxText,
 };
 
 export type TranslateTextKey = keyof typeof translationTexts;

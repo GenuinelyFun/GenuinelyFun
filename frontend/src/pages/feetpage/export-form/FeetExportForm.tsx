@@ -15,7 +15,7 @@ import { mapLoopToExcel } from '../../../projects/feet/utils/loop-utils.ts';
 import { mapPanelToExcel } from '../../../projects/feet/utils/panel-utils.ts';
 import { mapSummaryToExcel } from '../../../projects/feet/utils/summary-utils.ts';
 import {
-  addSheetToWorkbook,
+  addFeetSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
 } from '../../../projects/feet/utils/utils.ts';
@@ -51,7 +51,7 @@ const FeetExportForm: FC = () => {
   >(i18n.language === 'no' ? 'nb' : 'en');
   const isZonesAvailable =
     feetFiles.length === 1
-      ? feetFiles[0].json.system.zones !== undefined
+      ? feetFiles[0].feet.system.zones !== undefined
       : true;
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const FeetExportForm: FC = () => {
     if (feetFiles.length !== 0) {
       const paneles: FilterPanelType = {};
       feetFiles.forEach((file) => {
-        paneles[file.short] = file.json.system.panels.reduce(
+        paneles[file.short] = file.feet.system.panels.reduce(
           (acc, panel: Panel) => ({
             ...acc,
             [`${panel.number}. ${panel.name}`]: true,
@@ -80,7 +80,7 @@ const FeetExportForm: FC = () => {
 
     toast({ type: 'success', textKey: 'feet-export.started' });
     feetFiles.forEach((file) => {
-      const panels = file.json.system.panels.filter((panel) => {
+      const panels = file.feet.system.panels.filter((panel) => {
         if (filteredPanels[file.name] === undefined) {
           return true;
         }
@@ -97,40 +97,40 @@ const FeetExportForm: FC = () => {
   };
 
   const exportToFiles = (file: FeetFile, panels: Panel[]) => {
-    const { name, json } = file;
+    const { name, feet } = file;
     const workbook = new Workbook();
-    const zones = json.system.zones;
+    const zones = feet.system.zones;
     if (summary) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapSummaryToExcel(panels, sheetTranslate),
         'Summary',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (firePanel) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         panels.map((panel) =>
-          mapPanelToExcel(json.system, panel, sheetTranslate)
+          mapPanelToExcel(feet.system, panel, sheetTranslate)
         ),
         'Panel',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (zones !== undefined && zone) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapPanelsWithZones(panels, zones),
         'Zone',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (fireLoop) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         panels.flatMap((panel) =>
           panel.loop_controllers.flatMap((loop_controller) =>
@@ -138,43 +138,43 @@ const FeetExportForm: FC = () => {
           )
         ),
         'Loop',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (ioBoard) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapBoardToExcel(panels),
         'Board',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (addressReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapLoopAddressToExcel(panels, sheetTranslate),
         'Address_report',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (ioReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapToIOReportToExcel(panels, sheetTranslate),
         'IO_report',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (controlGroupReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapControlGroupsToExcel(panels, sheetTranslate),
         'Control group report',
-        json,
+        feet,
         sheetTranslate
       );
     }
