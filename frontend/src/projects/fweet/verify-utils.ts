@@ -283,6 +283,8 @@ export enum CircuitType {
 
 export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
 
+export enum AlZoneAssignType {}
+
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');
   const columns = panels.getColumnNames();
