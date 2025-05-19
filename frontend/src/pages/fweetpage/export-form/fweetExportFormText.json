@@ -174,6 +174,21 @@
     "no": "IO rapport",
     "nn": "IO rapport"
   },
+  "fweet.export.assigned.checkbox.label": {
+    "en": "Assigned output groups",
+    "no": "Tildelte utgangsgrupper",
+    "nn": "Tildelte utgangsgrupper"
+  },
+  "fweet.export.assigned.infobox.title": {
+    "en": "Assigned output groups",
+    "no": "Tildelte utgangsgrupper",
+    "nn": "Tildelte utgangsgrupper"
+  },
+  "fweet.export.assigned.infobox.description": {
+    "en": "This option generates an Excel tab listing all assigned output groups along with their configuration.",
+    "no": "Dette genererer en Excel fane som lister opp alle tildelte utgangsgrupper sammen med deres konfigurasjon.",
+    "nn": "Dette genererer ein Excel-fane som listar opp alle tildelte utgangsgrupper saman med deira konfigurasjon."
+  },
   "fweet.export.io.missing-json": {
     "en": "It appears there are no inputs and outputs in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes input and output data and try again.",
     "no": "Det ser ut til at det ikke er noen styringer i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder styringer og prøv igjen.",

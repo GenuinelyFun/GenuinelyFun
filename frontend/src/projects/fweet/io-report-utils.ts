@@ -56,7 +56,7 @@ const VALID_ADDR_UNIT_TYPES = [
 
 export const ioReportMapper = (db: Database, toast: Toast) => {
   const groups = db.exec(
-    'SELECT Type, PanelId, TBNumber, Name, Description, Type, OutputType FROM Circuit'
+    'SELECT PanelId, TBNumber, Name, Description, Type, OutputType FROM Circuit'
   );
 
   if (groups.length === 0) {
@@ -68,7 +68,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
     .filter((row) => row[0] !== 'ANLOOPTR' && row[0] !== null)
     .map((row) => {
       const result: { [key: string]: string } = {};
-      const [_, panelId, tbNumber, name, description, type, outputType] = row;
+      const [panelId, tbNumber, name, description, type, outputType] = row;
 
       result['Address'] =
         'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber;

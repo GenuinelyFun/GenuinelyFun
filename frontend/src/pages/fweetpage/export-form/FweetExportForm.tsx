@@ -7,6 +7,7 @@ import GenericButton from '../../../components/GenericButton';
 import LineBreak from '../../../components/LineBreak.tsx';
 import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
 import { addressReportMapper } from '../../../projects/fweet/address-report-utils.ts';
+import { assignedOutputGroupsMapper } from '../../../projects/fweet/assigned-output-groups.ts';
 import { boardMapper } from '../../../projects/fweet/board-utils.ts';
 import { getSiteName } from '../../../projects/fweet/database-utils.ts';
 import { ioReportMapper } from '../../../projects/fweet/io-report-utils.ts';
@@ -43,6 +44,7 @@ const FweetExportForm: FC = () => {
   const [ioBoard, setIoBoard] = useState<boolean>(true);
   const [outputGroups, setOutputGroups] = useState<boolean>(true);
   const [ioReport, setIoReport] = useState<boolean>(true);
+  const [assigned, setAssigned] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -106,6 +108,14 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (assigned && verifyCircuit(fepx, toast) && verifyAddrUnit(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        assignedOutputGroupsMapper(fepx, toast),
+        'Assigned_output_groups',
+        siteName
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -115,6 +125,7 @@ const FweetExportForm: FC = () => {
       FileSaver.saveAs(blob, fileName);
     });
   };
+
   const isAllSelected =
     firePanel &&
     fireLoop &&
@@ -122,7 +133,8 @@ const FweetExportForm: FC = () => {
     addressReport &&
     ioBoard &&
     outputGroups &&
-    ioReport;
+    ioReport &&
+    assigned;
 
   const toggleSelectAll = () => {
     setFirePanel(!isAllSelected);
@@ -132,6 +144,7 @@ const FweetExportForm: FC = () => {
     setIoBoard(!isAllSelected);
     setOutputGroups(!isAllSelected);
     setIoReport(!isAllSelected);
+    setAssigned(!isAllSelected);
   };
 
   return (
@@ -184,6 +197,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.assigned'}
+          value={assigned}
+          setValue={() => setAssigned(!assigned)}
         />
       </ul>
       <LineBreak />
