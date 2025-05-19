@@ -87,7 +87,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
     });
 
   const addresses = db.exec(
-    'SELECT a.Id, a.Type, a.CircuitNo, a.UnitNo, a.Name, a.Description, a.Type, io.TBNumber, io.Name, io.Description FROM AddrUnit a INNER JOIN IoCircuit io ON io.UnitId = a.Id'
+    'SELECT a.Id, a.Type, a.CircuitNo, a.UnitNo, a.Name, a.Description, a.Type, io.TBNumber, io.Name, io.Description FROM AddrUnit a LEFT JOIN IoCircuit io ON io.UnitId = a.Id'
   );
 
   if (addresses.length === 0) {
