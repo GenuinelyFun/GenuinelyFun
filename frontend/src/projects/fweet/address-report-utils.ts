@@ -2,6 +2,7 @@ import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
 import { sheetValueTypes } from '../feet/utils/utils.ts';
+import { getZoneAddressByAddrUnitId } from './database-utils.ts';
 import { AddrUnitType } from './verify-utils.ts';
 
 export const addressReportMapper = (db: Database, toast: Toast) => {
@@ -23,23 +24,10 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
       result['Address'] =
         `${circuitNo.toString().padStart(3, '0')}.${unitNo.toString().padStart(3, '0')}`;
     }
-    result['Zone'] = getZoneId(db, id as number);
+    result['Zone'] = getZoneAddressByAddrUnitId(db, id as number);
     result['Name'] = name as string;
     result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
     result['Description'] = description as string;
     return result;
   });
-};
-
-export const getZoneId = (db: Database, addrUnitId: number): string => {
-  const stmt = db.exec('SELECT SoneId FROM Cause WHERE InId = ?', [addrUnitId]);
-  if (stmt.length === 0) {
-    return 'n/a';
-  }
-  const soneId = stmt[0].values[0][0];
-  const zoneInformation = db.exec(
-    'SELECT ParentZone, Number FROM Zone WHERE Id = ?',
-    [soneId]
-  )[0].values[0];
-  return `${zoneInformation[0]}.${zoneInformation[1]}`;
 };

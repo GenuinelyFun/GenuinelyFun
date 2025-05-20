@@ -1,7 +1,7 @@
 import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
-import { getZoneId } from './address-report-utils.ts';
+import { getZoneAddressByAddrUnitId } from './database-utils.ts';
 import {
   AddrUnitType,
   CircuitOutputType,
@@ -118,7 +118,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
           .toString()
           .padStart(3, '0')}${tbNumber ? `.${tbNumber}` : ''}`;
       }
-      result['Zone'] = getZoneId(db, id as number);
+      result['Zone'] = getZoneAddressByAddrUnitId(db, id as number);
       result['Name'] = tbNumber ? (ioName as string) : (name as string);
       result['Description'] = tbNumber
         ? (ioDescription as string)

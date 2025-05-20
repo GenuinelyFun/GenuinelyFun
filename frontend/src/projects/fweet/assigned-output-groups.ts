@@ -1,6 +1,7 @@
-import { Database, SqlValue } from 'sql.js';
+import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
+import { getZoneAddressByZoneId } from './database-utils.ts';
 import {
   AddrUnitType,
   CircuitOutputType,
@@ -9,7 +10,7 @@ import {
 
 export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
   const groups = db.exec(
-    'SELECT a.Name, a.AssignType, d.DetZoneId FROM AlZone a ' +
+    'SELECT a.Id, a.Name, a.AssignType, d.DetZoneId FROM AlZone a ' +
       'LEFT JOIN DetToAlZone d ON a.Id = d.AlZoneId '
   );
 
@@ -26,8 +27,7 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
       return [];
     }
     return group.map((row, index) => {
-      const [name, assignedType, zoneId] = row;
-      const { preZone, postZone } = getZoneByZoneId(db, zoneId as number);
+      const [alZoneId, name, assignedType, zoneId] = row;
 
       const addrUnitResults: { [key: string]: string }[] = [];
       const addrUnits = getAddrUnitsFromZoneId(db, zoneId as number);
@@ -37,15 +37,14 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
           'Output Group': '',
           'Assigned Type': '',
           Address: `${String(preAddr).padStart(3, '0')}.${String(postAddr).padStart(3, '0')}`,
-          Zone:
-            preZone && postZone ? `${String(preZone)}.${String(postZone)}` : '',
+          Zone: getZoneAddressByZoneId(db, zoneId as number),
           Type: AddrUnitType[addrType as keyof typeof AddrUnitType] || addrType,
           'Output Type': '',
         });
       });
 
       const circuitResults: { [key: string]: string }[] = [];
-      const effects = getEffectOutIdsFromZoneId(db, zoneId as number);
+      const effects = getEffectOutIdsFromAlZoneId(db, alZoneId as number);
       effects?.forEach((effect) => {
         const circuits = getCircuitsFromEffectOutId(db, effect[0] as number);
         circuits?.forEach((circuit) => {
@@ -55,10 +54,7 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
             'Assigned Type': '',
             Address:
               'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber,
-            Zone:
-              preZone && postZone
-                ? `${String(preZone)}.${String(postZone)}`
-                : '',
+            Zone: getZoneAddressByZoneId(db, zoneId as number),
             Type:
               CircuitType[String(type) as keyof typeof CircuitType] ||
               (type as string),
@@ -92,22 +88,6 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
   });
   return grouped.flat().flat();
 };
-
-const getZoneByZoneId = (
-  db: Database,
-  zoneId: number
-): { preZone: SqlValue; postZone: SqlValue } => {
-  const stmt = db.exec('SELECT ParentZone, Number FROM Zone WHERE Id = ?', [
-    zoneId,
-  ]);
-  if (stmt.length === 0) {
-    return { preZone: null, postZone: null };
-  }
-
-  const zoneInformation = stmt[0].values[0];
-  return { preZone: zoneInformation[0], postZone: zoneInformation[1] };
-};
-
 const getAddrUnitsFromZoneId = (db: Database, zoneId: number) => {
   const stmt = db.exec(
     'SELECT a.CircuitNo, a.UnitNo, a.Type FROM Cause c INNER JOIN AddrUnit a ON a.id = c.InId WHERE c.SoneId = ?',
@@ -120,8 +100,8 @@ const getAddrUnitsFromZoneId = (db: Database, zoneId: number) => {
   return stmt[0].values;
 };
 
-const getEffectOutIdsFromZoneId = (db: Database, zoneId: number) => {
-  const stmt = db.exec('SELECT OutId FROM Effect WHERE SoneId = ?', [zoneId]);
+const getEffectOutIdsFromAlZoneId = (db: Database, alZoneId: number) => {
+  const stmt = db.exec('SELECT OutId FROM Effect WHERE SoneId = ?', [alZoneId]);
   if (stmt.length === 0) {
     return null;
   }
