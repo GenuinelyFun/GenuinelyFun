@@ -16,6 +16,7 @@ import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { groupMapper } from '../../../projects/fweet/output-groups-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
+import { propOpMapper } from '../../../projects/fweet/propOp-utils.ts';
 import {
   verifyAddEeProm,
   verifyAddrUnit,
@@ -23,6 +24,7 @@ import {
   verifyCircuit,
   verifyLogbook,
   verifyPanels,
+  verifyPropOp,
 } from '../../../projects/fweet/verify-utils.ts';
 import { FweetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
@@ -48,6 +50,7 @@ const FweetExportForm: FC = () => {
   const [ioReport, setIoReport] = useState<boolean>(true);
   const [assigned, setAssigned] = useState<boolean>(true);
   const [eeProm, setEeProm] = useState<boolean>(true);
+  const [propOp, setPropOp] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -127,6 +130,14 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (propOp && verifyPropOp(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        propOpMapper(fepx, toast),
+        'Panel_properties',
+        siteName
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -146,7 +157,8 @@ const FweetExportForm: FC = () => {
     outputGroups &&
     ioReport &&
     assigned &&
-    eeProm;
+    eeProm &&
+    propOp;
 
   const toggleSelectAll = () => {
     setFirePanel(!isAllSelected);
@@ -158,6 +170,7 @@ const FweetExportForm: FC = () => {
     setIoReport(!isAllSelected);
     setAssigned(!isAllSelected);
     setEeProm(!isAllSelected);
+    setPropOp(!isAllSelected);
   };
 
   return (
@@ -220,6 +233,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.eeProm'}
           value={eeProm}
           setValue={() => setEeProm(!eeProm)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.propOp'}
+          value={propOp}
+          setValue={() => setPropOp(!propOp)}
         />
       </ul>
       <LineBreak />

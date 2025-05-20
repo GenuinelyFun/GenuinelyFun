@@ -298,6 +298,88 @@ export const ADDEEPROM_COLUMNS = [
 ];
 
 export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
+export const PROP_OP_COLUMNS = [
+  'PanelId',
+  'ModemActivation',
+  'ModemDelay',
+  'SilenceSounder',
+  'DetectorTextPres',
+  'ZoneMessage',
+  'ReminderBeep',
+  'DayMon',
+  'NightMon',
+  'DayTue',
+  'NightTue',
+  'DayWed',
+  'NightWed',
+  'DayThu',
+  'NightThu',
+  'DayFri',
+  'NightFri',
+  'DaySat',
+  'NightSat',
+  'DaySun',
+  'NightSun',
+  'PrintMessage',
+  'HotelDelay',
+  'NotHotelDelay',
+  'Buzzer',
+  'PrealarmAct',
+  'IsolationAct',
+  'PagerType',
+  'PagerAlarm',
+  'PagerPreAlarm',
+  'PagerSysFault',
+  'PagerDetFault',
+  'PagerEmliFault',
+  'PagerMax2DetFault',
+  'PagerIsolation',
+  'PagerDeisolation',
+  'AlarmTransAutomatic',
+  'AlarmTransActManual',
+  'ECommDeviceData',
+  'ECommEventAck',
+  'ECommHeartAck',
+  'ECommAsciiDevice',
+  'ECommExtendedProt',
+  'ECommUseToken',
+  'ECommTokenDir',
+  'ECommUseHeartbeat',
+  'ECommTotalComFault',
+  'ECommReqResMode',
+  'ECommMaster',
+  'ECommNextSystem',
+  'ComPort1Prot',
+  'ComPort1Baud',
+  'ComPort1Form',
+  'ComPort2Prot',
+  'ComPort2Baud',
+  'ComPort2Form',
+  'DisableOnKeyOperation',
+  'Alg7',
+  'LedFault',
+  'LedEvac',
+  'LedIsolation',
+  'LedMicBusy',
+  'LedMicReady',
+  'MenuType',
+  'PreAlarmPriority',
+  'DelayOptions',
+  'DelayAlarmTransmitter',
+  'AlarmTransmitterKit',
+  'BuzzerOptions',
+  'PagerOptions',
+  'KeySwitchOptions',
+  'DisplayPres',
+  'ExtingOptions',
+  'ECommJump',
+  'ECommRedundancy',
+  'DetContam',
+  'InhibitedPres',
+  'SafetelConfig',
+  'SafetelSysID',
+  'eCommBits',
+];
 
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');
@@ -325,6 +407,24 @@ export const verifyAddEeProm = (db: Database, toast: Toast): boolean => {
     columns.length !== ADDEEPROM_COLUMNS.length ||
     Object.values(columns)
       .map((column) => ADDEEPROM_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    toast({
+      type: 'error',
+      textKey: 'fweet.dataformat.error',
+      textParams: { data: 'AddEeProm' },
+    });
+    return false;
+  }
+  return true;
+};
+export const verifyPropOp = (db: Database, toast: Toast): boolean => {
+  const panels = db.prepare('SELECT * FROM PropOp');
+  const columns = panels.getColumnNames();
+  if (
+    columns.length !== PROP_OP_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => PROP_OP_COLUMNS.includes(column))
       .includes(false)
   ) {
     toast({
