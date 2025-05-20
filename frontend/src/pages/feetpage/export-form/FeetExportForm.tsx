@@ -3,8 +3,10 @@ import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useEffect, useState } from 'react';
 
+import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
 import InfoBox from '../../../components/InfoBox';
+import LineBreak from '../../../components/LineBreak.tsx';
 import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
 import { mapLoopAddressToExcel } from '../../../projects/feet/utils/address-report-utils.ts';
 import { mapBoardToExcel } from '../../../projects/feet/utils/board-utils.ts';
@@ -14,15 +16,14 @@ import { mapLoopToExcel } from '../../../projects/feet/utils/loop-utils.ts';
 import { mapPanelToExcel } from '../../../projects/feet/utils/panel-utils.ts';
 import { mapSummaryToExcel } from '../../../projects/feet/utils/summary-utils.ts';
 import {
-  addSheetToWorkbook,
+  addFeetSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
 } from '../../../projects/feet/utils/utils.ts';
 import { mapPanelsWithZones } from '../../../projects/feet/utils/zone-utils.ts';
-import { File, useDataContext } from '../../../utils/data-utils.ts';
+import { FeetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
-import CheckboxWithInfobox from './CheckboxWithInfobox.tsx';
 import styles from './FeetExportForm.module.less';
 import PanelCheckbox from './PanelCheckbox.tsx';
 
@@ -33,7 +34,7 @@ export interface FilterPanelType {
 const FeetExportForm: FC = () => {
   const toast = useToast();
   const { translate, i18n } = useLanguageContext();
-  const { files } = useDataContext();
+  const { feetFiles } = useDataContext();
   const { sheetTranslate, updateLanguage } = useSheetTranslate();
   const [summary, setSummary] = useState<boolean>(true);
   const [zone, setZone] = useState<boolean>(true);
@@ -50,17 +51,19 @@ const FeetExportForm: FC = () => {
     keyof typeof feetLanguages
   >(i18n.language === 'no' ? 'nb' : 'en');
   const isZonesAvailable =
-    files.length === 1 ? files[0].json.system.zones !== undefined : true;
+    feetFiles.length === 1
+      ? feetFiles[0].feet.system.zones !== undefined
+      : true;
 
   useEffect(() => {
     updateLanguage(sheetLanguage);
     if (!isZonesAvailable) {
       setZone(false);
     }
-    if (files.length !== 0) {
+    if (feetFiles.length !== 0) {
       const paneles: FilterPanelType = {};
-      files.forEach((file) => {
-        paneles[file.short] = file.json.system.panels.reduce(
+      feetFiles.forEach((file) => {
+        paneles[file.short] = file.feet.system.panels.reduce(
           (acc, panel: Panel) => ({
             ...acc,
             [`${panel.number}. ${panel.name}`]: true,
@@ -70,15 +73,15 @@ const FeetExportForm: FC = () => {
       });
       setFilteredPanels(paneles);
     }
-  }, [files, isZonesAvailable, sheetLanguage]);
+  }, [feetFiles, isZonesAvailable, sheetLanguage]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (files.length === 0) return;
+    if (feetFiles.length === 0) return;
 
     toast({ type: 'success', textKey: 'feet-export.started' });
-    files.forEach((file) => {
-      const panels = file.json.system.panels.filter((panel) => {
+    feetFiles.forEach((file) => {
+      const panels = file.feet.system.panels.filter((panel) => {
         if (filteredPanels[file.name] === undefined) {
           return true;
         }
@@ -94,41 +97,41 @@ const FeetExportForm: FC = () => {
     });
   };
 
-  const exportToFiles = (file: File, panels: Panel[]) => {
-    const { name, json } = file;
+  const exportToFiles = (file: FeetFile, panels: Panel[]) => {
+    const { name, feet } = file;
     const workbook = new Workbook();
-    const zones = json.system.zones;
+    const zones = feet.system.zones;
     if (summary) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapSummaryToExcel(panels, sheetTranslate),
         'Summary',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (firePanel) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         panels.map((panel) =>
-          mapPanelToExcel(json.system, panel, sheetTranslate)
+          mapPanelToExcel(feet.system, panel, sheetTranslate)
         ),
         'Panel',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (zones !== undefined && zone) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapPanelsWithZones(panels, zones),
         'Zone',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (fireLoop) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         panels.flatMap((panel) =>
           panel.loop_controllers.flatMap((loop_controller) =>
@@ -136,43 +139,43 @@ const FeetExportForm: FC = () => {
           )
         ),
         'Loop',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (ioBoard) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapBoardToExcel(panels),
         'Board',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (addressReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapLoopAddressToExcel(panels, sheetTranslate),
         'Address_report',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (ioReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapToIOReportToExcel(panels, sheetTranslate),
         'IO_report',
-        json,
+        feet,
         sheetTranslate
       );
     }
     if (controlGroupReport) {
-      addSheetToWorkbook(
+      addFeetSheetToWorkbook(
         workbook,
         mapControlGroupsToExcel(panels, sheetTranslate),
         'Control group report',
-        json,
+        feet,
         sheetTranslate
       );
     }
@@ -251,48 +254,48 @@ const FeetExportForm: FC = () => {
       </label>
       <ul aria-labelledby={'sheet-checkbox-list'} className={styles.list}>
         <CheckboxWithInfobox
-          textKey={'selectall'}
+          textKey={'feet-export.selectall'}
           value={isAllSelected}
           setValue={toggleSelectAll}
         />
         <CheckboxWithInfobox
-          textKey={'summary'}
+          textKey={'feet-export.summary'}
           value={summary}
           setValue={() => setSummary(!summary)}
         />
         <CheckboxWithInfobox
-          textKey={'panel'}
+          textKey={'feet-export.panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
         />
         <CheckboxWithInfobox
-          textKey={'zone'}
+          textKey={'feet-export.zone'}
           value={zone}
           setValue={() => setZone(!zone)}
           disabled={!isZonesAvailable}
         />
         <CheckboxWithInfobox
-          textKey={'loop'}
+          textKey={'feet-export.loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
         />
         <CheckboxWithInfobox
-          textKey={'board'}
+          textKey={'feet-export.board'}
           value={ioBoard}
           setValue={() => setIoBoard(!ioBoard)}
         />
         <CheckboxWithInfobox
-          textKey={'address'}
+          textKey={'feet-export.address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
         />
         <CheckboxWithInfobox
-          textKey={'io'}
+          textKey={'feet-export.io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
         />
         <CheckboxWithInfobox
-          textKey={'controlgroups'}
+          textKey={'feet-export.controlgroups'}
           value={controlGroupReport}
           setValue={() => setControlGroupReport(!controlGroupReport)}
         />
@@ -311,7 +314,7 @@ const FeetExportForm: FC = () => {
           header={translate('feet-export.filter.infobox.title')}
         />
       </label>
-      {files.length === 0 ? (
+      {feetFiles.length === 0 ? (
         <p className={styles.emptyPanels}>
           {translate('feet-export.filter.empty')}
         </p>
@@ -331,6 +334,7 @@ const FeetExportForm: FC = () => {
         />
         {translate('feet-export.separate.checkbox.label')}
       </label>
+      <LineBreak />
       <label className={styles.checkbox}>
         <input
           type={'checkbox'}
@@ -343,7 +347,7 @@ const FeetExportForm: FC = () => {
       </label>
       <GenericButton
         className={styles.button}
-        disabled={files.length === 0 || isNoneSelected || !disclaimer}
+        disabled={feetFiles.length === 0 || isNoneSelected || !disclaimer}
         type={'submit'}
       >
         {translate('feet-export.download.button')}

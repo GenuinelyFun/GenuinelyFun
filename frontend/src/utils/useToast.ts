@@ -4,16 +4,30 @@ import hotToast, { Renderable, ValueOrFunction } from 'react-hot-toast';
 import { useDarkmodeContext } from './darkmode-utils.ts';
 import { TranslateTextKey, useLanguageContext } from './i18n/language-utils.ts';
 
-export const useToast = () => {
-  interface PromiseProps {
-    loader: Promise<unknown>;
-    options: {
-      loading: Renderable;
-      success: ValueOrFunction<Renderable, unknown>;
-      error: ValueOrFunction<Renderable, unknown>;
-    };
-  }
+interface PromiseProps {
+  loader: Promise<unknown>;
+  options: {
+    loading: Renderable;
+    success: ValueOrFunction<Renderable, unknown>;
+    error: ValueOrFunction<Renderable, unknown>;
+  };
+}
 
+export type Toast = ({
+  type,
+  textKey,
+  textParams,
+  element,
+  promise,
+}: {
+  type: 'error' | 'success' | 'promise' | 'info';
+  textKey?: TranslateTextKey;
+  textParams?: Record<string, string>;
+  element?: ReactElement;
+  promise?: PromiseProps;
+}) => void;
+
+export const useToast = (): Toast => {
   const { translate } = useLanguageContext();
   const { theme } = useDarkmodeContext();
 

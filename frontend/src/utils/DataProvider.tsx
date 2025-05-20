@@ -1,16 +1,24 @@
 import { FC, PropsWithChildren, useState } from 'react';
 
-import { DataContext, File, shortenedFileName } from './data-utils.ts';
+import {
+  DataContext,
+  DataFile,
+  FeetFile,
+  FweetFile,
+  isFeetFile,
+  isFweetFile,
+  shortenedFileName,
+} from './data-utils.ts';
 import { useToast } from './useToast';
 
 export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<DataFile[]>([]);
   const toast = useToast();
-  const addFiles = (newFiles: File[]) => {
+  const addFiles = (newFiles: DataFile[]) => {
     const filteredNewFiles = newFiles.filter(({ name }) => {
       const check = files.map((file) => file.name).includes(name);
       if (check) {
-        toast({ type: 'info', textKey: 'feet-import.upload.duplicate' });
+        toast({ type: 'info', textKey: 'upload-box.error.duplicate' });
       }
       return !check;
     });
@@ -28,7 +36,19 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={{ files, addFiles, removeFile }}>
+    <DataContext.Provider
+      value={{
+        allFiles: files,
+        feetFiles: files
+          .filter((file) => isFeetFile(file))
+          .map((file) => file as FeetFile),
+        fweetFiles: files
+          .filter((file) => isFweetFile(file))
+          .map((file) => file as FweetFile),
+        addFiles,
+        removeFile,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

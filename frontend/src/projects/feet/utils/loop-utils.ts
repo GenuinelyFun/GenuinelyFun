@@ -61,7 +61,7 @@ export const mapLoopToExcel = (
         )?.value,
         'Day mode prealarm level.title':
           alarm_thresholds?.find((el) => (el.name = 'Prealarm, day mode'))
-            ?.value || 'N/A',
+            ?.value || '',
         'InputFunction.title': device.input_function,
         'AlarmMode.title': device.alarm_mode?.join(', '),
         'zoneDisables.title': device.zone_disables

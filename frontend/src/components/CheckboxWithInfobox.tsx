@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import InfoBox from '../../../components/InfoBox.tsx';
 import {
   TranslateTextKey,
   useLanguageContext,
-} from '../../../utils/i18n/language-utils.ts';
-import styles from './FeetExportForm.module.less';
+} from '../utils/i18n/language-utils.ts';
+import styles from './CheckboxWithInfobox.module.less';
+import InfoBox from './InfoBox.tsx';
 
 const CheckboxWithInfobox: FC<{
   textKey: string;
@@ -23,18 +23,14 @@ const CheckboxWithInfobox: FC<{
           onChange={setValue}
           disabled={disabled}
         />
-        {translate(`feet-export.${textKey}.checkbox.label` as TranslateTextKey)}
+        {translate(`${textKey}.checkbox.label` as TranslateTextKey)}
       </label>
       <InfoBox
         message={translate(
-          `feet-export.${textKey}.infobox.description` as TranslateTextKey
+          `${textKey}.infobox.description` as TranslateTextKey
         )}
-        header={translate(
-          `feet-export.${textKey}.infobox.title` as TranslateTextKey
-        )}
-        ariaAbout={translate(
-          `feet-export.${textKey}.infobox.title` as TranslateTextKey
-        )}
+        header={translate(`${textKey}.infobox.title` as TranslateTextKey)}
+        ariaAbout={translate(`${textKey}.infobox.title` as TranslateTextKey)}
       />
     </li>
   );

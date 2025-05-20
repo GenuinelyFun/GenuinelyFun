@@ -31,6 +31,22 @@ export const ArticleWrapper: FC<{ article: ArticleType }> = ({ article }) => {
     (textKey: TranslateTextKey) => textKey.split('.')[1]
   );
 
+  /*
+  TODO NGHI Is this change necessary? Are they different somehow or was this simply due to old typescript versjon error?
+  
+  const paragraphs: { [key: string]: TranslateTextKey[] } = textKeys.reduce(
+    (acc, textKey) => {
+      const paragraphKey: string = textKey.split('.')[1];
+      if (!acc[paragraphKey]) {
+        acc[paragraphKey] = [textKey];
+      } else {
+        acc[paragraphKey].push(textKey);
+      }
+      return acc;
+    },
+    {} as { [key: string]: TranslateTextKey[] },
+   */
+
   return (
     <main className={styles.article}>
       <article>

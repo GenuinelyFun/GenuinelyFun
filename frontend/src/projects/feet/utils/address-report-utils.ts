@@ -1,11 +1,11 @@
 import { Panel } from '../feetJsonDataInterface.ts';
-import { sheetTranslateType, sheetValueTypes } from './utils.ts';
+import { sheetTranslateType, SheetValueType } from './utils.ts';
 
 export const mapLoopAddressToExcel = (
   panels: Panel[],
   sheetTranslate: sheetTranslateType
 ) => {
-  const addressExcel: Record<string, sheetValueTypes>[] = [];
+  const addressExcel: Record<string, SheetValueType>[] = [];
 
   panels.forEach((panel) => {
     panel.loop_controllers.forEach((loop_controller) => {

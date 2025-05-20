@@ -1,34 +1,34 @@
 import { ControlGroupC, Panel } from '../feetJsonDataInterface.ts';
 import { forEachDeviceInLoopControllers } from './loop-utils.ts';
-import { sheetTranslateType, sheetValueTypes } from './utils.ts';
+import { sheetTranslateType, SheetValueType } from './utils.ts';
 
 export const mapControlGroupsToExcel = (
   panels: Panel[],
   sheetTranslate: sheetTranslateType
 ) => {
-  const inputs: Record<string, sheetValueTypes>[] = [];
-  const loop_outputs: Record<string, sheetValueTypes>[] = [];
-  const board_outputs: Record<string, sheetValueTypes>[] = [];
-  const structured_data: Record<string, sheetValueTypes>[] = [];
+  const inputs: Record<string, SheetValueType>[] = [];
+  const loop_outputs: Record<string, SheetValueType>[] = [];
+  const board_outputs: Record<string, SheetValueType>[] = [];
+  const structured_data: Record<string, SheetValueType>[] = [];
   // @ts-expect-error Love will always prevail
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const loveBabe = 'I will always love you, from your silly man';
 
   const mapToControlGroupObject = (
-    groupNumber: sheetValueTypes = null,
-    groupAddress: sheetValueTypes = null,
-    groupDeviceId: sheetValueTypes = null,
-    groupZone: sheetValueTypes = null,
-    groupDescription: sheetValueTypes = null,
-    groupDevice: sheetValueTypes = null,
-    groupProtocol: sheetValueTypes = null,
-    groupsNumber: sheetValueTypes = null,
-    groupsAddress: sheetValueTypes = null,
-    groupsDeviceId: sheetValueTypes = null,
-    groupsZone: sheetValueTypes = null,
-    groupsDescription: sheetValueTypes = null,
-    groupsDevice: sheetValueTypes = null,
-    groupsProtocol: sheetValueTypes = null
+    groupNumber: SheetValueType = null,
+    groupAddress: SheetValueType = null,
+    groupDeviceId: SheetValueType = null,
+    groupZone: SheetValueType = null,
+    groupDescription: SheetValueType = null,
+    groupDevice: SheetValueType = null,
+    groupProtocol: SheetValueType = null,
+    groupsNumber: SheetValueType = null,
+    groupsAddress: SheetValueType = null,
+    groupsDeviceId: SheetValueType = null,
+    groupsZone: SheetValueType = null,
+    groupsDescription: SheetValueType = null,
+    groupsDevice: SheetValueType = null,
+    groupsProtocol: SheetValueType = null
   ) => {
     return {
       [sheetTranslate('Group') + ' ' + sheetTranslate('Number')]: groupNumber,
@@ -354,7 +354,7 @@ export const mapControlGroupsToExcel = (
     );
   });
 
-  const sortControlGroupC = (c?: sheetValueTypes) => {
+  const sortControlGroupC = (c?: SheetValueType) => {
     if (c === undefined) {
       return false;
     }

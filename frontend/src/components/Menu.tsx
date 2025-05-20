@@ -48,6 +48,17 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
           >
             {translate('tab.feet')}
           </Link>,
+          <Link
+            key={routePaths.fweet}
+            to={routePaths.fweet}
+            state={{ prevPage: location.pathname }}
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === routePaths.fweet,
+            })}
+            onClick={onLinkClick}
+          >
+            {translate('tab.fweet')}
+          </Link>,
         ]}
       />
       <DropDownMenu

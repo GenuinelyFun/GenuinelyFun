@@ -14,7 +14,7 @@ export const feetLanguages: Record<string, string> = {
   es: 'Español',
 };
 
-export type sheetValueTypes =
+export type SheetValueType =
   | string
   | number
   | boolean
@@ -22,7 +22,7 @@ export type sheetValueTypes =
   | null
   | number[];
 
-export type sheetTranslateType = (key: sheetValueTypes) => sheetValueTypes;
+export type sheetTranslateType = (key: SheetValueType) => SheetValueType;
 
 const fetchTranslations = async (
   language: keyof typeof feetLanguages
@@ -32,15 +32,15 @@ const fetchTranslations = async (
   );
 
 export const sheetTranslateMapper = (
-  sheet: { [key: string]: sheetValueTypes }[],
+  sheet: { [key: string]: SheetValueType }[],
   sheetTranslate: sheetTranslateType
-): { [key: string]: sheetValueTypes }[] => {
+): { [key: string]: SheetValueType }[] => {
   const translatedSheet: {
-    [key: string]: sheetValueTypes;
+    [key: string]: SheetValueType;
   }[] = [];
 
   sheet.forEach((row) => {
-    const translatedRow: { [key: string]: sheetValueTypes } = {};
+    const translatedRow: { [key: string]: SheetValueType } = {};
 
     Object.keys(row).forEach((key) => {
       const value = row[key];
@@ -71,7 +71,7 @@ export const useSheetTranslate = (): {
   const [translate, setTranslate] = useState<Record<string, string>>();
 
   return {
-    sheetTranslate: (key: sheetValueTypes) => {
+    sheetTranslate: (key: SheetValueType) => {
       if (
         translate !== undefined &&
         key !== undefined &&
@@ -88,7 +88,7 @@ export const useSheetTranslate = (): {
 };
 
 const getTableHeaders = (
-  data: { [key: string]: sheetValueTypes }[]
+  data: { [key: string]: SheetValueType }[]
 ): { name: string; key: string; filterButton: boolean }[] => {
   const headers: { name: string; key: string; filterButton: boolean }[] = [];
   data.forEach((item) =>
@@ -106,16 +106,16 @@ const getTableHeaders = (
 };
 
 const getTableRows = (
-  data: { [key: string]: sheetValueTypes }[],
+  data: { [key: string]: SheetValueType }[],
   headers: {
     name: string;
     key: string;
     filterButton: boolean;
   }[]
-): sheetValueTypes[][] => {
-  const rows: sheetValueTypes[][] = [];
+): SheetValueType[][] => {
+  const rows: SheetValueType[][] = [];
   data.forEach((row) => {
-    const newRow: sheetValueTypes[] = [];
+    const newRow: SheetValueType[] = [];
     headers.forEach((column) => {
       if (row[column.key] !== undefined) {
         newRow.push(row[column.key]);
@@ -129,9 +129,9 @@ const getTableRows = (
   return rows;
 };
 
-export const addSheetToWorkbook = (
+export const addFeetSheetToWorkbook = (
   workbook: Workbook,
-  data: { [key: string]: sheetValueTypes }[],
+  data: { [key: string]: SheetValueType }[],
   sheetName: string,
   json: Root,
   sheetTranslate: sheetTranslateType
@@ -183,6 +183,51 @@ export const addSheetToWorkbook = (
         }
       });
     }
+    row.eachCell({ includeEmpty: true }, function (cell) {
+      cell.alignment = {
+        horizontal: 'left',
+      };
+    });
+  });
+};
+
+export const addFweetSheetToWorkbook = (
+  workbook: Workbook,
+  data: { [key: string]: SheetValueType }[],
+  sheetName: string,
+  siteName: string
+) => {
+  const sheet = workbook.addWorksheet(sheetName);
+  sheet.addRow(['Sitename: ' + siteName]);
+
+  const columns = getTableHeaders(data);
+  sheet.addTable({
+    name: sheetName,
+    ref: 'A2',
+    headerRow: true,
+    columns: columns,
+    rows: getTableRows(data, columns),
+    style: {
+      theme: 'TableStyleLight1',
+      showRowStripes: true,
+    },
+  });
+  sheet.columns.forEach((column) => {
+    const LOGBOOK_MAX_WIDTH = 55;
+    let dataMax = 0;
+    column?.eachCell?.({ includeEmpty: true }, function (cell) {
+      const columnLength = cell.value?.toString().length || 0;
+      if (columnLength > dataMax) {
+        dataMax = columnLength;
+      }
+    });
+    if (sheetName === 'Logbook') {
+      column.width = dataMax > LOGBOOK_MAX_WIDTH ? LOGBOOK_MAX_WIDTH : dataMax;
+    } else {
+      column.width = dataMax < 10 ? 10 : dataMax;
+    }
+  });
+  sheet.eachRow({ includeEmpty: true }, function (row) {
     row.eachCell({ includeEmpty: true }, function (cell) {
       cell.alignment = {
         horizontal: 'left',

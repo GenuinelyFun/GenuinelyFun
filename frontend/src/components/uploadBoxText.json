@@ -1,0 +1,62 @@
+{
+  "upload-box.description": {
+    "en": "You can drag and drop the {filetype} file to upload",
+    "no": "Du kan dra og slippe {filetype} filen for å laste opp",
+    "nn": "Du kan dra og sleppe {filetype} fila for å laste opp"
+  },
+  "upload-box.error.filetype": {
+    "en": "The file you're trying to upload is not the correct file type. Try using a different file.",
+    "no": "Filen du prøver å laste opp er ikke riktig filtype. Prøv å bruke en annen fil.",
+    "nn": "Fila du prøver å laste opp er ikkje riktig filtype. Prøv å bruke ei anna fil."
+  },
+  "upload-box.or": {
+    "en": "or",
+    "no": "eller",
+    "nn": "eller"
+  },
+  "upload-box.release-upload": {
+    "en": "Great! You can now release the file to upload.",
+    "no": "Flott! Du kan nå slippe filen for å laste opp.",
+    "nn": "Flott! Du kan no sleppe fila for å laste opp."
+  },
+  "upload-box.button": {
+    "en": "Browse computer",
+    "no": "Velg en fil",
+    "nn": "Vel ein fil"
+  },
+  "upload-box.error.duplicate": {
+    "en": "Tried to upload the same file again? You're a rebel.",
+    "no": "Prøvde å laste opp den samme filen igjen? Du er en rebel.",
+    "nn": "Prøvde å laste opp den same fila igjen? Du er ein rebel."
+  },
+  "upload-box.error.general": {
+    "en": "Something went wrong, please try again later.",
+    "no": "Noe gikk galt, prøv igjen senere.",
+    "nn": "Noko gjekk gale, prøv igjen seinare."
+  },
+  "upload-box.success": {
+    "en": "Successfully uploaded.",
+    "no": "Opplasting vellykket.",
+    "nn": "Opplasting vellykka."
+  },
+  "upload-box.error.format": {
+    "en": "Invalid {filetype} format, please make sure it is the correct file and try again.",
+    "no": "Ugyldig {filetype} format, vennligst sjekk at det er riktig fil og prøv igjen.",
+    "nn": "Ugyldig {filetype} format, ver venleg å sjekka at det er rett fil og prøv igjen."
+  },
+  "upload-box.error-icon.aria": {
+    "en": "Cross in circle",
+    "no": "Kryss i sirkel",
+    "nn": "Kryss i sirkel"
+  },
+  "upload-box.upload-icon.aria": {
+    "en": "Up arrow in a file",
+    "no": "Opp pil i en fil",
+    "nn": "Opp pil i ei fil"
+  },
+  "upload-box.supported-version": {
+    "en": "We support version ",
+    "no": "Vi støtter versjon ",
+    "nn": "Me støttar versjon "
+  }
+}
