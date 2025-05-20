@@ -7,9 +7,11 @@ export const panelMapper = (
   db: Database
 ): { [p: string]: SheetValueType }[] => {
   const results = db.exec('SELECT * FROM Panel');
-  return results[0].values.map((row) => {
-    return mapPanel(results[0].columns, row as SheetValueType[]);
-  });
+  return results[0].values
+    .map((row) => {
+      return mapPanel(results[0].columns, row as SheetValueType[]);
+    })
+    .sort((a, b) => Number(a['Number']) - Number(b['Number']));
 };
 
 const mapPanel = (columns: string[], row: SheetValueType[]) => {
