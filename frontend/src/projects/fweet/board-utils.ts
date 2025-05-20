@@ -1,7 +1,7 @@
 import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
-import { sheetValueTypes } from '../feet/utils/utils.ts';
+import { SheetValueType } from '../feet/utils/utils.ts';
 import { CircuitOutputType, CircuitType } from './verify-utils.ts';
 
 export const boardMapper = (db: Database, toast: Toast) => {
@@ -13,7 +13,7 @@ export const boardMapper = (db: Database, toast: Toast) => {
   }
 
   return circuits[0].values.map((row) => {
-    const result: { [key: string]: sheetValueTypes } = {};
+    const result: { [key: string]: SheetValueType } = {};
     circuits[0].columns.forEach((column, index) => {
       if (
         column === 'Type' &&
@@ -34,7 +34,7 @@ export const boardMapper = (db: Database, toast: Toast) => {
           ] || (row[index] as string);
       } else {
         result[column] =
-          row[index] === null ? 'n/a' : (row[index] as sheetValueTypes);
+          row[index] === null ? 'n/a' : (row[index] as SheetValueType);
       }
     });
     return result;

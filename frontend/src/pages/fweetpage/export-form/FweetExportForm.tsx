@@ -10,12 +10,14 @@ import { addressReportMapper } from '../../../projects/fweet/address-report-util
 import { assignedOutputGroupsMapper } from '../../../projects/fweet/assigned-output-groups.ts';
 import { boardMapper } from '../../../projects/fweet/board-utils.ts';
 import { getSiteName } from '../../../projects/fweet/database-utils.ts';
+import { eePromMapper } from '../../../projects/fweet/eeProm-utils.ts';
 import { ioReportMapper } from '../../../projects/fweet/io-report-utils.ts';
 import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
 import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
 import { groupMapper } from '../../../projects/fweet/output-groups-utils.ts';
 import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
 import {
+  verifyAddEeProm,
   verifyAddrUnit,
   verifyAlZone,
   verifyCircuit,
@@ -45,6 +47,7 @@ const FweetExportForm: FC = () => {
   const [outputGroups, setOutputGroups] = useState<boolean>(true);
   const [ioReport, setIoReport] = useState<boolean>(true);
   const [assigned, setAssigned] = useState<boolean>(true);
+  const [eeProm, setEeProm] = useState<boolean>(true);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -116,6 +119,14 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (eeProm && verifyAddEeProm(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        eePromMapper(fepx, toast),
+        'Eeprom',
+        siteName
+      );
+    }
 
     const fileName = name.slice(0, name.indexOf('.fepx')) + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
@@ -134,7 +145,8 @@ const FweetExportForm: FC = () => {
     ioBoard &&
     outputGroups &&
     ioReport &&
-    assigned;
+    assigned &&
+    eeProm;
 
   const toggleSelectAll = () => {
     setFirePanel(!isAllSelected);
@@ -145,6 +157,7 @@ const FweetExportForm: FC = () => {
     setOutputGroups(!isAllSelected);
     setIoReport(!isAllSelected);
     setAssigned(!isAllSelected);
+    setEeProm(!isAllSelected);
   };
 
   return (
@@ -202,6 +215,11 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.assigned'}
           value={assigned}
           setValue={() => setAssigned(!assigned)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.eeProm'}
+          value={eeProm}
+          setValue={() => setEeProm(!eeProm)}
         />
       </ul>
       <LineBreak />

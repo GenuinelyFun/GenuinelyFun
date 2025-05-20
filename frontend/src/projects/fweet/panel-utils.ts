@@ -1,19 +1,19 @@
 import { Database } from 'sql.js';
 
-import { sheetValueTypes } from '../feet/utils/utils.ts';
+import { SheetValueType } from '../feet/utils/utils.ts';
 import { PanelType } from './verify-utils.ts';
 
 export const panelMapper = (
   db: Database
-): { [p: string]: sheetValueTypes }[] => {
+): { [p: string]: SheetValueType }[] => {
   const results = db.exec('SELECT * FROM Panel');
   return results[0].values.map((row) => {
-    return mapPanel(results[0].columns, row as sheetValueTypes[]);
+    return mapPanel(results[0].columns, row as SheetValueType[]);
   });
 };
 
-const mapPanel = (columns: string[], row: sheetValueTypes[]) => {
-  const result: { [key: string]: sheetValueTypes } = {};
+const mapPanel = (columns: string[], row: SheetValueType[]) => {
+  const result: { [key: string]: SheetValueType } = {};
   columns.forEach((column, index) => {
     if (column === 'Type' && row[index] !== null && row[index] !== undefined) {
       result[column] =

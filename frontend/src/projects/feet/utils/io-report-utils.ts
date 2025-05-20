@@ -3,7 +3,7 @@ import {
   Panel,
 } from '../feetJsonDataInterface.ts';
 import { forEachDeviceInLoopControllers } from './loop-utils.ts';
-import { sheetTranslateType, sheetValueTypes } from './utils.ts';
+import { sheetTranslateType, SheetValueType } from './utils.ts';
 
 const isNull = (el: unknown) => el === null || el === '' || el === undefined;
 
@@ -11,7 +11,7 @@ export const mapToIOReportToExcel = (
   panels: Panel[],
   sheetTranslate: sheetTranslateType
 ) => {
-  const IOReport: Record<string, sheetValueTypes>[] = [];
+  const IOReport: Record<string, SheetValueType>[] = [];
   const handleMonitoredAndCleanContactOutputs = (
     output: MonitoredAndCleanContactOutput,
     address: string

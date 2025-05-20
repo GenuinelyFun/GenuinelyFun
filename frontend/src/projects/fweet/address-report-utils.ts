@@ -1,7 +1,7 @@
 import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
-import { sheetValueTypes } from '../feet/utils/utils.ts';
+import { SheetValueType } from '../feet/utils/utils.ts';
 import { getZoneAddressByAddrUnitId } from './database-utils.ts';
 import { AddrUnitType } from './verify-utils.ts';
 
@@ -17,7 +17,7 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
 
   return addressesIds[0].values.map((row) => {
     const [id, circuitNo, unitNo, name, type, description] = row;
-    const result: { [key: string]: sheetValueTypes } = {};
+    const result: { [key: string]: SheetValueType } = {};
     if (!circuitNo || !unitNo) {
       result['Address'] = 'n/a';
     } else {

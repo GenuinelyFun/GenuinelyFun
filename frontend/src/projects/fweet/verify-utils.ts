@@ -290,6 +290,13 @@ export enum AssignTypeType {
   'Alarm Org.' = 'ATORG',
 }
 
+export const ADDEEPROM_COLUMNS = [
+  'PanelId',
+  'HexAddr',
+  'HexValue',
+  'HexDescription',
+];
+
 export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
 
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
@@ -305,6 +312,25 @@ export const verifyPanels = (db: Database, toast: Toast): boolean => {
       type: 'error',
       textKey: 'fweet.dataformat.error',
       textParams: { data: 'panel' },
+    });
+    return false;
+  }
+  return true;
+};
+
+export const verifyAddEeProm = (db: Database, toast: Toast): boolean => {
+  const panels = db.prepare('SELECT * FROM AddEeProm');
+  const columns = panels.getColumnNames();
+  if (
+    columns.length !== ADDEEPROM_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => ADDEEPROM_COLUMNS.includes(column))
+      .includes(false)
+  ) {
+    toast({
+      type: 'error',
+      textKey: 'fweet.dataformat.error',
+      textParams: { data: 'AddEeProm' },
     });
     return false;
   }

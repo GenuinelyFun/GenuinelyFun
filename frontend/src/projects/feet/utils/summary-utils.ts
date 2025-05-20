@@ -1,10 +1,10 @@
 import { Panel } from '../feetJsonDataInterface.ts';
-import { sheetTranslateType, sheetValueTypes } from './utils.ts';
+import { sheetTranslateType, SheetValueType } from './utils.ts';
 
 export const mapSummaryToExcel = (
   panels: Panel[],
   sheetTranslate: sheetTranslateType
-): { [key: string]: sheetValueTypes }[] => {
+): { [key: string]: SheetValueType }[] => {
   const allLoopTypes: string[] = [];
   const allBoardTypes: string[] = ['IOC', 'OCA'];
   const allDeviceTypes: string[] = [];
