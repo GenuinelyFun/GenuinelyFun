@@ -12,30 +12,40 @@ export const boardMapper = (db: Database, toast: Toast) => {
     return [];
   }
 
-  return circuits[0].values.map((row) => {
-    const result: { [key: string]: SheetValueType } = {};
-    circuits[0].columns.forEach((column, index) => {
-      if (
-        column === 'Type' &&
-        row[index] !== null &&
-        row[index] !== undefined
-      ) {
-        result[column] =
-          CircuitType[row[index].toString() as keyof typeof CircuitType] ||
-          (row[index] as string);
-      } else if (
-        column === 'OutputType' &&
-        row[index] !== null &&
-        row[index] !== undefined
-      ) {
-        result[column] =
-          CircuitOutputType[
-            row[index].toString() as keyof typeof CircuitOutputType
-          ] || (row[index] as string);
-      } else {
-        result[column] = row[index] as SheetValueType;
-      }
-    });
-    return result;
-  });
+  const formattedValues = Object.groupBy(
+    circuits[0].values.map((row) => {
+      const result: { [key: string]: SheetValueType } = {};
+      circuits[0].columns.forEach((column, index) => {
+        if (
+          column === 'Type' &&
+          row[index] !== null &&
+          row[index] !== undefined
+        ) {
+          result[column] =
+            CircuitType[row[index].toString() as keyof typeof CircuitType] ||
+            (row[index] as string);
+        } else if (
+          column === 'OutputType' &&
+          row[index] !== null &&
+          row[index] !== undefined
+        ) {
+          result[column] =
+            CircuitOutputType[
+              row[index].toString() as keyof typeof CircuitOutputType
+            ] || (row[index] as string);
+        } else {
+          result[column] = row[index] as SheetValueType;
+        }
+      });
+      return result;
+    }),
+    (row) => row['PanelId'] as number
+  );
+
+  const mappedResults = Object.values(formattedValues).map((group) =>
+    group?.sort((a, b) =>
+      String(a['TBNumber']).localeCompare(String(b['TBNumber']))
+    )
+  );
+  return mappedResults.flat() as { [p: string]: SheetValueType }[];
 };
