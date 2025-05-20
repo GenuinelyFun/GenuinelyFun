@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import JSZip from 'jszip';
 import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
 import initSqlJs from 'sql.js';
+import { extractText, getDocumentProxy } from 'unpdf';
 
 import CrossCircleIcon from '../assets/icons/CrossCircleIcon.tsx';
 import UploadIcon from '../assets/icons/UploadIcon.tsx';
@@ -154,9 +155,22 @@ const UploadBox: FC<Props> = ({
     handleUploadedFiles(event.dataTransfer.files);
   };
 
-  const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
+  const onFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (event.target.files) {
+      const buffer = event.target.files?.[0].arrayBuffer();
+      if (buffer !== null && buffer !== undefined) {
+        const pdf = await getDocumentProxy(new Uint8Array(await buffer));
+
+        // Finally, extract the text from the PDF file
+        const { totalPages, text } = await extractText(pdf, {
+          mergePages: true,
+        });
+
+        console.log(`Total pages: ${totalPages}`);
+        console.log(text);
+      }
+
       handleUploadedFiles(event.target.files);
     }
   };
