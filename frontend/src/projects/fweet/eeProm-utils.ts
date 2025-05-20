@@ -14,8 +14,7 @@ export const eePromMapper = (db: Database, toast: Toast) => {
   return values.map((row) => {
     const result: { [key: string]: SheetValueType } = {};
     columns.forEach((column, colIndex) => {
-      result[column] =
-        row[colIndex] === null ? 'n/a' : (row[colIndex] as SheetValueType);
+      result[column] = row[colIndex] as SheetValueType;
     });
     return result;
   });

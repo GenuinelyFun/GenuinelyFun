@@ -19,7 +19,7 @@ export const groupMapper = (db: Database, toast: Toast) => {
           AssignTypeType[row[index] as keyof typeof AssignTypeType] ||
           (row[index] as string);
       } else {
-        result[column] = row[index] === null ? 'n/a' : (row[index] as string);
+        result[column] = row[index] as string;
       }
     });
     return result;

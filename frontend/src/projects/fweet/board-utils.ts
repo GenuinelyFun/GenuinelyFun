@@ -33,8 +33,7 @@ export const boardMapper = (db: Database, toast: Toast) => {
             row[index].toString() as keyof typeof CircuitOutputType
           ] || (row[index] as string);
       } else {
-        result[column] =
-          row[index] === null ? 'n/a' : (row[index] as SheetValueType);
+        result[column] = row[index] as SheetValueType;
       }
     });
     return result;

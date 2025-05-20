@@ -19,7 +19,7 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
     const [id, circuitNo, unitNo, name, type, description] = row;
     const result: { [key: string]: SheetValueType } = {};
     if (!circuitNo || !unitNo) {
-      result['Address'] = 'n/a';
+      result['Address'] = '';
     } else {
       result['Address'] =
         `${circuitNo.toString().padStart(3, '0')}.${unitNo.toString().padStart(3, '0')}`;

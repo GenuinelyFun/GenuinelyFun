@@ -112,7 +112,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
         ioDescription,
       ] = row;
       if (circuitNo === null || unitNo === null) {
-        result['Address'] = 'n/a';
+        result['Address'] = '';
       } else {
         result['Address'] = `${circuitNo.toString().padStart(3, '0')}.${unitNo
           .toString()

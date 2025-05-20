@@ -24,15 +24,14 @@ const mapLogBook = (
       row[index] !== null
     ) {
       try {
-        const decodedObject = new TextDecoder('utf-8').decode(
+        result[column] = new TextDecoder('utf-8').decode(
           row[index] as unknown as Uint8Array
         );
-        result[column] = row[index] === null ? 'n/a' : decodedObject;
       } catch (error) {
         console.error(error + ' at row ' + rowIndex + ' column ' + column);
       }
     } else {
-      result[column] = row[index] === null ? 'n/a' : row[index];
+      result[column] = row[index];
     }
   });
   return result;

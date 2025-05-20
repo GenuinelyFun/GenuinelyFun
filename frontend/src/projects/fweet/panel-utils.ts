@@ -19,7 +19,7 @@ const mapPanel = (columns: string[], row: SheetValueType[]) => {
       result[column] =
         PanelType[row[index].toString() as keyof typeof PanelType];
     } else {
-      result[column] = row[index] === null ? 'n/a' : row[index];
+      result[column] = row[index];
     }
   });
   return result;

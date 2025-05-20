@@ -17,7 +17,7 @@ const mapLoop = (columns: string[], row: SheetValueType[]) => {
       result[column] =
         AddrUnitType[row[index].toString() as keyof typeof AddrUnitType];
     } else {
-      result[column] = row[index] === null ? 'n/a' : row[index];
+      result[column] = row[index];
     }
   });
   return result;

@@ -34,7 +34,7 @@ export const getZoneAddressByAddrUnitId = (
 ): string => {
   const stmt = db.exec('SELECT SoneId FROM Cause WHERE InId = ?', [addrUnitId]);
   if (stmt.length === 0) {
-    return 'n/a';
+    return '';
   }
   const soneId = stmt[0].values[0][0];
   return getZoneAddressByZoneId(db, soneId as number);
