@@ -65,7 +65,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
   }
 
   const circuitRows = groups[0].values
-    .filter((row) => row[0] !== 'ANLOOPTR' && row[0] !== null)
+    .filter((row) => row[4] !== 'ANLOOPTR')
     .map((row) => {
       const result: { [key: string]: string } = {};
       const [panelId, tbNumber, name, description, type, outputType] = row;
