@@ -15,19 +15,21 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
     return [];
   }
 
-  return addressesIds[0].values.map((row) => {
-    const [id, circuitNo, unitNo, name, type, description] = row;
-    const result: { [key: string]: SheetValueType } = {};
-    if (!circuitNo || !unitNo) {
-      result['Address'] = '';
-    } else {
-      result['Address'] =
-        `${circuitNo.toString().padStart(3, '0')}.${unitNo.toString().padStart(3, '0')}`;
-    }
-    result['Zone'] = getZoneAddressByAddrUnitId(db, id as number);
-    result['Name'] = name as string;
-    result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
-    result['Description'] = description as string;
-    return result;
-  });
+  return addressesIds[0].values
+    .map((row) => {
+      const [id, circuitNo, unitNo, name, type, description] = row;
+      const result: { [key: string]: SheetValueType } = {};
+      if (!circuitNo || !unitNo) {
+        result['Address'] = '';
+      } else {
+        result['Address'] =
+          `${circuitNo.toString().padStart(3, '0')}.${unitNo.toString().padStart(3, '0')}`;
+      }
+      result['Zone'] = getZoneAddressByAddrUnitId(db, id as number);
+      result['Name'] = name as string;
+      result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
+      result['Description'] = description as string;
+      return result;
+    })
+    .sort((a, b) => String(a['Address']).localeCompare(String(b['Address'])));
 };
