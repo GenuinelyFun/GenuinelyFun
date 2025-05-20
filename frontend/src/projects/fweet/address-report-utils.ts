@@ -27,8 +27,8 @@ export const addressReportMapper = (db: Database, toast: Toast) => {
       }
       result['Zone'] = getZoneAddressByAddrUnitId(db, id as number);
       result['Name'] = name as string;
-      result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
       result['Description'] = description as string;
+      result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
       return result;
     })
     .sort((a, b) => String(a['Address']).localeCompare(String(b['Address'])));
