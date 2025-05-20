@@ -73,12 +73,11 @@ const FweetExportForm: FC = () => {
     if (fireLoop && verifyAddrUnit(fepx, toast)) {
       addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', siteName);
     }
-    if (logbook && verifyLogbook(fepx, toast)) {
-      logbookMapper(fepx);
+    if (ioBoard && verifyCircuit(fepx, toast)) {
       addFweetSheetToWorkbook(
         workbook,
-        logbookMapper(fepx),
-        'Logbook',
+        boardMapper(fepx, toast),
+        'Board',
         siteName
       );
     }
@@ -90,22 +89,6 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (ioBoard && verifyCircuit(fepx, toast)) {
-      addFweetSheetToWorkbook(
-        workbook,
-        boardMapper(fepx, toast),
-        'Board',
-        siteName
-      );
-    }
-    if (outputGroups && verifyAlZone(fepx, toast)) {
-      addFweetSheetToWorkbook(
-        workbook,
-        groupMapper(fepx, toast),
-        'Output_groups',
-        siteName
-      );
-    }
     if (ioReport && verifyCircuit(fepx, toast)) {
       addFweetSheetToWorkbook(
         workbook,
@@ -114,11 +97,28 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
+    if (logbook && verifyLogbook(fepx, toast)) {
+      logbookMapper(fepx);
+      addFweetSheetToWorkbook(
+        workbook,
+        logbookMapper(fepx),
+        'Logbook',
+        siteName
+      );
+    }
     if (assigned && verifyCircuit(fepx, toast) && verifyAddrUnit(fepx, toast)) {
       addFweetSheetToWorkbook(
         workbook,
         assignedOutputGroupsMapper(fepx, toast),
         'Assigned_output_groups',
+        siteName
+      );
+    }
+    if (outputGroups && verifyAlZone(fepx, toast)) {
+      addFweetSheetToWorkbook(
+        workbook,
+        groupMapper(fepx, toast),
+        'Output_groups',
         siteName
       );
     }
@@ -200,9 +200,9 @@ const FweetExportForm: FC = () => {
           setValue={() => setFireLoop(!fireLoop)}
         />
         <CheckboxWithInfobox
-          textKey={'fweet.export.logbook'}
-          value={logbook}
-          setValue={() => setLogbook(!logbook)}
+          textKey={'fweet.export.board'}
+          value={ioBoard}
+          setValue={() => setIoBoard(!ioBoard)}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.address'}
@@ -210,24 +210,24 @@ const FweetExportForm: FC = () => {
           setValue={() => setAddressReport(!addressReport)}
         />
         <CheckboxWithInfobox
-          textKey={'fweet.export.board'}
-          value={ioBoard}
-          setValue={() => setIoBoard(!ioBoard)}
-        />
-        <CheckboxWithInfobox
-          textKey={'fweet.export.groups'}
-          value={outputGroups}
-          setValue={() => setOutputGroups(!outputGroups)}
-        />
-        <CheckboxWithInfobox
           textKey={'fweet.export.io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
         />
         <CheckboxWithInfobox
+          textKey={'fweet.export.logbook'}
+          value={logbook}
+          setValue={() => setLogbook(!logbook)}
+        />
+        <CheckboxWithInfobox
           textKey={'fweet.export.assigned'}
           value={assigned}
           setValue={() => setAssigned(!assigned)}
+        />
+        <CheckboxWithInfobox
+          textKey={'fweet.export.groups'}
+          value={outputGroups}
+          setValue={() => setOutputGroups(!outputGroups)}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.eeProm'}
