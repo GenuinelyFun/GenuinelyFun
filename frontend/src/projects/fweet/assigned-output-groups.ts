@@ -27,6 +27,8 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
       return [];
     }
 
+    const [_, groupName, assignedType, __] = group[0];
+
     const circuitResults: { [key: string]: string }[] = [];
     const addrUnitResults: { [key: string]: string }[] = [];
     group.forEach((row) => {
@@ -36,8 +38,10 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
       addrUnits.forEach((addrUnit) => {
         const [name, description, preAddr, postAddr, addrType] = addrUnit;
         addrUnitResults.push({
-          'Output Group': '',
-          'Assigned Type': '',
+          'Output Group': groupName as string,
+          'Assigned Type':
+            AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+            assignedType,
           Address: `${String(preAddr).padStart(3, '0')}.${String(postAddr).padStart(3, '0')}`,
           Zone: getZoneAddressByZoneId(db, zoneId as number),
           Name: name as string,
@@ -51,15 +55,24 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
       effects?.forEach((effect) => {
         const circuits = getCircuitsFromEffectOutId(db, effect[0] as number);
         circuits?.forEach((circuit) => {
-          const [panelId, tbNumber, type, outputType] = circuit;
+          const [
+            circuitName,
+            ciercuitDescription,
+            panelId,
+            tbNumber,
+            type,
+            outputType,
+          ] = circuit;
           circuitResults.push({
-            'Output Group': '',
-            'Assigned Type': '',
+            'Output Group': groupName as string,
+            'Assigned Type':
+              AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+              assignedType,
             Address:
               'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber,
             Zone: getZoneAddressByZoneId(db, zoneId as number),
-            Name: '',
-            Description: '',
+            Name: circuitName as string,
+            Description: ciercuitDescription as string,
             Type:
               CircuitType[String(type) as keyof typeof CircuitType] ||
               (type as string),
@@ -79,11 +92,11 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
         String(a['Address']).localeCompare(String(b['Address']))
       ),
     ];
-    const [_, name, assignedType, __] = group[0];
+
     if (combinedList.length === 0) {
       return [
         {
-          'Output Group': name as string,
+          'Output Group': groupName as string,
           'Assigned Type':
             AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
             assignedType,
@@ -96,10 +109,6 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
         },
       ];
     }
-    combinedList[0]['Output Group'] = name as string;
-    combinedList[0]['Assigned Type'] =
-      AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
-      assignedType;
     return combinedList;
   });
   return grouped.flat().flat();
@@ -127,7 +136,7 @@ const getEffectOutIdsFromAlZoneId = (db: Database, alZoneId: number) => {
 
 const getCircuitsFromEffectOutId = (db: Database, effectOutId: number) => {
   const stmt = db.exec(
-    'SELECT PanelId, TBNumber, Type, OutputType FROM Circuit WHERE Id = ?',
+    'SELECT Name, Description, PanelId, TBNumber, Type, OutputType FROM Circuit WHERE Id = ?',
     [effectOutId]
   );
   if (stmt.length === 0) {
