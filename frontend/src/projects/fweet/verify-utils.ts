@@ -281,9 +281,16 @@ export enum CircuitType {
   SOOUTPUT = 'Monitored Output',
 }
 
-export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
+export enum AssignTypeType {
+  Fire = 'ATFIRE',
+  'Pre-alarm' = 'PREALARM',
+  Isolation = 'ISOLATIO',
+  Fault = 'ATFAULT',
+  FDC = 'ATABDL',
+  'Alarm Org.' = 'ATORG',
+}
 
-export enum AlZoneAssignType {}
+export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
 
 export const verifyPanels = (db: Database, toast: Toast): boolean => {
   const panels = db.prepare('SELECT * FROM Panel');

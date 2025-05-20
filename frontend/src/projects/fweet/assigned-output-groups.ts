@@ -4,6 +4,7 @@ import { Toast } from '../../utils/useToast.ts';
 import { getZoneAddressByZoneId } from './database-utils.ts';
 import {
   AddrUnitType,
+  AssignTypeType,
   CircuitOutputType,
   CircuitType,
 } from './verify-utils.ts';
@@ -71,7 +72,9 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
         return [
           {
             'Output Group': name as string,
-            'Assigned Type': assignedType as string,
+            'Assigned Type':
+              AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+              assignedType,
             Address: '',
             Zone: '',
             Type: '',
@@ -81,7 +84,9 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
       }
       if (index === 0) {
         combinedList[0]['Output Group'] = name as string;
-        combinedList[0]['Assigned Type'] = assignedType as string;
+        combinedList[0]['Assigned Type'] =
+          AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+          assignedType;
       }
       return [...addrUnitResults, ...circuitResults];
     });

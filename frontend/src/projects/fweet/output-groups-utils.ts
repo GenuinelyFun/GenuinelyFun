@@ -1,7 +1,7 @@
 import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
-import { AlZoneAssignType } from './verify-utils.ts';
+import { AssignTypeType } from './verify-utils.ts';
 
 export const groupMapper = (db: Database, toast: Toast) => {
   const groups = db.exec('SELECT * FROM AlZone');
@@ -16,7 +16,7 @@ export const groupMapper = (db: Database, toast: Toast) => {
     groups[0].columns.forEach((column, index) => {
       if (column === 'AssignType') {
         result[column] =
-          AlZoneAssignType[row[index] as keyof typeof AlZoneAssignType] ||
+          AssignTypeType[row[index] as keyof typeof AssignTypeType] ||
           (row[index] as string);
       } else {
         result[column] = row[index] === null ? 'n/a' : (row[index] as string);
