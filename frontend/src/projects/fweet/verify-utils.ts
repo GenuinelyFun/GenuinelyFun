@@ -282,12 +282,12 @@ export enum CircuitType {
 }
 
 export enum AssignTypeType {
-  Fire = 'ATFIRE',
-  'Pre-alarm' = 'PREALARM',
-  Isolation = 'ISOLATIO',
-  Fault = 'ATFAULT',
-  FDC = 'ATABDL',
-  'Alarm Org.' = 'ATORG',
+  ATFIRE = 'Fire',
+  PREALARM = 'Pre-alarm',
+  ISOLATIO = 'Isolation',
+  ATFAULT = 'Fault',
+  ATABDL = 'FDC',
+  ATORG = 'Alarm Org.',
 }
 
 export const ADDEEPROM_COLUMNS = [
