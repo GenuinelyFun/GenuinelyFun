@@ -21,30 +21,32 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
   }
 
   const groupedId = Object.groupBy(groups[0].values, (row) => row[0] as string);
-
   const grouped = Object.values(groupedId).map((group) => {
     if (group === undefined) {
       toast({ type: 'error', textKey: 'fweet.export.error' });
       return [];
     }
-    return group.map((row, index) => {
-      const [alZoneId, name, assignedType, zoneId] = row;
 
-      const addrUnitResults: { [key: string]: string }[] = [];
+    const circuitResults: { [key: string]: string }[] = [];
+    const addrUnitResults: { [key: string]: string }[] = [];
+    group.forEach((row) => {
+      const [alZoneId, _, __, zoneId] = row;
+
       const addrUnits = getAddrUnitsFromZoneId(db, zoneId as number);
       addrUnits.forEach((addrUnit) => {
-        const [preAddr, postAddr, addrType] = addrUnit;
+        const [name, description, preAddr, postAddr, addrType] = addrUnit;
         addrUnitResults.push({
           'Output Group': '',
           'Assigned Type': '',
           Address: `${String(preAddr).padStart(3, '0')}.${String(postAddr).padStart(3, '0')}`,
           Zone: getZoneAddressByZoneId(db, zoneId as number),
+          Name: name as string,
+          Description: description as string,
           Type: AddrUnitType[addrType as keyof typeof AddrUnitType] || addrType,
           'Output Type': '',
         });
       });
 
-      const circuitResults: { [key: string]: string }[] = [];
       const effects = getEffectOutIdsFromAlZoneId(db, alZoneId as number);
       effects?.forEach((effect) => {
         const circuits = getCircuitsFromEffectOutId(db, effect[0] as number);
@@ -56,6 +58,8 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
             Address:
               'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber,
             Zone: getZoneAddressByZoneId(db, zoneId as number),
+            Name: '',
+            Description: '',
             Type:
               CircuitType[String(type) as keyof typeof CircuitType] ||
               (type as string),
@@ -66,36 +70,43 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
           });
         });
       });
-
-      const combinedList = [...addrUnitResults, ...circuitResults];
-      if (combinedList.length === 0) {
-        return [
-          {
-            'Output Group': name as string,
-            'Assigned Type':
-              AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
-              assignedType,
-            Address: '',
-            Zone: '',
-            Type: '',
-            'Output Type': '',
-          },
-        ];
-      }
-      if (index === 0) {
-        combinedList[0]['Output Group'] = name as string;
-        combinedList[0]['Assigned Type'] =
-          AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
-          assignedType;
-      }
-      return [...addrUnitResults, ...circuitResults];
     });
+    const combinedList = [
+      ...circuitResults.sort((a, b) =>
+        String(a['Address']).localeCompare(String(b['Address']))
+      ),
+      ...addrUnitResults.sort((a, b) =>
+        String(a['Address']).localeCompare(String(b['Address']))
+      ),
+    ];
+    const [_, name, assignedType, __] = group[0];
+    if (combinedList.length === 0) {
+      return [
+        {
+          'Output Group': name as string,
+          'Assigned Type':
+            AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+            assignedType,
+          Address: '',
+          Zone: '',
+          Name: '',
+          Description: '',
+          Type: '',
+          'Output Type': '',
+        },
+      ];
+    }
+    combinedList[0]['Output Group'] = name as string;
+    combinedList[0]['Assigned Type'] =
+      AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
+      assignedType;
+    return combinedList;
   });
   return grouped.flat().flat();
 };
 const getAddrUnitsFromZoneId = (db: Database, zoneId: number) => {
   const stmt = db.exec(
-    'SELECT a.CircuitNo, a.UnitNo, a.Type FROM Cause c INNER JOIN AddrUnit a ON a.id = c.InId WHERE c.SoneId = ?',
+    'SELECT a.Name, a.Description, a.CircuitNo, a.UnitNo, a.Type FROM Cause c INNER JOIN AddrUnit a ON a.id = c.InId WHERE c.SoneId = ?',
     [zoneId]
   );
   if (stmt.length === 0) {
