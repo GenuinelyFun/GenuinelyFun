@@ -17,7 +17,7 @@ export const mapPanelToExcel = (
             'Fire alarm devices controlled by control groups B, B2 and as general'
           )
         ? 'configuration.panel.delays.controlledByBB2General'
-        : 'N/A';
+        : '';
 
   const activationConditions = panel.fire_door.activation;
   const sensorInputDisabled = () => {
