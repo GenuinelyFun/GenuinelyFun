@@ -6,15 +6,34 @@ export const logbookMapper = (
   db: Database
 ): { [p: string]: SheetValueType }[] => {
   const results = db.exec('SELECT * FROM LogBook');
-  return results[0].values.map((row) => {
-    return mapLogBook(results[0].columns, row as SheetValueType[]);
+  return results[0].values.map((row, index) => {
+    return mapLogBook(results[0].columns, row as SheetValueType[], index);
   });
 };
 
-const mapLogBook = (columns: string[], row: SheetValueType[]) => {
+const mapLogBook = (
+  columns: string[],
+  row: SheetValueType[],
+  rowIndex: number
+) => {
   const result: { [key: string]: SheetValueType } = {};
   columns.forEach(async (column, index) => {
-    result[column] = row[index] === null ? 'n/a' : row[index];
+    if (
+      column === 'Description' &&
+      typeof row[index] === 'object' &&
+      row[index] !== null
+    ) {
+      try {
+        const decodedObject = new TextDecoder('utf-8').decode(
+          row[index] as unknown as Uint8Array
+        );
+        result[column] = row[index] === null ? 'n/a' : decodedObject;
+      } catch (error) {
+        console.error(error + ' at row ' + rowIndex + ' column ' + column);
+      }
+    } else {
+      result[column] = row[index] === null ? 'n/a' : row[index];
+    }
   });
   return result;
 };
