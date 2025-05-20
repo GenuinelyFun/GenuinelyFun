@@ -25,7 +25,7 @@ export const getZoneAddressByZoneId = (db: Database, zoneId: number) => {
   }
 
   const result = stmt[0].values[0];
-  return `${result[0]}.${result[1]}`;
+  return `${result[1]}.${result[0]}`;
 };
 
 export const getZoneAddressByAddrUnitId = (
