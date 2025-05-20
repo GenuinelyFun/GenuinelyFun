@@ -84,7 +84,8 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
           String(outputType) as keyof typeof CircuitOutputType
         ] || (outputType as string);
       return result;
-    });
+    })
+    .sort((a, b) => a['Address'].localeCompare(b['Address']));
 
   const addresses = db.exec(
     'SELECT a.Id, a.Type, a.CircuitNo, a.UnitNo, a.Name, a.Description, a.Type, io.TBNumber, io.Name, io.Description FROM AddrUnit a LEFT JOIN IoCircuit io ON io.UnitId = a.Id'
@@ -126,7 +127,8 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
       result['Type'] = AddrUnitType[type as keyof typeof AddrUnitType];
 
       return result;
-    });
+    })
+    .sort((a, b) => a['Address'].localeCompare(b['Address']));
 
   return [...circuitRows, ...addrUnitRows];
 };
