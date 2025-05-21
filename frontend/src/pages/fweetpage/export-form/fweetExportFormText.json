@@ -55,9 +55,9 @@
     "nn": "Velg alle"
   },
   "fweet.export.selectall.infobox.description": {
-    "en": "This is the 'Select All' button. Because, obviously, clicking each one individually sounds exhausting.",
-    "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da.",
-    "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då."
+    "en": "This is the 'Select All' button. Because, obviously, clicking each one individually sounds exhausting. Disabled options will not be selected, clearly.",
+    "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da. Deaktiverte alternativer vil ikke bli valgt.",
+    "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då. Deaktiverte alternativ vil ikkje bli valde."
   },
   "fweet.export.panel.checkbox.label": {
     "en": "Panel",
