@@ -115,34 +115,14 @@ export enum AddrUnitType {
   XPIO = 'I/O Unit',
 }
 
-export const ADDRUNIT_COLUMNS = [
+export const ADDRUNIT_USED_COLUMNS = [
   'Id',
   'UnitNo',
   'CircuitId',
   'CircuitNo',
   'Type',
-  'RmOutput',
   'Name',
   'Description',
-  'AlarmLimit',
-  'PreAlarmLimit',
-  'ScanPeriode',
-  'ScanPeriodFault',
-  'SensDay',
-  'SensNigth',
-  'NumOfInputs',
-  'NumOfOutputs',
-  'AlarmType',
-  'EmliState',
-  'NoOfWL',
-  'TALInpMode',
-  'TALRelMode',
-  'TALRelState',
-  'Tech',
-  'TALRelFailSafe',
-  'EOLO',
-  'EOLI',
-  'NEWEOLI',
 ];
 
 export enum PanelType {
@@ -455,7 +435,7 @@ export const verifyCause = (db: Database): boolean => {
   return !(
     columns.length !== CAUSE_COLUMNS.length ||
     Object.values(columns)
-      .map((column) => PROP_OP_COLUMNS.includes(column))
+      .map((column) => CAUSE_COLUMNS.includes(column))
       .includes(false) ||
     all.length === 0
   );
@@ -502,11 +482,12 @@ export const verifyAddrUnit = (db: Database): boolean => {
   const panels = db.prepare('SELECT * FROM AddrUnit');
   const all = db.exec('SELECT * FROM AddrUnit');
   const columns = panels.getColumnNames();
+
   return !(
-    columns.length !== ADDRUNIT_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => ADDRUNIT_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length < ADDRUNIT_USED_COLUMNS.length ||
+    ADDRUNIT_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
