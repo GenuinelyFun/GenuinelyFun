@@ -124,9 +124,6 @@ const FweetExportForm: FC = () => {
     if (!isAssignedDisabled) {
       setAssigned(!isAllSelected);
     }
-    if (!isAssignedDisabled) {
-      setAssigned(!isAllSelected);
-    }
     if (!isEePromDisabled) {
       setEeProm(!isAllSelected);
     }
