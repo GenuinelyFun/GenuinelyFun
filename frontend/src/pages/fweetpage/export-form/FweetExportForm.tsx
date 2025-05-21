@@ -1,6 +1,6 @@
 import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
-import { FC, FormEventHandler, useState } from 'react';
+import { FC, FormEventHandler, useEffect, useState } from 'react';
 
 import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
 import GenericButton from '../../../components/GenericButton';
@@ -21,10 +21,15 @@ import {
   verifyAddEeProm,
   verifyAddrUnit,
   verifyAlZone,
+  verifyCause,
   verifyCircuit,
+  verifyDetToAlZone,
+  verifyEffect,
+  verifyFiles,
   verifyLogbook,
   verifyPanels,
   verifyPropOp,
+  verifyZone,
 } from '../../../projects/fweet/verify-utils.ts';
 import { FweetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
@@ -52,6 +57,137 @@ const FweetExportForm: FC = () => {
   const [eeProm, setEeProm] = useState<boolean>(true);
   const [propOp, setPropOp] = useState<boolean>(true);
 
+  const isPanelTableAvailable = verifyFiles(files, verifyPanels);
+  const isAddEePromTableAvailable = verifyFiles(files, verifyAddEeProm);
+  const isPropOpTableAvailable = verifyFiles(files, verifyPropOp);
+  const isAddrUnitTableAvailable = verifyFiles(files, verifyAddrUnit);
+  const isLogbookTableAvailable = verifyFiles(files, verifyLogbook);
+  const isCircuitTableAvailable = verifyFiles(files, verifyCircuit);
+  const isAlZoneTableAvailable = verifyFiles(files, verifyAlZone);
+  const isCauseTableAvailable = verifyFiles(files, verifyCause);
+  const isDetToAlZoneTableAvailable = verifyFiles(files, verifyDetToAlZone);
+  const isEffectTableAvailable = verifyFiles(files, verifyEffect);
+  const isZoneTableAvailable = verifyFiles(files, verifyZone);
+
+  const isFirePanelDisabled = !isPanelTableAvailable;
+  const isFireLoopDisabled = !isAddrUnitTableAvailable;
+  const isIoBoardDisabled = !isCircuitTableAvailable;
+  const isAddressReportDisabled = !isAddrUnitTableAvailable;
+  const isIoReportDisabled =
+    !isCircuitTableAvailable || !isAddrUnitTableAvailable;
+  const isLogbookDisabled = !isLogbookTableAvailable;
+  const isAssignedDisabled =
+    !isAlZoneTableAvailable ||
+    !isCauseTableAvailable ||
+    !isDetToAlZoneTableAvailable ||
+    !isEffectTableAvailable ||
+    !isZoneTableAvailable ||
+    !isCircuitTableAvailable;
+  const isOutputGroupsDisabled = !isAlZoneTableAvailable;
+  const isEePromDisabled = !isAddEePromTableAvailable;
+  const isPropOpDisabled = !isPropOpTableAvailable;
+
+  const isAllSelected =
+    (isFirePanelDisabled ? true : firePanel) &&
+    (isFireLoopDisabled ? true : fireLoop) &&
+    (isLogbookDisabled ? true : logbook) &&
+    (isAddressReportDisabled ? true : addressReport) &&
+    (isIoBoardDisabled ? true : ioBoard) &&
+    (isIoReportDisabled ? true : ioReport) &&
+    (isOutputGroupsDisabled ? true : outputGroups) &&
+    (isAssignedDisabled ? true : assigned) &&
+    (isEePromDisabled ? true : eeProm) &&
+    (isPropOpDisabled ? true : propOp);
+
+  const toggleSelectAll = () => {
+    if (!isFirePanelDisabled) {
+      setFirePanel(!isAllSelected);
+    }
+    if (!isFireLoopDisabled) {
+      setFireLoop(!isAllSelected);
+    }
+    if (!isLogbookDisabled) {
+      setLogbook(!isAllSelected);
+    }
+    if (!isAddressReportDisabled) {
+      setAddressReport(!isAllSelected);
+    }
+    if (!isIoBoardDisabled) {
+      setIoBoard(!isAllSelected);
+    }
+    if (!isOutputGroupsDisabled) {
+      setOutputGroups(!isAllSelected);
+    }
+    if (!isIoReportDisabled) {
+      setIoReport(!isAllSelected);
+    }
+    if (!isAssignedDisabled) {
+      setAssigned(!isAllSelected);
+    }
+    if (!isAssignedDisabled) {
+      setAssigned(!isAllSelected);
+    }
+    if (!isEePromDisabled) {
+      setEeProm(!isAllSelected);
+    }
+    if (!isPropOpDisabled) {
+      setPropOp(!isAllSelected);
+    }
+  };
+
+  useEffect(() => {
+    if (!isPanelTableAvailable) {
+      setFirePanel(false);
+    }
+    if (!isAddrUnitTableAvailable) {
+      setFireLoop(false);
+      setAddressReport(false);
+      setIoReport(false);
+    }
+    if (!isCircuitTableAvailable) {
+      setIoBoard(false);
+      setIoReport(false);
+    }
+    if (!isLogbookTableAvailable) {
+      setLogbook(false);
+    }
+    if (!isAlZoneTableAvailable) {
+      setAssigned(false);
+      setOutputGroups(false);
+    }
+    if (!isCauseTableAvailable) {
+      setAssigned(false);
+    }
+    if (!isDetToAlZoneTableAvailable) {
+      setAssigned(false);
+    }
+    if (!isEffectTableAvailable) {
+      setAssigned(false);
+    }
+    if (!isZoneTableAvailable) {
+      setAssigned(false);
+    }
+    if (!isAddEePromTableAvailable) {
+      setEeProm(false);
+    }
+    if (!isPropOpTableAvailable) {
+      setPropOp(false);
+    }
+  }, [
+    isPanelTableAvailable,
+    isAddrUnitTableAvailable,
+    isCircuitTableAvailable,
+    isLogbookTableAvailable,
+    isAlZoneTableAvailable,
+    isCauseTableAvailable,
+    isDetToAlZoneTableAvailable,
+    isEffectTableAvailable,
+    isZoneTableAvailable,
+    isAddEePromTableAvailable,
+    isPropOpTableAvailable,
+    isAllSelected,
+  ]);
+
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (files.length === 0) return;
@@ -67,13 +203,13 @@ const FweetExportForm: FC = () => {
     const workbook = new Workbook();
     const siteName = getSiteName(fepx, toast);
 
-    if (firePanel && verifyPanels(fepx, toast)) {
+    if (firePanel) {
       addFweetSheetToWorkbook(workbook, panelMapper(fepx), 'Panel', siteName);
     }
-    if (fireLoop && verifyAddrUnit(fepx, toast)) {
+    if (fireLoop) {
       addFweetSheetToWorkbook(workbook, loopMapper(fepx), 'Loop', siteName);
     }
-    if (ioBoard && verifyCircuit(fepx, toast)) {
+    if (ioBoard) {
       addFweetSheetToWorkbook(
         workbook,
         boardMapper(fepx, toast),
@@ -81,7 +217,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (addressReport && verifyAddrUnit(fepx, toast)) {
+    if (addressReport) {
       addFweetSheetToWorkbook(
         workbook,
         addressReportMapper(fepx, toast),
@@ -89,7 +225,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (ioReport && verifyCircuit(fepx, toast)) {
+    if (ioReport) {
       addFweetSheetToWorkbook(
         workbook,
         ioReportMapper(fepx, toast),
@@ -97,7 +233,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (logbook && verifyLogbook(fepx, toast)) {
+    if (logbook) {
       logbookMapper(fepx);
       addFweetSheetToWorkbook(
         workbook,
@@ -106,7 +242,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (assigned && verifyCircuit(fepx, toast) && verifyAddrUnit(fepx, toast)) {
+    if (assigned) {
       addFweetSheetToWorkbook(
         workbook,
         assignedOutputGroupsMapper(fepx, toast),
@@ -114,7 +250,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (outputGroups && verifyAlZone(fepx, toast)) {
+    if (outputGroups) {
       addFweetSheetToWorkbook(
         workbook,
         groupMapper(fepx, toast),
@@ -122,7 +258,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (eeProm && verifyAddEeProm(fepx, toast)) {
+    if (eeProm) {
       addFweetSheetToWorkbook(
         workbook,
         eePromMapper(fepx, toast),
@@ -130,7 +266,7 @@ const FweetExportForm: FC = () => {
         siteName
       );
     }
-    if (propOp && verifyPropOp(fepx, toast)) {
+    if (propOp) {
       addFweetSheetToWorkbook(
         workbook,
         propOpMapper(fepx, toast),
@@ -146,31 +282,6 @@ const FweetExportForm: FC = () => {
       });
       FileSaver.saveAs(blob, fileName);
     });
-  };
-
-  const isAllSelected =
-    firePanel &&
-    fireLoop &&
-    logbook &&
-    addressReport &&
-    ioBoard &&
-    outputGroups &&
-    ioReport &&
-    assigned &&
-    eeProm &&
-    propOp;
-
-  const toggleSelectAll = () => {
-    setFirePanel(!isAllSelected);
-    setFireLoop(!isAllSelected);
-    setLogbook(!isAllSelected);
-    setAddressReport(!isAllSelected);
-    setIoBoard(!isAllSelected);
-    setOutputGroups(!isAllSelected);
-    setIoReport(!isAllSelected);
-    setAssigned(!isAllSelected);
-    setEeProm(!isAllSelected);
-    setPropOp(!isAllSelected);
   };
 
   return (
@@ -193,51 +304,61 @@ const FweetExportForm: FC = () => {
           textKey={'fweet.export.panel'}
           value={firePanel}
           setValue={() => setFirePanel(!firePanel)}
+          disabled={isFirePanelDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.loop'}
           value={fireLoop}
           setValue={() => setFireLoop(!fireLoop)}
+          disabled={isFireLoopDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.board'}
           value={ioBoard}
           setValue={() => setIoBoard(!ioBoard)}
+          disabled={isIoBoardDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.address'}
           value={addressReport}
           setValue={() => setAddressReport(!addressReport)}
+          disabled={isAddressReportDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.io'}
           value={ioReport}
           setValue={() => setIoReport(!ioReport)}
+          disabled={isIoReportDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.logbook'}
           value={logbook}
           setValue={() => setLogbook(!logbook)}
+          disabled={isLogbookDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.assigned'}
           value={assigned}
           setValue={() => setAssigned(!assigned)}
+          disabled={isAssignedDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.groups'}
           value={outputGroups}
           setValue={() => setOutputGroups(!outputGroups)}
+          disabled={isOutputGroupsDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.eeProm'}
           value={eeProm}
           setValue={() => setEeProm(!eeProm)}
+          disabled={isEePromDisabled}
         />
         <CheckboxWithInfobox
           textKey={'fweet.export.propOp'}
           value={propOp}
           setValue={() => setPropOp(!propOp)}
+          disabled={isPropOpDisabled}
         />
       </ul>
       <LineBreak />

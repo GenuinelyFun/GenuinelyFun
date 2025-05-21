@@ -1,6 +1,6 @@
 import { Database } from 'sql.js';
 
-import { Toast } from '../../utils/useToast.ts';
+import { FweetFile } from '../../utils/data-utils.ts';
 
 export enum TABLENAMES {
   AddEEprom = 'AddEEprom',
@@ -298,6 +298,29 @@ export const ADDEEPROM_COLUMNS = [
 ];
 
 export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
+export const CAUSE_COLUMNS = ['Id', 'SoneId', 'InId', 'InType'];
+export const DETTOALZONE_COLUMNS = [
+  'Id',
+  'DetZoneId',
+  'AlZoneId',
+  'SoneSource',
+  'DynamicSelect',
+];
+export const EFFECT_COLUMNS = [
+  'Id',
+  'SoneId',
+  'OutId',
+  'OutType',
+  'Intermittand',
+];
+export const ZONE_COLUMNS = [
+  'Id',
+  'ParentZone',
+  'Number',
+  'Type',
+  'Name',
+  'DblKnck',
+];
 export const PROP_OP_COLUMNS = [
   'PanelId',
   'ModemActivation',
@@ -381,134 +404,148 @@ export const PROP_OP_COLUMNS = [
   'eCommBits',
 ];
 
-export const verifyPanels = (db: Database, toast: Toast): boolean => {
-  const panels = db.prepare('SELECT * FROM Panel');
-  const columns = panels.getColumnNames();
-  if (
+export const verifyFiles = (
+  files: FweetFile[],
+  verify: (db: Database) => boolean
+) => files.map((file) => verify(file.fepx)).every(Boolean);
+
+export const verifyPanels = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM Panel');
+  const all = db.exec('SELECT * FROM Panel');
+  const columns = table.getColumnNames();
+  return !(
     columns.length !== PANEL_COLUMNS.length ||
     Object.values(columns)
       .map((column) => PANEL_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'panel' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
 
-export const verifyAddEeProm = (db: Database, toast: Toast): boolean => {
-  const panels = db.prepare('SELECT * FROM AddEeProm');
-  const columns = panels.getColumnNames();
-  if (
+export const verifyAddEeProm = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM AddEeProm');
+  const all = db.exec('SELECT * FROM AddEeProm');
+  const columns = table.getColumnNames();
+  return !(
     columns.length !== ADDEEPROM_COLUMNS.length ||
     Object.values(columns)
       .map((column) => ADDEEPROM_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'AddEeProm' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
-export const verifyPropOp = (db: Database, toast: Toast): boolean => {
-  const panels = db.prepare('SELECT * FROM PropOp');
-  const columns = panels.getColumnNames();
-  if (
+
+export const verifyPropOp = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM PropOp');
+  const all = db.exec('SELECT * FROM PropOp');
+  const columns = table.getColumnNames();
+  return !(
     columns.length !== PROP_OP_COLUMNS.length ||
     Object.values(columns)
       .map((column) => PROP_OP_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'AddEeProm' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
 
-export const verifyAddrUnit = (db: Database, toast: Toast): boolean => {
+export const verifyCause = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM Cause');
+  const all = db.exec('SELECT * FROM Cause');
+  const columns = table.getColumnNames();
+  return !(
+    columns.length !== CAUSE_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => PROP_OP_COLUMNS.includes(column))
+      .includes(false) ||
+    all.length === 0
+  );
+};
+export const verifyDetToAlZone = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM DetToAlZone');
+  const all = db.exec('SELECT * FROM DetToAlZone');
+  const columns = table.getColumnNames();
+  return !(
+    columns.length !== DETTOALZONE_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => DETTOALZONE_COLUMNS.includes(column))
+      .includes(false) ||
+    all.length === 0
+  );
+};
+export const verifyEffect = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM Effect');
+  const all = db.exec('SELECT * FROM Effect');
+  const columns = table.getColumnNames();
+  return !(
+    columns.length !== EFFECT_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => EFFECT_COLUMNS.includes(column))
+      .includes(false) ||
+    all.length === 0
+  );
+};
+export const verifyZone = (db: Database): boolean => {
+  const table = db.prepare('SELECT * FROM Zone');
+  const all = db.exec('SELECT * FROM Zone');
+  const columns = table.getColumnNames();
+
+  return !(
+    columns.length !== ZONE_COLUMNS.length ||
+    Object.values(columns)
+      .map((column) => ZONE_COLUMNS.includes(column))
+      .includes(false) ||
+    all.length === 0
+  );
+};
+
+export const verifyAddrUnit = (db: Database): boolean => {
   const panels = db.prepare('SELECT * FROM AddrUnit');
+  const all = db.exec('SELECT * FROM AddrUnit');
   const columns = panels.getColumnNames();
-  if (
+  return !(
     columns.length !== ADDRUNIT_COLUMNS.length ||
     Object.values(columns)
       .map((column) => ADDRUNIT_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'loop' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
 
-export const verifyLogbook = (db: Database, toast: Toast): boolean => {
+export const verifyLogbook = (db: Database): boolean => {
   const logbooks = db.prepare('SELECT * FROM Logbook');
+  const all = db.exec('SELECT * FROM Logbook');
   const columns = logbooks.getColumnNames();
-  if (
+  return !(
     columns.length !== LOGBOOK_COLUMNS.length ||
     Object.values(columns)
       .map((column) => LOGBOOK_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'logbook' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
 
-export const verifyCircuit = (db: Database, toast: Toast): boolean => {
+export const verifyCircuit = (db: Database): boolean => {
   const circuits = db.prepare('SELECT * FROM Circuit');
+  const all = db.exec('SELECT * FROM Circuit');
   const columns = circuits.getColumnNames();
-  if (
+  return !(
     columns.length !== CIRCUIT_COLUMNS.length ||
     Object.values(columns)
       .map((column) => CIRCUIT_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'circuit' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
 
-export const verifyAlZone = (db: Database, toast: Toast): boolean => {
+export const verifyAlZone = (db: Database): boolean => {
   const alZones = db.prepare('SELECT * FROM AlZone');
+  const all = db.exec('SELECT * FROM AlZone');
   const columns = alZones.getColumnNames();
-  if (
+  return !(
     columns.length !== ALZONE_COLUMNS.length ||
     Object.values(columns)
       .map((column) => ALZONE_COLUMNS.includes(column))
-      .includes(false)
-  ) {
-    toast({
-      type: 'error',
-      textKey: 'fweet.dataformat.error',
-      textParams: { data: 'alzone' },
-    });
-    return false;
-  }
-  return true;
+      .includes(false) ||
+    all.length === 0
+  );
 };
