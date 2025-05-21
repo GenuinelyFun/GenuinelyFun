@@ -139,33 +139,6 @@ export enum PanelType {
   DELDA = 'Delta DA',
 }
 
-export const PANEL_COLUMNS = [
-  'Id',
-  'Number',
-  'SlaveOn',
-  'FirstMaster',
-  'SlaveLevel',
-  'Type',
-  'Name',
-  'SerialNumber',
-  'SwVersion',
-  'Language',
-  'Country',
-  'LastDownload',
-  'EepromSize',
-  'Description',
-  'ExpCard',
-  'Its2Card',
-  'MimicPanel',
-  'SmsSiteText',
-  'SmsScaAdress',
-  'SmsPinCode',
-  'SmsCard',
-  'SmsHBFreq',
-  'SmsHBStartDay',
-  'First',
-];
-
 export const LOGBOOK_COLUMNS = [
   'Id',
   'Date',
@@ -174,7 +147,7 @@ export const LOGBOOK_COLUMNS = [
   'UserName',
 ];
 
-export const CIRCUIT_COLUMNS = [
+export const CIRCUIT_USED_COLUMNS = [
   'Id',
   'Number',
   'PanelId',
@@ -182,29 +155,7 @@ export const CIRCUIT_COLUMNS = [
   'OutputType',
   'Name',
   'TBNumber',
-  'Delayed',
-  'Delay',
-  'AbsDelay',
-  'NoHotelDelay',
-  'MaxAlarms',
-  'MaxLeds',
-  'OCLimit',
   'Description',
-  'Priority',
-  'Led',
-  'Mp3Num',
-  'ActivateZones',
-  'ActivatePreSel',
-  'VCUSwitchOut',
-  'DelayOptions',
-  'ModbusCoil',
-  'NightIsolation',
-  'FaultLed',
-  'EvacuateLed',
-  'SectionSynch',
-  'SectionState',
-  'ButtonItemId',
-  'Options',
 ];
 
 export enum CircuitOutputType {
@@ -270,119 +221,11 @@ export enum AssignTypeType {
   ATORG = 'Alarm Org.',
 }
 
-export const ADDEEPROM_COLUMNS = [
-  'PanelId',
-  'HexAddr',
-  'HexValue',
-  'HexDescription',
-];
-
-export const ALZONE_COLUMNS = ['Id', 'Name', 'AssignType'];
-export const CAUSE_COLUMNS = ['Id', 'SoneId', 'InId', 'InType'];
-export const DETTOALZONE_COLUMNS = [
-  'Id',
-  'DetZoneId',
-  'AlZoneId',
-  'SoneSource',
-  'DynamicSelect',
-];
-export const EFFECT_COLUMNS = [
-  'Id',
-  'SoneId',
-  'OutId',
-  'OutType',
-  'Intermittand',
-];
-export const ZONE_COLUMNS = [
-  'Id',
-  'ParentZone',
-  'Number',
-  'Type',
-  'Name',
-  'DblKnck',
-];
-export const PROP_OP_COLUMNS = [
-  'PanelId',
-  'ModemActivation',
-  'ModemDelay',
-  'SilenceSounder',
-  'DetectorTextPres',
-  'ZoneMessage',
-  'ReminderBeep',
-  'DayMon',
-  'NightMon',
-  'DayTue',
-  'NightTue',
-  'DayWed',
-  'NightWed',
-  'DayThu',
-  'NightThu',
-  'DayFri',
-  'NightFri',
-  'DaySat',
-  'NightSat',
-  'DaySun',
-  'NightSun',
-  'PrintMessage',
-  'HotelDelay',
-  'NotHotelDelay',
-  'Buzzer',
-  'PrealarmAct',
-  'IsolationAct',
-  'PagerType',
-  'PagerAlarm',
-  'PagerPreAlarm',
-  'PagerSysFault',
-  'PagerDetFault',
-  'PagerEmliFault',
-  'PagerMax2DetFault',
-  'PagerIsolation',
-  'PagerDeisolation',
-  'AlarmTransAutomatic',
-  'AlarmTransActManual',
-  'ECommDeviceData',
-  'ECommEventAck',
-  'ECommHeartAck',
-  'ECommAsciiDevice',
-  'ECommExtendedProt',
-  'ECommUseToken',
-  'ECommTokenDir',
-  'ECommUseHeartbeat',
-  'ECommTotalComFault',
-  'ECommReqResMode',
-  'ECommMaster',
-  'ECommNextSystem',
-  'ComPort1Prot',
-  'ComPort1Baud',
-  'ComPort1Form',
-  'ComPort2Prot',
-  'ComPort2Baud',
-  'ComPort2Form',
-  'DisableOnKeyOperation',
-  'Alg7',
-  'LedFault',
-  'LedEvac',
-  'LedIsolation',
-  'LedMicBusy',
-  'LedMicReady',
-  'MenuType',
-  'PreAlarmPriority',
-  'DelayOptions',
-  'DelayAlarmTransmitter',
-  'AlarmTransmitterKit',
-  'BuzzerOptions',
-  'PagerOptions',
-  'KeySwitchOptions',
-  'DisplayPres',
-  'ExtingOptions',
-  'ECommJump',
-  'ECommRedundancy',
-  'DetContam',
-  'InhibitedPres',
-  'SafetelConfig',
-  'SafetelSysID',
-  'eCommBits',
-];
+export const ALZONE_USED_COLUMNS = ['Id', 'Name', 'AssignType'];
+export const CAUSE_USED_COLUMNS = ['SoneId', 'InId'];
+export const DETTOALZONE_USED_COLUMNS = ['DetZoneId', 'AlZoneId'];
+export const EFFECT_USED_COLUMNS = ['SoneId', 'OutId'];
+export const ZONE_USED_COLUMNS = ['Id', 'ParentZone', 'Number'];
 
 export const verifyFiles = (
   files: FweetFile[],
@@ -390,42 +233,18 @@ export const verifyFiles = (
 ) => files.map((file) => verify(file.fepx)).every(Boolean);
 
 export const verifyPanels = (db: Database): boolean => {
-  const table = db.prepare('SELECT * FROM Panel');
   const all = db.exec('SELECT * FROM Panel');
-  const columns = table.getColumnNames();
-  return !(
-    columns.length !== PANEL_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => PANEL_COLUMNS.includes(column))
-      .includes(false) ||
-    all.length === 0
-  );
+  return !(all.length === 0);
 };
 
 export const verifyAddEeProm = (db: Database): boolean => {
-  const table = db.prepare('SELECT * FROM AddEeProm');
   const all = db.exec('SELECT * FROM AddEeProm');
-  const columns = table.getColumnNames();
-  return !(
-    columns.length !== ADDEEPROM_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => ADDEEPROM_COLUMNS.includes(column))
-      .includes(false) ||
-    all.length === 0
-  );
+  return !(all.length === 0);
 };
 
 export const verifyPropOp = (db: Database): boolean => {
-  const table = db.prepare('SELECT * FROM PropOp');
   const all = db.exec('SELECT * FROM PropOp');
-  const columns = table.getColumnNames();
-  return !(
-    columns.length !== PROP_OP_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => PROP_OP_COLUMNS.includes(column))
-      .includes(false) ||
-    all.length === 0
-  );
+  return !(all.length === 0);
 };
 
 export const verifyCause = (db: Database): boolean => {
@@ -433,10 +252,10 @@ export const verifyCause = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Cause');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== CAUSE_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => CAUSE_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== CAUSE_USED_COLUMNS.length ||
+    CAUSE_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
@@ -445,10 +264,10 @@ export const verifyDetToAlZone = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM DetToAlZone');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== DETTOALZONE_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => DETTOALZONE_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== DETTOALZONE_USED_COLUMNS.length ||
+    DETTOALZONE_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
@@ -457,10 +276,10 @@ export const verifyEffect = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Effect');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== EFFECT_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => EFFECT_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== EFFECT_USED_COLUMNS.length ||
+    EFFECT_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
@@ -470,10 +289,10 @@ export const verifyZone = (db: Database): boolean => {
   const columns = table.getColumnNames();
 
   return !(
-    columns.length !== ZONE_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => ZONE_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== ZONE_USED_COLUMNS.length ||
+    ZONE_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
@@ -510,10 +329,10 @@ export const verifyCircuit = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Circuit');
   const columns = circuits.getColumnNames();
   return !(
-    columns.length !== CIRCUIT_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => CIRCUIT_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== CIRCUIT_USED_COLUMNS.length ||
+    CIRCUIT_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
@@ -523,10 +342,10 @@ export const verifyAlZone = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM AlZone');
   const columns = alZones.getColumnNames();
   return !(
-    columns.length !== ALZONE_COLUMNS.length ||
-    Object.values(columns)
-      .map((column) => ALZONE_COLUMNS.includes(column))
-      .includes(false) ||
+    columns.length !== ALZONE_USED_COLUMNS.length ||
+    ALZONE_USED_COLUMNS.map((column) =>
+      Object.values(columns).includes(column)
+    ).includes(false) ||
     all.length === 0
   );
 };
