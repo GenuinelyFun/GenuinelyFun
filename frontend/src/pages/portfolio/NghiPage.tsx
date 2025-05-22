@@ -15,7 +15,7 @@ import {
 } from '../../utils/nghi-utils';
 import styles from './ArthurNghiPage.module.less';
 
-const ArthurPage: FC = () => {
+const NghiPage: FC = () => {
   const { translate } = useLanguageContext();
   const [visibleContent, setVisibleContent] = useState<number>(1);
 
@@ -167,4 +167,4 @@ const ArthurPage: FC = () => {
   );
 };
 
-export default ArthurPage;
+export default NghiPage;

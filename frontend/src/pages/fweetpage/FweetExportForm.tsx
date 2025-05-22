@@ -2,21 +2,20 @@ import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useEffect, useState } from 'react';
 
-import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
-import GenericButton from '../../../components/GenericButton';
-import LineBreak from '../../../components/LineBreak.tsx';
-import { addFweetSheetToWorkbook } from '../../../projects/feet/utils/utils.ts';
-import { addressReportMapper } from '../../../projects/fweet/address-report-utils.ts';
-import { assignedOutputGroupsMapper } from '../../../projects/fweet/assigned-output-groups.ts';
-import { boardMapper } from '../../../projects/fweet/board-utils.ts';
-import { getSiteName } from '../../../projects/fweet/database-utils.ts';
-import { eePromMapper } from '../../../projects/fweet/eeProm-utils.ts';
-import { ioReportMapper } from '../../../projects/fweet/io-report-utils.ts';
-import { logbookMapper } from '../../../projects/fweet/logbook-utils.ts';
-import { loopMapper } from '../../../projects/fweet/loop-utils.ts';
-import { groupMapper } from '../../../projects/fweet/output-groups-utils.ts';
-import { panelMapper } from '../../../projects/fweet/panel-utils.ts';
-import { propOpMapper } from '../../../projects/fweet/propOp-utils.ts';
+import CheckboxWithInfobox from '../../components/CheckboxWithInfobox.tsx';
+import GenericButton from '../../components/GenericButton.tsx';
+import LineBreak from '../../components/LineBreak.tsx';
+import { addressReportMapper } from '../../projects/fweet/address-report-utils.ts';
+import { assignedOutputGroupsMapper } from '../../projects/fweet/assigned-output-groups.ts';
+import { boardMapper } from '../../projects/fweet/board-utils.ts';
+import { getSiteName } from '../../projects/fweet/database-utils.ts';
+import { eePromMapper } from '../../projects/fweet/eeProm-utils.ts';
+import { ioReportMapper } from '../../projects/fweet/io-report-utils.ts';
+import { logbookMapper } from '../../projects/fweet/logbook-utils.ts';
+import { loopMapper } from '../../projects/fweet/loop-utils.ts';
+import { groupMapper } from '../../projects/fweet/output-groups-utils.ts';
+import { panelMapper } from '../../projects/fweet/panel-utils.ts';
+import { propOpMapper } from '../../projects/fweet/propOp-utils.ts';
 import {
   verifyAddEeProm,
   verifyAddrUnit,
@@ -30,10 +29,11 @@ import {
   verifyPanels,
   verifyPropOp,
   verifyZone,
-} from '../../../projects/fweet/verify-utils.ts';
-import { FweetFile, useDataContext } from '../../../utils/data-utils.ts';
-import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
-import { useToast } from '../../../utils/useToast';
+} from '../../projects/fweet/verify-utils.ts';
+import { FweetFile, useDataContext } from '../../utils/data-utils.ts';
+import { addFweetSheetToWorkbook } from '../../utils/excel-utils.ts';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
+import { useToast } from '../../utils/useToast.ts';
 import styles from './FweetExportForm.module.less';
 
 const FweetExportForm: FC = () => {

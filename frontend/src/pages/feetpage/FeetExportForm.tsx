@@ -3,27 +3,27 @@ import { Workbook } from 'exceljs';
 import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useEffect, useState } from 'react';
 
-import CheckboxWithInfobox from '../../../components/CheckboxWithInfobox.tsx';
-import GenericButton from '../../../components/GenericButton';
-import InfoBox from '../../../components/InfoBox';
-import LineBreak from '../../../components/LineBreak.tsx';
-import { Panel } from '../../../projects/feet/feetJsonDataInterface.ts';
-import { mapLoopAddressToExcel } from '../../../projects/feet/utils/address-report-utils.ts';
-import { mapBoardToExcel } from '../../../projects/feet/utils/board-utils.ts';
-import { mapControlGroupsToExcel } from '../../../projects/feet/utils/control-group-report-utils.ts';
-import { mapToIOReportToExcel } from '../../../projects/feet/utils/io-report-utils.ts';
-import { mapLoopToExcel } from '../../../projects/feet/utils/loop-utils.ts';
-import { mapPanelToExcel } from '../../../projects/feet/utils/panel-utils.ts';
-import { mapSummaryToExcel } from '../../../projects/feet/utils/summary-utils.ts';
+import CheckboxWithInfobox from '../../components/CheckboxWithInfobox.tsx';
+import GenericButton from '../../components/GenericButton.tsx';
+import InfoBox from '../../components/InfoBox.tsx';
+import LineBreak from '../../components/LineBreak.tsx';
+import { Panel } from '../../projects/feet/feetJsonDataInterface.ts';
+import { mapLoopAddressToExcel } from '../../projects/feet/utils/address-report-utils.ts';
+import { mapBoardToExcel } from '../../projects/feet/utils/board-utils.ts';
+import { mapControlGroupsToExcel } from '../../projects/feet/utils/control-group-report-utils.ts';
+import { mapToIOReportToExcel } from '../../projects/feet/utils/io-report-utils.ts';
+import { mapLoopToExcel } from '../../projects/feet/utils/loop-utils.ts';
+import { mapPanelToExcel } from '../../projects/feet/utils/panel-utils.ts';
+import { mapSummaryToExcel } from '../../projects/feet/utils/summary-utils.ts';
 import {
-  addFeetSheetToWorkbook,
   feetLanguages,
   useSheetTranslate,
-} from '../../../projects/feet/utils/utils.ts';
-import { mapPanelsWithZones } from '../../../projects/feet/utils/zone-utils.ts';
-import { FeetFile, useDataContext } from '../../../utils/data-utils.ts';
-import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
-import { useToast } from '../../../utils/useToast';
+} from '../../projects/feet/utils/utils.ts';
+import { mapPanelsWithZones } from '../../projects/feet/utils/zone-utils.ts';
+import { FeetFile, useDataContext } from '../../utils/data-utils.ts';
+import { addFeetSheetToWorkbook } from '../../utils/excel-utils.ts';
+import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
+import { useToast } from '../../utils/useToast.ts';
 import styles from './FeetExportForm.module.less';
 import PanelCheckbox from './PanelCheckbox.tsx';
 

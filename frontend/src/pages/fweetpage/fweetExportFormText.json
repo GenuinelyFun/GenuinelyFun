@@ -16,8 +16,8 @@
   },
   "fweet.export.language": {
     "en": "Exported sheets will be in English.",
-    "no": "Eksporterte ark vil være på norsk.",
-    "nn": "Eksporterte ark vil vere på norsk."
+    "no": "Eksporterte ark vil være på engelsk.",
+    "nn": "Eksporterte ark vil vere på engelsk."
   },
   "fweet.export.error": {
     "en": "Something went wrong, please try again later.",
@@ -63,11 +63,6 @@
     "en": "Panel",
     "no": "Sentral",
     "nn": "Sentral"
-  },
-  "fweet.export.panel.missing-json": {
-    "en": "It appears there are no fire panels in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire panel and try again.",
-    "no": "Det ser ut til at det ikke er noen brannsentraler i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder brannsentral og prøv igjen.",
-    "nn": "Det ser ut til at det ikkje er nokon brannsentralar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsentral og prøv igjen."
   },
   "fweet.export.panel.infobox.title": {
     "en": "Panel",

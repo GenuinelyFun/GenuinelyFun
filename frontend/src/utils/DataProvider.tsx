@@ -5,8 +5,10 @@ import {
   DataFile,
   FeetFile,
   FweetFile,
+  InnoFile,
   isFeetFile,
   isFweetFile,
+  isInnoFile,
   shortenedFileName,
 } from './data-utils.ts';
 import { useToast } from './useToast';
@@ -29,7 +31,7 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
   const removeFile = (name: string) => {
     toast({
       type: 'success',
-      textKey: 'feet-file-list.remove-file.success',
+      textKey: 'file-list.remove-file.success',
       textParams: { file: shortenedFileName(name) },
     });
     setFiles((prevFiles) => prevFiles.filter((file) => file.name !== name));
@@ -45,6 +47,9 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
         fweetFiles: files
           .filter((file) => isFweetFile(file))
           .map((file) => file as FweetFile),
+        innoFiles: files
+          .filter((file) => isInnoFile(file))
+          .map((file) => file as InnoFile),
         addFiles,
         removeFile,
       }}
