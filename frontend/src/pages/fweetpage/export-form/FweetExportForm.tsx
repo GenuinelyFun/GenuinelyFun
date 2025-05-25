@@ -36,10 +36,6 @@ import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast';
 import styles from './FweetExportForm.module.less';
 
-export interface FilterPanelType {
-  [fileName: string]: { [panel: string]: boolean };
-}
-
 const FweetExportForm: FC = () => {
   const toast = useToast();
   const { translate } = useLanguageContext();
