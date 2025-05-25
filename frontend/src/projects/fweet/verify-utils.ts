@@ -252,11 +252,9 @@ export const verifyCause = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Cause');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== CAUSE_USED_COLUMNS.length ||
     CAUSE_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 export const verifyDetToAlZone = (db: Database): boolean => {
@@ -264,11 +262,9 @@ export const verifyDetToAlZone = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM DetToAlZone');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== DETTOALZONE_USED_COLUMNS.length ||
     DETTOALZONE_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 export const verifyEffect = (db: Database): boolean => {
@@ -276,11 +272,9 @@ export const verifyEffect = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Effect');
   const columns = table.getColumnNames();
   return !(
-    columns.length !== EFFECT_USED_COLUMNS.length ||
     EFFECT_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 export const verifyZone = (db: Database): boolean => {
@@ -289,11 +283,9 @@ export const verifyZone = (db: Database): boolean => {
   const columns = table.getColumnNames();
 
   return !(
-    columns.length !== ZONE_USED_COLUMNS.length ||
     ZONE_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 
@@ -303,11 +295,9 @@ export const verifyAddrUnit = (db: Database): boolean => {
   const columns = panels.getColumnNames();
 
   return !(
-    columns.length < ADDRUNIT_USED_COLUMNS.length ||
     ADDRUNIT_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 
@@ -316,11 +306,9 @@ export const verifyLogbook = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Logbook');
   const columns = logbooks.getColumnNames();
   return !(
-    columns.length !== LOGBOOK_COLUMNS.length ||
     Object.values(columns)
       .map((column) => LOGBOOK_COLUMNS.includes(column))
-      .includes(false) ||
-    all.length === 0
+      .includes(false) || all.length === 0
   );
 };
 
@@ -329,11 +317,9 @@ export const verifyCircuit = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM Circuit');
   const columns = circuits.getColumnNames();
   return !(
-    columns.length !== CIRCUIT_USED_COLUMNS.length ||
     CIRCUIT_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
 
@@ -342,10 +328,8 @@ export const verifyAlZone = (db: Database): boolean => {
   const all = db.exec('SELECT * FROM AlZone');
   const columns = alZones.getColumnNames();
   return !(
-    columns.length !== ALZONE_USED_COLUMNS.length ||
     ALZONE_USED_COLUMNS.map((column) =>
       Object.values(columns).includes(column)
-    ).includes(false) ||
-    all.length === 0
+    ).includes(false) || all.length === 0
   );
 };
