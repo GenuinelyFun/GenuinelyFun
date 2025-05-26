@@ -19,8 +19,6 @@ const InnoExportForm: FC = () => {
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (files.length === 0) return;
-
-    toast({ type: 'success', textKey: 'inno.export.started' });
     files.forEach((file) => {
       exportToFiles(file);
     });
@@ -29,6 +27,17 @@ const InnoExportForm: FC = () => {
   const exportToFiles = (file: InnoFile) => {
     const { name, inno } = file;
     const workbook = new Workbook();
+
+    const data = mapInnoFile(inno);
+    if (data.length === 0) {
+      toast({
+        type: 'error',
+        textKey: 'inno.export.no-data',
+        textParams: { filename: name },
+      });
+      return;
+    }
+
     addInnoSheetToWorkbook(workbook, mapInnoFile(inno));
 
     const fileName =

@@ -79,7 +79,6 @@ const FeetExportForm: FC = () => {
     e.preventDefault();
     if (feetFiles.length === 0) return;
 
-    toast({ type: 'success', textKey: 'feet-export.started' });
     feetFiles.forEach((file) => {
       const panels = file.feet.system.panels.filter((panel) => {
         if (filteredPanels[file.name] === undefined) {

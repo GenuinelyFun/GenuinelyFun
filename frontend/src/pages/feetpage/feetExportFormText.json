@@ -24,11 +24,6 @@
     "no": "Noe gikk galt, prøv igjen senere.",
     "nn": "Noko gjekk gale, prøv igjen seinare."
   },
-  "feet-export.started": {
-    "en": "The process is rolling. What you selected is on its way! Quite impressive, don’t you think?",
-    "no": "Prosessen er i gang. Det du har valgt er på vei! Ganske imponerende, ikke sant?",
-    "nn": "Prosessen er i gang. Det du har valt er på veg! Ganske imponerande, er det ikkje?"
-  },
   "feet-export.filename.label": {
     "en": "Edit filename",
     "no": "Endre filnavn",

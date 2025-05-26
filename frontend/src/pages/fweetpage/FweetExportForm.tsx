@@ -185,7 +185,6 @@ const FweetExportForm: FC = () => {
     e.preventDefault();
     if (files.length === 0) return;
 
-    toast({ type: 'success', textKey: 'fweet.export.started' });
     files.forEach((file) => {
       exportToFiles(file);
     });
