@@ -190,12 +190,17 @@ const UploadBox: FC<Props> = ({
           if (!isDragging) {
             setIsDragging(true);
           }
-          const file = e.dataTransfer.items[0];
+          const files = [];
+          for (const file of e.dataTransfer.items)
+            files.push({ type: file.type, kind: file.kind });
           if (
-            file &&
-            file.kind === 'file' &&
-            file.type !== '' &&
-            file.type !== acceptFileType
+            files.length > 0 &&
+            files.filter(
+              (file) =>
+                file.kind === 'file' &&
+                file.type !== '' &&
+                file.type !== acceptFileType
+            ).length > 0
           ) {
             setIsNotParseable(true);
           } else {

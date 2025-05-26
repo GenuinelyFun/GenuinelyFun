@@ -36,7 +36,7 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
       return {
         versionNumber: undefined,
         productName: undefined,
-        acceptFileType: '.pdf',
+        acceptFileType: 'application/pdf',
         exportForm: <InnoExportForm />,
       };
   }

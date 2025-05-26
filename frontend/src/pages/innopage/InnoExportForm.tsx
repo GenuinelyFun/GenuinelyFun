@@ -38,7 +38,7 @@ const InnoExportForm: FC = () => {
       return;
     }
 
-    addInnoSheetToWorkbook(workbook, mapInnoFile(inno));
+    addInnoSheetToWorkbook(workbook, data);
 
     const fileName =
       'Norik armaturliste ' + name.slice(0, name.indexOf('.pdf')) + '.xlsx';

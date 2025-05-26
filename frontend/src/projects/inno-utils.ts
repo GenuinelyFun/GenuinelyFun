@@ -21,10 +21,11 @@ export const mapInnoFile = (
     text.replace(/([^\n])\n(BL\d{2}[ .0-9A-Za-z/-]*- .*?)(?=\n|$)/g, '$1\n\n$2')
   );
   // Regex for matching addresses with a 'Kurs' line
-  const addressWithKursRegex = /([A-Z0-9]+(?:\.[A-Z0-9]+)+.*?)\nKurs:.*?\n 0/g;
+  const addressWithKursRegex =
+    /([A-Z0-9]+(?:\.[A-Z0-9]+)+.*?)\nKurs:.*?\n[] 0/g;
   // Regex for matching addresses without a 'Kurs' line
   const addressOnlyRegex =
-    /([A-Z0-9]+(?:\.[A-Z0-9]+)+.*?(?:- (?:ML|LL).*?)?) 0/g;
+    /([A-Z0-9]+(?:\.[A-Z0-9]+)+.*?(?:- (?:ML|LL).*?)?)[] 0/g;
 
   // Process each input string
   const outputContent: string[][] = normalizedContent.map((text: string) => {
@@ -43,12 +44,14 @@ export const mapInnoFile = (
         // Replace checkpoint marker with double newline
         .replace(/\nSJEKKPUNKT ADRESSE-ENHET\\/g, '\n\n')
         // Remove trailing marker
-        .replace(/ 0/g, '\n');
+        .replace(/[] 0/g, '\n');
 
       const kursLine = match[0]
         .split('\n')[1]
         // Replace 'n' with newline
         .replace(/n/g, '\n')
+        // Replace 'n' with newline
+        .replace(/n/g, '\n')
         // Replace checkpoint marker with double newline
         .replace(/\nSJEKKPUNKT ADRESSE-ENHET\\/g, '\n\n')
         // Remove trailing marker
