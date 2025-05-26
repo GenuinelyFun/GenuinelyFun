@@ -41,8 +41,8 @@ const FileList: FC<{ fileType: ImportExportPageType }> = ({ fileType }) => {
         filetype: fileTypeString(),
       })}
     >
-      {files.map(({ name, short }) => (
-        <li className={styles.fileCard} key={short} aria-label={short}>
+      {files.map(({ name, short }, index) => (
+        <li className={styles.fileCard} key={index + short} aria-label={short}>
           <FileIcon
             aria-label={translate('file-list.document.aria')}
             className={classNames(styles.icon)}
