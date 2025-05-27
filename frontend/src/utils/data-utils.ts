@@ -21,11 +21,18 @@ export interface FweetFile {
   short: string;
 }
 
-export type DataFile = FweetFile | FeetFile;
+export interface InnoFile {
+  name: string;
+  inno: string[];
+  short: string;
+}
 
-export enum FileType {
+export type DataFile = FweetFile | FeetFile | InnoFile;
+
+export enum ImportExportPageType {
   FEET = 'feet',
   FWEET = 'fweet',
+  INNO = 'inno',
 }
 
 export function isFeetFile(file: DataFile): file is FeetFile {
@@ -36,10 +43,15 @@ export function isFweetFile(file: DataFile): file is FweetFile {
   return (file as FweetFile).fepx !== undefined;
 }
 
+export function isInnoFile(file: DataFile): file is InnoFile {
+  return (file as InnoFile).inno !== undefined;
+}
+
 type DataContextType = {
   allFiles: DataFile[];
   feetFiles: FeetFile[];
   fweetFiles: FweetFile[];
+  innoFiles: InnoFile[];
   removeFile: (name: string) => void;
   addFiles: (value: DataFile[]) => void;
 };

@@ -1,287 +1,252 @@
 {
-  "fweet.export.settings.aria": {
+  "feet-export.settings.aria": {
     "en": "Export settings",
     "no": "Eksport innstillinger",
     "nn": "Eksport innstillingar"
   },
-  "fweet.export.title": {
+  "feet-export.title": {
     "en": "Export settings",
     "no": "Eksport innstillinger",
     "nn": "Eksport innstillingar"
   },
-  "fweet.export.settings.sheet-list": {
+  "feet-export.settings.sheet-list": {
     "en": "Select sheets in Excel:",
     "no": "Velg ark i Excel:",
     "nn": "Vel ark i Excel:"
   },
-  "fweet.export.language": {
-    "en": "Exported sheets will be in English.",
-    "no": "Eksporterte ark vil være på norsk.",
-    "nn": "Eksporterte ark vil vere på norsk."
+  "feet-export.language.select": {
+    "en": "Select language",
+    "no": "Velg språk",
+    "nn": "Vel språk"
   },
-  "fweet.export.error": {
+  "feet-export.error": {
     "en": "Something went wrong, please try again later.",
     "no": "Noe gikk galt, prøv igjen senere.",
     "nn": "Noko gjekk gale, prøv igjen seinare."
   },
-  "fweet.export.started": {
-    "en": "The process is rolling. What you selected is on its way! Quite impressive, don’t you think?",
-    "no": "Prosessen er i gang. Det du har valgt er på vei! Ganske imponerende, ikke sant?",
-    "nn": "Prosessen er i gang. Det du har valt er på veg! Ganske imponerande, er det ikkje?"
-  },
-  "fweet.export.filename.label": {
+  "feet-export.filename.label": {
     "en": "Edit filename",
     "no": "Endre filnavn",
     "nn": "Endre filnamn"
   },
-  "fweet.export.filename.placeholder": {
+  "feet-export.filename.placeholder": {
     "en": "best-filename-ever",
     "no": "beste-filnavnet",
     "nn": "beste-filnamnet"
   },
-  "fweet.export.disclaimer.checkbox.label": {
+  "feet-export.separate.checkbox.label": {
+    "en": "Download each selected panel into separate excel files.",
+    "no": "Last ned hver valgte sentral i separate excel filer.",
+    "nn": "Last ned kvar vald sentral i separate excel filer."
+  },
+  "feet-export.disclaimer.checkbox.label": {
     "en": "I understand this is just a tool, and that I must verify all content myself.",
     "no": "Jeg forstår at dette bare er et verktøy, og at jeg må verifisere alt innhold selv.",
     "nn": "Eg forstår at dette berre er eit verktøy, og at eg må verifisere alt innhald sjølv."
   },
-  "fweet.export.selectall.checkbox.label": {
+  "feet-export.selectall.checkbox.label": {
     "en": "Select all",
     "no": "Velg alle",
     "nn": "Velg alle"
   },
-  "fweet.export.selectall.infobox.title": {
+  "feet-export.selectall.infobox.title": {
     "en": "Select all",
     "no": "Velg alle",
     "nn": "Velg alle"
   },
-  "fweet.export.selectall.infobox.description": {
-    "en": "This is the 'Select All' button. Because, obviously, clicking each one individually sounds exhausting. Disabled options will not be selected, clearly.",
-    "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da. Deaktiverte alternativer vil ikke bli valgt.",
-    "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då. Deaktiverte alternativ vil ikkje bli valde."
+  "feet-export.selectall.infobox.description": {
+    "en": "This is the 'Select All' button. Because, obviously, clicking each one individually sounds exhausting.",
+    "no": "Dette er 'Velg alle' knappen. Men, seriøst, å klikke på hver enkelt høres slitsomt ut da.",
+    "nn": "Dette er 'Vel alle' knappen. Men, seriøst, å klikka på kvar enkelt høyrest slitsamt ut då."
   },
-  "fweet.export.panel.checkbox.label": {
+  "feet-export.summary.checkbox.label": {
+    "en": "Summary",
+    "no": "Sammendrag",
+    "nn": "Sammendrag"
+  },
+  "feet-export.summary.infobox.title": {
+    "en": "Summary",
+    "no": "Sammendrag",
+    "nn": "Sammendrag"
+  },
+  "feet-export.summary.infobox.description": {
+    "en": "This option generates a summary page listing different types of products within each panel.",
+    "no": "Dette genererer en sammendragsfane som lister opp forskjellige typer produkter innen hver sentral.",
+    "nn": "Dette genererer ein sammendragsfane som listar opp forskjellige typar produkt innan kvar sentral."
+  },
+  "feet-export.panel.checkbox.label": {
     "en": "Panel",
     "no": "Sentral",
     "nn": "Sentral"
   },
-  "fweet.export.panel.missing-json": {
+  "feet-export.panel.missing-json": {
     "en": "It appears there are no fire panels in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire panel and try again.",
     "no": "Det ser ut til at det ikke er noen brannsentraler i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder brannsentral og prøv igjen.",
     "nn": "Det ser ut til at det ikkje er nokon brannsentralar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsentral og prøv igjen."
   },
-  "fweet.export.panel.infobox.title": {
+  "feet-export.panel.infobox.title": {
     "en": "Panel",
     "no": "Sentral",
     "nn": "Sentral"
   },
-  "fweet.export.panel.infobox.description": {
+  "feet-export.panel.infobox.description": {
     "en": "This option generates an Excel tab that contains the complete configuration details for all fire panels. Each row in the sheet represents a fire panel.",
     "no": "Dette genererer en Excel fane som inneholder fullstendige konfigurasjonsdetaljer for alle brannsentraler. Hver rad i fanen representerer en brannsentral.",
     "nn": "Dette genererer ein Excel-fane som inneheld fullstendige konfigurasjonsdetaljar for alle brannsentralar. Kvar rad i fanen representerer ein brannsentral."
   },
-  "fweet.export.zone.checkbox.label": {
+  "feet-export.zone.checkbox.label": {
     "en": "Zone",
     "no": "Sone",
     "nn": "Sone"
   },
-  "fweet.export.zone.missing-json": {
+  "feet-export.zone.missing-json": {
     "en": "It appears there are no zones in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes zones and try again. A possible reason for this issue could be that you converted a FX file to JSON directly, without saving it in editor mode before downloading.",
     "no": "Det ser ut til at det ikke er noen soner i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder soner og prøv igjen. En mulig årsak til dette problemet kan være at du konverterte en FX-fil til JSON direkte, uten å lagre den i redigeringsmodus før du lastet den ned.",
     "nn": "Det ser ut til at det ikkje er nokon soner i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld soner og prøv igjen. Ein mogleg årsak til dette problemet kan vere at du konverterte ein FX-fil til JSON direkte, utan å lagre den i redigeringsmodus før du lasta den ned."
   },
-  "fweet.export.zone.infobox.title": {
+  "feet-export.zone.infobox.title": {
     "en": "Zone",
     "no": "Sone",
     "nn": "Sone"
   },
-  "fweet.export.zone.infobox.description": {
+  "feet-export.zone.infobox.description": {
     "en": "This option generates an Excel tab listing all zones along with their descriptions. If a zone does not have a configured description, the corresponding cell in the sheet will be left blank.",
     "no": "Dette genererer en Excel fane som lister opp alle soner sammen med deres beskrivelser. Hvis en sone ikke har en konfigurert beskrivelse, vil den tilsvarende cellen i fanen være tom.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle soner saman med deira beskrivingar. Viss ein sone ikkje har ein konfigurert beskriving, vil den tilsvarande cella i fanen vere tom."
   },
-  "fweet.export.loop.checkbox.label": {
+  "feet-export.loop.checkbox.label": {
     "en": "Loop",
     "no": "Sløyfe",
     "nn": "Sløyfe"
   },
-  "fweet.export.loop.missing-json": {
+  "feet-export.loop.missing-json": {
     "en": "It appears there are no fire loops in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes fire loop and try again.",
     "no": "Det ser ut til at det ikke er noen brannsløyfer i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder brannsløyfer og prøv igjen.",
     "nn": "Det ser ut til at det ikkje er nokon brannsløyfer i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld brannsløyfer og prøv igjen."
   },
-  "fweet.export.loop.infobox.title": {
+  "feet-export.loop.infobox.title": {
     "en": "Loop",
     "no": "Sløyfe",
     "nn": "Sløyfe"
   },
-  "fweet.export.loop.infobox.description": {
+  "feet-export.loop.infobox.description": {
     "en": "This option generates an Excel tab listing all fire loops along with their configuration.",
     "no": "Dette genererer en Excel fane som lister opp alle brannsløyfer sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle brannsløyfer saman med deira konfigurasjon."
   },
-  "fweet.export.board.checkbox.label": {
+  "feet-export.board.checkbox.label": {
     "en": "Board",
     "no": "Kort",
     "nn": "Kort"
   },
-  "fweet.export.groups.checkbox.label": {
-    "en": "Output groups",
-    "no": "Utgangsgrupper",
-    "nn": "Utgangsgrupper"
-  },
-  "fweet.export.groups.infobox.title": {
-    "en": "Output groups",
-    "no": "Utgangsgrupper",
-    "nn": "Utgangsgrupper"
-  },
-  "fweet.export.groups.infobox.description": {
-    "en": "This option generates an Excel tab listing all output groups along with their configuration.",
-    "no": "Dette genererer en Excel fane som lister opp alle utgangsgrupper sammen med deres konfigurasjon.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle utgangsgrupper saman med deira konfigurasjon."
-  },
-  "fweet.export.board.missing-json": {
+  "feet-export.board.missing-json": {
     "en": "It appears there are no IO boards in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes IO board and try again.",
     "no": "Det ser ut til at det ikke er noen IO kort i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder IO kort og prøv igjen.",
     "nn": "Det ser ut til at det ikkje er nokon IO kort i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld IO kort og prøv igjen."
   },
-  "fweet.export.board.infobox.title": {
+  "feet-export.board.infobox.title": {
     "en": "Board",
     "no": "Kort",
     "nn": "Kort"
   },
-  "fweet.export.board.infobox.description": {
+  "feet-export.board.infobox.description": {
     "en": "This option generates an Excel tab listing all IO boards along with their configuration.",
     "no": "Dette genererer en Excel fane som lister opp alle IO kort sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle IO kort saman med deira konfigurasjon."
   },
-  "fweet.export.address.checkbox.label": {
+  "feet-export.address.checkbox.label": {
     "en": "Address report",
     "no": "Adresse rapport",
     "nn": "Adresse rapport"
   },
-  "fweet.export.address.infobox.title": {
+  "feet-export.address.infobox.title": {
     "en": "Address report",
     "no": "Adresse rapport",
     "nn": "Adresse rapport"
   },
-  "fweet.export.address.infobox.description": {
+  "feet-export.address.infobox.description": {
     "en": "This option generates an Excel tab listing all addresses along with their configuration.",
     "no": "Dette genererer en Excel fane som lister opp alle adresser sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle adresser saman med deira konfigurasjon."
   },
-  "fweet.export.io.checkbox.label": {
+  "feet-export.io.checkbox.label": {
     "en": "IO report",
     "no": "IO rapport",
     "nn": "IO rapport"
   },
-  "fweet.export.assigned.checkbox.label": {
-    "en": "Assigned output groups",
-    "no": "Tildelte utgangsgrupper",
-    "nn": "Tildelte utgangsgrupper"
-  },
-  "fweet.export.assigned.infobox.title": {
-    "en": "Assigned output groups",
-    "no": "Tildelte utgangsgrupper",
-    "nn": "Tildelte utgangsgrupper"
-  },
-  "fweet.export.assigned.infobox.description": {
-    "en": "This option generates an Excel tab listing all assigned output groups along with their configuration.",
-    "no": "Dette genererer en Excel fane som lister opp alle tildelte utgangsgrupper sammen med deres konfigurasjon.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle tildelte utgangsgrupper saman med deira konfigurasjon."
-  },
-  "fweet.export.eeProm.checkbox.label": {
-    "en": "EeProm",
-    "no": "EeProm",
-    "nn": "EeProm"
-  },
-  "fweet.export.eeProm.infobox.title": {
-    "en": "EeProm",
-    "no": "EeProm",
-    "nn": "EeProm"
-  },
-  "fweet.export.eeProm.infobox.description": {
-    "en": "This option generates an Excel tab listing all EeProms along with their configuration.",
-    "no": "Dette genererer en Excel fane som lister opp alle EeProm sammen med deres konfigurasjon.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle EeProm saman med deira konfigurasjon."
-  },
-  "fweet.export.propOp.checkbox.label": {
-    "en": "Panel properties",
-    "no": "Panel egenskaper",
-    "nn": "Panel eigenskapar"
-  },
-  "fweet.export.propOp.infobox.title": {
-    "en": "Panel properties",
-    "no": "Panel egenskaper",
-    "nn": "Panel eigenskapar"
-  },
-  "fweet.export.propOp.infobox.description": {
-    "en": "This option generates an Excel tab listing all panel properties along with their configuration.",
-    "no": "Dette genererer en Excel fane som lister opp alle panel egenskaper sammen med deres konfigurasjon.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle panel eigenskapar saman med deira konfigurasjon."
-  },
-  "fweet.export.io.missing-json": {
+  "feet-export.io.missing-json": {
     "en": "It appears there are no inputs and outputs in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes input and output data and try again.",
     "no": "Det ser ut til at det ikke er noen styringer i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder styringer og prøv igjen.",
     "nn": "Det ser ut til at det ikkje er nokon styringar i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld styringer og prøv igjen."
   },
-  "fweet.export.io.infobox.title": {
+  "feet-export.io.infobox.title": {
     "en": "IO report",
     "no": "IO rapport",
     "nn": "IO rapport"
   },
-  "fweet.export.io.infobox.description": {
+  "feet-export.io.infobox.description": {
     "en": "This option generates an Excel tab listing all inputs and outputs along with their configuration.",
     "no": "Dette genererer en Excel fane som lister opp alle innganger og utganger sammen med deres konfigurasjon.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle inngongar og utgangar saman med deira konfigurasjon."
   },
-  "fweet.export.filter.empty": {
+  "feet-export.filter.infobox.title": {
+    "en": "Filter fire panels to export",
+    "no": "Filtrer brannsentraler for å eksportere",
+    "nn": "Filtrer brannsentralar for å eksportere"
+  },
+  "feet-export.filter.infobox.description.1": {
+    "en": "Choose the fire panels you wish to include in the export. Only selected fire panels will be converted to an Excel file.",
+    "no": "Velg brannsentralene du ønsker å inkludere i eksporten. Bare valgte brannsentraler vil bli konvertert til en Excel-fil.",
+    "nn": "Vel brannsentralane du ønskjer å inkludere i eksporten. Berre valde brannsentralar vil bli konvertert til ein Excel-fil."
+  },
+  "feet-export.filter.infobox.description.2": {
+    "en": "This will account for all selected sheets selected above.",
+    "no": "Dette vil ta hensyn til alle valgte ark valgt ovenfor.",
+    "nn": "Dette vil ta omsyn til alle valde ark valt ovanfor."
+  },
+  "feet-export.filter.infobox.description.3": {
+    "en": "If there are no options available here, you likely haven't uploaded any fitting JSON files yet, or it didn't have any fire panel data.",
+    "no": "Hvis det ikke er noen alternativer tilgjengelig her, har du sannsynligvis ikke lastet opp noen passende JSON-filer enda, eller den hadde ikke noe brannsentraldata.",
+    "nn": "Viss det ikkje er nokon alternativ tilgjengeleg her, har du truleg ikkje lasta opp nokon passande JSON-filer enno, eller den hadde ikkje noe brannsentraldata."
+  },
+  "feet-export.filter.infobox.description.4": {
+    "en": "If you select to download in seperate files, each fire panel will be in its own file.",
+    "no": "Hvis du velger å laste ned i separate filer, vil hver brannsentral være i sin egen fil.",
+    "nn": "Viss du vel å lasta ned i separate filer, vil kvar brannsentral vere i si eiga fil."
+  },
+  "feet-export.filter.label": {
+    "en": "Select panels to export",
+    "no": "Velg sentraler for å eksportere",
+    "nn": "Velg sentralar for å eksportere"
+  },
+  "feet-export.filter.empty": {
     "en": "No panels available",
     "no": "Ingen sentraler tilgjengelig",
     "nn": "Ingen sentralar tilgjengeleg"
   },
-  "fweet.export.controlgroups.checkbox.label": {
+  "feet-export.controlgroups.checkbox.label": {
     "en": "Control group report",
     "no": "Kontrollgruppe rapport",
     "nn": "Kontrollgruppe rapport"
   },
-  "fweet.export.controlgroups.missing-json": {
+  "feet-export.controlgroups.missing-json": {
     "en": "It appears there are no control groups in the uploaded JSON file. Therefore, the Excel tab cannot be created at this time. Please ensure the file includes control groups and try again.",
     "no": "Det ser ut til at det ikke er noen kontrollgrupper i den opplastede JSON-filen. Derfor kan ikke Excel-fanen opprettes for øyeblikket. Vennligst forsikre deg om at filen inneholder kontrollgrupper og prøv igjen.",
     "nn": "Det ser ut til at det ikkje er nokon kontrollgrupper i den opplasta JSON-fila. Difor kan ikkje Excel-fana opprettast for øyeblikket. Ver venleg å forsikre deg om at fila inneheld kontrollgrupper og prøv igjen."
   },
-  "fweet.export.controlgroups.infobox.title": {
+  "feet-export.controlgroups.infobox.title": {
     "en": "Control group report",
     "no": "Kontrollgruppe rapport",
     "nn": "Kontrollgruppe rapport"
   },
-  "fweet.export.controlgroups.infobox.description": {
+  "feet-export.controlgroups.infobox.description": {
     "en": "This option generates an Excel tab that lists all control groups along with the associated devices that trigger them.",
     "no": "Dette genererer en Excel fane som lister opp alle kontrollgrupper sammen med de tilknyttede enhetene som aktiverer dem.",
     "nn": "Dette genererer ein Excel-fane som listar opp alle kontrollgrupper saman med dei tilknytte einingane som aktiverer dei."
   },
-  "fweet.export.logbook.checkbox.label": {
-    "en": "Logbook",
-    "no": "Loggbok",
-    "nn": "Loggbok"
-  },
-  "fweet.export.logbook.infobox.title": {
-    "en": "Logbook",
-    "no": "Loggbok",
-    "nn": "Loggbok"
-  },
-  "fweet.export.logbook.infobox.description": {
-    "en": "This option generates an Excel tab that lists all logbook entries.",
-    "no": "Dette genererer en Excel fane som lister opp alle loggbokoppføringer.",
-    "nn": "Dette genererer ein Excel-fane som listar opp alle loggbokoppføringar."
-  },
-  "fweet.export.download.button": {
+  "feet-export.download.button": {
     "en": "Download Excel sheet",
     "no": "Last ned Excel filen",
     "nn": "Last ned Excel-fila"
-  },
-  "fweet.dataformat.error": {
-    "en": "Something went wrong with formatting {data} data. It will be skipped.",
-    "no": "Noe gikk galt med formatering av {data}data. Det vil bli hoppet over.",
-    "nn": "Noko gjekk gale med formatering av {data}data. Det vil bli hoppa over."
   }
 }

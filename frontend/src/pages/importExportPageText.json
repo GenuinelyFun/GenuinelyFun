@@ -1,0 +1,47 @@
+{
+  "feet.page.title": {
+    "en": "Fire Expert Export Tool",
+    "no": "Fire Expert Eksport Verktøy",
+    "nn": "Fire Expert Eksport Verktøy"
+  },
+  "feet.page.description.1": {
+    "en": "This web-based tool allows you to upload the Fire Expert configuration file for the fire alarm system. Once the file is uploaded, it generates an Excel file containing various lists that technicians typically create during annual inspections. Depending on the size of the system, this process can take anywhere from half an hour to several days. With just a click, these structured lists are now produced instantly, more reliably, and with more detailed information in less time.",
+    "no": "Dette web-baserte verktøyet lar deg laste opp Fire Expert-konfigurasjonsfilen for brannalarmanlegget. Når filen er lastet opp, genereres en Excel-fil som inneholder ulike lister teknikere vanligvis lager under årskontroller. Avhengig av anleggets størrelse kan denne prosessen ta alt fra en halvtime til flere dager. Nå, med kun ett klikk, produseres disse strukturerte listene umiddelbart – mer pålitelig og med mer informasjon på kortere tid.",
+    "nn": "Dette nettbaserte verktøyet lar deg laste opp Fire Expert-konfigurasjonsfila for brannalarmanlegget. Når fila er lasta opp, blir det generert ei Excel-fil som inneheld ulike lister som teknikarar vanlegvis lagar under årskontrollar. Avhengig av storleiken på anlegget kan denne prosessen ta alt frå ein halvtime til fleire dagar. No, med berre eitt klikk, blir desse strukturerte listene produserte umiddelbart – meir påliteleg og med meir informasjon på kortare tid."
+  },
+  "feet.page.description.2": {
+    "en": "The tool supports up to eight languages, making it useful in nearly every country where these products are used. Isn’t that amazing? And don’t worry—we never save your uploaded JSON file or the generated Excel file. They remain your little secret. All the magic happens in your browser, so you can even use this tool offline!",
+    "no": "Verktøyet støtter opptil åtte språk, noe som gjør det nyttig i nesten alle land der disse produktene brukes. Er ikke det fantastisk? Og forresten, vi lagrer verken JSON-filen du laster opp eller Excel-filen. De forblir din lille hemmelighet. All magien skjer i nettleseren din – du kan til og med gjøre det uten internett!",
+    "nn": "Verktøyet støttar opptil åtte språk, noko som gjer det nyttig i nesten alle land der desse produkta blir brukte. Er ikkje det fantastisk? Og forresten, vi lagrar verken JSON-fila du lastar opp eller Excel-fila. Dei forblir din vesle løyndom. All magien skjer i nettlesaren din – du kan til og med gjere det utan internett!"
+  },
+  "fweet.page.title": {
+    "en": "FireWin Explorer Export Tool",
+    "no": "FireWin Explorer Eksport Verktøy",
+    "nn": "FireWin Explorer Eksport Verktøy"
+  },
+  "fweet.page.description.1": {
+    "en": "This web-based tool allows you to upload the FireWin Explorer configuration file for the fire alarm system. Once the file is uploaded, it generates an Excel file containing various lists that technicians typically create during annual inspections. Depending on the size of the system, this process can take anywhere from half an hour to several days. With just a click, these structured lists are now produced instantly, more reliably, and with more detailed information in less time.",
+    "no": "Dette web-baserte verktøyet lar deg laste opp FireWin Explorer konfigurasjonsfilen for brannalarmanlegget. Når filen er lastet opp, genereres en Excel-fil som inneholder ulike lister teknikere vanligvis lager under årskontroller. Avhengig av anleggets størrelse kan denne prosessen ta alt fra en halvtime til flere dager. Nå, med kun ett klikk, produseres disse strukturerte listene umiddelbart – mer pålitelig og med mer informasjon på kortere tid.",
+    "nn": "Dette nettbaserte verktøyet lar deg laste opp FireWin Explorer konfigurasjonsfila for brannalarmanlegget. Når fila er lasta opp, blir det generert ei Excel-fil som inneheld ulike lister som teknikarar vanlegvis lagar under årskontrollar. Avhengig av storleiken på anlegget kan denne prosessen ta alt frå ein halvtime til fleire dagar. No, med berre eitt klikk, blir desse strukturerte listene produserte umiddelbart – meir påliteleg og med meir informasjon på kortare tid."
+  },
+  "fweet.page.description.2": {
+    "en": "And don’t worry—we never save your uploaded .fepx file or the generated Excel file. They remain your little secret. All the magic happens in your browser, so you can even use this tool offline!",
+    "no": "Og forresten, vi lagrer verken .fepx filen du laster opp eller Excel-filen. De forblir din lille hemmelighet. All magien skjer i nettleseren din – du kan til og med gjøre det uten internett!",
+    "nn": "Og forresten, vi lagrar verken .fepx fila du lastar opp eller Excel-fila. Dei forblir din vesle løyndom. All magien skjer i nettlesaren din – du kan til og med gjere det utan internett!"
+  },
+  "inno.page.title": {
+    "en": "Integrator to Norik",
+    "no": "Integrator til Norik",
+    "nn": "Integrator til Norik"
+  },
+  "inno.page.description.1": {
+    "en": "This tool is specifically designed to convert 'Komponentsjekklister' PDFs from Integrator into the precise Excel format required by Norik. Simply upload your PDF and receive a perfectly formatted, import-ready file in seconds.",
+    "no": "Dette verktøyet er spesifikt laget for å konvertere 'Komponentsjekklister' PDF-er fra Integrator til det nøyaktige Excel-formatet som kreves av Norik. Bare last opp PDF-en din og motta en perfekt formatert, klar til import fil på sekunder.",
+    "nn": "Dette verktøyet er spesifikt laga for å konvertere 'Komponentsjekklister' PDF-ar frå Integrator til det nøyaktige Excel-formatet som krevst av Norik. Last berre opp PDF-en din og motta ei perfekt formatert, klar til import fil på sekunder."
+  },
+  "inno.page.description.2": {
+    "en": "We ensure your data's security by processing everything locally in your browser, your files never leave your device. Additionally, the tool works offline, providing you with the flexibility to convert files anytime, anywhere.",
+    "no": "Vi sikrer sikkerheten til dataene dine ved å behandle alt lokalt i nettleseren din, filene dine forlater aldri enheten din. I tillegg fungerer verktøyet offline, noe som gir deg fleksibiliteten til å konvertere filer når som helst, hvor som helst.",
+    "nn": "Vi sikrar sikkerheita til dataene dine ved å behandle alt lokalt i nettlesaren din, filene dine forlet aldri eininga di. I tillegg fungerer verktøyet offline, noko som gir deg fleksibiliteten til å konvertere filer når som helst, kvar som helst."
+  }
+}

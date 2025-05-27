@@ -2,13 +2,14 @@ import classNames from 'classnames';
 import JSZip from 'jszip';
 import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
 import initSqlJs from 'sql.js';
+import { extractText, getDocumentProxy } from 'unpdf';
 
 import CrossCircleIcon from '../assets/icons/CrossCircleIcon.tsx';
 import UploadIcon from '../assets/icons/UploadIcon.tsx';
 import { Root } from '../projects/feet/feetJsonDataInterface.ts';
 import {
   DataFile,
-  FileType,
+  ImportExportPageType,
   shortenedFileName,
   useDataContext,
 } from '../utils/data-utils.ts';
@@ -19,10 +20,10 @@ import GenericButton from './GenericButton.tsx';
 import styles from './UploadBox.module.less';
 
 interface Props {
-  versionNumber: string;
+  versionNumber?: string;
   className?: string;
-  filetype: FileType;
-  productName: string;
+  filetype: ImportExportPageType;
+  productName?: string;
   acceptFileType: string;
 }
 
@@ -55,7 +56,7 @@ const UploadBox: FC<Props> = ({
       const fileReader = new FileReader();
       return new Promise((resolve) => {
         const zip = new JSZip();
-        fileReader.onload = () => {
+        fileReader.onload = async () => {
           try {
             if (allFiles.find((f) => f.name === file.name)) {
               toast({
@@ -64,63 +65,80 @@ const UploadBox: FC<Props> = ({
               });
               return resolve(false);
             }
-            if (filetype === FileType.FEET) {
-              const json = JSON.parse(
-                fileReader.result?.toString() || ''
-              ) as Root;
-              if (json.system === undefined) {
-                setIsNotParseable(true);
-                toast({
-                  type: 'error',
-                  textKey: 'upload-box.error.format',
-                  textParams: { filetype },
-                });
-                return resolve(false);
-              }
-              return resolve({
-                name: file.name,
-                short: shortenedFileName(file.name),
-                feet: json,
-              });
-            } else if (filetype === FileType.FWEET) {
-              const arrayBuffer = file.arrayBuffer();
-              return zip.loadAsync(arrayBuffer).then(async (zip) => {
-                const databaseFilename = Object.keys(zip.files).find((file) =>
-                  file.includes('.sdb')
-                );
-                if (!databaseFilename) {
+            switch (filetype) {
+              case ImportExportPageType.FEET: {
+                const json = JSON.parse(
+                  fileReader.result?.toString() || ''
+                ) as Root;
+                if (json.system === undefined) {
+                  setIsNotParseable(true);
                   toast({
                     type: 'error',
-                    textKey: 'upload-box.error.general',
+                    textKey: 'upload-box.error.format',
+                    textParams: { filetype },
                   });
-                  return;
+                  return resolve(false);
                 }
-                const databaseFile = zip.file(databaseFilename);
-
-                if (!databaseFile) {
-                  toast({
-                    type: 'error',
-                    textKey: 'upload-box.error.general',
-                  });
-                  return;
-                }
-
-                const dbFile = await databaseFile
-                  .async('uint8array')
-                  .then(async (file) => {
-                    const SQL = await initSqlJs({
-                      locateFile: (file) => `https://sql.js.org/dist/${file}`,
-                    });
-
-                    return new SQL.Database(file);
-                  });
-
                 return resolve({
                   name: file.name,
                   short: shortenedFileName(file.name),
-                  fepx: dbFile,
+                  feet: json,
                 });
-              });
+              }
+              case ImportExportPageType.FWEET: {
+                const arrayBuffer = file.arrayBuffer();
+                return zip.loadAsync(arrayBuffer).then(async (zip) => {
+                  const databaseFilename = Object.keys(zip.files).find((file) =>
+                    file.includes('.sdb')
+                  );
+                  if (!databaseFilename) {
+                    toast({
+                      type: 'error',
+                      textKey: 'upload-box.error.general',
+                    });
+                    return;
+                  }
+                  const databaseFile = zip.file(databaseFilename);
+
+                  if (!databaseFile) {
+                    toast({
+                      type: 'error',
+                      textKey: 'upload-box.error.general',
+                    });
+                    return;
+                  }
+
+                  const dbFile = await databaseFile
+                    .async('uint8array')
+                    .then(async (file) => {
+                      const SQL = await initSqlJs({
+                        locateFile: (file) => `https://sql.js.org/dist/${file}`,
+                      });
+
+                      return new SQL.Database(file);
+                    });
+
+                  return resolve({
+                    name: file.name,
+                    short: shortenedFileName(file.name),
+                    fepx: dbFile,
+                  });
+                });
+              }
+              case ImportExportPageType.INNO: {
+                const buffer = await file.arrayBuffer();
+                if (buffer !== null && buffer !== undefined) {
+                  const pdf = getDocumentProxy(new Uint8Array(buffer));
+                  const { text } = await extractText(await pdf, {
+                    mergePages: false,
+                  });
+                  return resolve({
+                    name: file.name,
+                    short: shortenedFileName(file.name),
+                    inno: text,
+                  });
+                }
+              }
             }
           } catch (error) {
             if (error instanceof SyntaxError) {
@@ -154,7 +172,7 @@ const UploadBox: FC<Props> = ({
     handleUploadedFiles(event.dataTransfer.files);
   };
 
-  const onFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
+  const onFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (event.target.files) {
       handleUploadedFiles(event.target.files);
@@ -171,12 +189,17 @@ const UploadBox: FC<Props> = ({
           if (!isDragging) {
             setIsDragging(true);
           }
-          const file = e.dataTransfer.items[0];
+          const files = [];
+          for (const file of e.dataTransfer.items)
+            files.push({ type: file.type, kind: file.kind });
           if (
-            file &&
-            file.kind === 'file' &&
-            file.type !== '' &&
-            file.type !== acceptFileType
+            files.length > 0 &&
+            files.filter(
+              (file) =>
+                file.kind === 'file' &&
+                file.type !== '' &&
+                file.type !== acceptFileType
+            ).length > 0
           ) {
             setIsNotParseable(true);
           } else {
@@ -236,30 +259,15 @@ const UploadBox: FC<Props> = ({
           />
         </>
       </div>
-      <p>
-        {translate('upload-box.supported-version') +
-          productName +
-          ' ' +
-          versionNumber}
-      </p>
+      {productName && versionNumber && (
+        <p>
+          {translate('upload-box.supported-version') +
+            productName +
+            ' ' +
+            versionNumber}
+        </p>
+      )}
     </section>
   );
 };
 export default UploadBox;
-
-/*
-const tryToReadDatabaseFile = async (databaseFile: JSZip.JSZipObject) => {
-  return await databaseFile.async('string');
-};
-
-
-const hexToReadableAscii = (hexString: string): string => {
-  let asciiString = '';
-  for (let i = 0; i < hexString.length; i += 2) {
-    const hexPair = hexString.substr(i, 2);
-    const asciiChar = String.fromCharCode(parseInt(hexPair, 16));
-    asciiString += asciiChar;
-  }
-  return asciiString;
-};
-*/

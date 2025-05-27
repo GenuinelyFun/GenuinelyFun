@@ -1,0 +1,37 @@
+{
+  "inno.export.title": {
+    "en": "Export",
+    "no": "Eksport",
+    "nn": "Eksport"
+  },
+  "inno.export.error": {
+    "en": "Something went wrong, please try again later.",
+    "no": "Noe gikk galt, prøv igjen senere.",
+    "nn": "Noko gjekk gale, prøv igjen seinare."
+  },
+  "inno.export.no-data": {
+    "en": "Could not parse any data in file {filename}.",
+    "no": "Kunne ikke lese noen data i filen {filename}.",
+    "nn": "Klarte ikkje å lese nokon data i fila {filename}."
+  },
+  "inno.export.filename.label": {
+    "en": "Edit filename",
+    "no": "Endre filnavn",
+    "nn": "Endre filnamn"
+  },
+  "inno.export.filename.placeholder": {
+    "en": "best-filename-ever",
+    "no": "beste-filnavnet",
+    "nn": "beste-filnamnet"
+  },
+  "inno.export.disclaimer.checkbox.label": {
+    "en": "I understand this is just a tool, and that I must verify all content myself.",
+    "no": "Jeg forstår at dette bare er et verktøy, og at jeg må verifisere alt innhold selv.",
+    "nn": "Eg forstår at dette berre er eit verktøy, og at eg må verifisere alt innhald sjølv."
+  },
+  "inno.export.download.button": {
+    "en": "Download Excel sheet",
+    "no": "Last ned Excel filen",
+    "nn": "Last ned Excel-fila"
+  }
+}

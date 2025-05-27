@@ -12,14 +12,14 @@ import {
 import App from './App';
 import ArticlePage from './pages/articlepage/ArticlePage';
 import { ArticleWrapper } from './pages/articlepage/ArticleWrapper.tsx';
-import FeetPage from './pages/feetpage/FeetPage';
-import FweetPage from './pages/fweetpage/FweetPage.tsx';
 import HomePage from './pages/homepage/HomePage';
+import ImportExportPage from './pages/ImportExportPage.tsx';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
-import ArthurPage from './pages/portfolio/ArthurPage';
+import ArthurPage from './pages/portfolio/ArthurPage.tsx';
 import NghiPage from './pages/portfolio/NghiPage';
 import reportWebVitals from './reportWebVitals';
 import { articles } from './utils/article-utils';
+import { ImportExportPageType } from './utils/data-utils.ts';
 import { routePaths } from './utils/route-utils';
 
 const router = createBrowserRouter([
@@ -42,9 +42,19 @@ const router = createBrowserRouter([
           })),
         ],
       },
-      { path: routePaths.feet, element: <FeetPage /> },
+      {
+        path: routePaths.feet,
+        element: <ImportExportPage pageType={ImportExportPageType.FEET} />,
+      },
       { path: 'feet', element: <Navigate to={'/' + routePaths.feet} /> }, // Redirect from old path to new path.
-      { path: routePaths.fweet, element: <FweetPage /> },
+      {
+        path: routePaths.fweet,
+        element: <ImportExportPage pageType={ImportExportPageType.FWEET} />,
+      },
+      {
+        path: routePaths.inno,
+        element: <ImportExportPage pageType={ImportExportPageType.INNO} />,
+      },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
     ],
