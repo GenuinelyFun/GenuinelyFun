@@ -23,7 +23,6 @@ import { mapPanelsWithZones } from '../../projects/feet/utils/zone-utils.ts';
 import { FeetFile, useDataContext } from '../../utils/data-utils.ts';
 import { addFeetSheetToWorkbook } from '../../utils/excel-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
-import { useToast } from '../../utils/useToast.ts';
 import styles from './FeetExportForm.module.less';
 import PanelCheckbox from './PanelCheckbox.tsx';
 
@@ -32,7 +31,6 @@ export interface FilterPanelType {
 }
 
 const FeetExportForm: FC = () => {
-  const toast = useToast();
   const { translate, i18n } = useLanguageContext();
   const { feetFiles } = useDataContext();
   const { sheetTranslate, updateLanguage } = useSheetTranslate();
