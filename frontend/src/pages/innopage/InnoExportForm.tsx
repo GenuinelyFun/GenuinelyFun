@@ -3,7 +3,10 @@ import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useState } from 'react';
 
 import GenericButton from '../../components/GenericButton.tsx';
-import { mapInnoFile } from '../../projects/inno-utils.ts';
+import {
+  mapHaphazardColumns,
+  mapInnoToSheet,
+} from '../../projects/inno-utils.ts';
 import { InnoFile, useDataContext } from '../../utils/data-utils.ts';
 import { addInnoSheetToWorkbook } from '../../utils/excel-utils.ts';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
@@ -28,7 +31,8 @@ const InnoExportForm: FC = () => {
     const { name, inno } = file;
     const workbook = new Workbook();
 
-    const data = mapInnoFile(inno);
+    const data = mapInnoToSheet(inno);
+
     if (data.length === 0) {
       toast({
         type: 'error',
@@ -39,6 +43,7 @@ const InnoExportForm: FC = () => {
     }
 
     addInnoSheetToWorkbook(workbook, data);
+    addInnoSheetToWorkbook(workbook, mapHaphazardColumns(inno), 'Oppdelt');
 
     const fileName =
       'Norik armaturliste ' + name.slice(0, name.indexOf('.pdf')) + '.xlsx';

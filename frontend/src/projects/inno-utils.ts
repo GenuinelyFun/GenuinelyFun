@@ -7,11 +7,7 @@ const normalizeAddressFormat = (content: string): string => {
   return content.replace(addressFormatRegex, '$1$2.$4.$5');
 };
 
-export const mapInnoFile = (
-  inno: string[]
-): {
-  [key: string]: SheetValueType;
-}[] => {
+export const parseText = (inno: string[]): string[] => {
   // Normalize address formats (e.g., BL28 02.012 to BL28.02.012)
   let normalizedContent = inno.map((text) => normalizeAddressFormat(text));
 
@@ -83,7 +79,15 @@ export const mapInnoFile = (
     return matches;
   });
 
-  return outputContent.flatMap((row) => row.map((string) => parseRow(string)));
+  return outputContent.flat();
+};
+
+export const mapInnoToSheet = (
+  inno: string[]
+): {
+  [key: string]: SheetValueType;
+}[] => {
+  return parseText(inno).flatMap((row) => parseRow(row));
 };
 
 const parseRow = (
@@ -213,4 +217,22 @@ export const getFloorNumber = (input: string): string => {
 
   // If no match found, return the input as is
   return input.trim();
+};
+
+export const mapHaphazardColumns = (data: string[]) => {
+  return parseText(data)
+    .map((row) =>
+      row
+        .split(' - ')
+        .flat()
+        .map((row) => row.split(' ').flat())
+        .flat()
+    )
+    .map((row) => {
+      const result: { [key: string]: SheetValueType } = {};
+      row.forEach((item, index) => {
+        result[index.toString()] = item.trim();
+      });
+      return result;
+    });
 };

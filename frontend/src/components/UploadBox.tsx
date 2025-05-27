@@ -126,13 +126,12 @@ const UploadBox: FC<Props> = ({
                 });
               }
               case ImportExportPageType.INNO: {
-                const buffer = file.arrayBuffer();
+                const buffer = await file.arrayBuffer();
                 if (buffer !== null && buffer !== undefined) {
-                  const pdf = getDocumentProxy(new Uint8Array(await buffer));
+                  const pdf = getDocumentProxy(new Uint8Array(buffer));
                   const { text } = await extractText(await pdf, {
                     mergePages: false,
                   });
-                  console.log(text);
                   return resolve({
                     name: file.name,
                     short: shortenedFileName(file.name),

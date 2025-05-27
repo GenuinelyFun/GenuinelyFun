@@ -171,17 +171,20 @@ export const INNO_COLUMN_HEADERS = [
 ];
 export const addInnoSheetToWorkbook = (
   workbook: Workbook,
-  data: { [key: string]: SheetValueType }[]
+  data: { [key: string]: SheetValueType }[],
+  autoSheet?: string
 ) => {
-  const sheet = workbook.addWorksheet('Armaturliste');
+  const sheet = workbook.addWorksheet(autoSheet || 'Armaturliste');
 
-  const columns = INNO_COLUMN_HEADERS.map((header) => ({
-    name: header,
-    key: header,
-    filterButton: true,
-  }));
+  const columns = autoSheet
+    ? getTableHeaders(data)
+    : INNO_COLUMN_HEADERS.map((header) => ({
+        name: header,
+        key: header,
+        filterButton: true,
+      }));
   sheet.addTable({
-    name: 'Armaturliste',
+    name: autoSheet || 'Armaturliste',
     ref: 'A1',
     headerRow: true,
     columns: columns,
