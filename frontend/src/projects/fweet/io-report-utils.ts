@@ -70,8 +70,11 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
       const result: { [key: string]: string } = {};
       const [panelId, tbNumber, name, description, type, outputType] = row;
 
+      const panelNumber = db.exec('SELECT Number from Panel WHERE Id = ?', [
+        panelId,
+      ])[0].values[0]?.[0];
       result['Address'] =
-        'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber;
+        'Sys. ' + String(panelNumber).padStart(2, '0') + ' ' + tbNumber;
       result['Zone'] = '';
       result['Name'] = name as string;
       result['Description'] = description as string;
