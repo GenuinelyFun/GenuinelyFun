@@ -33,6 +33,19 @@ export const boardMapper = (db: Database, toast: Toast) => {
             CircuitOutputType[
               row[index].toString() as keyof typeof CircuitOutputType
             ] || (row[index] as string);
+        } else if (
+          column === 'PanelId' &&
+          row[index] !== null &&
+          row[index] !== undefined
+        ) {
+          result[column] = row[index] as SheetValueType;
+          const panelIdIndex: number = circuits[0].columns.indexOf('PanelId');
+          const panelNumber = db.exec('SELECT Number FROM Panel WHERE Id = ?', [
+            row[panelIdIndex] as number,
+          ])[0].values[0][0];
+
+          result['Panel Number'] =
+            `Sys. ${String(panelNumber).padStart(2, '0')}`;
         } else {
           result[column] = row[index] as SheetValueType;
         }
