@@ -1,7 +1,6 @@
 import { Database } from 'sql.js';
 
 import { Toast } from '../../utils/useToast.ts';
-import { getZoneAddressByZoneId } from './database-utils.ts';
 import {
   AddrUnitType,
   AssignTypeType,
@@ -43,7 +42,6 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
             AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
             assignedType,
           Address: `${String(preAddr).padStart(3, '0')}.${String(postAddr).padStart(3, '0')}`,
-          Zone: getZoneAddressByZoneId(db, zoneId as number),
           Name: name as string,
           Description: description as string,
           Type: AddrUnitType[addrType as keyof typeof AddrUnitType] || addrType,
@@ -57,7 +55,7 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
         circuits?.forEach((circuit) => {
           const [
             circuitName,
-            ciercuitDescription,
+            circuitDescription,
             panelId,
             tbNumber,
             type,
@@ -70,9 +68,8 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
               assignedType,
             Address:
               'Sys. ' + String(panelId).padStart(2, '0') + ' ' + tbNumber,
-            Zone: getZoneAddressByZoneId(db, zoneId as number),
             Name: circuitName as string,
-            Description: ciercuitDescription as string,
+            Description: circuitDescription as string,
             Type:
               CircuitType[String(type) as keyof typeof CircuitType] ||
               (type as string),
@@ -84,13 +81,28 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
         });
       });
     });
+
     const combinedList = [
-      ...circuitResults.sort((a, b) =>
-        String(a['Address']).localeCompare(String(b['Address']))
-      ),
-      ...addrUnitResults.sort((a, b) =>
-        String(a['Address']).localeCompare(String(b['Address']))
-      ),
+      ...circuitResults
+        .filter(
+          (unit, index) =>
+            circuitResults.findIndex(
+              (test) => JSON.stringify(test) === JSON.stringify(unit)
+            ) === index
+        )
+        .sort((a, b) =>
+          String(a['Address']).localeCompare(String(b['Address']))
+        ),
+      ...addrUnitResults
+        .filter(
+          (unit, index) =>
+            addrUnitResults.findIndex(
+              (test) => JSON.stringify(test) === JSON.stringify(unit)
+            ) === index
+        )
+        .sort((a, b) =>
+          String(a['Address']).localeCompare(String(b['Address']))
+        ),
     ];
 
     if (combinedList.length === 0) {
@@ -101,7 +113,6 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
             AssignTypeType[assignedType as keyof typeof AssignTypeType] ||
             assignedType,
           Address: '',
-          Zone: '',
           Name: '',
           Description: '',
           Type: '',
@@ -113,6 +124,7 @@ export const assignedOutputGroupsMapper = (db: Database, toast: Toast) => {
   });
   return grouped.flat().flat();
 };
+
 const getAddrUnitsFromZoneId = (db: Database, zoneId: number) => {
   const stmt = db.exec(
     'SELECT a.Name, a.Description, a.CircuitNo, a.UnitNo, a.Type FROM Cause c INNER JOIN AddrUnit a ON a.id = c.InId WHERE c.SoneId = ?',
