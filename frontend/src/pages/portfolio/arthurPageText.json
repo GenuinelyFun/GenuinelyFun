@@ -5,9 +5,9 @@
     "nn": "Kort om meg"
   },
   "arthur.about.text.part1": {
-    "en": "With a solid background in fire and safety systems, I combine technical expertise with hands-on experience to tackle complex challenges effectively. Over time, I’ve expanded my skill set to include programming, with a focus on TypeScript, CSS, LESS, React, and Git. These skills have enabled me to create tools and solutions that seamlessly integrate systems and enhance workflows.",
-    "no": "Med en solid bakgrunn innen brann- og sikkerhetssystemer kombinerer jeg teknisk ekspertise med praktisk erfaring for å effektivt takle komplekse utfordringer. Over tid har jeg utvidet ferdighetene mine til å inkludere programmering, med fokus på TypeScript, CSS, LESS, React og Git. Disse ferdighetene har gjort det mulig for meg å skape verktøy og løsninger som sømløst integrerer systemer og forbedrer arbeidsflyten.",
-    "nn": "Med ein solid bakgrunn innan brann- og tryggleikssystem kombinerer eg teknisk ekspertise med praktisk erfaring for å effektivt takle komplekse utfordringar. Over tid har eg utvida ferdigheitene mine til å inkludere programmering, med fokus på TypeScript, CSS, LESS, React og Git. Desse ferdigheitene har gjort det mogleg for meg å skape verktøy og løysingar som sømlaust integrerer system og forbetrar arbeidsflyten."
+    "en": "I'm currently studying front-end development and enjoy building user interfaces that are clean, responsive, and intuitive. I work mostly with TypeScript, JavaScript, React, and Vite – with CSS and LESS for styling. I also have experience connecting APIs, maintaining packages, and using tools like IntelliJ, VS Code, GitHub, and Figma.",
+    "no": "Jeg studerer for tiden front-end utvikling og liker å bygge brukergrensesnitt som er ryddige, responsive og intuitive. Jeg jobber mest med TypeScript, JavaScript, React og Vite – med CSS og LESS til styling. Jeg har også erfaring med å koble til API-er, vedlikeholde pakker og bruke verktøy som IntelliJ, VS Code, GitHub og Figma.",
+    "nn": "Eg studerer for tida front-end utvikling og likar å byggje brukargrensesnitt som er ryddige, responsive og intuitive. Eg jobbar mest med TypeScript, JavaScript, React og Vite – med CSS og LESS til styling. Eg har òg erfaring med å kople til API-ar, vedlikehalde pakkar og bruke verktøy som IntelliJ, VS Code, GitHub og Figma."
   },
   "arthur.about.text.part2": {
     "en": "My programming experience has given me valuable insight into how technology can drive innovative solutions. I am passionate about developing systems that are not only functional but also highly efficient. Driven by curiosity and continuous learning.",
@@ -63,6 +63,16 @@
     "en": "Education",
     "no": "Utdanning",
     "nn": "Utdanning"
+  },
+  "arthur.education.Gokstad-title": {
+    "en": "Front-end Development | Gokstad Akademiet | 2025 – Ongoing",
+    "no": "Front-end utvikling | Gokstad Akademiet | 2025 – Pågår",
+    "nn": "Front-end utvikling | Gokstad Akademiet | 2025 – Pågår"
+  },
+  "arthur.education.Gokstad-description": {
+    "en": "Vocational education in front-end development focusing on HTML, CSS, JavaScript, React, and UX/UI. Combines design, coding, and real-world projects.",
+    "no": "Fagskole i front-end utvikling med fokus på HTML, CSS, JavaScript, React og UX/UI. Kombinerer design, koding og praktiske prosjekter.",
+    "nn": "Fagskule i front-end utvikling med fokus på HTML, CSS, JavaScript, React og UX/UI. Kombinerer design, koding og praktiske prosjekt."
   },
   "arthur.education.JessheimVGS-title": {
     "en": "Electrician | Jessheim high school | August 2007 - July 2012",
@@ -370,9 +380,9 @@
     "nn": "Front-End Utviklar | August 2024 - No"
   },
   "arthur.skills.developer-description": {
-    "en": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA.",
-    "no": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA.",
-    "nn": "JavaScript, TypeScript, Python, HTML, CSS, LESS, Git, Node.js, React, SQL, VBA."
+    "en": "React, TypeScript, JavaScript, CSS, LESS, Vite, Git, Node.js, SQL.",
+    "no": "React, TypeScript, JavaScript, CSS, LESS, Vite, Git, Node.js, SQL.",
+    "nn": "React, TypeScript, JavaScript, CSS, LESS, Vite, Git, Node.js, SQL."
   },
   "arthur.skills.technician-title": {
     "en": "Fire and security | August 2012 - Present",
