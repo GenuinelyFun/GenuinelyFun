@@ -89,13 +89,14 @@ const ArthurPage: FC = () => {
         {translate('arthur.education.Gokstad-title')}
       </h4>
       <p className={styles.paragraph}>
-        {translate('arthur.education.Gokstad-description')} <br />{' '}
+        {translate('arthur.education.Gokstad-description')}
       </p>
       <h4 className={styles.categorySubtitle}>
         {translate('arthur.education.JessheimVGS-title')}
       </h4>
       <p className={styles.paragraph}>
-        {translate('arthur.education.JessheimVGS-description')} <br />{' '}
+        {translate('arthur.education.JessheimVGS-description')}
+        <br />
         {translate('arthur.education.JessheimVGS-description-extra')}
       </p>
       <h3 className={styles.categoryTitle}>
