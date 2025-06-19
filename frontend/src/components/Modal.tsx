@@ -41,7 +41,7 @@ const Modal: FC<Props> = ({
         onClick={onClose}
         aria-label={crossAriaLabel || translate('modal.close.aria')}
       >
-        <CrossHollowIcon className={styles.CrossHollowIcon} />
+        <CrossHollowIcon className={styles.crossIcon} />
       </button>
       <div className={styles.modalContent}>{children}</div>
     </ReactModal>
