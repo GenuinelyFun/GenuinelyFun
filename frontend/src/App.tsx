@@ -4,6 +4,7 @@ import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Feedback from './components/Feedback';
 import { DarkmodeProvider } from './utils/DarkmodeProvider';
 import { DataProvider } from './utils/DataProvider.tsx';
 import { LanguageContextProvider } from './utils/i18n/LanguageProvider';
@@ -17,6 +18,7 @@ const App: FC = () => {
           <Toaster position="top-center" reverseOrder={false} />
           <Header />
           <Outlet />
+          <Feedback/>
           <Footer />
         </DataProvider>
       </DarkmodeProvider>
