@@ -75,5 +75,8 @@
     "vite-plugin-readable-classnames": "^1.5.3",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^3.0.7"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   }
 }
