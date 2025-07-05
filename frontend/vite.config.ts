@@ -1,10 +1,9 @@
 import reactSWC from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
-import PrettyModuleClassnames from 'vite-plugin-pretty-module-classnames';
+import readableClassnames from 'vite-plugin-readable-classnames';
 import svgr from 'vite-plugin-svgr';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     reactSWC(),
@@ -12,7 +11,7 @@ export default defineConfig({
     checker({
       typescript: true,
     }),
-    PrettyModuleClassnames(),
+    readableClassnames(),
   ],
   resolve: { preserveSymlinks: true },
   css: {
