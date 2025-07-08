@@ -14,10 +14,10 @@ const NotFoundPage: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <main className={styles.pagenotfound}>
-      <div className={styles.header}>
-        <PageHeading>{translate('title')}</PageHeading>
-        <p>{translate('paragraph')}</p>
+    <main className={styles.pageContainer}>
+      <div className={styles.content}>
+        <PageHeading className={styles.title}>{translate('title')}</PageHeading>
+        <p className={styles.description}>{translate('paragraph')}</p>
         <GenericButton className={styles.button} onClick={() => navigate('/')}>
           {translate('button')}
         </GenericButton>

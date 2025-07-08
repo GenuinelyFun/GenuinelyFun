@@ -1,13 +1,13 @@
 @import "../../utils/variables.less";
 
-.pagenotfound {
+.pageContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    ". header ."
+    ". header."
     "rocket . moon"
-    ". astronaut . ";
+    ". astronaut .";
   color: var(--color-black);
   text-align: center;
   margin: 0 auto;
@@ -17,15 +17,6 @@
 
   [data-theme="dark"] & {
     color: var(--color-black);
-  }
-
-  & h1 {
-    font-size: var(--font-size-xlarge);
-    font-weight: var(--font-weight-bold);
-  }
-
-  & p {
-    font-size: var(--font-size-medium);
   }
 
   @media @breakpoint-tablet {
@@ -38,13 +29,22 @@
   }
 }
 
+.title {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+}
+
+.description {
+  font-size: var(--font-size-medium);
+}
+
 .button {
   margin-top: 100px;
   z-index: 2;
   position: relative;
 }
 
-.header {
+.content {
   grid-area: header;
 }
 
