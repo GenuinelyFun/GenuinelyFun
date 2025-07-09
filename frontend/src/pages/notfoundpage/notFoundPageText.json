@@ -1,30 +1,30 @@
 {
-  "title": {
+  "not-found-page.title": {
     "en": "Well, this isn’t where we were supposed to end up",
     "no": "Vel, dette er ikke hvor vi skulle ende opp",
     "nn": "Vel, dette er ikkje kvar vi skulle ende opp"
   },
-  "paragraph": {
+  "not-found-page.paragraph": {
     "en": "Looks like we took a wrong turn somewhere and landed on this empty page. Not exactly what you were hoping for, right? Hit the button bellow, and we’ll whisk you away to the comfort of the homepage.",
     "no": "Ser ut som vi tok feil vei et sted og landet på denne tomme siden. Ikke akkurat det du håpet på, eller hva? Trykk på knappen nedenfor, og vi vil ta deg med til komforten av hjemmesiden.",
     "nn": "Ser ut som vi tok feil veg eit sted og landa på denne tomme sida. Ikkje akkurat det du håpa på, eller kva? Trykk på knappen nedanfor, og vi vil ta deg med til komforten av heimesida."
   },
-  "button": {
+  "not-found-page.button": {
     "en": "Oops, take me home",
     "no": "Oops, ta meg hjem",
     "nn": "Oops, ta meg heim"
   },
-  "alt.moon": {
+  "not-found-page.alt.moon": {
     "en": "Moon",
     "no": "Måne",
     "nn": "Måne"
   },
-  "alt.rocket": {
+  "not-found-page.alt.rocket": {
     "en": "Rocket",
     "no": "Rakett",
     "nn": "Rakett"
   },
-  "alt.astronaut": {
+  "not-found-page.alt.astronaut": {
     "en": "Astronaut",
     "no": "Astronaut",
     "nn": "Astronaut"

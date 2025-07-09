@@ -14,23 +14,23 @@ const NotFoundPage: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <main className={styles.pageContainer}>
+    <main className={styles.container}>
       <div className={styles.content}>
-        <PageHeading className={styles.title}>{translate('title')}</PageHeading>
-        <p className={styles.description}>{translate('paragraph')}</p>
+        <PageHeading className={styles.title}>{translate('not-found-page.title')}</PageHeading>
+        <p className={styles.description}>{translate('not-found-page.paragraph')}</p>
         <GenericButton className={styles.button} onClick={() => navigate('/')}>
-          {translate('button')}
+          {translate('not-found-page.button')}
         </GenericButton>
       </div>
 
-      <MoonImage className={styles.moon} aria-label={translate('alt.moon')} />
+      <MoonImage className={styles.moon} aria-label={translate('not-found-page.alt.moon')} />
       <RocketImage
         className={styles.rocket}
-        aria-label={translate('alt.rocket')}
+        aria-label={translate('not-found-page.alt.rocket')}
       />
       <WorkingAstronautImage
         className={styles.astronaut}
-        aria-label={translate('alt.astronaut')}
+        aria-label={translate('not-found-page.alt.astronaut')}
       />
     </main>
   );
