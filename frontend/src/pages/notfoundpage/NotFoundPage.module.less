@@ -1,13 +1,13 @@
 @import "../../utils/variables.less";
 
-.pagenotfound {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    ". header ."
+    ". content ."
     "rocket . moon"
-    ". astronaut . ";
+    ". astronaut .";
   color: var(--color-black);
   text-align: center;
   margin: 0 auto;
@@ -19,23 +19,23 @@
     color: var(--color-black);
   }
 
-  & h1 {
-    font-size: var(--font-size-xlarge);
-    font-weight: var(--font-weight-bold);
-  }
-
-  & p {
-    font-size: var(--font-size-medium);
-  }
-
   @media @breakpoint-tablet {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "header"
+      "content"
       "moon"
       "rocket"
       "astronaut";
   }
+}
+
+.title {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+}
+
+.description {
+  font-size: var(--font-size-medium);
 }
 
 .button {
@@ -44,8 +44,8 @@
   position: relative;
 }
 
-.header {
-  grid-area: header;
+.content {
+  grid-area: content;
 }
 
 .moon {
