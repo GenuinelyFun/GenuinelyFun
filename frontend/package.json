@@ -13,7 +13,8 @@
     "lint:stylelint": "stylelint \"src/**/*.{css,scss}\"",
     "lint:stylelint:fix": "npm run lint:stylelint -- --fix",
     "lint": "run-p lint:*[!fix]",
-    "lint:fix": "run-p lint:*:fix"
+    "lint:fix": "run-p lint:*:fix",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@types/react-modal": "^3.16.3",

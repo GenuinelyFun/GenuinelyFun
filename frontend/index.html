@@ -1,89 +1,93 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <!-- Google tag with CookieInformation -->
-  <script>
+  <head>
+    <!-- Google tag with CookieInformation -->
+    <script>
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
 
-    // Define dataLayer and the gtag function.
-    window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+      //Set default consent for specific regions according to your requirements
 
-    //Set default consent for specific regions according to your requirements
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+    </script>
 
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-    });
+    <!-- Cookie banner -->
+    <script
+      data-culture="NO"
+      data-gcm-version="false"
+      id="CookieConsent"
+      src="https://policy.app.cookieinformation.com/uc.js"
+      type="text/javascript"
+    ></script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-5LG3LN5W');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0ZR4C0FL4P"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-  </script>
+      gtag('js', new Date());
 
-  <!-- Cookie banner -->
-  <script data-culture="NO" data-gcm-version="false"
-          id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" type="text/javascript"></script>
-  <!-- Google Tag Manager -->
-  <script>(function(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-      'gtm.start':
-        new Date().getTime(), event: 'gtm.js',
-    });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-5LG3LN5W');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-0ZR4C0FL4P"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+      gtag('config', 'G-0ZR4C0FL4P');
+    </script>
+    <!-- End Google tag -->
+    <meta charset="UTF-8" />
+    <link href="/favicon-16x16.png" rel="icon" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-0ZR4C0FL4P');
-  </script>
-  <!-- End Google tag -->
-  <meta charset="UTF-8" />
-  <link href="/favicon-16x16.png" rel="icon" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-  <meta
-    content="Arthur and Nghi's portfolio page showcasing coding projects."
-    name="description"
-  />
-  <meta
-    content="coding projects, portfolio, Fire Expert, JSON to Excel, Arthur, Nghi"
-    name="keywords"
-  />
-  <meta content="Arthur and Nghi's Coding Projects" property="og:title" />
-  <meta
-    content="Explore our fun coding projects and the Fire Expert tool for converting fire panel JSON files to structured Excel lists."
-    property="og:description"
-  />
-  <meta
-    content="%PUBLIC_URL%/icon_genuinely_fun_381x353.png"
-    property="og:image"
-  />
-  <meta content="https://genuinelyfun.com" property="og:url" />
-  <title>Genuinely Fun</title>
-</head>
-<body>
-<div id="root"></div>
-<script src="./src/main.tsx" type="module"></script>
-</body>
+    <meta
+      content="Arthur and Nghi's portfolio page showcasing coding projects."
+      name="description"
+    />
+    <meta
+      content="coding projects, portfolio, Fire Expert, JSON to Excel, Arthur, Nghi"
+      name="keywords"
+    />
+    <meta content="Arthur and Nghi's Coding Projects" property="og:title" />
+    <meta
+      content="Explore our fun coding projects and the Fire Expert tool for converting fire panel JSON files to structured Excel lists."
+      property="og:description"
+    />
+    <meta
+      content="%PUBLIC_URL%/icon_genuinely_fun_381x353.png"
+      property="og:image"
+    />
+    <meta content="https://genuinelyfun.com" property="og:url" />
+    <title>Genuinely Fun</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./src/main.tsx" type="module"></script>
+  </body>
 </html>
