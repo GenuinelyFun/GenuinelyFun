@@ -21,7 +21,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         state={{ prevPage: location.pathname }}
         onClick={onLinkClick}
       >
-        {translate('tab.homepage')}
+        {translate('menu.homepage')}
       </Link>
       <Link
         to={routePaths.article}
@@ -31,11 +31,11 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
         })}
         onClick={onLinkClick}
       >
-        {translate('tab.articles')}
+        {translate('menu.articles')}
       </Link>
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
-        buttonTextKey={'tab.projects'}
+        buttonTextKey={'menu.projects'}
         listItems={[
           <Link
             key={routePaths.feet}
@@ -46,7 +46,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             })}
             onClick={onLinkClick}
           >
-            {translate('tab.feet')}
+            {translate('menu.feet')}
           </Link>,
           <Link
             key={routePaths.fweet}
@@ -57,7 +57,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             })}
             onClick={onLinkClick}
           >
-            {translate('tab.fweet')}
+            {translate('menu.fweet')}
           </Link>,
           <Link
             key={routePaths.inno}
@@ -68,13 +68,13 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             })}
             onClick={onLinkClick}
           >
-            {translate('tab.inno')}
+            {translate('menu.inno')}
           </Link>,
         ]}
       />
       <DropDownMenu
         buttonClassName={classNames(styles.menuButton, styles.dropdownButton)}
-        buttonTextKey={'tab.portfolios'}
+        buttonTextKey={'menu.portfolios'}
         listItems={[
           <Link
             key={routePaths.arthur}
@@ -85,7 +85,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             to={routePaths.arthur}
             onClick={onLinkClick}
           >
-            {translate('tab.arthur')}
+            {translate('menu.arthur')}
           </Link>,
           <Link
             key={routePaths.nghi}
@@ -96,7 +96,7 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             to={routePaths.nghi}
             onClick={onLinkClick}
           >
-            {translate('tab.nghi')}
+            {translate('menu.nghi')}
           </Link>,
         ]}
       />
