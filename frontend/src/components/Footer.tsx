@@ -22,8 +22,8 @@ const Footer: FC = () => {
           <h5>{COMPANY_NAME}</h5>
           <a href={'mailto:' + COMPANY_EMAIL}>
             {isNotDesktop
-              ? translate('email-us')
-              : `${translate('email')}: ${COMPANY_EMAIL}`}
+              ? translate('footer.email-us')
+              : `${translate('footer.email')}: ${COMPANY_EMAIL}`}
           </a>
           <p className={styles.allRightsReserved}>
             {COMPANY_ALL_RIGHTS_RESERVED}

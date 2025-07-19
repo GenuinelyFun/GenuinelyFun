@@ -1,45 +1,45 @@
 {
-  "tab.homepage": {
+  "menu.homepage": {
     "en": "Home",
     "no": "Hjem",
     "nn": "Heim"
   },
-  "tab.projects": {
+  "menu.projects": {
     "en": "Projects",
     "no": "Prosjekter",
     "nn": "Prosjekt"
   },
-  "tab.articles": {
+  "menu.articles": {
     "en": "Articles",
     "no": "Artikler",
     "nn": "Artiklar"
   },
-  "tab.portfolios": {
+  "menu.portfolios": {
     "en": "Portfolios",
     "no": "Porteføljer",
     "nn": "Porteføljar"
   },
-  "tab.feet": {
+  "menu.feet": {
     "en": "Fire Expert",
     "no": "Fire Expert",
     "nn": "Fire Expert"
   },
-  "tab.fweet": {
+  "menu.fweet": {
     "en": "FireWin Explorer",
     "no": "FireWin Explorer",
     "nn": "FireWin Explorer"
   },
-  "tab.inno": {
+  "menu.inno": {
     "en": "Integrator - Norik",
     "no": "Integrator - Norik",
     "nn": "Integrator - Norik"
   },
-  "tab.arthur": {
+  "menu.arthur": {
     "en": "Arthur",
     "no": "Arthur",
     "nn": "Arthur"
   },
-  "tab.nghi": {
+  "menu.nghi": {
     "en": "Nghi",
     "no": "Nghi",
     "nn": "Nghi"
