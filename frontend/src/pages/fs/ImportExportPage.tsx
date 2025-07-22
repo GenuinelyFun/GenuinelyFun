@@ -14,7 +14,7 @@ import styles from './ImportExportPage.module.less';
 import InnoExportForm from './innopage/InnoExportForm.tsx';
 
 const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
-const FIREWIN_EXPLORER_VERSION = 'v4.15';
+const FIREWIN_EXPLORER_VERSION = 'v4.16';
 
 const importExportPageVariables = (pageType: ImportExportPageType) => {
   switch (pageType) {
