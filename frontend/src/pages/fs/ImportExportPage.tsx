@@ -33,7 +33,7 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
         versionNumber: FIREWIN_EXPLORER_VERSION,
         productName: 'FireWin Explorer',
         acceptFileType: '.fepx',
-        maxFileSize: '3500 kb',
+        maxFileSize: '3500 kB',
         maxNumberOfFiles: 2,
         exportForm: <FweetExportForm />,
       };
