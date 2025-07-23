@@ -9,6 +9,16 @@
     "no": "Filen du prøver å laste opp er ikke riktig filtype. Prøv å bruke en annen fil.",
     "nn": "Fila du prøver å laste opp er ikkje riktig filtype. Prøv å bruke ei anna fil."
   },
+  "upload-box.error.file-too-large" : {
+    "en": "The file you're trying to upload is too large. Please use a smaller file.",
+    "no": "Filen du prøver å laste opp er for stor. Vennligst bruk en mindre fil.",
+    "nn": "Fila du prøver å laste opp er for stor. Ver venleg å bruk ei mindre fil."
+  },
+  "upload-box.error.too-many-files" : {
+    "en": "You can only upload {maxNumberOfFiles} {acceptFileType} files at a time. Please remove the other files and try again.",
+    "no": "Du kan bare laste opp {maxNumberOfFiles} {acceptFileType} filer om gangen. Vennligst fjern de andre filene og prøv igjen.",
+    "nn": "Du kan berre laste opp {maxNumberOfFiles} {acceptFileType} filer om gongen. Ver venleg å fjern dei andre filene og prøv igjen."
+  },
   "upload-box.or": {
     "en": "or",
     "no": "eller",
@@ -54,9 +64,34 @@
     "no": "Opp pil i en fil",
     "nn": "Opp pil i ei fil"
   },
+  "upload-box.title": {
+    "en": "Upload file",
+    "no": "Last opp fil",
+    "nn": "Last opp fil"
+  },
+  "upload-box.uppload-criteria": {
+    "en": "Upload criteria",
+    "no": "Opplastingskriterier",
+    "nn": "Opplastingskriterium"
+  },
+  "upload-box.supported-file-types": {
+    "en": "Supported file types: ",
+    "no": "Støttede filtyper: ",
+    "nn": "Støtta filtypar: "
+  },
+  "upload-box.max-file-size": {
+    "en": "Maximum file size: ",
+    "no": "Maks filstørrelse: ",
+    "nn": "Maks filstorleik: "
+  },
+  "upload-box.number-of-files": {
+    "en": "Maximum number of files: ",
+    "no": "Maks antall filer: ",
+    "nn": "Maks antal filer: "
+  },
   "upload-box.supported-version": {
-    "en": "We support version ",
-    "no": "Vi støtter versjon ",
-    "nn": "Me støttar versjon "
+    "en": "We support version: ",
+    "no": "Vi støtter versjon: ",
+    "nn": "Me støttar versjon: "
   }
 }

@@ -15,6 +15,7 @@ import InnoExportForm from './innopage/InnoExportForm.tsx';
 
 const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
 const FIREWIN_EXPLORER_VERSION = 'v4.16';
+const INTEGRATOR_APP_VERSION = '2025.3';
 
 const importExportPageVariables = (pageType: ImportExportPageType) => {
   switch (pageType) {
@@ -22,7 +23,9 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
       return {
         versionNumber: FIRE_EXPERT_VERSION,
         productName: 'Fire Expert',
-        acceptFileType: 'application/json',
+        acceptFileType: '.json',
+        maxFileSize: '1 MB',
+        maxNumberOfFiles: 10,
         exportForm: <FeetExportForm />,
       };
     case ImportExportPageType.FWEET:
@@ -30,13 +33,17 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
         versionNumber: FIREWIN_EXPLORER_VERSION,
         productName: 'FireWin Explorer',
         acceptFileType: '.fepx',
+        maxFileSize: '3500 kb',
+        maxNumberOfFiles: 2,
         exportForm: <FweetExportForm />,
       };
     case ImportExportPageType.INNO:
       return {
-        versionNumber: undefined,
-        productName: undefined,
-        acceptFileType: 'application/pdf',
+        versionNumber: INTEGRATOR_APP_VERSION,
+        productName: "Integrator App",
+        acceptFileType: '.pdf',
+        maxFileSize: '2 MB',
+        maxNumberOfFiles: 10,
         exportForm: <InnoExportForm />,
       };
   }
@@ -46,7 +53,7 @@ const ImportExportPage: FC<{
   pageType: ImportExportPageType;
 }> = ({ pageType }) => {
   const { translate } = useLanguageContext();
-  const { versionNumber, productName, acceptFileType, exportForm } =
+  const { versionNumber, productName, acceptFileType, exportForm, maxFileSize, maxNumberOfFiles } =
     importExportPageVariables(pageType)!;
   return (
     <main>
@@ -66,6 +73,8 @@ const ImportExportPage: FC<{
             versionNumber={versionNumber}
             productName={productName}
             acceptFileType={acceptFileType}
+            maxFileSize={maxFileSize}
+            maxNumberOfFiles={maxNumberOfFiles}
           />
         </div>
         <div className={styles.aside}>
