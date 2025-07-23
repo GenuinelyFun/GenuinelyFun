@@ -9,12 +9,12 @@
     "no": "Filen du prøver å laste opp er ikke riktig filtype. Prøv å bruke en annen fil.",
     "nn": "Fila du prøver å laste opp er ikkje riktig filtype. Prøv å bruke ei anna fil."
   },
-  "upload-box.error.file-too-large" : {
+  "upload-box.error.file-too-large": {
     "en": "The file you're trying to upload is too large. Please use a smaller file.",
     "no": "Filen du prøver å laste opp er for stor. Vennligst bruk en mindre fil.",
     "nn": "Fila du prøver å laste opp er for stor. Ver venleg å bruk ei mindre fil."
   },
-  "upload-box.error.too-many-files" : {
+  "upload-box.error.too-many-files": {
     "en": "You can only upload {maxNumberOfFiles} {acceptFileType} files at a time. Please remove the other files and try again.",
     "no": "Du kan bare laste opp {maxNumberOfFiles} {acceptFileType} filer om gangen. Vennligst fjern de andre filene og prøv igjen.",
     "nn": "Du kan berre laste opp {maxNumberOfFiles} {acceptFileType} filer om gongen. Ver venleg å fjern dei andre filene og prøv igjen."

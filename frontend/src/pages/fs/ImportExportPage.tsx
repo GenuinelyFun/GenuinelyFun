@@ -40,7 +40,7 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
     case ImportExportPageType.INNO:
       return {
         versionNumber: INTEGRATOR_APP_VERSION,
-        productName: "Integrator App",
+        productName: 'Integrator App',
         acceptFileType: '.pdf',
         maxFileSize: '2 MB',
         maxNumberOfFiles: 10,
@@ -53,8 +53,14 @@ const ImportExportPage: FC<{
   pageType: ImportExportPageType;
 }> = ({ pageType }) => {
   const { translate } = useLanguageContext();
-  const { versionNumber, productName, acceptFileType, exportForm, maxFileSize, maxNumberOfFiles } =
-    importExportPageVariables(pageType)!;
+  const {
+    versionNumber,
+    productName,
+    acceptFileType,
+    exportForm,
+    maxFileSize,
+    maxNumberOfFiles,
+  } = importExportPageVariables(pageType)!;
   return (
     <main>
       <div className={styles.container}>

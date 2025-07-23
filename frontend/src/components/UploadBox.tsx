@@ -212,17 +212,28 @@ const UploadBox: FC<Props> = ({
 
   return (
     <section className={classNames(styles.container, className)}>
-      <p className={styles.uploadBoxTitle}>{translate("upload-box.title")}</p>
-      <p className={styles.uploadBoxCriteria}>{translate("upload-box.uppload-criteria")}</p>
+      <p className={styles.uploadBoxTitle}>{translate('upload-box.title')}</p>
+      <p className={styles.uploadBoxCriteria}>
+        {translate('upload-box.uppload-criteria')}
+      </p>
       <ul>
-        <li>{translate("upload-box.supported-file-types")}{acceptFileType}</li>
-        <li>{translate("upload-box.max-file-size")}{maxFileSize}</li>
-        <li>{translate("upload-box.number-of-files")}{maxNumberOfFiles}</li>
         <li>
-        {translate('upload-box.supported-version') +
-          productName +
-          ' ' +
-          versionNumber}
+          {translate('upload-box.supported-file-types')}
+          {acceptFileType}
+        </li>
+        <li>
+          {translate('upload-box.max-file-size')}
+          {maxFileSize}
+        </li>
+        <li>
+          {translate('upload-box.number-of-files')}
+          {maxNumberOfFiles}
+        </li>
+        <li>
+          {translate('upload-box.supported-version') +
+            productName +
+            ' ' +
+            versionNumber}
         </li>
       </ul>
       <div

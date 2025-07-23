@@ -4,9 +4,13 @@ export function parseFileSize(sizeStr: string): number {
   const value = parseFloat(match[1]);
   const unit = match[2].toLowerCase();
   switch (unit) {
-    case 'mb': return value * 1024 * 1024;
-    case 'kb': return value * 1024;
-    case 'b':  return value;
-    default:   return 0;
+    case 'mb':
+      return value * 1024 * 1024;
+    case 'kb':
+      return value * 1024;
+    case 'b':
+      return value;
+    default:
+      return 0;
   }
 }
