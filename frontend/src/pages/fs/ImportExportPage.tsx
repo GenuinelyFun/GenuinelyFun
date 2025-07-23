@@ -40,7 +40,7 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
     case ImportExportPageType.INNO:
       return {
         versionNumber: INTEGRATOR_APP_VERSION,
-        productName: 'Integrator App',
+        productName: 'Integrator',
         acceptFileType: '.pdf',
         maxFileSize: '2 MB',
         maxNumberOfFiles: 10,
