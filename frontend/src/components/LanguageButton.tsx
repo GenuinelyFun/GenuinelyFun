@@ -15,7 +15,7 @@ const LanguageButton = () => {
     <DropDownMenu
       buttonTextKey={i18n.language as TranslateTextKey}
       buttonClassName={styles.button}
-      buttonAriaLabel={translate('language.aria-label')}
+      buttonAriaLabel={translate('generic.language.aria-label')}
       listItems={Object.keys(languages).map((key) => (
         <button
           key={key}

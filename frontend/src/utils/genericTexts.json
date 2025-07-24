@@ -4,17 +4,22 @@
     "no": "Lukk dialog",
     "nn": "Lukk dialog"
   },
-  "more-info": {
+  "generic.more-info": {
     "en": "More info",
     "no": "Mer info",
     "nn": "Meir info"
   },
-  "close": {
+  "generic.close": {
     "en": "Close",
     "no": "Lukk",
     "nn": "Lukk"
   },
-  "language.aria-label": {
+  "generic.selected": {
+    "en": " selected",
+    "no": " valgt",
+    "nn": " valt"
+  },
+  "generic.language.aria-label": {
     "en": "Select language",
     "no": "Velg språk",
     "nn": "Vel språk"

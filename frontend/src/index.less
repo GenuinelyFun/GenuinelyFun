@@ -85,6 +85,8 @@ button {
   cursor: pointer;
   font-size: var(--font-size-small);
   background-color: unset;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .ReactModal__Body--open {
@@ -94,4 +96,14 @@ button {
 input[type="checkbox"]:disabled {
   cursor: not-allowed;
   opacity: 100% !important;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

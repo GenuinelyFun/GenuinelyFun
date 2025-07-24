@@ -35,6 +35,7 @@ const Modal: FC<Props> = ({
       className={classNames(styles.modal, className)}
       appElement={document.getElementById('root') as HTMLElement}
     >
+      <div className={styles.modalContent}>{children}</div>
       <button
         className={styles.closeButton}
         type="button"
@@ -43,7 +44,6 @@ const Modal: FC<Props> = ({
       >
         <CrossIcon className={styles.crossIcon} />
       </button>
-      <div className={styles.modalContent}>{children}</div>
     </ReactModal>
   );
 };
