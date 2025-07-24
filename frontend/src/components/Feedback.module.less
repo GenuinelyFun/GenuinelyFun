@@ -1,0 +1,49 @@
+.openButton {
+  display: flex;
+
+  svg, g {
+    width: 24px;
+    height: auto;
+    margin: auto;
+    fill: var(--color-black);
+  }
+}
+
+.emojis {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  border: none;
+
+}
+
+.emoji {
+  height: 48px;
+  width: 48px;
+}
+
+.outlined {
+  circle, path, rect {
+    stroke: var(--color-black);
+  }
+}
+
+.input {
+  display: none;
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 6px;
+  padding: var(--spacing-mini);
+}
+
+.submit {
+  align-self: flex-start;
+  margin: 0 !important;
+}
+
+.errorEmptyForm {
+  color: #cc0000;
+}

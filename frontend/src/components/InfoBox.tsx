@@ -28,7 +28,7 @@ const InfoBox: FC<InfoBoxProps> = ({
       <button
         onClick={modal.openModal}
         className={styles.infoButton}
-        aria-label={`${translate('more-info')} ${ariaAbout ? ariaAbout : ''}`}
+        aria-label={`${translate('generic.more-info')} ${ariaAbout ? ariaAbout : ''}`}
         type={'button'}
       >
         <QuestionMarkIcon className={styles.icon} />
@@ -40,7 +40,7 @@ const InfoBox: FC<InfoBoxProps> = ({
           className={styles.closeButton}
           onClick={modal.closeModal}
         >
-          {translate('close')}
+          {translate('generic.close')}
         </GenericButton>
       </Modal>
     </>

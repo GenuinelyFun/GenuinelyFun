@@ -28,9 +28,13 @@ const GenericButton: FC<Props> = ({
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className={classNames(className, {
-          [styles.invert]: invert,
-        })}
+        className={classNames(
+          {
+            [styles.invert]: invert,
+          },
+          styles.button,
+          className
+        )}
         href={buttonProps.href}
         onClick={onClick}
         {...(buttonProps as LinkProps)}
@@ -44,9 +48,13 @@ const GenericButton: FC<Props> = ({
     return (
       <Link
         state={{ prevPage: location.pathname }}
-        className={classNames(styles.button, className, {
-          [styles.invert]: invert,
-        })}
+        className={classNames(
+          {
+            [styles.invert]: invert,
+          },
+          styles.button,
+          className
+        )}
         onClick={onClick}
         {...(buttonProps as LinkProps)}
       >
@@ -56,9 +64,13 @@ const GenericButton: FC<Props> = ({
   }
   return (
     <button
-      className={classNames(styles.button, className, {
-        [styles.invert]: invert,
-      })}
+      className={classNames(
+        {
+          [styles.invert]: invert,
+        },
+        styles.button,
+        className
+      )}
       onClick={onClick}
       {...buttonProps}
     >

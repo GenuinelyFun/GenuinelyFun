@@ -3,6 +3,7 @@ import { createContext } from 'react';
 
 import authorCardText from '../../components/authorCardText.json';
 import darkmodeToggleText from '../../components/darkmodeToggleText.json';
+import feedbackText from '../../components/feedbackText.json';
 import fileListText from '../../components/fileListText.json';
 import footerText from '../../components/footerText.json';
 import menuText from '../../components/menuText.json';
@@ -30,6 +31,7 @@ export enum Language {
 export const translationTexts = {
   ...authorCardText,
   ...darkmodeToggleText,
+  ...feedbackText,
   ...footerText,
   ...menuText,
   ...articlePageText,

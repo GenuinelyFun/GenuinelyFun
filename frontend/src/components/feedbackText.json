@@ -1,0 +1,67 @@
+{
+  "feedback.open-button": {
+    "en": "Share feedback",
+    "no": "Del tilbakemelding",
+    "nn": "Del tilbakemelding"
+  },
+  "feedback.form.title": {
+    "en": "Share your thoughts",
+    "no": "Del dine tanker",
+    "nn": "Del dine tankar"
+  },
+  "feedback.form.rating": {
+    "en": "How would you rate this page?",
+    "no": "Hvordan vil du vurdere denne siden?",
+    "nn": "Korleis vil du vurdere denne sida?"
+  },
+  "feedback.form.input": {
+    "en": "Please share your feedback",
+    "no": "Del gjerne din tilbakemelding",
+    "nn": "Del gjerne di tilbakemelding"
+  },
+  "feedback.form.label": {
+    "en": "Rating ",
+    "no": "Fornøydhet ",
+    "nn": "Fornøgdheit "
+  },
+  "feedback.form.placeholder": {
+    "en": "Write your feedback here",
+    "no": "Skriv din tilbakemelding her",
+    "nn": "Skriv di tilbakemelding her"
+  },
+  "feedback.form.footnote": {
+    "en": "Share feedback, suggestions, issues or more. Your feedback will not be answered.",
+    "no": "Del tilbakemelding, forslag, problemer eller annet. Du vil ikke få svar på dine tilbakemeldinger.",
+    "nn": "Del tilbakemelding, forslag, problem eller anna. Du vil ikkje få svar på dine tilbakemeldingar."
+  },
+  "feedback.form.submit": {
+    "en": "Send feedback",
+    "no": "Send tilbakemelding",
+    "nn": "Send tilbakemelding"
+  },
+  "feedback.confirmation.title": {
+    "en": "Thank you for your feedback",
+    "no": "Takk for din tilbakemelding",
+    "nn": "Takk for tilbakemeldinga di"
+  },
+  "feedback.error.empty-form": {
+    "en": "You have not filled in the feedback form yet.",
+    "no": "Du har ikke fylt ut tilbakemeldingskjema.",
+    "nn": "Du har ikkje fylt ut tilbakemeldingsskjema."
+  },
+  "feedback.confirmation.description": {
+    "en": "Your feedback has been sent.",
+    "no": "Tilbakemeldingen din har blitt sendt.",
+    "nn": "Tilbakemeldinga di har vorte send"
+  },
+  "feedback.error.title": {
+    "en": "Something went wrong!",
+    "no": "Noe gikk galt!",
+    "nn": "Noe gjekk gale!"
+  },
+  "feedback.error.description": {
+    "en": "Your feedback was not sent, please try again later.",
+    "no": "Tilbakemeldingen din har ikke blitt sendt, vennligst prøv igjen senere.",
+    "nn": "Tilbakemeldinga di har ikkje vorte send, ver vennleg og prøv igjen seinare."
+  }
+}

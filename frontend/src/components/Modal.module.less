@@ -24,7 +24,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
   position: absolute;
-  max-height: 80%;
+  max-height: fit-content;
   margin: 0 var(--dds-spacing-small-16);
   background-color: var(--color-gray-dark);
   overflow-y: auto;
@@ -45,13 +45,13 @@
 }
 
 .modalContent {
-  margin: var(--spacing-xsmall);
+  margin: var(--spacing-large) var(--spacing-xsmall);
 }
 
 .closeButton {
   position: absolute;
-  top: var(--spacing-small);
-  right: var(--spacing-small);
+  top: var(--spacing-xsmall);
+  right: var(--spacing-xsmall);
   background-color: transparent;
   border: none;
   cursor: pointer;
