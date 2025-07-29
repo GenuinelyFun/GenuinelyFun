@@ -14,11 +14,11 @@ import {
   useDataContext,
 } from '../utils/data-utils.ts';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
+import { parseFileSize } from '../utils/parseFileSize';
 import { useNoDropZone } from '../utils/useNoDropZone.ts';
 import { useToast } from '../utils/useToast.ts';
 import GenericButton from './GenericButton.tsx';
 import styles from './UploadBox.module.less';
-import { parseFileSize } from '../utils/parseFileSize';
 
 interface Props {
   versionNumber?: string;
@@ -81,7 +81,7 @@ const UploadBox: FC<Props> = ({
           textKey: 'upload-box.error.file-too-large',
           textParams: { maxFileSize },
         });
-        return false;
+        return;
       }
 
       const fileReader = new FileReader();
