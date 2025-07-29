@@ -212,7 +212,7 @@ const UploadBox: FC<Props> = ({
 
   return (
     <section className={classNames(styles.container, className)}>
-      <p className={styles.uploadBoxTitle}>{translate('upload-box.title')}</p>
+      <h2 className={styles.uploadBoxTitle}>{translate('upload-box.title')}</h2>
       <p className={styles.uploadBoxCriteria}>
         {translate('upload-box.upload-criteria')}
       </p>
