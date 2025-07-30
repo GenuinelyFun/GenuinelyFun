@@ -216,7 +216,7 @@ const UploadBox: FC<Props> = ({
       <p className={styles.uploadBoxCriteria}>
         {translate('upload-box.upload-criteria')}
       </p>
-      <ul>
+      <ul className={styles.uploadBoxList}>
         <li>
           {translate('upload-box.supported-file-types')}
           {acceptFileType}
