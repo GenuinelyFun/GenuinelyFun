@@ -212,6 +212,7 @@ const UploadBox: FC<Props> = ({
 
   return (
     <section className={classNames(styles.container, className)}>
+      <hr className={styles.divider} />
       <h2 className={styles.uploadBoxTitle}>{translate('upload-box.title')}</h2>
       <p className={styles.uploadBoxCriteria}>
         {translate('upload-box.upload-criteria')}
