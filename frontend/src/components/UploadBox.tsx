@@ -18,6 +18,7 @@ import { parseFileSize } from '../utils/parseFileSize';
 import { useNoDropZone } from '../utils/useNoDropZone.ts';
 import { useToast } from '../utils/useToast.ts';
 import GenericButton from './GenericButton.tsx';
+import LineBreak from './LineBreak.tsx';
 import styles from './UploadBox.module.less';
 
 interface Props {
@@ -212,7 +213,7 @@ const UploadBox: FC<Props> = ({
 
   return (
     <section className={classNames(styles.container, className)}>
-      <hr className={styles.divider} />
+      <LineBreak />
       <h2 className={styles.uploadBoxTitle}>{translate('upload-box.title')}</h2>
       <p className={styles.uploadBoxCriteria}>
         {translate('upload-box.upload-criteria')}
