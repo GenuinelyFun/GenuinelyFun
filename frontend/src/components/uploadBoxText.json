@@ -9,6 +9,16 @@
     "no": "Filen du prøver å laste opp er ikke riktig filtype. Prøv å bruke en annen fil.",
     "nn": "Fila du prøver å laste opp er ikkje riktig filtype. Prøv å bruke ei anna fil."
   },
+  "upload-box.error.file-too-large": {
+    "en": "The file or files you're trying to upload are too large. Please use smaller files or reduce the total size.",
+    "no": "Filen eller filene du prøver å laste opp er for store. Vennligst bruk mindre filer eller reduser totalstørrelsen.",
+    "nn": "Fila eller filene du prøver å laste opp er for store. Ver venleg å bruk mindre filer eller reduser totalstorleiken."
+  },
+  "upload-box.error.too-many-files": {
+    "en": "You can only upload up to {maxNumberOfFiles} {acceptFileType} files at once. Please select fewer files and try again.",
+    "no": "Du kan laste opp maks {maxNumberOfFiles} {acceptFileType} filer om gangen. Vennligst velg færre filer og prøv igjen.",
+    "nn": "Du kan laste opp maks {maxNumberOfFiles} {acceptFileType} filer om gongen. Ver venleg å velje færre filer og prøv igjen."
+  },
   "upload-box.or": {
     "en": "or",
     "no": "eller",
@@ -54,9 +64,34 @@
     "no": "Opp pil i en fil",
     "nn": "Opp pil i ei fil"
   },
+  "upload-box.title": {
+    "en": "Upload file",
+    "no": "Last opp fil",
+    "nn": "Last opp fil"
+  },
+  "upload-box.upload-criteria": {
+    "en": "Upload criteria",
+    "no": "Opplastingskriterier",
+    "nn": "Opplastingskriterium"
+  },
+  "upload-box.supported-file-types": {
+    "en": "Supported file types: ",
+    "no": "Støttede filtyper: ",
+    "nn": "Støtta filtypar: "
+  },
+  "upload-box.max-file-size": {
+    "en": "Maximum file size: ",
+    "no": "Maks filstørrelse: ",
+    "nn": "Maks filstorleik: "
+  },
+  "upload-box.number-of-files": {
+    "en": "Maximum number of files: ",
+    "no": "Maks antall filer: ",
+    "nn": "Maks antal filer: "
+  },
   "upload-box.supported-version": {
-    "en": "We support version ",
-    "no": "Vi støtter versjon ",
-    "nn": "Me støttar versjon "
+    "en": "We support version: ",
+    "no": "Vi støtter versjon: ",
+    "nn": "Me støttar versjon: "
   }
 }

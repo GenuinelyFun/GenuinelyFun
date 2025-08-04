@@ -14,9 +14,11 @@ import {
   useDataContext,
 } from '../utils/data-utils.ts';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
+import { parseFileSize } from '../utils/parseFileSize';
 import { useNoDropZone } from '../utils/useNoDropZone.ts';
 import { useToast } from '../utils/useToast.ts';
 import GenericButton from './GenericButton.tsx';
+import LineBreak from './LineBreak.tsx';
 import styles from './UploadBox.module.less';
 
 interface Props {
@@ -25,6 +27,8 @@ interface Props {
   filetype: ImportExportPageType;
   productName?: string;
   acceptFileType: string;
+  maxFileSize: string;
+  maxNumberOfFiles: number;
 }
 
 const UploadBox: FC<Props> = ({
@@ -33,6 +37,8 @@ const UploadBox: FC<Props> = ({
   filetype,
   productName,
   acceptFileType,
+  maxFileSize,
+  maxNumberOfFiles,
 }) => {
   useNoDropZone();
   const toast = useToast();
@@ -45,6 +51,22 @@ const UploadBox: FC<Props> = ({
     setIsDragging(false);
     setIsNotParseable(false);
 
+    if (files.length > maxNumberOfFiles) {
+      toast({
+        type: 'error',
+        textKey: 'upload-box.error.too-many-files',
+        textParams: {
+          maxNumberOfFiles: maxNumberOfFiles.toString(),
+          acceptFileType,
+        },
+      });
+      setIsDragging(false);
+      setIsNotParseable(true);
+      return;
+    }
+
+    const maxBytes = parseFileSize(maxFileSize);
+
     const filesArray = Array.from(files).map(async (file) => {
       if (file === null) {
         toast({
@@ -53,6 +75,16 @@ const UploadBox: FC<Props> = ({
         });
         return;
       }
+
+      if (file.size > maxBytes) {
+        toast({
+          type: 'error',
+          textKey: 'upload-box.error.file-too-large',
+          textParams: { maxFileSize },
+        });
+        return;
+      }
+
       const fileReader = new FileReader();
       return new Promise((resolve) => {
         const zip = new JSZip();
@@ -181,6 +213,31 @@ const UploadBox: FC<Props> = ({
 
   return (
     <section className={classNames(styles.container, className)}>
+      <LineBreak />
+      <h2 className={styles.uploadBoxTitle}>{translate('upload-box.title')}</h2>
+      <p className={styles.uploadBoxCriteria}>
+        {translate('upload-box.upload-criteria')}
+      </p>
+      <ul className={styles.uploadBoxList}>
+        <li>
+          {translate('upload-box.supported-file-types')}
+          {acceptFileType}
+        </li>
+        <li>
+          {translate('upload-box.max-file-size')}
+          {maxFileSize}
+        </li>
+        <li>
+          {translate('upload-box.number-of-files')}
+          {maxNumberOfFiles}
+        </li>
+        <li>
+          {translate('upload-box.supported-version') +
+            productName +
+            ' ' +
+            versionNumber}
+        </li>
+      </ul>
       <div
         className={styles.uploadContainer}
         onDrop={handleDrop}
@@ -259,14 +316,6 @@ const UploadBox: FC<Props> = ({
           />
         </>
       </div>
-      {productName && versionNumber && (
-        <p>
-          {translate('upload-box.supported-version') +
-            productName +
-            ' ' +
-            versionNumber}
-        </p>
-      )}
     </section>
   );
 };

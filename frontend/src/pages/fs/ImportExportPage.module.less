@@ -1,6 +1,7 @@
 @import "../../utils/variables.less";
 
 .container {
+  padding: 0 var(--spacing-large);
   max-height: fit-content;
   margin-bottom: var(--spacing-xlarge);
   display: grid;
@@ -19,6 +20,9 @@
 
 .title {
   grid-area: title;
+  margin: 0 auto;
+  max-width: var(--max-width-page);
+  width: 100%;
 }
 
 .content {
