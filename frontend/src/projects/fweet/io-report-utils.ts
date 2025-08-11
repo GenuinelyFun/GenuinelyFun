@@ -30,6 +30,7 @@ const VALID_ADDR_UNIT_TYPES = [
   'ESIO4G2R',
   'ESIOMM',
   'ESTAL',
+  'ESSMOPT',
   'ESTALBDI',
   'ESTALSPR',
   'ESIOSPR',
