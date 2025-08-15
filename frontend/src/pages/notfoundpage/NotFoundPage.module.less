@@ -2,12 +2,10 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    ". content ."
-    "rocket . moon"
-    ". astronaut .";
+  grid-template:
+    ". content ." auto
+    "rocket . moon" auto
+    ". astronaut ." auto / 1fr 1fr 1fr;
   color: var(--color-black);
   text-align: center;
   margin: 0 auto;
@@ -20,12 +18,11 @@
   }
 
   @media @breakpoint-tablet {
-    grid-template-columns: 1fr;
-    grid-template-areas:
+    grid-template:
       "content"
       "moon"
       "rocket"
-      "astronaut";
+      "astronaut" / 1fr;
   }
 }
 
@@ -57,6 +54,7 @@
     width: 150px;
     place-self: end;
   }
+
   @media @breakpoint-mobile {
     width: 40px;
     place-self: end;
@@ -72,6 +70,7 @@
     width: 150px;
     place-self: start;
   }
+
   @media @breakpoint-mobile {
     width: 40px;
     place-self: start;
@@ -88,6 +87,7 @@
   0% {
     transform: rotate(0deg) translateX(40px) translateY(15px) rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg) translateX(40px) translateY(15px) rotate(-360deg);
   }
@@ -95,30 +95,38 @@
 
 @keyframes rotateRocket {
   0% {
-    transform: translateX(0px) translateY(0px) rotate(0deg);
+    transform: translateX(0) translateY(0) rotate(0deg);
   }
+
   12.5% {
     transform: translateX(20px) translateY(-10px) rotate(45deg);
   }
+
   25% {
-    transform: translateX(40px) translateY(0px) rotate(90deg);
+    transform: translateX(40px) translateY(0) rotate(90deg);
   }
+
   37.5% {
     transform: translateX(20px) translateY(10px) rotate(135deg);
   }
+
   50% {
-    transform: translateX(0px) translateY(0px) rotate(180deg);
+    transform: translateX(0) translateY(0) rotate(180deg);
   }
+
   62.5% {
     transform: translateX(-20px) translateY(-10px) rotate(225deg);
   }
+
   75% {
-    transform: translateX(-40px) translateY(0px) rotate(270deg);
+    transform: translateX(-40px) translateY(0) rotate(270deg);
   }
+
   87.5% {
     transform: translateX(-20px) translateY(10px) rotate(315deg);
   }
+
   100% {
-    transform: translateX(0px) translateY(0px) rotate(360deg);
+    transform: translateX(0) translateY(0) rotate(360deg);
   }
 }

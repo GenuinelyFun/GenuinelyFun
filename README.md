@@ -45,17 +45,18 @@ To run the project locally:
    ```bash
    npm install
    ```
+
 4. **Start the project:**
 
    ```bash
    npm run start
    ```
-This will launch the application, and you can view it in your browser at `http://localhost:3000`.
+
+   This will launch the application, and you can view it in your browser at `http://localhost:3000`.
 
 ## Deployment
 
 The project is hosted at [One.com](https://www.one.com/). To deploy the project:
-
 
 1. **Log in at [One.com](https://www.one.com/) for File Manager**
 
@@ -64,14 +65,14 @@ The project is hosted at [One.com](https://www.one.com/). To deploy the project:
    ```bash
    npm run build
    ```
-   
-3. **Update all the files except for the ```.htaccess``` file with the contents of the ```build``` folder**
+
+3. **Update all the files except for the `.htaccess` file with the contents of the `build` folder**
 
 4. **Once the files finish uploading the page should be live with the updates.**
+
 ## Contributing
 
 We do not currently take contributions, but feel free to contact us with any questions or suggestions and we will look into it as soon as possible.
-
 
 ## Contact
 
