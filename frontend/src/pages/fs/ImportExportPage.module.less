@@ -5,9 +5,11 @@
   max-height: fit-content;
   margin-bottom: var(--spacing-xlarge);
   display: grid;
-  grid-template:
-    ". title ." auto
-    ". content aside" auto / 1fr var(--max-width-page) 1fr;
+  grid-template-columns: 1fr var(--max-width-page) 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". title ."
+    ". content aside";
 
   @media @breakpoint-tablet {
     display: flex;
@@ -35,7 +37,6 @@
   grid-area: aside;
   justify-self: baseline;
   margin: 0 var(--spacing-large);
-
   @media @breakpoint-tablet {
     display: flex;
     flex-direction: column-reverse;
