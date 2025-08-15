@@ -16,5 +16,6 @@ export default {
         message: (name) => `Expected keyframe name "${name}" to be camelCase`,
       },
     ],
+    'color-function-notation': 'legacy',
   },
 };
