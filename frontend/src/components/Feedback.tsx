@@ -33,7 +33,7 @@ const usePostFeedbackToGoogleSheets = () => {
     async (rating: number, feedback?: string) => {
       const headers = {
         Accept: 'application/json',
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'text/plain;charset=UTF-8',
       };
 
       const formData = {
