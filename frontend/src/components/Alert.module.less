@@ -1,0 +1,80 @@
+@import "../utils/variables.less";
+
+.alertContainer {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: var(--max-width-page);
+  align-self: center;
+  margin: var(--spacing-large);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  &[data-variant="error"] {
+    background-color: var(--color-error);
+  }
+
+  &[data-variant="warning"] {
+    background-color: var(--color-warning);
+  }
+
+  &[data-variant="info"] {
+    background-color: var(--color-info);
+  }
+
+  &[data-variant="success"] {
+    background-color: var(--color-success);
+  }
+
+  @media @breakpoint-tablet {
+    width: auto;
+  }
+}
+
+.alertTitle {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-medium);
+  margin: 0;
+}
+
+.alertDescription {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.alertContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--spacing-mini);
+  width: 100%;
+  height: 100%;
+}
+
+.alertIcon {
+  width: 1em;
+  min-width: 24px;
+  height: auto;
+  display: block;
+  margin: 0 var(--spacing-mini) 0 0;
+}
+
+.closeBannerButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 44px;
+  height: 44px;
+}
+
+.closeBannerIcon {
+  width: 1em;
+  min-width: 24px;
+  height: auto;
+  fill: var(--color-black);
+}
