@@ -15,6 +15,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   variant: 'error' | 'warning' | 'info' | 'success';
   title?: TranslateTextKey;
+  showCloseButton?: boolean;
 }
 
 const iconMap = {
@@ -25,7 +26,7 @@ const iconMap = {
 };
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  { children, variant, title, ...rest },
+  { children, variant, title, showCloseButton = false, ...rest },
   ref
 ) {
   const [showBanner, setShowBanner] = useState(true);
@@ -46,14 +47,16 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
         {title && <h1 className={styles.alertTitle}>{translate(title)}</h1>}
         <p className={styles.alertDescription}>{children}</p>
       </div>
-      <button
-        type="button"
-        className={styles.closeBannerButton}
-        onClick={() => setShowBanner(false)}
-        aria-label={translate('alert.close')}
-      >
-        <CrossIcon className={styles.closeBannerIcon} />
-      </button>
+      {showCloseButton && (
+        <button
+          type="button"
+          className={styles.closeBannerButton}
+          onClick={() => setShowBanner(false)}
+          aria-label={translate('alert.close')}
+        >
+          <CrossIcon className={styles.closeBannerIcon} />
+        </button>
+      )}
     </div>
   );
 });

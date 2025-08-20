@@ -75,5 +75,3 @@ export const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export const useLanguageContext = (): LanguageContextType =>
   useContextOrThrow(LanguageContext);
-
-export class TranslationKey {}
