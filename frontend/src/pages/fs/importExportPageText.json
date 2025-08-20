@@ -35,9 +35,9 @@
     "nn": "Integrator til Norik"
   },
   "inno.page.description.1": {
-    "en": "This tool is specifically designed to convert 'Komponentsjekklister' PDFs from Integrator into the precise Excel format required by Norik. Simply upload your PDF and receive a perfectly formatted, import-ready file in seconds.",
-    "no": "Dette verktøyet er spesifikt laget for å konvertere 'Komponentsjekklister' PDF-er fra Integrator til det nøyaktige Excel-formatet som kreves av Norik. Bare last opp PDF-en din og motta en perfekt formatert, klar til import fil på sekunder.",
-    "nn": "Dette verktøyet er spesifikt laga for å konvertere 'Komponentsjekklister' PDF-ar frå Integrator til det nøyaktige Excel-formatet som krevst av Norik. Last berre opp PDF-en din og motta ei perfekt formatert, klar til import fil på sekunder."
+    "en": "This tool converts 'Komponentsjekklister' a PDF file from Integrator into an Excel file with two sheets. The first sheet, Armaturliste, is a Norik compatible list where data from the PDF file is added as accurately as possible. The second sheet, Oppdelt, contains a parsed version where each word is placed in its own cell, making it easier to adjust or correct if needed.",
+    "no": "Dette verktøyet konverterer 'Komponentsjekklister' en PDF fil fra Integrator til en Excel fil med to ark. Det første arket, Armaturliste, er en Norik kompatibel liste der dataene fra PDF filen legges inn så nøyaktig som mulig. Det andre arket, Oppdelt, inneholder en parsingsversjon der hvert ord er plassert i sin egen celle, noe som gjør det enklere å justere eller rette opp ved behov.",
+    "nn": "Dette verktøyet konverterer 'Komponentsjekklister' ei PDF-fil frå Integrator til ei Excel-fil med to ark. Det første arket, Armaturliste, er ei Norik-kompatibel liste der data frå PDF-fila blir lagt inn så nøyaktig som mogleg. Det andre arket, Oppdelt, inneheld ei parsingsversjon der kvart ord er plassert i si eiga celle, noko som gjer det enklare å justere eller rette opp om nødvendig."
   },
   "inno.page.description.2": {
     "en": "We ensure your data's security by processing everything locally in your browser, your files never leave your device. Additionally, the tool works offline, providing you with the flexibility to convert files anytime, anywhere.",
