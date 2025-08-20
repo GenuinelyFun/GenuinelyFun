@@ -1,3 +1,13 @@
+@import "../utils/variables.less";
+
+.container {
+  margin: var(--spacing-large) auto;
+
+  @media @breakpoint-tablet {
+    margin: var(--spacing-large);
+  }
+}
+
 .feedbackIcon {
   width: 1.3em;
   height: auto;

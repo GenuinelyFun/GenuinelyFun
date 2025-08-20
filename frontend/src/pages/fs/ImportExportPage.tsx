@@ -73,15 +73,13 @@ const ImportExportPage: FC<{
             {translate(`${pageType}.page.description.1` as TranslateTextKey)}
           </p>
           {pageType === ImportExportPageType.INNO && (
-            <div className={styles.alertInno}>
-              <Alert
-                variant="info"
-                title={'alert-inno.title'}
-                showCloseButton={false}
-              >
-                {translate('alert-inno.description')}
-              </Alert>
-            </div>
+            <Alert
+              variant="info"
+              title={'alert-inno.title'}
+              showCloseButton={false}
+            >
+              {translate('alert-inno.description')}
+            </Alert>
           )}
           <p>
             {translate(`${pageType}.page.description.2` as TranslateTextKey)}

@@ -6,18 +6,20 @@ import styles from './FeedbackBanner.module.less';
 const FeedbackBanner = () => {
   const { translate } = useLanguageContext();
   return (
-    <Alert
-      variant="info"
-      title={'feedback-banner.title'}
-      showCloseButton={true}
-    >
-      {translate('feedback-banner.description.1')}
-      <FeedbackIcon
-        className={styles.feedbackIcon}
-        aria-label={translate('feedback-banner.feedback-icon')}
-      />
-      {translate('feedback-banner.description.2')}
-    </Alert>
+    <div className={styles.container}>
+      <Alert
+        variant="info"
+        title={'feedback-banner.title'}
+        showCloseButton={true}
+      >
+        {translate('feedback-banner.description.1')}
+        <FeedbackIcon
+          className={styles.feedbackIcon}
+          aria-label={translate('feedback-banner.feedback-icon')}
+        />
+        {translate('feedback-banner.description.2')}
+      </Alert>
+    </div>
   );
 };
 
