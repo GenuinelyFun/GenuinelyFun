@@ -1,0 +1,22 @@
+{
+  "feedback-banner.title": {
+    "en": "New feature!",
+    "no": "Ny funksjon!",
+    "nn": "Ny funksjon!"
+  },
+  "feedback-banner.feedback-icon": {
+    "en": "pencil on paper",
+    "no": "blyant på papir",
+    "nn": "blyant på papir"
+  },
+  "feedback-banner.description.1": {
+    "en": "Send us your feedback by clicking this button",
+    "no": "Send oss din tilbakemelding ved å klikke på denne knappen",
+    "nn": "Send oss din tilbakemelding ved å klikke på denne knappen"
+  },
+  "feedback-banner.description.2": {
+    "en": "You can find it in the top menu.",
+    "no": "i toppmenyen.",
+    "nn": "i toppmenyen."
+  }
+}

@@ -7,7 +7,7 @@ const FeedbackIcon = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 24 24"
     {...props}
   >
-    <g id="SVGRepo_iconCarrier" fill="#0F0F0F">
+    <g id="SVGRepo_iconCarrier" fill="currentColor">
       <path d="M16 1a3 3 0 0 1 3 3 1 1 0 1 1-2 0 1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3z"></path>
       <path
         fillRule="evenodd"

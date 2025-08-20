@@ -1,8 +1,10 @@
 import { i18n, TFunction } from 'i18next';
 import { createContext } from 'react';
 
+import alertText from '../../components/alertText.json';
 import authorCardText from '../../components/authorCardText.json';
 import darkmodeToggleText from '../../components/darkmodeToggleText.json';
+import feedbackBannerText from '../../components/feedbackBannerText.json';
 import feedbackText from '../../components/feedbackText.json';
 import fileListText from '../../components/fileListText.json';
 import footerText from '../../components/footerText.json';
@@ -29,6 +31,7 @@ export enum Language {
 }
 
 export const translationTexts = {
+  ...alertText,
   ...authorCardText,
   ...darkmodeToggleText,
   ...feedbackText,
@@ -47,6 +50,7 @@ export const translationTexts = {
   ...arthurPageText,
   ...nghiPageText,
   ...genericText,
+  ...feedbackBannerText,
   ...uploadBoxText,
 };
 
