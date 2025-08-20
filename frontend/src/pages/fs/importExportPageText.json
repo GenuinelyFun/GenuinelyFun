@@ -43,5 +43,15 @@
     "en": "We ensure your data's security by processing everything locally in your browser, your files never leave your device. Additionally, the tool works offline, providing you with the flexibility to convert files anytime, anywhere.",
     "no": "Vi sikrer sikkerheten til dataene dine ved å behandle alt lokalt i nettleseren din, filene dine forlater aldri enheten din. I tillegg fungerer verktøyet offline, noe som gir deg fleksibiliteten til å konvertere filer når som helst, hvor som helst.",
     "nn": "Vi sikrar sikkerheita til dataene dine ved å behandle alt lokalt i nettlesaren din, filene dine forlet aldri eininga di. I tillegg fungerer verktøyet offline, noko som gir deg fleksibiliteten til å konvertere filer når som helst, kvar som helst."
+  },
+  "alert-inno.title": {
+    "en": "Just so you know!",
+    "no": "Bare så du vet!",
+    "nn": "Berre så du veit!"
+  },
+  "alert-inno.description": {
+    "en": "The result might not be perfect. Its accuracy depends on how the report was completed in Integrator and if there have been any changes. Always remember to check everything carefully.",
+    "no": "Resultatet er kanskje ikke helt perfekt. Nøyaktigheten avhenger av hvordan rapporten er fylt ut i Integrator og om det har vært endringer. Husk alltid å sjekke alt nøye.",
+    "nn": "Resultatet er kanskje ikkje heilt perfekt. Nøyaktigheita kjem an på korleis rapporten er fylt ut i Integrator og om det har vore endringar. Hugs alltid å sjekke alt nøye."
   }
 }
