@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import Alert from '../../components/Alert.tsx';
 import FileList from '../../components/FileList.tsx';
 import PageHeading from '../../components/PageHeading.tsx';
 import UploadBox from '../../components/UploadBox.tsx';
@@ -71,9 +72,19 @@ const ImportExportPage: FC<{
           <p>
             {translate(`${pageType}.page.description.1` as TranslateTextKey)}
           </p>
+          {pageType === ImportExportPageType.INNO && (
+            <Alert
+              variant="info"
+              title={'alert-inno.title'}
+              showCloseButton={false}
+            >
+              {translate('alert-inno.description')}
+            </Alert>
+          )}
           <p>
             {translate(`${pageType}.page.description.2` as TranslateTextKey)}
           </p>
+
           <UploadBox
             filetype={pageType}
             versionNumber={versionNumber}

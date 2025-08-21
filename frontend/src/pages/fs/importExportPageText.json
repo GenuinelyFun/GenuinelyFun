@@ -35,13 +35,23 @@
     "nn": "Integrator til Norik"
   },
   "inno.page.description.1": {
-    "en": "This tool is specifically designed to convert 'Komponentsjekklister' PDFs from Integrator into the precise Excel format required by Norik. Simply upload your PDF and receive a perfectly formatted, import-ready file in seconds.",
-    "no": "Dette verktøyet er spesifikt laget for å konvertere 'Komponentsjekklister' PDF-er fra Integrator til det nøyaktige Excel-formatet som kreves av Norik. Bare last opp PDF-en din og motta en perfekt formatert, klar til import fil på sekunder.",
-    "nn": "Dette verktøyet er spesifikt laga for å konvertere 'Komponentsjekklister' PDF-ar frå Integrator til det nøyaktige Excel-formatet som krevst av Norik. Last berre opp PDF-en din og motta ei perfekt formatert, klar til import fil på sekunder."
+    "en": "This tool converts 'Komponentsjekklister' a PDF file from Integrator into an Excel file with two sheets. The first sheet, Armaturliste, is a Norik compatible list where data from the PDF file is added as accurately as possible. The second sheet, Oppdelt, contains a parsed version where each word is placed in its own cell, making it easier to adjust or correct if needed.",
+    "no": "Dette verktøyet konverterer 'Komponentsjekklister' en PDF fil fra Integrator til en Excel fil med to ark. Det første arket, Armaturliste, er en Norik kompatibel liste der dataene fra PDF filen legges inn så nøyaktig som mulig. Det andre arket, Oppdelt, inneholder en parsingsversjon der hvert ord er plassert i sin egen celle, noe som gjør det enklere å justere eller rette opp ved behov.",
+    "nn": "Dette verktøyet konverterer 'Komponentsjekklister' ei PDF-fil frå Integrator til ei Excel-fil med to ark. Det første arket, Armaturliste, er ei Norik-kompatibel liste der data frå PDF-fila blir lagt inn så nøyaktig som mogleg. Det andre arket, Oppdelt, inneheld ei parsingsversjon der kvart ord er plassert i si eiga celle, noko som gjer det enklare å justere eller rette opp om nødvendig."
   },
   "inno.page.description.2": {
     "en": "We ensure your data's security by processing everything locally in your browser, your files never leave your device. Additionally, the tool works offline, providing you with the flexibility to convert files anytime, anywhere.",
     "no": "Vi sikrer sikkerheten til dataene dine ved å behandle alt lokalt i nettleseren din, filene dine forlater aldri enheten din. I tillegg fungerer verktøyet offline, noe som gir deg fleksibiliteten til å konvertere filer når som helst, hvor som helst.",
     "nn": "Vi sikrar sikkerheita til dataene dine ved å behandle alt lokalt i nettlesaren din, filene dine forlet aldri eininga di. I tillegg fungerer verktøyet offline, noko som gir deg fleksibiliteten til å konvertere filer når som helst, kvar som helst."
+  },
+  "alert-inno.title": {
+    "en": "Just so you know!",
+    "no": "Bare så du vet!",
+    "nn": "Berre så du veit!"
+  },
+  "alert-inno.description": {
+    "en": "The result might not be perfect. Its accuracy depends on how the report was completed in Integrator and if there have been any changes. Always remember to check everything carefully.",
+    "no": "Resultatet er kanskje ikke helt perfekt. Nøyaktigheten avhenger av hvordan rapporten er fylt ut i Integrator og om det har vært endringer. Husk alltid å sjekke alt nøye.",
+    "nn": "Resultatet er kanskje ikkje heilt perfekt. Nøyaktigheita kjem an på korleis rapporten er fylt ut i Integrator og om det har vore endringar. Hugs alltid å sjekke alt nøye."
   }
 }
