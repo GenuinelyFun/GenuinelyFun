@@ -1,11 +1,7 @@
-## Trello Link
+### **Trello Link**
 
 [Trello card](https://trello.com/c/)
 
-## Description
+### **Description**
 
-## Screenshots
-
-### Before
-
-### After
+### **Screenshot**
