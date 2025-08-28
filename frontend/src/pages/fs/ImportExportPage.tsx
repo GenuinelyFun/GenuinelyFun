@@ -25,7 +25,7 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
         versionNumber: FIRE_EXPERT_VERSION,
         productName: 'Fire Expert',
         acceptFileType: '.json',
-        maxFileSize: '1 MB',
+        maxFileSize: '5 MB',
         maxNumberOfFiles: 10,
         exportForm: <FeetExportForm />,
       };
