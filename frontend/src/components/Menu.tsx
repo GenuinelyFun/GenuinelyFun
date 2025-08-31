@@ -10,6 +10,8 @@ import styles from './Menu.module.less';
 const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
   const { translate } = useLanguageContext();
   const location = useLocation();
+  console.log(location.pathname);
+  console.log(location.pathname === routePaths.feet);
 
   return (
     <nav className={styles.menu}>

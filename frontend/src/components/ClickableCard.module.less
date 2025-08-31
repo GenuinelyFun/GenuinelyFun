@@ -6,12 +6,17 @@
   padding: var(--spacing-xsmall) var(--spacing-medium) var(--spacing-small)
     var(--spacing-small);
   box-shadow: 0 4px 2px rgba(0, 0, 0, 10%);
-  background-color: var(--color-gray-dark);
+  background-color: var(--color-blue-light);
   text-decoration: none;
   min-height: 170px;
 
   &:hover {
     background-color: var(--color-gray-dark-hover);
+  }
+
+  &:hover .action,
+  &:focus .action {
+    text-decoration: none;
   }
 
   @media @breakpoint-desktop {
@@ -28,7 +33,12 @@
 }
 
 .action {
-  margin: auto 0 0;
+  color: var(--color-green);
   font-weight: var(--font-weight-bold);
-  color: var(--color-green-dark);
+  text-decoration: underline;
+  margin: auto 0 0;
+
+  [data-theme="dark"] & {
+    color: var(--color-black);
+  }
 }
