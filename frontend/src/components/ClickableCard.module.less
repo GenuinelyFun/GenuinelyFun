@@ -14,8 +14,7 @@
     background-color: var(--color-gray-dark-hover);
   }
 
-  &:hover .action,
-  &:focus .action {
+  &:is(:hover, :focus) .action {
     text-decoration: none;
   }
 
