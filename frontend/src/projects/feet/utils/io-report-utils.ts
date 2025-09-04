@@ -5,6 +5,8 @@ import {
 import { forEachDeviceInLoopControllers } from './loop-utils.ts';
 import { sheetTranslateType, SheetValueType } from './utils.ts';
 
+const isNull = (el: unknown) => el === null || el === '' || el === undefined;
+
 export const mapToIOReportToExcel = (
   panels: Panel[],
   sheetTranslate: sheetTranslateType
@@ -17,6 +19,11 @@ export const mapToIOReportToExcel = (
     const { output_control } = output;
     const { output_function } = output_control;
     const { control, control_groups } = output_control;
+
+    // Commented out as per request to include all outputs
+    /*if (output_function === 'Not in use') {
+      return;
+    }*/
 
     const otherFunctions = [];
     if (!control_groups || control_groups.length === 0) {
@@ -54,6 +61,9 @@ export const mapToIOReportToExcel = (
       board.clean_contact_inputs?.forEach((input) => {
         const address = `${sheetTranslate('Panel')} ${panel.number} - ${board.type} ${board.number} - ${sheetTranslate('Input')} ${input.number}`;
 
+        if (input.function === 'Not in use') {
+          return;
+        }
         const functions = [];
         if (input.control_group_A)
           functions.push(
@@ -139,6 +149,11 @@ export const mapToIOReportToExcel = (
   return IOReport.filter(
     (el) =>
       !(
+        (isNull(el['Input Function']) && isNull(el['Output Function'])) ||
+        (el['Input Function'] === 'Not in use' &&
+          isNull(el['Output Function'])) ||
+        (el['Output Function'] === 'Not in use' &&
+          isNull(el['Input Function'])) ||
         el['Input Function'] === 'Manual call point' ||
         el['Output Function'] === 'Manual call point'
       )
