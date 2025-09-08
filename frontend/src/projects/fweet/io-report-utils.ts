@@ -92,7 +92,7 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
     .sort((a, b) => a['Address'].localeCompare(b['Address']));
 
   const addresses = db.exec(
-    'SELECT a.Id, a.Type, a.CircuitNo, a.UnitNo, a.Name, a.Description, a.Type, io.TBNumber, io.Name, io.Description FROM AddrUnit a LEFT JOIN IoCircuit io ON io.UnitId = a.Id'
+    'SELECT a.Id, a.Type, a.CircuitNo, a.UnitNo, a.Name, a.Description, a.Type, io.TBNumber, io.Name, io.Description, a.RmOutput FROM AddrUnit a LEFT JOIN IoCircuit io ON io.UnitId = a.Id'
   );
 
   if (addresses.length === 0) {
@@ -101,7 +101,14 @@ export const ioReportMapper = (db: Database, toast: Toast) => {
   }
 
   const addrUnitRows = addresses[0].values
-    .filter((row) => VALID_ADDR_UNIT_TYPES.includes(row[1] as string))
+    .filter((row) => {
+      const type = row[1] as string;
+      const rmOutput = row[10];
+      if (type === 'ESSMOPT') {
+        return rmOutput === 1;
+      }
+      return VALID_ADDR_UNIT_TYPES.includes(type);
+    })
     .map((row) => {
       const result: { [key: string]: string } = {};
       const [
