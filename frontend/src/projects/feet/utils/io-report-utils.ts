@@ -20,11 +20,6 @@ export const mapToIOReportToExcel = (
     const { output_function } = output_control;
     const { control, control_groups } = output_control;
 
-    // Commented out as per request to include all outputs
-    /*if (output_function === 'Not in use') {
-      return;
-    }*/
-
     const otherFunctions = [];
     if (!control_groups || control_groups.length === 0) {
       if (control === 'General control') {
