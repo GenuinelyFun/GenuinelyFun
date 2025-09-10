@@ -9,3 +9,6 @@ updates:
     directories: ['/', '/frontend']
     schedule:
       interval: 'weekly'
+    groups:
+      all-deps:
+        update-types: "minor"
