@@ -82,7 +82,7 @@ const FeetExportForm: FC = () => {
         if (filteredPanels[file.name] === undefined) {
           return true;
         }
-        return filteredPanels[file.name][panel.name];
+        return filteredPanels[file.name][`${panel.number}. ${panel.name}`];
       });
       if (separateFiles) {
         panels.forEach((panel) => {
