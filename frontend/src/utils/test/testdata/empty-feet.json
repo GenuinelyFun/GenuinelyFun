@@ -1,0 +1,293 @@
+{
+  "created_by": {
+    "name": "FireXpert"
+  },
+  "version": {
+    "number": 1,
+    "schema": "2024.01.24",
+    "date": "2024-10-05T06:31:53.7447181Z"
+  },
+  "system": {
+    "panels": [
+      {
+        "number": 0,
+        "name": "This is the panel name description",
+        "description": "",
+        "primary_language": "en",
+        "secondary_language": "en",
+        "loop_controllers": [
+          {
+            "type": "ALC 2-loop",
+            "number": 1,
+            "loops": [
+              {
+                "number": 1,
+                "addresses": []
+              },
+              {
+                "number": 2,
+                "addresses": []
+              }
+            ]
+          },
+          {
+            "type": "SLC 2-loop",
+            "number": 2,
+            "loops": [
+              {
+                "number": 3,
+                "addresses": []
+              },
+              {
+                "number": 4,
+                "addresses": []
+              }
+            ]
+          },
+          {
+            "type": "ELC 2-loop",
+            "number": 3,
+            "loops": [
+              {
+                "number": 5,
+                "addresses": []
+              },
+              {
+                "number": 6,
+                "addresses": []
+              }
+            ]
+          },
+          {
+            "type": "LC 2-loop",
+            "number": 4,
+            "loops": [
+              {
+                "number": 7,
+                "addresses": []
+              },
+              {
+                "number": 8,
+                "addresses": []
+              }
+            ]
+          }
+        ],
+        "input_output_units": [
+          {
+            "number": 0,
+            "type": "MC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Fault warning in fire alarm router input",
+                "contact": "NO",
+                "monitored": true
+              },
+              {
+                "number": 2,
+                "function": "Fault warning in fault warning router input",
+                "contact": "NO",
+                "monitored": true
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm router equipment output"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning router equipment output"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "Continuous"
+                }
+              }
+            ]
+          },
+          {
+            "number": 1,
+            "type": "IOC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 2,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 3,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 4,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Not in use",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Not in use",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Not in use",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 4,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Not in use",
+                  "output_mode": "By jumper"
+                }
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "type": "OCA",
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              }
+            ]
+          }
+        ],
+        "power_supply": {
+          "mains_off_fault_time": 30
+        },
+        "fire_door": {
+          "activation": [
+            "Fire alarm",
+            "Prealarm",
+            "Address fault",
+            "Address disablement",
+            "Zone disablement",
+            "Mains off"
+          ],
+          "sensor_input_disabled": "Controls activated"
+        },
+        "reactivation_of_silenced_alarm_devices_by_new_fire_alarm": false,
+        "deactivation_of_alarm_routers_at_alarm_silence": false,
+        "event_groups_recording": [
+          "Fires",
+          "Prealarms",
+          "Faults",
+          "Disablements",
+          "Access levels",
+          "Input/output changes",
+          "Startup events"
+        ],
+        "single_coincidence_alarm_will_not_activate_fire_alarm_after_3_min": false,
+        "single_coincidence_alarm_autoreset_time": 5,
+        "second_coincidence_alarm_activates_fire_alarm": "in same zone",
+        "prealarm_blink_rate": false,
+        "use_automatic_summertime": true,
+        "maximum_time_of_zonal_disablement": 12,
+        "maximum_time_of_alarm_device_muting": 2,
+        "maintenance_interval_in_months": 0,
+        "first_zone": 1,
+        "number_of_zones": 80,
+        "assistant_processor_unit_in_use": false,
+        "uuid": ""
+      }
+    ],
+    "zones": [
+      {
+        "number": 1,
+        "description": ""
+      }
+    ],
+    "timezone": ""
+  }
+}
