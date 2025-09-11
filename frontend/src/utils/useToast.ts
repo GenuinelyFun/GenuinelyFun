@@ -83,6 +83,7 @@ export const useToast = (): Toast => {
         default:
           hotToast(content, {
             ...darkmodeStyles,
+            duration: 8000,
           });
           break;
       }

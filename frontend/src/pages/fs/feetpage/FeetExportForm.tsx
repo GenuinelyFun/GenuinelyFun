@@ -23,6 +23,7 @@ import { mapPanelsWithZones } from '../../../projects/feet/utils/zone-utils.ts';
 import { FeetFile, useDataContext } from '../../../utils/data-utils.ts';
 import { addFeetSheetToWorkbook } from '../../../utils/excel-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
+import { useToast } from '../../../utils/useToast.ts';
 import styles from './FeetExportForm.module.less';
 import PanelCheckbox from './PanelCheckbox.tsx';
 
@@ -32,6 +33,7 @@ export interface FilterPanelType {
 
 const FeetExportForm: FC = () => {
   const { translate, i18n } = useLanguageContext();
+  const toast = useToast();
   const { feetFiles } = useDataContext();
   const { sheetTranslate, updateLanguage } = useSheetTranslate();
   const [summary, setSummary] = useState<boolean>(true);
@@ -98,83 +100,130 @@ const FeetExportForm: FC = () => {
     const { name, feet } = file;
     const workbook = new Workbook();
     const zones = feet.system.zones;
+
+    const unavailableSheets: string[] = [];
+
     if (summary) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapSummaryToExcel(panels, sheetTranslate),
-        'Summary',
-        feet,
-        sheetTranslate
-      );
+      const mappedSummary = mapSummaryToExcel(panels, sheetTranslate);
+      if (mappedSummary.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedSummary,
+          'Summary',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Summary');
+      }
     }
+
     if (firePanel) {
-      addFeetSheetToWorkbook(
-        workbook,
-        panels.map((panel) =>
-          mapPanelToExcel(feet.system, panel, sheetTranslate)
-        ),
-        'Panel',
-        feet,
-        sheetTranslate
+      const mappedFirePanel = panels.map((panel) =>
+        mapPanelToExcel(feet.system, panel, sheetTranslate)
       );
+      if (mappedFirePanel.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedFirePanel,
+          'Panel',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Panel');
+      }
     }
     if (zones !== undefined && zone) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapPanelsWithZones(panels, zones),
-        'Zone',
-        feet,
-        sheetTranslate
-      );
+      const mappedZones = mapPanelsWithZones(panels, zones);
+      if (mappedZones.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedZones,
+          'Zone',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Zone');
+      }
     }
     if (fireLoop) {
-      addFeetSheetToWorkbook(
-        workbook,
-        panels.flatMap((panel) =>
-          panel.loop_controllers.flatMap((loop_controller) =>
-            mapLoopToExcel(loop_controller, panel.number, sheetTranslate)
-          )
-        ),
-        'Loop',
-        feet,
-        sheetTranslate
+      const mappedFireLoops = panels.flatMap((panel) =>
+        panel.loop_controllers.flatMap((loop_controller) =>
+          mapLoopToExcel(loop_controller, panel.number, sheetTranslate)
+        )
       );
+      if (mappedFireLoops.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedFireLoops,
+          'Loop',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Loop');
+      }
     }
     if (ioBoard) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapBoardToExcel(panels),
-        'Board',
-        feet,
-        sheetTranslate
-      );
+      const mappedIOBoards = mapBoardToExcel(panels);
+      if (mappedIOBoards.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedIOBoards,
+          'Board',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Board');
+      }
     }
     if (addressReport) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapLoopAddressToExcel(panels, sheetTranslate),
-        'Address_report',
-        feet,
-        sheetTranslate
-      );
+      const mappedAddressReport = mapLoopAddressToExcel(panels, sheetTranslate);
+      if (mappedAddressReport.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedAddressReport,
+          'Address_report',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Address_report');
+      }
     }
     if (ioReport) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapToIOReportToExcel(panels, sheetTranslate),
-        'IO_report',
-        feet,
-        sheetTranslate
-      );
+      const mappedIOReport = mapToIOReportToExcel(panels, sheetTranslate);
+      if (mappedIOReport.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedIOReport,
+          'IO_report',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('IO_report');
+      }
     }
     if (controlGroupReport) {
-      addFeetSheetToWorkbook(
-        workbook,
-        mapControlGroupsToExcel(panels, sheetTranslate),
-        'Control group report',
-        feet,
+      const mappedControlGroups = mapControlGroupsToExcel(
+        panels,
         sheetTranslate
       );
+      if (mappedControlGroups.length > 0) {
+        addFeetSheetToWorkbook(
+          workbook,
+          mappedControlGroups,
+          'Control_group_report',
+          feet,
+          sheetTranslate
+        );
+      } else {
+        unavailableSheets.push('Control_group_report');
+      }
     }
     let panelSuffix = '';
     if (separateFiles) {
@@ -182,6 +231,27 @@ const FeetExportForm: FC = () => {
     }
     const fileName =
       name.slice(0, name.indexOf('.json')) + panelSuffix + '.xlsx';
+
+    if (unavailableSheets.length > 0) {
+      toast({
+        type: 'info',
+        element: (
+          <>
+            <h2>
+              {translate('feet-export.unavailable-sheets.title', {
+                filename: name,
+              })}
+            </h2>
+            <p>{translate('feet-export.unavailable-sheets.desc')}</p>
+            <ul>
+              {unavailableSheets.map((sheet) => (
+                <li key={sheet}>{sheet}</li>
+              ))}
+            </ul>
+          </>
+        ),
+      });
+    }
     workbook.xlsx.writeBuffer().then((buffer) => {
       const blob = new Blob([buffer], {
         type: 'application/octet-stream',
