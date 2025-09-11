@@ -59,7 +59,7 @@ const AuthorCard: FC<{
         </div>
         <GenericButton
           className={styles.button}
-          invert={true}
+          isInvertColors={true}
           as={'link'}
           to={
             (location.pathname !== '/' ? '../' : '') +

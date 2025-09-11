@@ -17,10 +17,11 @@
 .backButton {
   margin: auto 0 0;
   font-weight: var(--font-weight-bold);
-  color: var(--color-green-dark);
-  text-decoration: none;
+  color: var(--color-green);
+  text-decoration: underline;
 
-  &:hover {
-    border-bottom: var(--border-medium) var(--color-black);
+  &:hover,
+  &:focus {
+    text-decoration: unset;
   }
 }

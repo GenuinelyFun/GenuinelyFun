@@ -3,17 +3,19 @@
 }
 
 .dropdown {
-  float: left;
+  width: 100%;
+  float: none;
   text-align: left;
-  padding: 0;
-  margin-left: var(--spacing-mini);
+  padding: 0 0 0 var(--spacing-mini);
   text-decoration: none;
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-bold);
   border-bottom: var(--border-medium) transparent;
   color: var(--color-black);
 
-  &:hover {
-    border-bottom: var(--border-medium) var(--color-black);
+  &:hover,
+  &:focus {
+    background-color: var(--color-gray-light);
+    color: var(--color-black);
   }
 }
