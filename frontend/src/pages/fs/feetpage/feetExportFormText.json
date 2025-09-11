@@ -248,5 +248,15 @@
     "en": "Download Excel sheet",
     "no": "Last ned Excel filen",
     "nn": "Last ned Excel-fila"
+  },
+  "feet-export.unavailable-sheets.title": {
+    "en": "File {filename}",
+    "no": "Filen {filename}",
+    "nn": "Fila {filename}"
+  },
+  "feet-export.unavailable-sheets.desc": {
+    "en": "The following sheets are unavailable and are not included due to lack of data:",
+    "no": "Følgende ark er utilgjengelige og ikke inkludert på grunn av tom data:",
+    "nn": "Følgjande ark er utilgjengelege og ikkje inkludert på grunn av tom data:"
   }
 }
