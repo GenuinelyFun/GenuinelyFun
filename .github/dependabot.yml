@@ -6,9 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: 'npm'
-    directories: ['/', '/frontend']
+    directories: [ '/', '/frontend' ]
     schedule:
       interval: 'weekly'
-    groups:
-      all-deps:
-        update-types: 'minor'
