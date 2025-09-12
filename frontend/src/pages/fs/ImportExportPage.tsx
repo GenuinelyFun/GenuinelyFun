@@ -14,7 +14,7 @@ import FweetExportForm from './fweetpage/FweetExportForm.tsx';
 import styles from './ImportExportPage.module.less';
 import InnoExportForm from './innopage/InnoExportForm.tsx';
 
-const FIRE_EXPERT_VERSION = 'MCU 24.11.6.g';
+const FIRE_EXPERT_VERSION = 'MCU 25.5.6.g';
 const FIREWIN_EXPLORER_VERSION = 'v4.16';
 const INTEGRATOR_APP_VERSION = '2025.3';
 
