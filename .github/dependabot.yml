@@ -11,4 +11,4 @@ updates:
       interval: 'weekly'
     groups:
       all-deps:
-        update-types: "minor"
+        update-types: 'minor'
