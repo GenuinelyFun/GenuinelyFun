@@ -6,16 +6,18 @@ import styles from './GenericButton.module.less';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
-  invert?: boolean;
+  isInvertColors?: boolean;
   className?: string;
   href?: string;
   to?: string;
   as?: 'a' | 'button' | 'link';
+  isRemoveStyling?: boolean;
 }
 
 const GenericButton: FC<Props> = ({
-  invert,
   onClick,
+  isInvertColors,
+  isRemoveStyling,
   className,
   children,
   as = 'button',
@@ -30,7 +32,8 @@ const GenericButton: FC<Props> = ({
         rel="noopener noreferrer"
         className={classNames(
           {
-            [styles.invert]: invert,
+            [styles.invert]: isInvertColors,
+            [styles.removeStyling]: isRemoveStyling,
           },
           styles.button,
           className
@@ -50,7 +53,8 @@ const GenericButton: FC<Props> = ({
         state={{ prevPage: location.pathname }}
         className={classNames(
           {
-            [styles.invert]: invert,
+            [styles.invert]: isInvertColors,
+            [styles.removeStyling]: isRemoveStyling,
           },
           styles.button,
           className
@@ -66,7 +70,8 @@ const GenericButton: FC<Props> = ({
     <button
       className={classNames(
         {
-          [styles.invert]: invert,
+          [styles.invert]: isInvertColors,
+          [styles.removeStyling]: isRemoveStyling,
         },
         styles.button,
         className
@@ -78,4 +83,5 @@ const GenericButton: FC<Props> = ({
     </button>
   );
 };
+
 export default GenericButton;
