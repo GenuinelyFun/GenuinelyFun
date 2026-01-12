@@ -28,7 +28,7 @@ const Header: FC = () => {
         />
       </Link>
       {isMobile ? (
-        <GenericButton onClick={menuModal.openModal} invert={true}>
+        <GenericButton onClick={menuModal.openModal} isRemoveStyling={true}>
           <BurgerIcon className={styles.burger} />
         </GenericButton>
       ) : (
