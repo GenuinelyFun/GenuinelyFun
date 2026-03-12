@@ -144,7 +144,7 @@ const UploadBox: FC<Props> = ({
                     .async('uint8array')
                     .then(async (file) => {
                       const SQL = await initSqlJs({
-                        locateFile: (file) => `https://sql.js.org/dist/${file}`,
+                        locateFile: (file) => `/${file}`,
                       });
 
                       return new SQL.Database(file);
