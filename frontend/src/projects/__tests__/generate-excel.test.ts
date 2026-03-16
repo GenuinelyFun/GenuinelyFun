@@ -53,7 +53,7 @@ import { mapHaphazardColumns, mapInnoToSheet } from '../inno-utils.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const fixturesDir = join(__dirname, 'fixtures');
-const outputDir = join(process.cwd(), 'test-output');
+const outputDir = join(__dirname, 'test-output');
 
 mkdirSync(outputDir, { recursive: true });
 
