@@ -27,7 +27,10 @@
   },
   "scripts": {
     "prepare": "husky",
-    "test": "",
+    "test": "npm --prefix frontend test",
+    "test:watch": "npm --prefix frontend run test:watch",
+    "test:update": "npm --prefix frontend run test:update",
+    "test:download": "npm --prefix frontend run test:download",
     "format": "prettier --write .",
     "lint:eslint": "eslint \"**/*.{ts,tsx,js,jsx,json}\"",
     "lint:eslint:fix": "npm run lint:eslint -- --fix",
