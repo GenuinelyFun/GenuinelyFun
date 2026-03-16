@@ -1,0 +1,196 @@
+{
+  "created_by": { "name": "FireXpert" },
+  "version": {
+    "number": 2,
+    "schema": "2024.08.12",
+    "date": "2026-03-15T23:09:59.9382255Z"
+  },
+  "system": {
+    "panels": [
+      {
+        "number": 0,
+        "name": "1.ETG HOVEDINNGANG",
+        "primary_language": "en",
+        "secondary_language": "en",
+        "loop_controllers": [],
+        "input_output_units": [
+          {
+            "number": 0,
+            "type": "MC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Fault warning in fire alarm router input",
+                "contact": "NO",
+                "monitored": true
+              },
+              {
+                "number": 2,
+                "function": "Fault warning in fault warning router input",
+                "contact": "NO",
+                "monitored": true
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm router equipment output"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning router equipment output"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "Continuous"
+                }
+              }
+            ]
+          }
+        ],
+        "power_supply": { "mains_off_fault_time": 30 },
+        "fire_door": {
+          "activation": [
+            "Fire alarm",
+            "Prealarm",
+            "Address fault",
+            "Address disablement",
+            "Zone disablement",
+            "Mains off"
+          ],
+          "sensor_input_disabled": "Controls activated"
+        },
+        "reactivation_of_silenced_alarm_devices_by_new_fire_alarm": false,
+        "deactivation_of_alarm_routers_at_alarm_silence": false,
+        "event_groups_recording": [
+          "Fires",
+          "Prealarms",
+          "Faults",
+          "Disablements",
+          "Access levels",
+          "Input/output changes",
+          "Startup events"
+        ],
+        "single_coincidence_alarm_will_not_activate_fire_alarm_after_3_min": false,
+        "single_coincidence_alarm_autoreset_time": 5,
+        "second_coincidence_alarm_activates_fire_alarm": "in same zone",
+        "prealarm_blink_rate": false,
+        "use_automatic_summertime": true,
+        "maximum_time_of_zonal_disablement": 12,
+        "maximum_time_of_alarm_device_muting": 2,
+        "maintenance_interval_in_months": 0,
+        "first_zone": 1,
+        "number_of_zones": 80,
+        "assistant_processor_unit_in_use": false,
+        "uuid": ""
+      }
+    ],
+    "zones": [
+      { "number": 1, "description": "" },
+      { "number": 2, "description": "" },
+      { "number": 3, "description": "" },
+      { "number": 4, "description": "" },
+      { "number": 5, "description": "" },
+      { "number": 6, "description": "" },
+      { "number": 7, "description": "" },
+      { "number": 8, "description": "" },
+      { "number": 9, "description": "" },
+      { "number": 10, "description": "" },
+      { "number": 11, "description": "" },
+      { "number": 12, "description": "" },
+      { "number": 13, "description": "" },
+      { "number": 14, "description": "" },
+      { "number": 15, "description": "" },
+      { "number": 16, "description": "" },
+      { "number": 17, "description": "" },
+      { "number": 18, "description": "" },
+      { "number": 19, "description": "" },
+      { "number": 20, "description": "" },
+      { "number": 21, "description": "" },
+      { "number": 22, "description": "" },
+      { "number": 23, "description": "" },
+      { "number": 24, "description": "" },
+      { "number": 25, "description": "" },
+      { "number": 26, "description": "" },
+      { "number": 27, "description": "" },
+      { "number": 28, "description": "" },
+      { "number": 29, "description": "" },
+      { "number": 30, "description": "" },
+      { "number": 31, "description": "" },
+      { "number": 32, "description": "" },
+      { "number": 33, "description": "" },
+      { "number": 34, "description": "" },
+      { "number": 35, "description": "" },
+      { "number": 36, "description": "" },
+      { "number": 37, "description": "" },
+      { "number": 38, "description": "" },
+      { "number": 39, "description": "" },
+      { "number": 40, "description": "" },
+      { "number": 41, "description": "" },
+      { "number": 42, "description": "" },
+      { "number": 43, "description": "" },
+      { "number": 44, "description": "" },
+      { "number": 45, "description": "" },
+      { "number": 46, "description": "" },
+      { "number": 47, "description": "" },
+      { "number": 48, "description": "" },
+      { "number": 49, "description": "" },
+      { "number": 50, "description": "" },
+      { "number": 51, "description": "" },
+      { "number": 52, "description": "" },
+      { "number": 53, "description": "" },
+      { "number": 54, "description": "" },
+      { "number": 55, "description": "" },
+      { "number": 56, "description": "" },
+      { "number": 57, "description": "" },
+      { "number": 58, "description": "" },
+      { "number": 59, "description": "" },
+      { "number": 60, "description": "" },
+      { "number": 61, "description": "" },
+      { "number": 62, "description": "" },
+      { "number": 63, "description": "" },
+      { "number": 64, "description": "" },
+      { "number": 65, "description": "" },
+      { "number": 66, "description": "" },
+      { "number": 67, "description": "" },
+      { "number": 68, "description": "" },
+      { "number": 69, "description": "" },
+      { "number": 70, "description": "" },
+      { "number": 71, "description": "" },
+      { "number": 72, "description": "" },
+      { "number": 73, "description": "" },
+      { "number": 74, "description": "" },
+      { "number": 75, "description": "" },
+      { "number": 76, "description": "" },
+      { "number": 77, "description": "" },
+      { "number": 78, "description": "" },
+      { "number": 79, "description": "" },
+      { "number": 80, "description": "" }
+    ],
+    "timezone": "",
+    "efo": { "active": false, "panel_id": "" }
+  }
+}
