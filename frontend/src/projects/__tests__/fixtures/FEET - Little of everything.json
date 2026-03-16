@@ -1,0 +1,2770 @@
+{
+  "created_by": { "name": "FireXpert" },
+  "version": {
+    "number": 4,
+    "schema": "2024.08.12",
+    "date": "2025-09-12T18:56:21.19898Z"
+  },
+  "system": {
+    "panels": [
+      {
+        "number": 1,
+        "name": "1.ETG HOVEDINNGANG",
+        "description": "Loop protocol: Impresia ELC",
+        "primary_language": "nb",
+        "secondary_language": "en",
+        "loop_controllers": [
+          {
+            "type": "ELC 2-loop",
+            "number": 1,
+            "loops": [
+              {
+                "number": 1,
+                "addresses": [
+                  {
+                    "number": 1,
+                    "type": "Smoke detector",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Optisk detektor",
+                    "alarm_mode": ["Delayed"],
+                    "control_group_A": 1,
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 2 },
+                      { "name": "Prealarm", "value": 1 },
+                      { "name": "Fire, day mode", "value": 2 },
+                      { "name": "Prealarm, day mode", "value": 1 }
+                    ],
+                    "input_delay": 1,
+                    "in_day_mode": "Use thresholds"
+                  },
+                  {
+                    "number": 2,
+                    "type": "Heat detector",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Varmedetektor",
+                    "alarm_mode": ["Delayed"],
+                    "control_group_A": 2,
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 6 },
+                      { "name": "Fire, day mode", "value": 6 }
+                    ],
+                    "input_delay": 2,
+                    "in_day_mode": "Disabled"
+                  },
+                  {
+                    "number": 3,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Multikriteriedetektor",
+                    "alarm_mode": ["Delayed"],
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire heat only", "value": 1 },
+                      { "name": "Prealarm", "value": 1 },
+                      { "name": "Fire, day mode", "value": 2 },
+                      { "name": "Prealarm, day mode", "value": 1 }
+                    ],
+                    "input_delay": 3,
+                    "in_day_mode": "Input-only disabled"
+                  },
+                  {
+                    "number": 4,
+                    "type": "Manual call point",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Manuellmelder",
+                    "input_delay": 4
+                  },
+                  {
+                    "number": 5,
+                    "type": "4 inputs module",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "4 inngangsmodul",
+                    "input_function": "Conventional line input",
+                    "short_circuit_monitoring": true,
+                    "input_delay": 5
+                  },
+                  {
+                    "number": 6,
+                    "type": "Input channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Inngangskanal",
+                    "input_function": "Fire alarm input",
+                    "short_circuit_monitoring": true,
+                    "input_delay": 6
+                  },
+                  {
+                    "number": 7,
+                    "type": "Input channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Inngangskanal",
+                    "input_function": "Local day mode enable input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 8,
+                    "type": "Input channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Inngangskanal",
+                    "input_function": "Maintenance warning input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 9,
+                    "type": "2 inputs/ 2 outputs module",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "2 innganger, 2 utgangsmodul",
+                    "input_function": "Internal logic input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 10,
+                    "type": "Input channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Inngangskanal",
+                    "input_function": "Technical alarm input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 11,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "Control groups",
+                      "control_groups": [1],
+                      "output_function": "Internal logic output"
+                    }
+                  },
+                  {
+                    "number": 12,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "Control groups",
+                      "control_groups": [1],
+                      "output_function": "Fire alarm device output, non-silenceable"
+                    }
+                  },
+                  {
+                    "number": 13,
+                    "type": "2 inputs/ 2 monitored outputs module",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "2 innganger, 2 overvåket utgangsmodul",
+                    "input_function": "Zone disablement input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 14,
+                    "type": "Input channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Inngangskanal",
+                    "input_function": "Technical alarm input",
+                    "short_circuit_monitoring": true
+                  },
+                  {
+                    "number": 15,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "Control groups",
+                      "control_groups": [2],
+                      "output_function": "Access level output"
+                    }
+                  },
+                  {
+                    "number": 16,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Internal logic output"
+                    }
+                  },
+                  {
+                    "number": 17,
+                    "type": "4 outputs module",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "4 utgangsmodul",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device level 1 silenceable output"
+                    }
+                  },
+                  {
+                    "number": 18,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fault router disabled output"
+                    }
+                  },
+                  {
+                    "number": 19,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire router disabled output"
+                    }
+                  },
+                  {
+                    "number": 20,
+                    "type": "Output channel",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Delayed alarm enabled output"
+                    }
+                  },
+                  {
+                    "number": 21,
+                    "type": "Potential output for sounder",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Alarmorgan Modul",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm router activated led output"
+                    }
+                  },
+                  {
+                    "number": 22,
+                    "type": "Relay output module, 240V",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Reléutgangsmodul, 240V",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Internal logic output"
+                    }
+                  },
+                  {
+                    "number": 23,
+                    "type": "Conventional zone module",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Konvensjonell Sløyfemodul"
+                  },
+                  {
+                    "number": 24,
+                    "type": "Base sounder in standard base",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Sokkelmontert Summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 25,
+                    "type": "Base sounder beacon in standard base",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Sokkelmontert Summer/VID",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Fire alarm device output, non-silenceable",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 26,
+                    "type": "Base sounder in W/R VAD base",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Sokkelmontert Summer/VAD",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Fire alarm device output, non-silenceable",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 27,
+                    "type": "Base with sounder",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Sokkel med Summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 28,
+                    "type": "Base sounder beacon in standard base",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Veggmontert Summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Fire alarm device output, non-silenceable",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 29,
+                    "type": "Wall mounted sounder",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Veggmontert Summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 30,
+                    "type": "Wall mounted sounder beacon",
+                    "protocol_type": "Esmi Impresia",
+                    "zone": 1,
+                    "description": "Veggmontert Summer/VAD",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Fire alarm device output, non-silenceable",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 27, "volume": 3 }
+                  },
+                  {
+                    "number": 31,
+                    "type": "Any type (virtual)",
+                    "protocol_type": "Any",
+                    "zone": 1,
+                    "description": "Alle typer detektorer (Virtual)"
+                  },
+                  {
+                    "number": 32,
+                    "type": "Any type",
+                    "protocol_type": "Any",
+                    "zone": 1,
+                    "description": "Alle typer detektorer"
+                  }
+                ]
+              },
+              { "number": 2, "addresses": [] }
+            ]
+          }
+        ],
+        "delayed_alarm_outputs": {
+          "delay_T1": 60,
+          "delay_T2": 60,
+          "terminate_delay_at_second": {
+            "delayed_alarm": "do not terminate",
+            "non_delayed_alarm": "do not terminate"
+          },
+          "delayed_outputs": ["Fire alarm transmitter"],
+          "delayed_alarm_indication_as_disablement": true
+        },
+        "input_output_units": [
+          {
+            "number": 0,
+            "type": "MC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": true,
+                "description": "IKKE I BRUK"
+              },
+              {
+                "number": 2,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": true
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "description": "IKKE I BRUK",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              },
+              {
+                "number": 2,
+                "description": "IKKE I BRUK",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Not in use"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Not in use",
+                  "output_mode": "Continuous"
+                }
+              }
+            ]
+          },
+          {
+            "number": 1,
+            "type": "IOC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 2,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 3,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              },
+              {
+                "number": 4,
+                "function": "Not in use",
+                "contact": "NO",
+                "monitored": false
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "description": "Dørstyring",
+                "output_control": {
+                  "control": "Control groups",
+                  "control_groups": [1],
+                  "output_function": "Fire alarm output"
+                }
+              },
+              {
+                "number": 2,
+                "description": "SD-anlegg brannsignal",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "description": "Klokkekurs 01",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 2,
+                "description": "Klokkekurs 02",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 3,
+                "description": "Klokkekurs 03",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "By jumper"
+                }
+              },
+              {
+                "number": 4,
+                "description": "Klokkekurs 04",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "By jumper"
+                }
+              }
+            ]
+          }
+        ],
+        "power_supply": {
+          "mains_off_fault_time": 30,
+          "battery_package_monitoring": [1, 2]
+        },
+        "fire_door": {
+          "activation": [
+            "Fire alarm",
+            "Prealarm",
+            "Address fault",
+            "Address disablement",
+            "Zone disablement",
+            "Mains off"
+          ],
+          "sensor_input_disabled": "Controls activated"
+        },
+        "reactivation_of_silenced_alarm_devices_by_new_fire_alarm": true,
+        "deactivation_of_alarm_routers_at_alarm_silence": false,
+        "event_groups_recording": [
+          "Fires",
+          "Prealarms",
+          "Faults",
+          "Disablements",
+          "Access levels",
+          "Input/output changes",
+          "Startup events"
+        ],
+        "single_coincidence_alarm_will_not_activate_fire_alarm_after_3_min": false,
+        "single_coincidence_alarm_autoreset_time": 5,
+        "second_coincidence_alarm_activates_fire_alarm": "in same zone",
+        "prealarm_blink_rate": false,
+        "use_automatic_summertime": true,
+        "maximum_time_of_zonal_disablement": 12,
+        "maximum_time_of_alarm_device_muting": 2,
+        "maintenance_interval_in_months": 0,
+        "first_zone": 1,
+        "number_of_zones": 80,
+        "communication": {
+          "serial_port1": {
+            "usage": "info",
+            "baudrate": 9600,
+            "description": "MPOX"
+          },
+          "system1": { "usage": "fx_protocol", "baudrate": 19200 },
+          "system2": { "usage": "fx_protocol", "baudrate": 19200 }
+        },
+        "assistant_processor_unit_in_use": true,
+        "visible_panels": [2, 3],
+        "uuid": "ed4ef0d7-2774-4c51-9893-5b75f91fa3ec",
+        "last_local_control_zone": 100
+      },
+      {
+        "number": 2,
+        "name": "1.ETG TEKNISK ROM",
+        "description": "Loop protocol: Apollo Intellia EDI ALC",
+        "primary_language": "en",
+        "secondary_language": "en",
+        "loop_controllers": [
+          {
+            "type": "ALC 2-loop",
+            "number": 1,
+            "loops": [
+              {
+                "number": 9,
+                "addresses": [
+                  {
+                    "number": 2,
+                    "type": "Ionisation smoke detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "Ione detektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ],
+                    "input_delay": 2
+                  },
+                  {
+                    "number": 3,
+                    "type": "Ionisation smoke detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Ione detektor (XP95)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ],
+                    "input_delay": 3
+                  },
+                  {
+                    "number": 4,
+                    "type": "Ionisation smoke detector",
+                    "protocol_type": "Apollo S90",
+                    "zone": 90,
+                    "description": "Ione detektor (S90)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ],
+                    "input_delay": 4
+                  },
+                  {
+                    "number": 5,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "Optisk røykdetektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ],
+                    "input_delay": 5
+                  },
+                  {
+                    "number": 6,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 91,
+                    "description": "Optisk røykdetektor (Discovery)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ],
+                    "input_delay": 6
+                  },
+                  {
+                    "number": 7,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Optisk røykdetektor (XP95)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 8,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "Apollo S90",
+                    "zone": 90,
+                    "description": "Optisk røykdetektor (S90)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 9,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Optisk røykdetektor (Trådløs, XP95)",
+                    "wireless": true,
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 10,
+                    "type": "Thermal detector",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "Varmedetektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 11,
+                    "type": "Thermal detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "Varmedetektor (Discovery)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 12,
+                    "type": "Thermal detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Varmedetektor (XP95)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 13,
+                    "type": "Thermal detector",
+                    "protocol_type": "Apollo S90",
+                    "zone": 90,
+                    "description": "Varmedetektor (S90)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 14,
+                    "type": "Thermal detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Varmedetektor (Trådløs, XP95)",
+                    "wireless": true,
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 15,
+                    "type": "High thermal detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Høy temp varmedetektor (XP95)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 16,
+                    "type": "High thermal detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Høy temp varmedetektor (Discovery)",
+                    "wireless": true,
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 17,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "Multikriteriedetektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 18,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "Multikriteriedetektor (Discovery)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 19,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Multikriteriedetektor (XP95)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 20,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Multikriteriedetektor (Trådløs, XP95)",
+                    "wireless": true,
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 21,
+                    "type": "Carbon monoxide detector",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "CO detektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 22,
+                    "type": "Carbon monoxide detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "CO detektor (Discovery)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 23,
+                    "type": "Carbon monoxide thermal detector",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "CO- / varmedetektor (Intellia)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 24,
+                    "type": "Carbon monoxide thermal detector",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "CO- / varmedetektor (Discovery)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 25,
+                    "type": "Beam detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Linjedetektor",
+                    "zone_disables": ["Input"]
+                  },
+                  {
+                    "number": 26,
+                    "type": "Flame detector",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Flamme Detektor",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 27,
+                    "type": "Conventional zone module",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Konvensjonell Sløyfemodul",
+                    "input_function": "Conventional zone input"
+                  },
+                  {
+                    "number": 28,
+                    "type": "Conventional zone module",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Trådløst sløyfegrensesnitt",
+                    "input_function": "Wireless expander input",
+                    "wireless": true
+                  },
+                  {
+                    "number": 29,
+                    "type": "Manual call point",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "Manuell Melder (Intellia)"
+                  },
+                  {
+                    "number": 30,
+                    "type": "Manual call point",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "Manuell Melder (Discovery)"
+                  },
+                  {
+                    "number": 31,
+                    "type": "Manual call point",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Manuell Melder (XP95)"
+                  },
+                  {
+                    "number": 32,
+                    "type": "Manual call point",
+                    "protocol_type": "Apollo S90",
+                    "zone": 90,
+                    "description": "Manuell Melder (S90)"
+                  },
+                  {
+                    "number": 33,
+                    "type": "Manual call point",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Manuell Melder (Trådløs, XP95)",
+                    "wireless": true
+                  },
+                  {
+                    "number": 34,
+                    "type": "Switch monitor module",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Ing. Modul",
+                    "input_function": "Fire alarm input"
+                  },
+                  {
+                    "number": 35,
+                    "type": "Switch monitor module w/ interrupt",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Ing. Modul prioritert signal",
+                    "input_function": "Silent technical alarm input"
+                  },
+                  {
+                    "number": 36,
+                    "type": "Single input, single output module",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "I/O modul (XP95)",
+                    "input_function": "Prealarm input",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm output",
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 37,
+                    "type": "Single input, single output module",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "I/O modul (Trådløs, XP95)",
+                    "input_function": "Zone disablement input",
+                    "wireless": true,
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Not in use",
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 38,
+                    "type": "Addressable sounder",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Adresserbar sirene (XP95)",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false,
+                      "sounder_output_mode": "Continuous"
+                    },
+                    "sounder": {}
+                  },
+                  {
+                    "number": 39,
+                    "type": "Addressable sounder",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Adresserbar trådløs sirene (XP95)",
+                    "wireless": true,
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false,
+                      "sounder_output_mode": "Continuous"
+                    },
+                    "sounder": {}
+                  },
+                  {
+                    "number": 40,
+                    "type": "Sounder",
+                    "protocol_type": "Apollo XP95",
+                    "zone": 90,
+                    "description": "Sirenefunksjons modul",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false,
+                      "sounder_output_mode": "Continuous"
+                    },
+                    "sounder": {}
+                  },
+                  {
+                    "number": 41,
+                    "type": "Beacon",
+                    "protocol_type": "Apollo S90",
+                    "zone": 90,
+                    "description": "Strobe",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_external_or": false,
+                      "sounder_output_mode": "Continuous"
+                    },
+                    "sounder": {}
+                  },
+                  {
+                    "number": 42,
+                    "type": "Sounder beacon",
+                    "protocol_type": "Apollo Intellia",
+                    "zone": 90,
+                    "description": "Summer strobe (Intellia)",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Not in use",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 14, "volume": 7 }
+                  },
+                  {
+                    "number": 43,
+                    "type": "Sounder beacon",
+                    "protocol_type": "Apollo Discovery",
+                    "zone": 90,
+                    "description": "Summer strobe (Discovery)",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "output_function": "Fire alarm device output",
+                      "output_function_2": "Not in use",
+                      "output_external_or": false
+                    },
+                    "sounder": { "mode": "Primary", "tone": 14, "volume": 7 }
+                  },
+                  {
+                    "number": 44,
+                    "type": "Any type (virtual)",
+                    "protocol_type": "Any",
+                    "zone": 90,
+                    "description": "Alle typer detektorer (Virtual)",
+                    "zone_disables": ["Input"]
+                  },
+                  {
+                    "number": 45,
+                    "type": "Any type",
+                    "protocol_type": "Any",
+                    "zone": 90,
+                    "description": "Alle typer detektorer",
+                    "zone_disables": ["Input"]
+                  }
+                ]
+              },
+              { "number": 10, "addresses": [] }
+            ]
+          }
+        ],
+        "input_output_units": [
+          {
+            "number": 0,
+            "type": "MC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Fault warning in fire alarm router input",
+                "contact": "NO",
+                "monitored": true
+              },
+              {
+                "number": 2,
+                "function": "Fault warning in fault warning router input",
+                "contact": "NO",
+                "monitored": true
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm router equipment output"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning router equipment output"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "Continuous"
+                }
+              }
+            ]
+          },
+          {
+            "number": 1,
+            "type": "OCA",
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "description": "Adgangsnivå utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Access level output"
+                }
+              },
+              {
+                "number": 2,
+                "description": "Forsinket Alarm Aktivert utgang",
+                "output_control": {
+                  "control": "Local control",
+                  "control_groups": [],
+                  "output_function": "Delayed alarm enabled output"
+                }
+              },
+              {
+                "number": 3,
+                "description": "Forsinket Brannalarm utgang",
+                "output_control": {
+                  "control": "Control groups",
+                  "control_groups": [1],
+                  "output_function": "Delayed fire alarm output"
+                }
+              },
+              {
+                "number": 4,
+                "description": "Forsinket Brannalarm T2 utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Delayed fire alarm T2 output"
+                }
+              },
+              {
+                "number": 5,
+                "description": "Utkobling utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Disablement output"
+                }
+              },
+              {
+                "number": 6,
+                "description": "Ekstern Logikk utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "External logic output"
+                }
+              },
+              {
+                "number": 7,
+                "description": "Slokkeanlegg utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Extinguisher output"
+                }
+              },
+              {
+                "number": 8,
+                "description": "Feiloverføring Utkoblet utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault router disabled output"
+                }
+              },
+              {
+                "number": 9,
+                "description": "Feilvarsel Alarmorgan utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning device output"
+                }
+              },
+              {
+                "number": 10,
+                "description": "Feilvarsel utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning output"
+                }
+              },
+              {
+                "number": 11,
+                "description": "Feiloverføring utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning router equipment output"
+                }
+              },
+              {
+                "number": 12,
+                "description": "Alarmorgan utgang, kvitterbar i adgangsnivå 1",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm device level 1 silenceable output"
+                }
+              },
+              {
+                "number": 13,
+                "description": "Alarmorgan utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm device output"
+                }
+              },
+              {
+                "number": 14,
+                "description": "Alarmorgan utgang, ikke kvitterbar",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm device output, non-silenceable"
+                }
+              },
+              {
+                "number": 15,
+                "description": "Brannalarm utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              },
+              {
+                "number": 16,
+                "description": "Brannoverføring Frakoblet utgang",
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire router disabled output"
+                }
+              }
+            ]
+          }
+        ],
+        "power_supply": { "mains_off_fault_time": 30 },
+        "fire_door": {
+          "activation": [
+            "Fire alarm",
+            "Prealarm",
+            "Address fault",
+            "Address disablement",
+            "Zone disablement",
+            "Mains off"
+          ],
+          "sensor_input_disabled": "Controls activated"
+        },
+        "reactivation_of_silenced_alarm_devices_by_new_fire_alarm": false,
+        "deactivation_of_alarm_routers_at_alarm_silence": true,
+        "event_groups_recording": [
+          "Fires",
+          "Prealarms",
+          "Faults",
+          "Disablements",
+          "Access levels",
+          "Input/output changes",
+          "Startup events"
+        ],
+        "single_coincidence_alarm_will_not_activate_fire_alarm_after_3_min": false,
+        "single_coincidence_alarm_autoreset_time": 5,
+        "second_coincidence_alarm_activates_fire_alarm": "in same zone",
+        "prealarm_blink_rate": false,
+        "use_automatic_summertime": true,
+        "maximum_time_of_zonal_disablement": 12,
+        "maximum_time_of_alarm_device_muting": 2,
+        "maintenance_interval_in_months": 0,
+        "first_zone": 81,
+        "number_of_zones": 80,
+        "communication": {
+          "serial_port1": {
+            "usage": "info",
+            "baudrate": 1200,
+            "mode": "monitored_info",
+            "description": "FMP2"
+          },
+          "system1": { "usage": "fx_protocol", "baudrate": 19200 },
+          "system2": { "usage": "fx_protocol", "baudrate": 19200 }
+        },
+        "assistant_processor_unit_in_use": false,
+        "visible_panels": [3],
+        "uuid": "ed4ef0d1-2774-4c51-9893-4b75f91fa4ec",
+        "last_local_control_zone": 100
+      },
+      {
+        "number": 3,
+        "name": "1.ETG TEKNISK ROM",
+        "description": "Loop protocol: System Sensor SLC and LC",
+        "primary_language": "sv",
+        "secondary_language": "en",
+        "loop_controllers": [
+          {
+            "type": "SLC 2-loop",
+            "number": 1,
+            "loops": [
+              {
+                "number": 17,
+                "addresses": [
+                  {
+                    "number": 1,
+                    "type": "Ionisation smoke detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Ione detektor",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 2,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Optisk røykdetektor, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 3,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Optisk røykdetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 4,
+                    "type": "Static thermal detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Varmedetektor, statisk, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 5,
+                    "type": "Static thermal detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Varmedetektor, statisk, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    }
+                  },
+                  {
+                    "number": 6,
+                    "type": "Rate-of-rise detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Varmedetektor differensiell, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 7,
+                    "type": "Rate-of-rise detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Varmedetektor differensiell, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    }
+                  },
+                  {
+                    "number": 8,
+                    "type": "High thermal detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Varmedetektor for høy temperatur, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 9,
+                    "type": "High thermal detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Varmedetektor for høy temperatur, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    }
+                  },
+                  {
+                    "number": 10,
+                    "type": "Laser detector, LZR-1",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Laserdetektor, LZR-1",
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Prealarm", "value": 5 },
+                      { "name": "Fire, day mode", "value": 7 },
+                      { "name": "Prealarm, day mode", "value": 5 }
+                    ]
+                  },
+                  {
+                    "number": 11,
+                    "type": "Laser detector, 7251",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Laserdetektor, 7251",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Prealarm", "value": 5 },
+                      { "name": "Fire, day mode", "value": 7 },
+                      { "name": "Prealarm, day mode", "value": 5 }
+                    ]
+                  },
+                  {
+                    "number": 12,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Multikriteriedetektor, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 5 },
+                      { "name": "Prealarm", "value": 4 },
+                      { "name": "Fire, day mode", "value": 5 },
+                      { "name": "Prealarm, day mode", "value": 4 }
+                    ]
+                  },
+                  {
+                    "number": 13,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Multikriteriedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 14,
+                    "type": "Three-criteria detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "3 kriteriedetektor, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 5 },
+                      { "name": "Prealarm", "value": 4 },
+                      { "name": "Fire, day mode", "value": 5 },
+                      { "name": "Prealarm, day mode", "value": 4 }
+                    ]
+                  },
+                  {
+                    "number": 15,
+                    "type": "Three-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "3 kriteriedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 16,
+                    "type": "Four-criteria detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "4 kriterie detektor COPTIR, (AP200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 5 },
+                      { "name": "Prealarm", "value": 4 },
+                      { "name": "Fire, day mode", "value": 5 },
+                      { "name": "Prealarm, day mode", "value": 4 }
+                    ]
+                  },
+                  {
+                    "number": 17,
+                    "type": "Four-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "4 Kriterie Detektor COPTIR, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 18,
+                    "type": "Beam detector",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Linjedetektor, Advanced series",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Fire, day mode", "value": 7 }
+                    ]
+                  },
+                  {
+                    "number": 19,
+                    "type": "Beam detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Linjedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 20,
+                    "type": "Beam detector w/ test filter",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Linjedetektor med testfunksjon",
+                    "zone_disables": ["Input"],
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    },
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Fire, day mode", "value": 7 }
+                    ]
+                  },
+                  {
+                    "number": 21,
+                    "type": "Manual call point, indoor",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Manuell melder, innendørs"
+                  },
+                  {
+                    "number": 22,
+                    "type": "Manual call point, outdoor",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Manuell melder, utendørs"
+                  },
+                  {
+                    "number": 23,
+                    "type": "Single input module",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Singel Inngangs modul, mini, (AP200-serie)",
+                    "input_function": "Conventional line input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 24,
+                    "type": "Single input module",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Singel Inngangs modul, mini, (200-serie)",
+                    "input_function": "Customer led 1 activation input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 25,
+                    "type": "Single input module, mini",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Singel Inngangs modul, mini",
+                    "input_function": "Customer led 2 activation input"
+                  },
+                  {
+                    "number": 26,
+                    "type": "Dual input module",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Dobbel Inngangsmodul",
+                    "input_function": "Customer led 2 activation input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 27,
+                    "type": "Input channel",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Inngangskanal",
+                    "input_function": "Day mode enable input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 28,
+                    "type": "Dual input, single output module",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Dobbel Inngang, Enkel Utgangsmodul",
+                    "input_function": "Day mode and delayed alarm enable input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 29,
+                    "type": "Input channel",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Inngangskanal",
+                    "input_function": "Delayed alarm enable input",
+                    "short_circuit_monitoring": false
+                  },
+                  {
+                    "number": 30,
+                    "type": "Output channel",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Utgangskanal",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fire alarm device output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 31,
+                    "type": "Single output module",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Singel Utgangs modul, (AP200-serie)",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fire alarm device output, non-silenceable",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 32,
+                    "type": "Single output module",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Singel Utgangs modul, (200-serie)",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": true,
+                      "output_function": "Fire alarm device level 1 silenceable output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 33,
+                    "type": "Single output module, 240V",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Singel Utgangs modul, 230V",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fault warning device output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 34,
+                    "type": "Conventional zone module",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Konvensjonell Sonemodul, (AP200-serie)",
+                    "input_function": "Conventional zone input"
+                  },
+                  {
+                    "number": 35,
+                    "type": "Conventional zone module",
+                    "protocol_type": "SySe S200",
+                    "zone": 170,
+                    "description": "Konvensjonell Sonemodul, (200-serie)",
+                    "input_function": "Conventional zone input"
+                  },
+                  {
+                    "number": 36,
+                    "type": "Conventional zone module, CZR",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Konvensjonell Sonemodul, CZR",
+                    "input_function": "Conventional zone input"
+                  },
+                  {
+                    "number": 37,
+                    "type": "Wall mounted sounder",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Veggmontert summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fault warning device output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 38,
+                    "type": "Wall mounted sounder strobe",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Vegg montert Summer/Strobe",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Voice evacuation activated output",
+                      "output_function_2": "Not in use",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 39,
+                    "type": "Wall mounted strobe",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Vegg montert Strobe",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fire alarm output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 40,
+                    "type": "Detector base sounder",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Detektor Sokkel Summer",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Prealarm output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 41,
+                    "type": "Detector base sounder strobe",
+                    "protocol_type": "SySe AP200",
+                    "zone": 170,
+                    "description": "Detektor Sokkel Summer/Strobe",
+                    "output_control": {
+                      "control": "General control",
+                      "control_groups": [],
+                      "monitored_output_mode": false,
+                      "output_function": "Fault warning output",
+                      "output_function_2": "Fire alarm device output",
+                      "siren_control_output_mode": false,
+                      "output_external_or": false
+                    }
+                  },
+                  {
+                    "number": 42,
+                    "type": "Any type (virtual)",
+                    "protocol_type": "Any",
+                    "zone": 170,
+                    "description": "Alle typer detektorer (Virtual)",
+                    "zone_disables": ["Input"]
+                  },
+                  {
+                    "number": 43,
+                    "type": "Any type",
+                    "protocol_type": "Any",
+                    "zone": 170,
+                    "zone_disables": ["Input"]
+                  }
+                ]
+              },
+              { "number": 18, "addresses": [] }
+            ]
+          },
+          {
+            "type": "LC 2-loop",
+            "number": 2,
+            "loops": [
+              {
+                "number": 19,
+                "addresses": [
+                  {
+                    "number": 1,
+                    "type": "Ionisation smoke detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Ione detektor",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 2,
+                    "type": "Optical smoke detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Optisk røykdetektor, (200-serie)",
+                    "control_group_A": 5,
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 3,
+                    "type": "Static thermal detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Varmedetektor, statisk, (200-serie)",
+                    "zone_disables": ["Input"]
+                  },
+                  {
+                    "number": 4,
+                    "type": "Omni detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Omnidetektor",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 5,
+                    "type": "Laser detector, LZR-1",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Laserdetektor, LZR-1",
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Prealarm", "value": 5 },
+                      { "name": "Fire, day mode", "value": 7 },
+                      { "name": "Prealarm, day mode", "value": 5 }
+                    ]
+                  },
+                  {
+                    "number": 6,
+                    "type": "Laser detector, 7251",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Laserdetektor, 7251",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 7 },
+                      { "name": "Prealarm", "value": 5 },
+                      { "name": "Fire, day mode", "value": 7 },
+                      { "name": "Prealarm, day mode", "value": 5 }
+                    ]
+                  },
+                  {
+                    "number": 7,
+                    "type": "Multi-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Multikriteriedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 8,
+                    "type": "Three-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "3 kriteriedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 9,
+                    "type": "Four-criteria detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "4 Kriterie Detektor COPTIR, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 4 },
+                      { "name": "Prealarm", "value": 3 },
+                      { "name": "Fire, day mode", "value": 4 },
+                      { "name": "Prealarm, day mode", "value": 3 }
+                    ]
+                  },
+                  {
+                    "number": 10,
+                    "type": "Beam detector",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Linjedetektor, (200-serie)",
+                    "zone_disables": ["Input"],
+                    "alarm_thresholds": [
+                      { "name": "Fire", "value": 3 },
+                      { "name": "Prealarm", "value": 2 },
+                      { "name": "Fire, day mode", "value": 3 },
+                      { "name": "Prealarm, day mode", "value": 2 }
+                    ]
+                  },
+                  {
+                    "number": 11,
+                    "type": "Single input module",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Singel Inngangs modul, mini, (200-serie)",
+                    "input_function": "Fire alarm input"
+                  },
+                  {
+                    "number": 12,
+                    "type": "Single output module",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Singel Utgangs modul, (200-serie)",
+                    "output_control": {
+                      "control": "Control groups",
+                      "control_groups": [5],
+                      "monitored_output_mode": true,
+                      "output_function": "Fire alarm output",
+                      "siren_control_output_mode": false
+                    }
+                  },
+                  {
+                    "number": 13,
+                    "type": "Conventional zone module",
+                    "protocol_type": "SySe S200",
+                    "zone": 190,
+                    "description": "Konvensjonell Sonemodul, (200-serie)",
+                    "input_function": "Conventional zone input"
+                  },
+                  {
+                    "number": 14,
+                    "type": "Any type (virtual)",
+                    "protocol_type": "Any",
+                    "zone": 190,
+                    "description": "Alle typer detektorer (Virtual)",
+                    "zone_disables": ["Input"]
+                  },
+                  {
+                    "number": 15,
+                    "type": "Any type",
+                    "protocol_type": "Any",
+                    "zone": 190,
+                    "description": "Alle typer detektorer",
+                    "zone_disables": ["Input"]
+                  }
+                ]
+              },
+              { "number": 20, "addresses": [] }
+            ]
+          }
+        ],
+        "input_output_units": [
+          {
+            "number": 0,
+            "type": "MC",
+            "clean_contact_inputs": [
+              {
+                "number": 1,
+                "function": "Fault warning in fire alarm router input",
+                "contact": "NO",
+                "monitored": true
+              },
+              {
+                "number": 2,
+                "function": "Fault warning in fault warning router input",
+                "contact": "NO",
+                "monitored": true
+              }
+            ],
+            "clean_contact_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm router equipment output"
+                }
+              },
+              {
+                "number": 2,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fault warning router equipment output"
+                }
+              },
+              {
+                "number": 3,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "output_function": "Fire alarm output"
+                }
+              }
+            ],
+            "monitored_outputs": [
+              {
+                "number": 1,
+                "output_control": {
+                  "control": "General control",
+                  "control_groups": [],
+                  "monitored_output_mode": true,
+                  "output_function": "Fire alarm device output",
+                  "output_mode": "Continuous"
+                }
+              }
+            ]
+          }
+        ],
+        "power_supply": { "mains_off_fault_time": 30 },
+        "fire_door": {
+          "activation": [
+            "Fire alarm",
+            "Prealarm",
+            "Address fault",
+            "Address disablement",
+            "Zone disablement",
+            "Mains off"
+          ],
+          "sensor_input_disabled": "Controls activated"
+        },
+        "reactivation_of_silenced_alarm_devices_by_new_fire_alarm": false,
+        "deactivation_of_alarm_routers_at_alarm_silence": false,
+        "event_groups_recording": [
+          "Fires",
+          "Prealarms",
+          "Faults",
+          "Disablements",
+          "Access levels",
+          "Input/output changes",
+          "Startup events"
+        ],
+        "single_coincidence_alarm_will_not_activate_fire_alarm_after_3_min": false,
+        "single_coincidence_alarm_autoreset_time": 5,
+        "second_coincidence_alarm_activates_fire_alarm": "in same zone",
+        "prealarm_blink_rate": false,
+        "use_automatic_summertime": true,
+        "maximum_time_of_zonal_disablement": 12,
+        "maximum_time_of_alarm_device_muting": 2,
+        "maintenance_interval_in_months": 0,
+        "first_zone": 161,
+        "number_of_zones": 80,
+        "communication": {
+          "system1": { "usage": "fx_protocol", "baudrate": 19200 },
+          "system2": { "usage": "fx_protocol", "baudrate": 19200 }
+        },
+        "assistant_processor_unit_in_use": false,
+        "uuid": "ed5ef0d7-2774-4c52-9893-5b75f91fa3ec",
+        "last_local_control_zone": 100
+      }
+    ],
+    "zones": [
+      { "number": 1, "description": "Sløyfe 01" },
+      { "number": 2, "description": "" },
+      { "number": 3, "description": "" },
+      { "number": 4, "description": "" },
+      { "number": 5, "description": "" },
+      { "number": 6, "description": "" },
+      { "number": 7, "description": "" },
+      { "number": 8, "description": "" },
+      { "number": 9, "description": "" },
+      { "number": 10, "description": "" },
+      { "number": 11, "description": "" },
+      { "number": 12, "description": "" },
+      { "number": 13, "description": "" },
+      { "number": 14, "description": "" },
+      { "number": 15, "description": "" },
+      { "number": 16, "description": "" },
+      { "number": 17, "description": "" },
+      { "number": 18, "description": "" },
+      { "number": 19, "description": "" },
+      { "number": 20, "description": "" },
+      { "number": 21, "description": "" },
+      { "number": 22, "description": "" },
+      { "number": 23, "description": "" },
+      { "number": 24, "description": "" },
+      { "number": 25, "description": "" },
+      { "number": 26, "description": "" },
+      { "number": 27, "description": "" },
+      { "number": 28, "description": "" },
+      { "number": 29, "description": "" },
+      { "number": 30, "description": "" },
+      { "number": 31, "description": "" },
+      { "number": 32, "description": "" },
+      { "number": 33, "description": "" },
+      { "number": 34, "description": "" },
+      { "number": 35, "description": "" },
+      { "number": 36, "description": "" },
+      { "number": 37, "description": "" },
+      { "number": 38, "description": "" },
+      { "number": 39, "description": "" },
+      { "number": 40, "description": "" },
+      { "number": 41, "description": "" },
+      { "number": 42, "description": "" },
+      { "number": 43, "description": "" },
+      { "number": 44, "description": "" },
+      { "number": 45, "description": "" },
+      { "number": 46, "description": "" },
+      { "number": 47, "description": "" },
+      { "number": 48, "description": "" },
+      { "number": 49, "description": "" },
+      { "number": 50, "description": "" },
+      { "number": 51, "description": "" },
+      { "number": 52, "description": "" },
+      { "number": 53, "description": "" },
+      { "number": 54, "description": "" },
+      { "number": 55, "description": "" },
+      { "number": 56, "description": "" },
+      { "number": 57, "description": "" },
+      { "number": 58, "description": "" },
+      { "number": 59, "description": "" },
+      { "number": 60, "description": "" },
+      { "number": 61, "description": "" },
+      { "number": 62, "description": "" },
+      { "number": 63, "description": "" },
+      { "number": 64, "description": "" },
+      { "number": 65, "description": "" },
+      { "number": 66, "description": "" },
+      { "number": 67, "description": "" },
+      { "number": 68, "description": "" },
+      { "number": 69, "description": "" },
+      { "number": 70, "description": "" },
+      { "number": 71, "description": "" },
+      { "number": 72, "description": "" },
+      { "number": 73, "description": "" },
+      { "number": 74, "description": "" },
+      { "number": 75, "description": "" },
+      { "number": 76, "description": "" },
+      { "number": 77, "description": "" },
+      { "number": 78, "description": "" },
+      { "number": 79, "description": "" },
+      { "number": 80, "description": "" },
+      { "number": 81, "description": "" },
+      { "number": 82, "description": "" },
+      { "number": 83, "description": "" },
+      { "number": 84, "description": "" },
+      { "number": 85, "description": "" },
+      { "number": 86, "description": "" },
+      { "number": 87, "description": "" },
+      { "number": 88, "description": "" },
+      { "number": 89, "description": "" },
+      { "number": 90, "description": "Sløyfe 09" },
+      { "number": 91, "description": "" },
+      { "number": 92, "description": "" },
+      { "number": 93, "description": "" },
+      { "number": 94, "description": "" },
+      { "number": 95, "description": "" },
+      { "number": 96, "description": "" },
+      { "number": 97, "description": "" },
+      { "number": 98, "description": "" },
+      { "number": 99, "description": "" },
+      { "number": 100, "description": "" },
+      { "number": 101, "description": "" },
+      { "number": 102, "description": "" },
+      { "number": 103, "description": "" },
+      { "number": 104, "description": "" },
+      { "number": 105, "description": "" },
+      { "number": 106, "description": "" },
+      { "number": 107, "description": "" },
+      { "number": 108, "description": "" },
+      { "number": 109, "description": "" },
+      { "number": 110, "description": "" },
+      { "number": 111, "description": "" },
+      { "number": 112, "description": "" },
+      { "number": 113, "description": "" },
+      { "number": 114, "description": "" },
+      { "number": 115, "description": "" },
+      { "number": 116, "description": "" },
+      { "number": 117, "description": "" },
+      { "number": 118, "description": "" },
+      { "number": 119, "description": "" },
+      { "number": 120, "description": "" },
+      { "number": 121, "description": "" },
+      { "number": 122, "description": "" },
+      { "number": 123, "description": "" },
+      { "number": 124, "description": "" },
+      { "number": 125, "description": "" },
+      { "number": 126, "description": "" },
+      { "number": 127, "description": "" },
+      { "number": 128, "description": "" },
+      { "number": 129, "description": "" },
+      { "number": 130, "description": "" },
+      { "number": 131, "description": "" },
+      { "number": 132, "description": "" },
+      { "number": 133, "description": "" },
+      { "number": 134, "description": "" },
+      { "number": 135, "description": "" },
+      { "number": 136, "description": "" },
+      { "number": 137, "description": "" },
+      { "number": 138, "description": "" },
+      { "number": 139, "description": "" },
+      { "number": 140, "description": "" },
+      { "number": 141, "description": "" },
+      { "number": 142, "description": "" },
+      { "number": 143, "description": "" },
+      { "number": 144, "description": "" },
+      { "number": 145, "description": "" },
+      { "number": 146, "description": "" },
+      { "number": 147, "description": "" },
+      { "number": 148, "description": "" },
+      { "number": 149, "description": "" },
+      { "number": 150, "description": "" },
+      { "number": 151, "description": "" },
+      { "number": 152, "description": "" },
+      { "number": 153, "description": "" },
+      { "number": 154, "description": "" },
+      { "number": 155, "description": "" },
+      { "number": 156, "description": "" },
+      { "number": 157, "description": "" },
+      { "number": 158, "description": "" },
+      { "number": 159, "description": "" },
+      { "number": 160, "description": "" },
+      { "number": 161, "description": "" },
+      { "number": 162, "description": "" },
+      { "number": 163, "description": "" },
+      { "number": 164, "description": "" },
+      { "number": 165, "description": "" },
+      { "number": 166, "description": "" },
+      { "number": 167, "description": "" },
+      { "number": 168, "description": "" },
+      { "number": 169, "description": "" },
+      { "number": 170, "description": "Sløyfe 17" },
+      { "number": 171, "description": "" },
+      { "number": 172, "description": "" },
+      { "number": 173, "description": "" },
+      { "number": 174, "description": "" },
+      { "number": 175, "description": "" },
+      { "number": 176, "description": "" },
+      { "number": 177, "description": "" },
+      { "number": 178, "description": "" },
+      { "number": 179, "description": "" },
+      { "number": 180, "description": "" },
+      { "number": 181, "description": "" },
+      { "number": 182, "description": "" },
+      { "number": 183, "description": "" },
+      { "number": 184, "description": "" },
+      { "number": 185, "description": "" },
+      { "number": 186, "description": "" },
+      { "number": 187, "description": "" },
+      { "number": 188, "description": "" },
+      { "number": 189, "description": "" },
+      { "number": 190, "description": "Sløyfe 19" },
+      { "number": 191, "description": "" },
+      { "number": 192, "description": "" },
+      { "number": 193, "description": "" },
+      { "number": 194, "description": "" },
+      { "number": 195, "description": "" },
+      { "number": 196, "description": "" },
+      { "number": 197, "description": "" },
+      { "number": 198, "description": "" },
+      { "number": 199, "description": "" },
+      { "number": 200, "description": "" },
+      { "number": 201, "description": "" },
+      { "number": 202, "description": "" },
+      { "number": 203, "description": "" },
+      { "number": 204, "description": "" },
+      { "number": 205, "description": "" },
+      { "number": 206, "description": "" },
+      { "number": 207, "description": "" },
+      { "number": 208, "description": "" },
+      { "number": 209, "description": "" },
+      { "number": 210, "description": "" },
+      { "number": 211, "description": "" },
+      { "number": 212, "description": "" },
+      { "number": 213, "description": "" },
+      { "number": 214, "description": "" },
+      { "number": 215, "description": "" },
+      { "number": 216, "description": "" },
+      { "number": 217, "description": "" },
+      { "number": 218, "description": "" },
+      { "number": 219, "description": "" },
+      { "number": 220, "description": "" },
+      { "number": 221, "description": "" },
+      { "number": 222, "description": "" },
+      { "number": 223, "description": "" },
+      { "number": 224, "description": "" },
+      { "number": 225, "description": "" },
+      { "number": 226, "description": "" },
+      { "number": 227, "description": "" },
+      { "number": 228, "description": "" },
+      { "number": 229, "description": "" },
+      { "number": 230, "description": "" },
+      { "number": 231, "description": "" },
+      { "number": 232, "description": "" },
+      { "number": 233, "description": "" },
+      { "number": 234, "description": "" },
+      { "number": 235, "description": "" },
+      { "number": 236, "description": "" },
+      { "number": 237, "description": "" },
+      { "number": 238, "description": "" },
+      { "number": 239, "description": "" },
+      { "number": 240, "description": "" }
+    ],
+    "system_id": "ed4ef0d7-2774-4c51-9893-5b75f91fa3ec",
+    "ntp_pool": ["no.pool.ntp.org"],
+    "timezone": "Europe/Oslo",
+    "efo": {
+      "active": true,
+      "panel_id": "ed4ef0d7-2774-4c51-9893-5b75f91fa3ec"
+    }
+  }
+}
