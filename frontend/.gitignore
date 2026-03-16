@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-__snapshots__/
 test-output/
 
 
