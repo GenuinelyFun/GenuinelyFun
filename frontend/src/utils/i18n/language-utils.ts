@@ -13,6 +13,7 @@ import uploadBoxText from '../../components/uploadBoxText.json';
 import articlePageText from '../../pages/articlepage/articlePageText.json';
 import reflectiveThinkingPageText from '../../pages/articlepage/reflectiveThinkingPageText.json';
 import techBestPracticePageText from '../../pages/articlepage/techBestPracticePageText.json';
+import apetExportFormText from '../../pages/fs/apetpage/apetExportFormText.json';
 import feetExportFormText from '../../pages/fs/feetpage/feetExportFormText.json';
 import fweetExportFormText from '../../pages/fs/fweetpage/fweetExportFormText.json';
 import importExportPageText from '../../pages/fs/importExportPageText.json';
@@ -42,6 +43,7 @@ export const translationTexts = {
   ...techBestPracticePageText,
   ...feetExportFormText,
   ...innoExportFormText,
+  ...apetExportFormText,
   ...fileListText,
   ...fweetExportFormText,
   ...importExportPageText,

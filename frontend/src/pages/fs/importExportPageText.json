@@ -53,5 +53,20 @@
     "en": "The result might not be perfect. Its accuracy depends on how the report was completed in Integrator and if there have been any changes. Always remember to check everything carefully.",
     "no": "Resultatet er kanskje ikke helt perfekt. Nøyaktigheten avhenger av hvordan rapporten er fylt ut i Integrator og om det har vært endringer. Husk alltid å sjekke alt nøye.",
     "nn": "Resultatet er kanskje ikkje heilt perfekt. Nøyaktigheita kjem an på korleis rapporten er fylt ut i Integrator og om det har vore endringar. Hugs alltid å sjekke alt nøye."
+  },
+  "apet.page.title": {
+    "en": "AutroPrime Export Tool",
+    "no": "AutroPrime Eksport Verktøy",
+    "nn": "AutroPrime Eksport Verktøy"
+  },
+  "apet.page.description.1": {
+    "en": "This web-based tool allows you to upload an AutroPrime XML configuration file for a fire alarm system. Once the file is uploaded, it generates an Excel file containing a component list with loop devices, their hardware types, serial numbers, and detection zones.",
+    "no": "Dette web-baserte verktøyet lar deg laste opp en AutroPrime XML-konfigurasjonsfil for et brannalarmanlegg. Når filen er lastet opp, genereres en Excel-fil som inneholder en komponentliste med sløyfeenheter, deres hardware-typer, serienumre og deteksjonssoner.",
+    "nn": "Dette nettbaserte verktøyet lar deg laste opp ei AutroPrime XML-konfigurasjonsfil for eit brannalarmanlegg. Når fila er lasta opp, blir det generert ei Excel-fil som inneheld ei komponentliste med sløyfeeiningar, deira hardware-typar, serienummer og deteksjonssoner."
+  },
+  "apet.page.description.2": {
+    "en": "We ensure your data's security by processing everything locally in your browser. Your files never leave your device, and the tool works offline.",
+    "no": "Vi sikrer sikkerheten til dataene dine ved å behandle alt lokalt i nettleseren din. Filene dine forlater aldri enheten din, og verktøyet fungerer offline.",
+    "nn": "Vi sikrar sikkerheita til dataene dine ved å behandle alt lokalt i nettlesaren din. Filene dine forlet aldri eininga di, og verktøyet fungerer offline."
   }
 }

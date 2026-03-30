@@ -1,5 +1,6 @@
 import { Workbook } from 'exceljs';
 
+import { ApetSheetData } from '../projects/apet/apet-utils.ts';
 import { Root } from '../projects/feet/feetJsonDataInterface.ts';
 import {
   sheetTranslateMapper,
@@ -154,6 +155,59 @@ export const addFweetSheetToWorkbook = (
       };
     });
   });
+};
+
+export const addApetSheetsToWorkbook = (
+  workbook: Workbook,
+  data: ApetSheetData
+) => {
+  const siteHeader = 'Anleggsnavn: ' + data.siteName;
+
+  const addSheet = (
+    sheetName: string,
+    tableName: string,
+    sheetData: { [key: string]: SheetValueType }[],
+    fixedHeaders?: string[]
+  ) => {
+    if (sheetData.length === 0) return;
+    const sheet = workbook.addWorksheet(sheetName);
+    sheet.addRow([siteHeader]);
+
+    const columns = fixedHeaders
+      ? fixedHeaders.map((h) => ({ name: h, key: h, filterButton: true }))
+      : getTableHeaders(sheetData);
+
+    sheet.addTable({
+      name: tableName,
+      ref: 'A2',
+      headerRow: true,
+      columns,
+      rows: getTableRows(sheetData, columns),
+      style: { theme: 'TableStyleLight1', showRowStripes: true },
+    });
+
+    sheet.columns.forEach((column) => {
+      let dataMax = 0;
+      column?.eachCell?.({ includeEmpty: true }, (cell) => {
+        const len = cell.value?.toString().length || 0;
+        if (len > dataMax) dataMax = len;
+      });
+      column.width = Math.max(dataMax, 10);
+    });
+
+    sheet.eachRow({ includeEmpty: true }, (row) => {
+      row.eachCell({ includeEmpty: true }, (cell) => {
+        cell.alignment = { horizontal: 'left' };
+      });
+    });
+  };
+
+  addSheet('Sammendrag', 'Sammendrag', data.sammendrag);
+  addSheet('Sentral', 'Sentral', data.sentral);
+  addSheet('Sone', 'Sone', data.sone);
+  addSheet('Sløyfe', 'Sloeyfe', data.slyfe);
+  addSheet('Adresse_rapport', 'Adresse_rapport', data.adresseRapport);
+  addSheet('IO_rapport', 'IO_rapport', data.ioRapport);
 };
 
 export const INNO_COLUMN_HEADERS = [

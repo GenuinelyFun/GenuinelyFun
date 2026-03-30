@@ -170,6 +170,26 @@ const UploadBox: FC<Props> = ({
                     inno: text,
                   });
                 }
+                break;
+              }
+              case ImportExportPageType.APET: {
+                const xml = fileReader.result?.toString() || '';
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(xml, 'application/xml');
+                if (doc.documentElement.tagName !== 'AFS_BS200') {
+                  setIsNotParseable(true);
+                  toast({
+                    type: 'error',
+                    textKey: 'upload-box.error.format',
+                    textParams: { filetype },
+                  });
+                  return resolve(false);
+                }
+                return resolve({
+                  name: file.name,
+                  short: shortenedFileName(file.name),
+                  apet: xml,
+                });
               }
             }
           } catch (error) {

@@ -1,0 +1,22 @@
+{
+  "apet.export.title": {
+    "en": "Export",
+    "no": "Eksport",
+    "nn": "Eksport"
+  },
+  "apet.export.no-data": {
+    "en": "Could not parse any data in file {filename}.",
+    "no": "Kunne ikke lese noen data i filen {filename}.",
+    "nn": "Klarte ikkje å lese nokon data i fila {filename}."
+  },
+  "apet.export.disclaimer.checkbox.label": {
+    "en": "I understand this is just a tool, and that I must verify all content myself.",
+    "no": "Jeg forstår at dette bare er et verktøy, og at jeg må verifisere alt innhold selv.",
+    "nn": "Eg forstår at dette berre er eit verktøy, og at eg må verifisere alt innhald sjølv."
+  },
+  "apet.export.download.button": {
+    "en": "Download Excel sheet",
+    "no": "Last ned Excel filen",
+    "nn": "Last ned Excel-fila"
+  }
+}

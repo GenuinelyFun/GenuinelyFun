@@ -3,7 +3,8 @@ export const routePaths = {
   article: 'article/',
   feet: 'fire-expert',
   fweet: 'firewin',
-  inno: 'integrator-norik', //TODO NGHI Placeholder
+  inno: 'integrator-norik',
+  apet: 'autroprime',
   arthur: 'arthur',
   nghi: 'nghi',
 };

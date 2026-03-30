@@ -55,6 +55,10 @@ const router = createBrowserRouter([
         path: routePaths.inno,
         element: <ImportExportPage pageType={ImportExportPageType.INNO} />,
       },
+      {
+        path: routePaths.apet,
+        element: <ImportExportPage pageType={ImportExportPageType.APET} />,
+      },
       { path: routePaths.arthur, element: <ArthurPage /> },
       { path: routePaths.nghi, element: <NghiPage /> },
     ],

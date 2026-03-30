@@ -1,11 +1,13 @@
 import { FC, PropsWithChildren, useState } from 'react';
 
 import {
+  ApertFile,
   DataContext,
   DataFile,
   FeetFile,
   FweetFile,
   InnoFile,
+  isApertFile,
   isFeetFile,
   isFweetFile,
   isInnoFile,
@@ -50,6 +52,9 @@ export const DataProvider: FC<PropsWithChildren> = ({ children }) => {
         innoFiles: files
           .filter((file) => isInnoFile(file))
           .map((file) => file as InnoFile),
+        apetFiles: files
+          .filter((file) => isApertFile(file))
+          .map((file) => file as ApertFile),
         addFiles,
         removeFile,
       }}

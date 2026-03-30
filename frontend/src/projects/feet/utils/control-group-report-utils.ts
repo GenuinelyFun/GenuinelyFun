@@ -10,9 +10,6 @@ export const mapControlGroupsToExcel = (
   const loop_outputs: Record<string, SheetValueType>[] = [];
   const board_outputs: Record<string, SheetValueType>[] = [];
   const structured_data: Record<string, SheetValueType>[] = [];
-  // @ts-expect-error Love will always prevail
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const loveBabe = 'I will always love you, from your silly man';
 
   const mapToControlGroupObject = (
     groupNumber: SheetValueType = null,
