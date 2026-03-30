@@ -60,17 +60,6 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             {translate('menu.fweet')}
           </Link>,
           <Link
-            key={routePaths.inno}
-            to={routePaths.inno}
-            state={{ prevPage: location.pathname }}
-            className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]: location.pathname === routePaths.inno,
-            })}
-            onClick={onLinkClick}
-          >
-            {translate('menu.inno')}
-          </Link>,
-          <Link
             key={routePaths.apet}
             to={routePaths.apet}
             state={{ prevPage: location.pathname }}
@@ -80,6 +69,17 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
             onClick={onLinkClick}
           >
             {translate('menu.apet')}
+          </Link>,
+          <Link
+            key={routePaths.inno}
+            to={routePaths.inno}
+            state={{ prevPage: location.pathname }}
+            className={classNames(styles.menuButton, styles.dropdownItem, {
+              [styles.active]: location.pathname === routePaths.inno,
+            })}
+            onClick={onLinkClick}
+          >
+            {translate('menu.inno')}
           </Link>,
         ]}
       />

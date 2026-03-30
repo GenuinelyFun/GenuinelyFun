@@ -1,5 +1,6 @@
 import { Workbook } from 'exceljs';
 
+import { ApetSheetData } from '../projects/apet/apet-utils.ts';
 import { Root } from '../projects/feet/feetJsonDataInterface.ts';
 import {
   sheetTranslateMapper,
@@ -156,61 +157,57 @@ export const addFweetSheetToWorkbook = (
   });
 };
 
-export const APET_COLUMN_HEADERS = [
-  'Sløyfe',
-  'LSI',
-  'ID',
-  'Navn',
-  'Funksjon',
-  'Hardware',
-  'Serienummer',
-  'Sone',
-  'Sonenavn',
-  'Status',
-];
-
-export const addApetSheetToWorkbook = (
+export const addApetSheetsToWorkbook = (
   workbook: Workbook,
-  data: { [key: string]: SheetValueType }[]
+  data: ApetSheetData
 ) => {
-  const sheet = workbook.addWorksheet('Komponentliste');
+  const siteHeader = 'Anleggsnavn: ' + data.siteName;
 
-  const columns = APET_COLUMN_HEADERS.map((header) => ({
-    name: header,
-    key: header,
-    filterButton: true,
-  }));
+  const addSheet = (
+    sheetName: string,
+    tableName: string,
+    sheetData: { [key: string]: SheetValueType }[],
+    fixedHeaders?: string[]
+  ) => {
+    if (sheetData.length === 0) return;
+    const sheet = workbook.addWorksheet(sheetName);
+    sheet.addRow([siteHeader]);
 
-  sheet.addTable({
-    name: 'Komponentliste',
-    ref: 'A1',
-    headerRow: true,
-    columns,
-    rows: getTableRows(data, columns),
-    style: {
-      theme: 'TableStyleLight1',
-      showRowStripes: true,
-    },
-  });
+    const columns = fixedHeaders
+      ? fixedHeaders.map((h) => ({ name: h, key: h, filterButton: true }))
+      : getTableHeaders(sheetData);
 
-  sheet.columns.forEach((column) => {
-    let dataMax = 0;
-    column?.eachCell?.({ includeEmpty: true }, function (cell) {
-      const columnLength = cell.value?.toString().length || 0;
-      if (columnLength > dataMax) {
-        dataMax = columnLength;
-      }
+    sheet.addTable({
+      name: tableName,
+      ref: 'A2',
+      headerRow: true,
+      columns,
+      rows: getTableRows(sheetData, columns),
+      style: { theme: 'TableStyleLight1', showRowStripes: true },
     });
-    column.width = dataMax < 10 ? 10 : dataMax;
-  });
 
-  sheet.eachRow({ includeEmpty: true }, function (row) {
-    row.eachCell({ includeEmpty: true }, function (cell) {
-      cell.alignment = {
-        horizontal: 'left',
-      };
+    sheet.columns.forEach((column) => {
+      let dataMax = 0;
+      column?.eachCell?.({ includeEmpty: true }, (cell) => {
+        const len = cell.value?.toString().length || 0;
+        if (len > dataMax) dataMax = len;
+      });
+      column.width = Math.max(dataMax, 10);
     });
-  });
+
+    sheet.eachRow({ includeEmpty: true }, (row) => {
+      row.eachCell({ includeEmpty: true }, (cell) => {
+        cell.alignment = { horizontal: 'left' };
+      });
+    });
+  };
+
+  addSheet('Sammendrag', 'Sammendrag', data.sammendrag);
+  addSheet('Sentral', 'Sentral', data.sentral);
+  addSheet('Sone', 'Sone', data.sone);
+  addSheet('Sløyfe', 'Sloeyfe', data.slyfe);
+  addSheet('Adresse_rapport', 'Adresse_rapport', data.adresseRapport);
+  addSheet('IO_rapport', 'IO_rapport', data.ioRapport);
 };
 
 export const INNO_COLUMN_HEADERS = [

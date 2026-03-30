@@ -3,9 +3,9 @@ import FileSaver from 'file-saver';
 import { FC, FormEventHandler, useState } from 'react';
 
 import GenericButton from '../../../components/GenericButton.tsx';
-import { mapApetToSheet } from '../../../projects/apet/apet-utils.ts';
+import { mapApetToSheets } from '../../../projects/apet/apet-utils.ts';
 import { ApertFile, useDataContext } from '../../../utils/data-utils.ts';
-import { addApetSheetToWorkbook } from '../../../utils/excel-utils.ts';
+import { addApetSheetsToWorkbook } from '../../../utils/excel-utils.ts';
 import { useLanguageContext } from '../../../utils/i18n/language-utils.ts';
 import { useToast } from '../../../utils/useToast.ts';
 import styles from './ApetExportForm.module.less';
@@ -27,10 +27,9 @@ const ApetExportForm: FC = () => {
   const exportToFile = (file: ApertFile) => {
     const { name, apet } = file;
     const workbook = new Workbook();
+    const data = mapApetToSheets(apet);
 
-    const data = mapApetToSheet(apet);
-
-    if (data.length === 0) {
+    if (data.slyfe.length === 0) {
       toast({
         type: 'error',
         textKey: 'apet.export.no-data',
@@ -39,16 +38,12 @@ const ApetExportForm: FC = () => {
       return;
     }
 
-    addApetSheetToWorkbook(workbook, data);
+    addApetSheetsToWorkbook(workbook, data);
 
-    const fileName =
-      'AutroPrime komponentliste ' +
-      name.slice(0, name.lastIndexOf('.xml')) +
-      '.xlsx';
+    const baseName = name.endsWith('.xml') ? name.slice(0, -4) : name;
+    const fileName = 'AutroPrime ' + baseName + '.xlsx';
     workbook.xlsx.writeBuffer().then((buffer) => {
-      const blob = new Blob([buffer], {
-        type: 'application/octet-stream',
-      });
+      const blob = new Blob([buffer], { type: 'application/octet-stream' });
       FileSaver.saveAs(blob, fileName);
     });
   };
