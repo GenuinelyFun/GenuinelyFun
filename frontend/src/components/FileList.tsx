@@ -19,6 +19,8 @@ const FileList: FC<{ fileType: ImportExportPageType }> = ({ fileType }) => {
         return '.FEPX';
       case ImportExportPageType.INNO:
         return 'PDF';
+      case ImportExportPageType.APET:
+        return 'XML';
     }
   };
   let files = [];
@@ -31,6 +33,9 @@ const FileList: FC<{ fileType: ImportExportPageType }> = ({ fileType }) => {
       break;
     case ImportExportPageType.INNO:
       files = data.innoFiles;
+      break;
+    case ImportExportPageType.APET:
+      files = data.apetFiles;
       break;
   }
 

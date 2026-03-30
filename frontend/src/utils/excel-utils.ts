@@ -156,6 +156,63 @@ export const addFweetSheetToWorkbook = (
   });
 };
 
+export const APET_COLUMN_HEADERS = [
+  'Sløyfe',
+  'LSI',
+  'ID',
+  'Navn',
+  'Funksjon',
+  'Hardware',
+  'Serienummer',
+  'Sone',
+  'Sonenavn',
+  'Status',
+];
+
+export const addApetSheetToWorkbook = (
+  workbook: Workbook,
+  data: { [key: string]: SheetValueType }[]
+) => {
+  const sheet = workbook.addWorksheet('Komponentliste');
+
+  const columns = APET_COLUMN_HEADERS.map((header) => ({
+    name: header,
+    key: header,
+    filterButton: true,
+  }));
+
+  sheet.addTable({
+    name: 'Komponentliste',
+    ref: 'A1',
+    headerRow: true,
+    columns,
+    rows: getTableRows(data, columns),
+    style: {
+      theme: 'TableStyleLight1',
+      showRowStripes: true,
+    },
+  });
+
+  sheet.columns.forEach((column) => {
+    let dataMax = 0;
+    column?.eachCell?.({ includeEmpty: true }, function (cell) {
+      const columnLength = cell.value?.toString().length || 0;
+      if (columnLength > dataMax) {
+        dataMax = columnLength;
+      }
+    });
+    column.width = dataMax < 10 ? 10 : dataMax;
+  });
+
+  sheet.eachRow({ includeEmpty: true }, function (row) {
+    row.eachCell({ includeEmpty: true }, function (cell) {
+      cell.alignment = {
+        horizontal: 'left',
+      };
+    });
+  });
+};
+
 export const INNO_COLUMN_HEADERS = [
   'Nr',
   'Etg',

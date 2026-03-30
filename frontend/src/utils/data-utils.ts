@@ -27,12 +27,19 @@ export interface InnoFile {
   short: string;
 }
 
-export type DataFile = FweetFile | FeetFile | InnoFile;
+export interface ApertFile {
+  name: string;
+  apet: string;
+  short: string;
+}
+
+export type DataFile = FweetFile | FeetFile | InnoFile | ApertFile;
 
 export enum ImportExportPageType {
   FEET = 'feet',
   FWEET = 'fweet',
   INNO = 'inno',
+  APET = 'apet',
 }
 
 export function isFeetFile(file: DataFile): file is FeetFile {
@@ -47,11 +54,16 @@ export function isInnoFile(file: DataFile): file is InnoFile {
   return (file as InnoFile).inno !== undefined;
 }
 
+export function isApertFile(file: DataFile): file is ApertFile {
+  return (file as ApertFile).apet !== undefined;
+}
+
 type DataContextType = {
   allFiles: DataFile[];
   feetFiles: FeetFile[];
   fweetFiles: FweetFile[];
   innoFiles: InnoFile[];
+  apetFiles: ApertFile[];
   removeFile: (name: string) => void;
   addFiles: (value: DataFile[]) => void;
 };

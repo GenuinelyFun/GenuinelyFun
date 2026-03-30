@@ -9,6 +9,7 @@ import {
   TranslateTextKey,
   useLanguageContext,
 } from '../../utils/i18n/language-utils.ts';
+import ApetExportForm from './apetpage/ApetExportForm.tsx';
 import FeetExportForm from './feetpage/FeetExportForm.tsx';
 import FweetExportForm from './fweetpage/FweetExportForm.tsx';
 import styles from './ImportExportPage.module.less';
@@ -17,6 +18,7 @@ import InnoExportForm from './innopage/InnoExportForm.tsx';
 const FIRE_EXPERT_VERSION = 'MCU 25.11.9.h';
 const FIREWIN_EXPLORER_VERSION = 'v4.16';
 const INTEGRATOR_APP_VERSION = '2025.3';
+const AUTROPRIME_VERSION = 'AC 1.0.5.0';
 
 const importExportPageVariables = (pageType: ImportExportPageType) => {
   switch (pageType) {
@@ -46,6 +48,15 @@ const importExportPageVariables = (pageType: ImportExportPageType) => {
         maxFileSize: '2 MB',
         maxNumberOfFiles: 10,
         exportForm: <InnoExportForm />,
+      };
+    case ImportExportPageType.APET:
+      return {
+        versionNumber: AUTROPRIME_VERSION,
+        productName: 'AutroPrime',
+        acceptFileType: '.xml',
+        maxFileSize: '5 MB',
+        maxNumberOfFiles: 10,
+        exportForm: <ApetExportForm />,
       };
   }
 };
