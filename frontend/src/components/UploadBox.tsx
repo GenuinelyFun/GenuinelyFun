@@ -1,6 +1,13 @@
 import classNames from 'classnames';
 import JSZip from 'jszip';
-import { ChangeEvent, DragEventHandler, FC, useState } from 'react';
+import {
+  ChangeEvent,
+  DragEventHandler,
+  FC,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import initSqlJs from 'sql.js';
 import { extractText, getDocumentProxy } from 'unpdf';
 
@@ -31,27 +38,27 @@ interface Props {
   maxNumberOfFiles: number;
 }
 
-const KNOWN_MIME_TYPES: Record<string, string[]> = {
-  '.json': ['application/json', 'text/json'],
-  '.xml': ['application/xml', 'text/xml'],
-  '.pdf': ['application/pdf'],
+const ACCEPTED_MIMES: Record<ImportExportPageType, string[]> = {
+  [ImportExportPageType.FEET]: ['application/json', 'text/json'],
+  [ImportExportPageType.FWEET]: [
+    'application/zip',
+    'application/x-zip-compressed',
+    'application/x-zip',
+  ],
+  [ImportExportPageType.INNO]: ['application/pdf'],
+  [ImportExportPageType.APET]: ['application/xml', 'text/xml'],
 };
 
 const baseMimeType = (type: string) => type.split(';')[0].trim().toLowerCase();
 
 const isDraggedFileWrong = (
   items: { type: string; kind: string }[],
-  acceptFileType: string
+  filetype: ImportExportPageType
 ): boolean => {
-  const otherKnownTypes = Object.entries(KNOWN_MIME_TYPES)
-    .filter(([ext]) => ext !== acceptFileType)
-    .flatMap(([, types]) => types);
-
+  const accepted = ACCEPTED_MIMES[filetype];
   return items.some(
     ({ kind, type }) =>
-      kind === 'file' &&
-      type !== '' &&
-      otherKnownTypes.includes(baseMimeType(type))
+      kind === 'file' && !accepted.includes(baseMimeType(type))
   );
 };
 
@@ -71,6 +78,23 @@ const UploadBox: FC<Props> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [isNotParseable, setIsNotParseable] = useState(false);
   const { translate } = useLanguageContext();
+  const dragLeaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
+
+  useEffect(() => {
+    return () => {
+      if (dragLeaveTimeoutRef.current)
+        clearTimeout(dragLeaveTimeoutRef.current);
+    };
+  }, []);
+
+  const cancelDragLeave = () => {
+    if (dragLeaveTimeoutRef.current) {
+      clearTimeout(dragLeaveTimeoutRef.current);
+      dragLeaveTimeoutRef.current = null;
+    }
+  };
 
   const handleUploadedFiles = async (files: FileList) => {
     setIsDragging(false);
@@ -268,6 +292,7 @@ const UploadBox: FC<Props> = ({
 
   const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
     event.preventDefault();
+    cancelDragLeave();
     handleUploadedFiles(event.dataTransfer.files);
   };
 
@@ -310,19 +335,20 @@ const UploadBox: FC<Props> = ({
         onDrop={handleDrop}
         onDragOver={(e) => {
           e.preventDefault();
+          cancelDragLeave();
           if (!isDragging) setIsDragging(true);
 
           const items: { type: string; kind: string }[] = [];
           for (const item of e.dataTransfer.items)
             items.push({ type: item.type, kind: item.kind });
 
-          setIsNotParseable(isDraggedFileWrong(items, acceptFileType));
+          setIsNotParseable(isDraggedFileWrong(items, filetype));
         }}
-        onDragLeave={(e) => {
-          if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+        onDragLeave={() => {
+          dragLeaveTimeoutRef.current = setTimeout(() => {
             setIsDragging(false);
             setIsNotParseable(false);
-          }
+          }, 50);
         }}
       >
         {isDragging &&
