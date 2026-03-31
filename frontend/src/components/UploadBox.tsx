@@ -31,6 +31,30 @@ interface Props {
   maxNumberOfFiles: number;
 }
 
+const KNOWN_MIME_TYPES: Record<string, string[]> = {
+  '.json': ['application/json', 'text/json'],
+  '.xml': ['application/xml', 'text/xml'],
+  '.pdf': ['application/pdf'],
+};
+
+const baseMimeType = (type: string) => type.split(';')[0].trim().toLowerCase();
+
+const isDraggedFileWrong = (
+  items: { type: string; kind: string }[],
+  acceptFileType: string
+): boolean => {
+  const otherKnownTypes = Object.entries(KNOWN_MIME_TYPES)
+    .filter(([ext]) => ext !== acceptFileType)
+    .flatMap(([, types]) => types);
+
+  return items.some(
+    ({ kind, type }) =>
+      kind === 'file' &&
+      type !== '' &&
+      otherKnownTypes.includes(baseMimeType(type))
+  );
+};
+
 const UploadBox: FC<Props> = ({
   versionNumber,
   className,
@@ -42,7 +66,8 @@ const UploadBox: FC<Props> = ({
 }) => {
   useNoDropZone();
   const toast = useToast();
-  const { allFiles, addFiles } = useDataContext();
+  const { feetFiles, fweetFiles, innoFiles, apetFiles, addFiles } =
+    useDataContext();
   const [isDragging, setIsDragging] = useState(false);
   const [isNotParseable, setIsNotParseable] = useState(false);
   const { translate } = useLanguageContext();
@@ -60,20 +85,24 @@ const UploadBox: FC<Props> = ({
           acceptFileType,
         },
       });
-      setIsDragging(false);
       setIsNotParseable(true);
       return;
     }
 
     const maxBytes = parseFileSize(maxFileSize);
 
+    const currentPageFiles: DataFile[] =
+      {
+        [ImportExportPageType.FEET]: feetFiles,
+        [ImportExportPageType.FWEET]: fweetFiles,
+        [ImportExportPageType.INNO]: innoFiles,
+        [ImportExportPageType.APET]: apetFiles,
+      }[filetype] ?? [];
+
     const filesArray = Array.from(files).map(async (file) => {
       if (file === null) {
-        toast({
-          type: 'error',
-          textKey: 'upload-box.error.general',
-        });
-        return;
+        toast({ type: 'error', textKey: 'upload-box.error.general' });
+        return undefined;
       }
 
       if (file.size > maxBytes) {
@@ -82,25 +111,35 @@ const UploadBox: FC<Props> = ({
           textKey: 'upload-box.error.file-too-large',
           textParams: { maxFileSize },
         });
-        return;
+        return undefined;
+      }
+
+      const fileExt = `.${file.name.split('.').pop()?.toLowerCase() ?? ''}`;
+      if (fileExt !== acceptFileType) {
+        setIsNotParseable(true);
+        toast({
+          type: 'error',
+          textKey: 'upload-box.error.format',
+          textParams: { filetype },
+        });
+        return undefined;
+      }
+
+      if (currentPageFiles.some((f) => f.name === file.name)) {
+        toast({ type: 'error', textKey: 'upload-box.error.duplicate' });
+        return undefined;
       }
 
       const fileReader = new FileReader();
-      return new Promise((resolve) => {
+      return new Promise<DataFile | false>((resolve) => {
         const zip = new JSZip();
+
         fileReader.onload = async () => {
           try {
-            if (allFiles.find((f) => f.name === file.name)) {
-              toast({
-                type: 'error',
-                textKey: 'upload-box.error.duplicate',
-              });
-              return resolve(false);
-            }
             switch (filetype) {
               case ImportExportPageType.FEET: {
                 const json = JSON.parse(
-                  fileReader.result?.toString() || ''
+                  fileReader.result?.toString() ?? ''
                 ) as Root;
                 if (json.system === undefined) {
                   setIsNotParseable(true);
@@ -117,66 +156,73 @@ const UploadBox: FC<Props> = ({
                   feet: json,
                 });
               }
+
               case ImportExportPageType.FWEET: {
-                const arrayBuffer = file.arrayBuffer();
-                return zip.loadAsync(arrayBuffer).then(async (zip) => {
-                  const databaseFilename = Object.keys(zip.files).find((file) =>
-                    file.includes('.sdb')
-                  );
-                  if (!databaseFilename) {
-                    toast({
-                      type: 'error',
-                      textKey: 'upload-box.error.general',
-                    });
-                    return;
-                  }
-                  const databaseFile = zip.file(databaseFilename);
-
-                  if (!databaseFile) {
-                    toast({
-                      type: 'error',
-                      textKey: 'upload-box.error.general',
-                    });
-                    return;
-                  }
-
-                  const dbFile = await databaseFile
-                    .async('uint8array')
-                    .then(async (file) => {
-                      const SQL = await initSqlJs({
-                        locateFile: (file) => `/${file}`,
+                return zip
+                  .loadAsync(file.arrayBuffer())
+                  .then(async (archive) => {
+                    const dbFilename = Object.keys(archive.files).find((f) =>
+                      f.includes('.sdb')
+                    );
+                    if (!dbFilename) {
+                      toast({
+                        type: 'error',
+                        textKey: 'upload-box.error.general',
                       });
+                      return resolve(false);
+                    }
 
-                      return new SQL.Database(file);
+                    const dbEntry = archive.file(dbFilename);
+                    if (!dbEntry) {
+                      toast({
+                        type: 'error',
+                        textKey: 'upload-box.error.general',
+                      });
+                      return resolve(false);
+                    }
+
+                    const SQL = await initSqlJs({
+                      locateFile: (f) => `/${f}`,
                     });
-
-                  return resolve({
-                    name: file.name,
-                    short: shortenedFileName(file.name),
-                    fepx: dbFile,
+                    const data = await dbEntry.async('uint8array');
+                    return resolve({
+                      name: file.name,
+                      short: shortenedFileName(file.name),
+                      fepx: new SQL.Database(data),
+                    });
+                  })
+                  .catch(() => {
+                    setIsNotParseable(true);
+                    toast({
+                      type: 'error',
+                      textKey: 'upload-box.error.format',
+                      textParams: { filetype },
+                    });
+                    return resolve(false);
                   });
-                });
               }
+
               case ImportExportPageType.INNO: {
                 const buffer = await file.arrayBuffer();
-                if (buffer !== null && buffer !== undefined) {
-                  const pdf = getDocumentProxy(new Uint8Array(buffer));
-                  const { text } = await extractText(await pdf, {
-                    mergePages: false,
-                  });
-                  return resolve({
-                    name: file.name,
-                    short: shortenedFileName(file.name),
-                    inno: text,
-                  });
-                }
-                break;
+                const pdf = getDocumentProxy(new Uint8Array(buffer));
+                const { text } = await extractText(await pdf, {
+                  mergePages: false,
+                });
+                return resolve({
+                  name: file.name,
+                  short: shortenedFileName(file.name),
+                  inno: text,
+                });
               }
+
               case ImportExportPageType.APET: {
-                const xml = fileReader.result?.toString() || '';
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(xml, 'application/xml');
-                if (doc.documentElement.tagName !== 'AFS_BS200') {
+                const xml = fileReader.result?.toString() ?? '';
+                const doc = new DOMParser().parseFromString(
+                  xml,
+                  'application/xml'
+                );
+                const rootTag = doc.documentElement.tagName;
+                if (rootTag !== 'AUTRO_SAFE' && rootTag !== 'AFS_BS200') {
                   setIsNotParseable(true);
                   toast({
                     type: 'error',
@@ -191,17 +237,18 @@ const UploadBox: FC<Props> = ({
                   apet: xml,
                 });
               }
+
+              default:
+                return resolve(false);
             }
-          } catch (error) {
-            if (error instanceof SyntaxError) {
-              setIsNotParseable(true);
-              toast({
-                textKey: 'upload-box.error.format',
-                type: 'error',
-                textParams: { filetype },
-              });
-              resolve(false);
-            }
+          } catch {
+            setIsNotParseable(true);
+            toast({
+              type: 'error',
+              textKey: 'upload-box.error.format',
+              textParams: { filetype },
+            });
+            resolve(false);
           }
         };
 
@@ -209,9 +256,9 @@ const UploadBox: FC<Props> = ({
       });
     });
 
-    const uploadedFiles: DataFile[] = (await Promise.all(filesArray)).filter(
-      (file) => file !== false
-    ) as DataFile[];
+    const uploadedFiles = (await Promise.all(filesArray)).filter(
+      (file): file is DataFile => !!file
+    );
 
     if (uploadedFiles.length !== 0) {
       addFiles(uploadedFiles);
@@ -263,25 +310,13 @@ const UploadBox: FC<Props> = ({
         onDrop={handleDrop}
         onDragOver={(e) => {
           e.preventDefault();
-          if (!isDragging) {
-            setIsDragging(true);
-          }
-          const files = [];
-          for (const file of e.dataTransfer.items)
-            files.push({ type: file.type, kind: file.kind });
-          if (
-            files.length > 0 &&
-            files.filter(
-              (file) =>
-                file.kind === 'file' &&
-                file.type !== '' &&
-                file.type !== acceptFileType
-            ).length > 0
-          ) {
-            setIsNotParseable(true);
-          } else {
-            setIsNotParseable(false);
-          }
+          if (!isDragging) setIsDragging(true);
+
+          const items: { type: string; kind: string }[] = [];
+          for (const item of e.dataTransfer.items)
+            items.push({ type: item.type, kind: item.kind });
+
+          setIsNotParseable(isDraggedFileWrong(items, acceptFileType));
         }}
         onDragLeave={(e) => {
           if (!e.currentTarget.contains(e.relatedTarget as Node)) {
