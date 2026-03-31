@@ -37,13 +37,13 @@ export const mapSloeyfeToSheet = (doc: Document): SloeyfeResult => {
         'Slyfe hardware': loopHardware,
         'Slyfe ID': loopId,
         'Slyfe navn': loopName,
-        'Adresse navn': zone?.zoneName || '',
+        'Adresse navn': attr(el, 'Name'),
         'Adresse LSI': attr(el, 'LSI'),
         'Adresse ID': id,
-        'Adresse navn2': attr(el, 'Name'),
+        'Adresse beskrivelse': zone?.zoneName || '',
         'Adresse funksjon': attr(el, 'Func'),
         'Adresse protokoll': hardware,
-        'Adresse beskrivelse': description,
+        'Adresse type': description,
         'Adresse serienummer': attr(el, 'Sno'),
         'Adresse sone': zone?.zoneId || '',
         'Adresse DCl': attr(el, 'DCl'),
@@ -54,7 +54,9 @@ export const mapSloeyfeToSheet = (doc: Document): SloeyfeResult => {
         'Adresse SV': attr(el, 'SV'),
       });
 
-      typeCounts[description] = (typeCounts[description] || 0) + 1;
+      if (description) {
+        typeCounts[description] = (typeCounts[description] || 0) + 1;
+      }
     };
 
     Array.from(content.getElementsByTagName('PNT')).forEach(processDevice);

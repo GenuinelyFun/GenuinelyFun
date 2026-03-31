@@ -49,18 +49,20 @@ export const buildZoneMap = (
   doc: Document
 ): Map<string, { zoneId: string; zoneName: string }> => {
   const map = new Map<string, { zoneId: string; zoneName: string }>();
-  ['DZ', 'AZ'].forEach((tag) => {
-    Array.from(doc.getElementsByTagName(tag)).forEach((zone) => {
-      const ids = attr(zone, 'Ids');
-      const zoneId = attr(zone, 'Id');
-      const zoneName = attr(zone, 'Name');
-      ids
-        .split(' ')
-        .filter(Boolean)
-        .forEach((id) => {
-          map.set(id, { zoneId, zoneName });
-        });
-    });
+  Array.from(doc.getElementsByTagName('DZ')).forEach((zone) => {
+    const zoneId = attr(zone, 'Id');
+    const zoneName = attr(zone, 'Name');
+    const inEl = zone.getElementsByTagName('IN')[0];
+    if (inEl) {
+      Array.from(inEl.getElementsByTagName('REF')).forEach((ref) => {
+        const id = attr(ref, 'Id');
+        if (id) map.set(id, { zoneId, zoneName });
+      });
+    }
+    attr(zone, 'Ids')
+      .split(' ')
+      .filter(Boolean)
+      .forEach((id) => map.set(id, { zoneId, zoneName }));
   });
   return map;
 };
