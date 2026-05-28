@@ -248,12 +248,11 @@ const FeetExportForm: FC = () => {
                 })}
               </strong>
             </p>
-            <p>{translate('feet-export.unavailable-sheets.desc')}</p>
-            <ul>
-              {unavailableSheets.map((sheet) => (
-                <li key={sheet}>{sheet}</li>
-              ))}
-            </ul>
+            <p>
+              {translate('feet-export.unavailable-sheets.desc', {
+                sheets: unavailableSheets.join(', '),
+              })}
+            </p>
           </div>
         ),
       });
