@@ -57,6 +57,10 @@ const FeetExportForm: FC = () => {
 
   useEffect(() => {
     updateLanguage(sheetLanguage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sheetLanguage]);
+
+  useEffect(() => {
     if (!isZonesAvailable) {
       setZone(false);
     }
@@ -73,8 +77,7 @@ const FeetExportForm: FC = () => {
       });
       setFilteredPanels(paneles);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [feetFiles, isZonesAvailable, sheetLanguage]);
+  }, [feetFiles, isZonesAvailable]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
