@@ -255,8 +255,8 @@
     "nn": "Fila {filename}"
   },
   "feet-export.unavailable-sheets.desc": {
-    "en": "The following sheets were skipped because there was no data to include:",
-    "no": "Følgende ark ble hoppet over fordi det ikke var data å inkludere:",
-    "nn": "Følgjande ark vart hoppa over fordi det ikkje var data å inkludere:"
+    "en": "The following sheets were skipped due to no data:",
+    "no": "Følgende ark ble hoppet over på grunn av manglende data:",
+    "nn": "Følgjande ark vart hoppa over på grunn av manglande data:"
   }
 }
