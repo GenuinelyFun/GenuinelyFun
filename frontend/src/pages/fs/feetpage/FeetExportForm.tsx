@@ -240,7 +240,7 @@ const FeetExportForm: FC = () => {
       toast({
         type: 'info',
         element: (
-          <>
+          <div>
             <p>
               <strong>
                 {translate('feet-export.unavailable-sheets.title', {
@@ -254,7 +254,7 @@ const FeetExportForm: FC = () => {
                 <li key={sheet}>{sheet}</li>
               ))}
             </ul>
-          </>
+          </div>
         ),
       });
     }
