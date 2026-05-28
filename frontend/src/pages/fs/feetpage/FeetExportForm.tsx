@@ -57,6 +57,10 @@ const FeetExportForm: FC = () => {
 
   useEffect(() => {
     updateLanguage(sheetLanguage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sheetLanguage]);
+
+  useEffect(() => {
     if (!isZonesAvailable) {
       setZone(false);
     }
@@ -73,7 +77,7 @@ const FeetExportForm: FC = () => {
       });
       setFilteredPanels(paneles);
     }
-  }, [feetFiles, isZonesAvailable, sheetLanguage]);
+  }, [feetFiles, isZonesAvailable]);
 
   const onExportButtonClicked: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -97,7 +101,7 @@ const FeetExportForm: FC = () => {
   };
 
   const exportToFiles = (file: FeetFile, panels: Panel[]) => {
-    const { name, feet } = file;
+    const { name, short, feet } = file;
     const workbook = new Workbook();
     const zones = feet.system.zones;
 
@@ -236,19 +240,20 @@ const FeetExportForm: FC = () => {
       toast({
         type: 'info',
         element: (
-          <>
-            <h2>
-              {translate('feet-export.unavailable-sheets.title', {
-                filename: name,
+          <div>
+            <p>
+              <strong>
+                {translate('feet-export.unavailable-sheets.title', {
+                  filename: short,
+                })}
+              </strong>
+            </p>
+            <p>
+              {translate('feet-export.unavailable-sheets.desc', {
+                sheets: unavailableSheets.join(', '),
               })}
-            </h2>
-            <p>{translate('feet-export.unavailable-sheets.desc')}</p>
-            <ul>
-              {unavailableSheets.map((sheet) => (
-                <li key={sheet}>{sheet}</li>
-              ))}
-            </ul>
-          </>
+            </p>
+          </div>
         ),
       });
     }
