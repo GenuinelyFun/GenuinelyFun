@@ -20,14 +20,21 @@
       });
     </script>
 
-    <!-- Cookie banner -->
-    <script
-      data-culture="NO"
-      data-gcm-version="false"
-      id="CookieConsent"
-      src="https://policy.app.cookieinformation.com/uc.js"
-      type="text/javascript"
-    ></script>
+    <!-- Cookie banner (production only) -->
+    <script>
+      if (window.location.hostname !== 'localhost') {
+        var s = document.createElement('script');
+        s.setAttribute('data-culture', 'NO');
+        s.setAttribute('data-gcm-version', 'false');
+        s.setAttribute('id', 'CookieConsent');
+        s.src = 'https://policy.app.cookieinformation.com/uc.js';
+        s.type = 'text/javascript';
+        document.currentScript.parentNode.insertBefore(
+          s,
+          document.currentScript.nextSibling
+        );
+      }
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
