@@ -16,7 +16,6 @@ import ImportExportPage from './pages/fs/ImportExportPage.tsx';
 import HomePage from './pages/homepage/HomePage';
 import NotFoundPage from './pages/notfoundpage/NotFoundPage';
 import ArthurPage from './pages/portfolio/ArthurPage.tsx';
-import NghiPage from './pages/portfolio/NghiPage';
 import reportWebVitals from './reportWebVitals';
 import { articles } from './utils/article-utils';
 import { ImportExportPageType } from './utils/data-utils.ts';
@@ -60,7 +59,6 @@ const router = createBrowserRouter([
         element: <ImportExportPage pageType={ImportExportPageType.APET} />,
       },
       { path: routePaths.arthur, element: <ArthurPage /> },
-      { path: routePaths.nghi, element: <NghiPage /> },
     ],
   },
 ]);

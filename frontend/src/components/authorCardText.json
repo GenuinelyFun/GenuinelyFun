@@ -20,13 +20,18 @@
     "nn": "Person {name}"
   },
   "author-card.nghi.paragraph": {
-    "en": "A full-stack developer, who loves puzzles and solving problems. Ambition to keep learning to improve and grow. I am a person who is always looking for new challenges and experiences.",
-    "no": "En full-stack utvikler, som elsker puslespill og å løse problemer. Ambisjonen er å fortsette å lære for å forbedre og vokse. Jeg er en person som alltid er på jakt etter nye utfordringer og erfaringer.",
-    "nn": "Ein full-stack utviklar, som elskar puslespel og å løyse problem. Ambisjonen er å halde fram med å lære for å betre og vekse. Eg er ein person som alltid er på jakt etter nye utfordringar og erfaringar."
+    "en": "A full-stack developer, who loves puzzles and solving problems. Ambition to keep learning to improve and grow. I am a person who is always looking for new challenges and experiences. I have left this project and am no longer managing it, but I am still available for contact.",
+    "no": "En full-stack utvikler, som elsker puslespill og å løse problemer. Ambisjonen er å fortsette å lære for å forbedre og vokse. Jeg er en person som alltid er på jakt etter nye utfordringer og erfaringer. Jeg har forlatt dette prosjektet og er ikke lenger ansvarlig for det, men jeg er fremdeles tilgjengelig for kontakt.",
+    "nn": "Ein full-stack utviklar, som elskar puslespel og å løyse problem. Ambisjonen er å halde fram med å lære for å betre og vekse. Eg er ein person som alltid er på jakt etter nye utfordringar og erfaringar. Eg har forlatt dette prosjektet og er ikkje lenger ansvarlig for det, men eg er framleis tilgjengelig for kontakt."
   },
   "author-card.portfolio-button": {
     "en": "To my portfolio page",
     "no": "Til min porteføljeside",
     "nn": "Til mi porteføljeside"
+  },
+  "author-card.linkedin-button": {
+    "en": "To my LinkedIn page",
+    "no": "Til min LinkedIn-side",
+    "nn": "Til mi LinkedIn-side"
   }
 }

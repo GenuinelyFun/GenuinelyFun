@@ -5,8 +5,8 @@
     "nn": "Hei, vi er {firstname} og {secondname}!"
   },
   "hero.subtitle": {
-    "en": "Welcome to {companyName}, where we share our favorite coding projects and ideas.",
-    "no": "Velkommen til {companyName}, hvor vi deler våre favorittprosjekter og idéer innen programmering.",
-    "nn": "Velkomen til {companyName}, der vi deler våre favorittprosjekt og idear innan programmering."
+    "en": "Welcome to {companyName}!",
+    "no": "Velkommen til {companyName}!",
+    "nn": "Velkomen til {companyName}!"
   }
 }

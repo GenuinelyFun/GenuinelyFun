@@ -4,8 +4,6 @@ import { createContext } from 'react';
 import alertText from '../../components/alertText.json';
 import authorCardText from '../../components/authorCardText.json';
 import darkmodeToggleText from '../../components/darkmodeToggleText.json';
-import feedbackBannerText from '../../components/feedbackBannerText.json';
-import feedbackText from '../../components/feedbackText.json';
 import fileListText from '../../components/fileListText.json';
 import footerText from '../../components/footerText.json';
 import menuText from '../../components/menuText.json';
@@ -21,7 +19,6 @@ import innoExportFormText from '../../pages/fs/innopage/innoExportFormText.json'
 import homePageText from '../../pages/homepage/homePageText.json';
 import pageNotFoundText from '../../pages/notfoundpage/notFoundPageText.json';
 import arthurPageText from '../../pages/portfolio/arthurPageText.json';
-import nghiPageText from '../../pages/portfolio/nghiPageText.json';
 import { useContextOrThrow } from '../context-utils.ts';
 import genericText from '../genericTexts.json';
 
@@ -35,7 +32,6 @@ export const translationTexts = {
   ...alertText,
   ...authorCardText,
   ...darkmodeToggleText,
-  ...feedbackText,
   ...footerText,
   ...menuText,
   ...articlePageText,
@@ -50,9 +46,7 @@ export const translationTexts = {
   ...homePageText,
   ...pageNotFoundText,
   ...arthurPageText,
-  ...nghiPageText,
   ...genericText,
-  ...feedbackBannerText,
   ...uploadBoxText,
 };
 

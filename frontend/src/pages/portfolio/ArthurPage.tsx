@@ -13,7 +13,7 @@ import {
   volunteering,
 } from '../../utils/arthur-utils';
 import { useLanguageContext } from '../../utils/i18n/language-utils.ts';
-import styles from './ArthurNghiPage.module.less';
+import styles from './ArthurPage.module.less';
 
 const ArthurPage: FC = () => {
   const { translate } = useLanguageContext();
