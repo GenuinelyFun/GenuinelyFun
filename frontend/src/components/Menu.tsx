@@ -2,7 +2,9 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import ExternalIcon from '../assets/icons/ExternalIcon.tsx';
 import { useLanguageContext } from '../utils/i18n/language-utils.ts';
+import { NGHI_LINKEDIN_URL } from '../utils/nghi-utils.tsx';
 import { routePaths } from '../utils/route-utils';
 import DropDownMenu from './DropDownMenu';
 import styles from './Menu.module.less';
@@ -98,17 +100,24 @@ const Menu: FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
           >
             {translate('menu.arthur')}
           </Link>,
-          <Link
-            key={routePaths.nghi}
-            state={{ prevPage: location.pathname }}
-            className={classNames(styles.menuButton, styles.dropdownItem, {
-              [styles.active]: location.pathname === routePaths.nghi,
-            })}
-            to={routePaths.nghi}
+          <a
+            key={'ng'}
+            className={classNames(
+              styles.menuButton,
+              styles.dropdownItem,
+              styles.externalButton,
+              {
+                [styles.active]: location.pathname === routePaths.nghi,
+              }
+            )}
+            target={'_blank'}
+            rel={'noopener noreferrer'}
+            href={NGHI_LINKEDIN_URL}
             onClick={onLinkClick}
           >
             {translate('menu.nghi')}
-          </Link>,
+            <ExternalIcon className={styles.externalIcon} />
+          </a>,
         ]}
       />
     </nav>

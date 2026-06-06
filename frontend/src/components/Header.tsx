@@ -7,7 +7,6 @@ import { COMPANY_NAME } from '../utils/constants';
 import { useMobileSizes } from '../utils/useMobileSizes';
 import { useModal } from '../utils/useModal';
 import DarkmodeToggle from './DarkmodeToggle';
-import Feedback from './Feedback.tsx';
 import GenericButton from './GenericButton';
 import styles from './Header.module.less';
 import LanguageButton from './LanguageButton';
@@ -35,7 +34,6 @@ const Header: FC = () => {
         <>
           <Menu />
           <div className={styles.buttonContainer}>
-            <Feedback />
             <DarkmodeToggle />
             <LanguageButton />
           </div>
@@ -47,7 +45,6 @@ const Header: FC = () => {
         className={styles.sidebarMenu}
       >
         <div className={styles.buttonContainer}>
-          <Feedback />
           <DarkmodeToggle />
           <LanguageButton />
         </div>

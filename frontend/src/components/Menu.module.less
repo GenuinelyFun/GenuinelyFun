@@ -67,3 +67,25 @@
     border-bottom: var(--border-medium) var(--color-black);
   }
 }
+
+.externalButton {
+  display: flex;
+  gap: 1rem;
+  place-items: center;
+}
+
+.externalIcon {
+  width: 20px;
+  height: auto;
+  min-width: 20px;
+
+  path {
+    stroke: var(--color-white);
+  }
+
+  [data-theme="dark"] & {
+    path {
+      stroke: var(--color-black);
+    }
+  }
+}
